@@ -18,6 +18,7 @@ public class Greate {
     public static final String MOD_ID = "greate";
     public static final Logger LOGGER = LogUtils.getLogger();
     public static GreateConfig CONFIG;
+
     public static final DeferredRegister<CreativeModeTab> CREATIVE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Greate.MOD_ID);
 
     public Greate() {
