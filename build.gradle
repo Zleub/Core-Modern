@@ -1,0 +1,193 @@
+plugins {
+    id 'eclipse'
+    id 'idea'
+    id 'maven-publish'
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+    id 'org.parchmentmc.librarian.forgegradle' version '1.+'
+    id 'org.spongepowered.mixin' version '0.7-SNAPSHOT'
+}
+
+version = 'forge-0.0.7'
+group = 'electrolyte.greate'
+archivesBaseName = 'greate'
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
+println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
+minecraft {
+    mappings channel: 'parchment', version: "2023.09.03-1.20.1"
+
+    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg') //needed since gt dependency does not include one
+
+    runs {
+        client {
+            workingDirectory project.file('run/client')
+
+            property 'forge.logging.markers', 'REGISTRIES'
+
+            property 'forge.logging.console.level', 'info'
+
+            property 'forge.enabledGameTestNamespaces', 'greate'
+
+            property "mixin.env.remapRefMap", 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+
+            arg "-mixin.config=greate.mixin.json"
+
+            mods {
+                greate {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        server {
+            workingDirectory project.file('run/server')
+
+            property 'forge.logging.markers', 'REGISTRIES'
+
+            property 'forge.logging.console.level', 'info'
+
+            property 'forge.enabledGameTestNamespaces', 'greate'
+
+            property "mixin.env.remapRefMap", 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+
+            arg "-mixin.config=greate.mixin.json"
+
+            mods {
+                greate {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        gameTestServer {
+            workingDirectory project.file('run/gameTest')
+
+            property 'forge.logging.markers', 'REGISTRIES'
+
+            property 'forge.logging.console.level', 'debug'
+
+            property 'forge.enabledGameTestNamespaces', 'greate'
+
+            mods {
+                greate {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        data {
+            workingDirectory project.file('run/data')
+
+            property 'forge.logging.markers', 'REGISTRIES'
+
+            property 'forge.logging.console.level', 'debug'
+
+            property "mixin.env.remapRefMap", 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+
+            arg "-mixin.config=greate.mixin.json"
+
+            args '--mod', 'greate', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/'), '--existing-mod', 'create'
+
+            mods {
+                greate {
+                    source sourceSets.main
+                }
+            }
+        }
+    }
+}
+
+sourceSets.main.resources { srcDir 'src/generated/resources' }
+
+repositories {
+    maven { url = 'https://maven.tterrag.com/'
+        content {
+            includeGroup "com.simibubi.create"
+            includeGroup "com.jozufozu.flywheel"
+            includeGroup "com.tterrag.registrate"
+        }
+    }
+    maven { url = 'https://maven.blamejared.com'
+        content {
+            includeGroup "mezz.jei"
+        }
+    }
+    maven { url = 'https://maven.architectury.dev/'
+        content {
+            includeGroup "dev.architectury"
+        }
+    }
+    maven { url = 'https://maven.saps.dev/minecraft'
+        content {
+            includeGroup 'dev.latvian.mods'
+        }
+    }
+    maven { url = 'https://cursemaven.com'
+        content {
+            includeGroup "curse.maven"
+        }
+    }
+    maven { url = 'https://jitpack.io' } //mixinextras
+}
+
+dependencies {
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+
+    implementation fg.deobf("com.tterrag.registrate:Registrate:${registrate_version}")
+
+    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
+    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}")
+    runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
+
+    implementation fg.deobf("dev.architectury:architectury-forge:${architectury_version}")
+    implementation fg.deobf("curse.maven:ldlib-626676:${ldlib_version}")
+    implementation fg.deobf("curse.maven:configuration-444699:${configuration_version}")
+    implementation fg.deobf("curse.maven:gregtechceu-modern-890405:${gregtech_version}")
+    runtimeOnly fg.deobf("curse.maven:jade-324717:${jade_version}")
+}
+
+mixin {
+    add sourceSets.main, "greate.mixin-refmap.json"
+}
+
+jar {
+    manifest {
+        attributes([
+                "Specification-Title"     : "greate",
+                "Specification-Vendor"    : "electrolyte",
+                "Specification-Version"   : "1",
+                "Implementation-Title"    : project.name,
+                "Implementation-Version"  : project.jar.archiveVersion,
+                "Implementation-Vendor"   : "electrolyte",
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+                "TweakClass": "org.spongepowered.asm.launch.MixinTweaker",
+                "TweakOrder": 0,
+                "MixinConfigs": "greate.mixin.json"
+        ])
+    }
+}
+
+jar.finalizedBy('reobfJar')
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifact jar
+        }
+    }
+    repositories {
+        maven {
+            url "file://${project.projectDir}/mcmodsrepo"
+        }
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
