@@ -155,7 +155,7 @@ dependencies {
     implementation fg.deobf("curse.maven:gregtechceu-modern-890405:${gregtech_version}")
     runtimeOnly fg.deobf("curse.maven:jade-324717:${jade_version}")
 
-    implementation(fg.deobf("tfc:TerraFirmaCraft-1.20.1:f07318f-indev"))
+    implementation(fg.deobf("tfc:TerraFirmaCraft-1.20.1:63f57ac2"))
 }
 
 mixin {
