@@ -7,7 +7,7 @@ import dev.toma.configuration.config.Configurable.Range;
 import dev.toma.configuration.config.Configurable.Synchronized;
 
 @Config(id = TerraFirmaGreg.MOD_ID)
-public class TerraFirmaGregConfig {
+public class TFGConfig {
 
     @Configurable
     @Synchronized

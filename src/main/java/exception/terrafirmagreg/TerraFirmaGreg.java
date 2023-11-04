@@ -1,15 +1,12 @@
 package exception.terrafirmagreg;
 
 import com.mojang.logging.LogUtils;
-import dev.toma.configuration.Configuration;
-import dev.toma.configuration.config.format.ConfigFormats;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.world.item.CreativeModeTab;
+import com.tterrag.registrate.Registrate;
+import com.tterrag.registrate.util.nullness.NonNullSupplier;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.DeferredRegister;
 import org.slf4j.Logger;
 
 @Mod(TerraFirmaGreg.MOD_ID)
@@ -17,16 +14,16 @@ public class TerraFirmaGreg {
 
     public static final String MOD_ID = "terrafirmagreg";
     public static final Logger LOGGER = LogUtils.getLogger();
-    public static TerraFirmaGregConfig CONFIG;
 
-    public static final DeferredRegister<CreativeModeTab> CREATIVE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, TerraFirmaGreg.MOD_ID);
+    public static final NonNullSupplier<Registrate> REGISTRATE = NonNullSupplier.lazy(() -> Registrate.create(MOD_ID));
 
     public TerraFirmaGreg() {
-        CONFIG = Configuration.registerConfig(TerraFirmaGregConfig.class, ConfigFormats.yaml()).getConfigInstance();
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        //TerraFirmaGregCreativeTabs.register(eventBus);
+        //TerraFirmaGregItems.register(eventBus);
+        //TerraFirmaGregBlocks.register(eventBus);
+
         MinecraftForge.EVENT_BUS.register(this);
-
-        CREATIVE_TABS.register(eventBus);
-
     }
 }

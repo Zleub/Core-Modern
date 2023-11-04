@@ -14,4 +14,11 @@ authors="Exception"
 
 description="Lol"
 
+[[dependencies.terrafirmagreg]]
+modId = "gtceu"
+mandatory = false
+versionRange = "1.0.13"
+ordering = "AFTER"
+side = "BOTH"
+
 
