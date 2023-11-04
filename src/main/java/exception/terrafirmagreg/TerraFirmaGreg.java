@@ -1,4 +1,4 @@
-package electrolyte.greate;
+package exception.terrafirmagreg;
 
 import com.mojang.logging.LogUtils;
 import dev.toma.configuration.Configuration;
@@ -12,17 +12,17 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import org.slf4j.Logger;
 
-@Mod(Greate.MOD_ID)
-public class Greate {
+@Mod(TerraFirmaGreg.MOD_ID)
+public class TerraFirmaGreg {
 
-    public static final String MOD_ID = "greate";
+    public static final String MOD_ID = "terrafirmagreg";
     public static final Logger LOGGER = LogUtils.getLogger();
-    public static GreateConfig CONFIG;
+    public static TerraFirmaGregConfig CONFIG;
 
-    public static final DeferredRegister<CreativeModeTab> CREATIVE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Greate.MOD_ID);
+    public static final DeferredRegister<CreativeModeTab> CREATIVE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, TerraFirmaGreg.MOD_ID);
 
-    public Greate() {
-        CONFIG = Configuration.registerConfig(GreateConfig.class, ConfigFormats.yaml()).getConfigInstance();
+    public TerraFirmaGreg() {
+        CONFIG = Configuration.registerConfig(TerraFirmaGregConfig.class, ConfigFormats.yaml()).getConfigInstance();
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
         MinecraftForge.EVENT_BUS.register(this);
 

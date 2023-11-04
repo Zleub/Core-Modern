@@ -1,4 +1,4 @@
-package electrolyte.greate;
+package exception.terrafirmagreg;
 
 import dev.toma.configuration.config.Config;
 import dev.toma.configuration.config.Configurable;
@@ -6,8 +6,8 @@ import dev.toma.configuration.config.Configurable.Comment;
 import dev.toma.configuration.config.Configurable.Range;
 import dev.toma.configuration.config.Configurable.Synchronized;
 
-@Config(id = Greate.MOD_ID)
-public class GreateConfig {
+@Config(id = TerraFirmaGreg.MOD_ID)
+public class TerraFirmaGregConfig {
 
     @Configurable
     @Synchronized
