@@ -53,6 +53,7 @@ public abstract class OreRecipeHandlerMixin {
         TFGTagPrefixes.richRawOre.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processRawOre(tagPrefix, material, property, provider, 3));
 
         TFGTagPrefixes.oreGabbro.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider, TFGMaterials.Gabbro));
+        /*
         TFGTagPrefixes.oreShale.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider, TFGMaterials.Shale));
         TFGTagPrefixes.oreClaystone.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider, TFGMaterials.Claystone));
         TFGTagPrefixes.oreLimestone.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider, TFGMaterials.Limestone));
@@ -71,7 +72,7 @@ public abstract class OreRecipeHandlerMixin {
         TFGTagPrefixes.oreDiorite.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider, GTMaterials.Diorite));
         TFGTagPrefixes.oreAndesite.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider, GTMaterials.Andesite));
         TFGTagPrefixes.oreGranite.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider, GTMaterials.Granite));
-        TFGTagPrefixes.oreChalk.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider, TFGMaterials.Chalk));
+        TFGTagPrefixes.oreChalk.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider, TFGMaterials.Chalk));*/
 
     }
 
