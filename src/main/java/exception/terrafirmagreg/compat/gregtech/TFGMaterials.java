@@ -15,6 +15,7 @@ public class TFGMaterials {
 
     public static Material Sylvite = new Material.Builder("sylvite")
             .dust()
+            .ore()
             .color(0xFFFFFF)
             .buildAndRegister();
 

@@ -279,5 +279,18 @@ public class TFGTagPrefixes {
             .unformattedTagPath(FORGE, "ores")
             .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.GRANITE).get(Rock.BlockType.RAW).get().defaultBlockState(),
                     false, MapColor.STONE, SoundType.STONE, false);
+
+    public static final TagPrefix oreChalk = new TagPrefix("tfc_chalk")
+            .langValue("Chalk %s Ore")
+            .materialIconType(MaterialIconType.ore)
+            .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
+            .unificationEnabled(true)
+            .generationCondition(hasOreProperty)
+            .prefixTagPath(FORGE, "ores/%s/%s")
+            .defaultTagPath(FORGE, "ores/%s")
+            .prefixOnlyTagPath(FORGE, "ores_in_ground/%s")
+            .unformattedTagPath(FORGE, "ores")
+            .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.CHALK).get(Rock.BlockType.RAW).get().defaultBlockState(),
+                    false, MapColor.STONE, SoundType.STONE, false);
 }
 
