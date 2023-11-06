@@ -10,18 +10,19 @@ displayName="TerraFirmaGreg"
 credits="By Exception, Xikaro"
 authors="Exception"
 description="Compat mod for TFC and GTCEu"
+logoFile = "logo.png"
 
 [[dependencies.terrafirmagreg]]
 modId = "gtceu"
-mandatory = false
+mandatory = true
 versionRange = "[1.0.14,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.terrafirmagreg]]
 modId = "tfc"
-mandatory = false
-versionRange = "[0.0.0-indev,)"
+mandatory = true
+versionRange = "[3.0.0-beta,)"
 ordering = "NONE"
 side = "BOTH"
 
