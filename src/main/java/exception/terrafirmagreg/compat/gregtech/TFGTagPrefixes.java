@@ -29,239 +29,143 @@ public class TFGTagPrefixes {
             .generationCondition(hasOreProperty);
 
     public static final TagPrefix oreGabbro = TagPrefix.oreTagPrefix("tfc_gabbro")
-            .langValue("Gabbro %s Ore")
+            .materialIconType(MaterialIconType.ore)
+            .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
+            .unificationEnabled(true)
+            .generationCondition(hasOreProperty)
+            .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/gabbro")).defaultBlockState());
+
+    public static final TagPrefix oreShale = TagPrefix.oreTagPrefix("tfc_shale")
+            .materialIconType(MaterialIconType.ore)
+            .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
+            .unificationEnabled(true)
+            .generationCondition(hasOreProperty)
+            .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/shale")).defaultBlockState());
+
+    public static final TagPrefix oreClaystone = TagPrefix.oreTagPrefix("tfc_claystone")
+            .materialIconType(MaterialIconType.ore)
+            .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
+            .unificationEnabled(true)
+            .generationCondition(hasOreProperty)
+            .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/claystone")).defaultBlockState());
+
+    public static final TagPrefix oreLimestone = TagPrefix.oreTagPrefix("tfc_limestone")
+            .materialIconType(MaterialIconType.ore)
+            .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
+            .unificationEnabled(true)
+            .generationCondition(hasOreProperty)
+            .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/limestone")).defaultBlockState());
+
+    public static final TagPrefix oreConglomerate = TagPrefix.oreTagPrefix("tfc_conglomerate")
+            .materialIconType(MaterialIconType.ore)
+            .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
+            .unificationEnabled(true)
+            .generationCondition(hasOreProperty)
+            .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/conglomerate")).defaultBlockState());
+
+    public static final TagPrefix oreDolomite = TagPrefix.oreTagPrefix("tfc_dolomite")
+            .materialIconType(MaterialIconType.ore)
+            .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
+            .unificationEnabled(true)
+            .generationCondition(hasOreProperty)
+            .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/dolomite")).defaultBlockState());
+
+    public static final TagPrefix oreChert = TagPrefix.oreTagPrefix("tfc_chert")
+            .materialIconType(MaterialIconType.ore)
+            .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
+            .unificationEnabled(true)
+            .generationCondition(hasOreProperty)
+            .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/chert")).defaultBlockState());
+
+    public static final TagPrefix oreRhyolite = TagPrefix.oreTagPrefix("tfc_rhyolite")
+            .materialIconType(MaterialIconType.ore)
+            .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
+            .unificationEnabled(true)
+            .generationCondition(hasOreProperty)
+            .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/rhyolite")).defaultBlockState());
+
+    public static final TagPrefix oreDacite = TagPrefix.oreTagPrefix("tfc_dacite")
             .materialIconType(MaterialIconType.ore)
             .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
             .unificationEnabled(true)
             .generationCondition(hasOreProperty)
             .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/dacite")).defaultBlockState());
 
-    /*
-    public static final TagPrefix oreShale = TagPrefix.oreTagPrefix("tfc_shale")
-            .langValue("Shale %s Ore")
-            .materialIconType(MaterialIconType.ore)
-            .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
-            .unificationEnabled(true)
-            .generationCondition(hasOreProperty)
-            .prefixTagPath(FORGE, "ores/%s/%s")
-            .defaultTagPath(FORGE, "ores/%s")
-            .prefixOnlyTagPath(FORGE, "ores_in_ground/%s")
-            .unformattedTagPath(FORGE, "ores")
-            .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "raw/rock/shale")).defaultBlockState());
-    public static final TagPrefix oreClaystone = TagPrefix.oreTagPrefix("tfc_claystone")
-            .langValue("Claystone %s Ore")
-            .materialIconType(MaterialIconType.ore)
-            .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
-            .unificationEnabled(true)
-            .generationCondition(hasOreProperty)
-            .prefixTagPath(FORGE, "ores/%s/%s")
-            .defaultTagPath(FORGE, "ores/%s")
-            .prefixOnlyTagPath(FORGE, "ores_in_ground/%s")
-            .unformattedTagPath(FORGE, "ores")
-            .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "raw/rock/claystone")).defaultBlockState());
-
-    public static final TagPrefix oreLimestone = TagPrefix.oreTagPrefix("tfc_limestone")
-            .langValue("Limestone %s Ore")
-            .materialIconType(MaterialIconType.ore)
-            .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
-            .unificationEnabled(true)
-            .generationCondition(hasOreProperty)
-            .prefixTagPath(FORGE, "ores/%s/%s")
-            .defaultTagPath(FORGE, "ores/%s")
-            .prefixOnlyTagPath(FORGE, "ores_in_ground/%s")
-            .unformattedTagPath(FORGE, "ores")
-            .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "raw/rock/limestone")).defaultBlockState());
-
-    public static final TagPrefix oreConglomerate = TagPrefix.oreTagPrefix("tfc_conglomerate")
-            .langValue("Conglomerate %s Ore")
-            .materialIconType(MaterialIconType.ore)
-            .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
-            .unificationEnabled(true)
-            .generationCondition(hasOreProperty)
-            .prefixTagPath(FORGE, "ores/%s/%s")
-            .defaultTagPath(FORGE, "ores/%s")
-            .prefixOnlyTagPath(FORGE, "ores_in_ground/%s")
-            .unformattedTagPath(FORGE, "ores")
-            .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "raw/rock/conglomerate")).defaultBlockState());
-
-    public static final TagPrefix oreDolomite = TagPrefix.oreTagPrefix("tfc_dolomite")
-            .langValue("Dolomite %s Ore")
-            .materialIconType(MaterialIconType.ore)
-            .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
-            .unificationEnabled(true)
-            .generationCondition(hasOreProperty)
-            .prefixTagPath(FORGE, "ores/%s/%s")
-            .defaultTagPath(FORGE, "ores/%s")
-            .prefixOnlyTagPath(FORGE, "ores_in_ground/%s")
-            .unformattedTagPath(FORGE, "ores")
-            .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "raw/rock/dolomite")).defaultBlockState());
-
-    public static final TagPrefix oreChert = TagPrefix.oreTagPrefix("tfc_chert")
-            .langValue("Chert %s Ore")
-            .materialIconType(MaterialIconType.ore)
-            .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
-            .unificationEnabled(true)
-            .generationCondition(hasOreProperty)
-            .prefixTagPath(FORGE, "ores/%s/%s")
-            .defaultTagPath(FORGE, "ores/%s")
-            .prefixOnlyTagPath(FORGE, "ores_in_ground/%s")
-            .unformattedTagPath(FORGE, "ores")
-            .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "raw/rock/chert")).defaultBlockState());
-
-    public static final TagPrefix oreRhyolite = TagPrefix.oreTagPrefix("tfc_rhyolite")
-            .langValue("Rhyolite %s Ore")
-            .materialIconType(MaterialIconType.ore)
-            .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
-            .unificationEnabled(true)
-            .generationCondition(hasOreProperty)
-            .prefixTagPath(FORGE, "ores/%s/%s")
-            .defaultTagPath(FORGE, "ores/%s")
-            .prefixOnlyTagPath(FORGE, "ores_in_ground/%s")
-            .unformattedTagPath(FORGE, "ores")
-            .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "raw/rock/rhyolite")).defaultBlockState());
-
-    public static final TagPrefix oreDacite = TagPrefix.oreTagPrefix("tfc_dacite")
-            .langValue("Dacite %s Ore")
-            .materialIconType(MaterialIconType.ore)
-            .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
-            .unificationEnabled(true)
-            .generationCondition(hasOreProperty)
-            .prefixTagPath(FORGE, "ores/%s/%s")
-            .defaultTagPath(FORGE, "ores/%s")
-            .prefixOnlyTagPath(FORGE, "ores_in_ground/%s")
-            .unformattedTagPath(FORGE, "ores")
-            .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "raw/rock/dacite")).defaultBlockState());
-
     public static final TagPrefix oreQuartzite = TagPrefix.oreTagPrefix("tfc_quartzite")
-            .langValue("Quartzite %s Ore")
             .materialIconType(MaterialIconType.ore)
             .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
             .unificationEnabled(true)
             .generationCondition(hasOreProperty)
-            .prefixTagPath(FORGE, "ores/%s/%s")
-            .defaultTagPath(FORGE, "ores/%s")
-            .prefixOnlyTagPath(FORGE, "ores_in_ground/%s")
-            .unformattedTagPath(FORGE, "ores")
-            .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "raw/rock/quartzite")).defaultBlockState());
+            .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/quartzite")).defaultBlockState());
 
     public static final TagPrefix oreSlate = TagPrefix.oreTagPrefix("tfc_slate")
-            .langValue("Slate %s Ore")
             .materialIconType(MaterialIconType.ore)
             .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
             .unificationEnabled(true)
             .generationCondition(hasOreProperty)
-            .prefixTagPath(FORGE, "ores/%s/%s")
-            .defaultTagPath(FORGE, "ores/%s")
-            .prefixOnlyTagPath(FORGE, "ores_in_ground/%s")
-            .unformattedTagPath(FORGE, "ores")
-            .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "raw/rock/slate")).defaultBlockState());
+            .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/slate")).defaultBlockState());
 
     public static final TagPrefix orePhyllite = TagPrefix.oreTagPrefix("tfc_phyllite")
-            .langValue("Phyllite %s Ore")
             .materialIconType(MaterialIconType.ore)
             .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
             .unificationEnabled(true)
             .generationCondition(hasOreProperty)
-            .prefixTagPath(FORGE, "ores/%s/%s")
-            .defaultTagPath(FORGE, "ores/%s")
-            .prefixOnlyTagPath(FORGE, "ores_in_ground/%s")
-            .unformattedTagPath(FORGE, "ores")
-            .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "raw/rock/phyllite")).defaultBlockState());
+            .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/phyllite")).defaultBlockState());
 
     public static final TagPrefix oreSchist = TagPrefix.oreTagPrefix("tfc_schist")
-            .langValue("Schist %s Ore")
             .materialIconType(MaterialIconType.ore)
             .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
             .unificationEnabled(true)
             .generationCondition(hasOreProperty)
-            .prefixTagPath(FORGE, "ores/%s/%s")
-            .defaultTagPath(FORGE, "ores/%s")
-            .prefixOnlyTagPath(FORGE, "ores_in_ground/%s")
-            .unformattedTagPath(FORGE, "ores")
-            .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "raw/rock/schist")).defaultBlockState());
+            .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/schist")).defaultBlockState());
 
     public static final TagPrefix oreGneiss = TagPrefix.oreTagPrefix("tfc_gneiss")
-            .langValue("Gneiss %s Ore")
             .materialIconType(MaterialIconType.ore)
             .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
             .unificationEnabled(true)
             .generationCondition(hasOreProperty)
-            .prefixTagPath(FORGE, "ores/%s/%s")
-            .defaultTagPath(FORGE, "ores/%s")
-            .prefixOnlyTagPath(FORGE, "ores_in_ground/%s")
-            .unformattedTagPath(FORGE, "ores")
-            .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "raw/rock/gneiss")).defaultBlockState());
+            .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/gneiss")).defaultBlockState());
 
     public static final TagPrefix oreMarble = TagPrefix.oreTagPrefix("tfc_marble")
-            .langValue("Marble %s Ore")
             .materialIconType(MaterialIconType.ore)
             .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
             .unificationEnabled(true)
             .generationCondition(hasOreProperty)
-            .prefixTagPath(FORGE, "ores/%s/%s")
-            .defaultTagPath(FORGE, "ores/%s")
-            .prefixOnlyTagPath(FORGE, "ores_in_ground/%s")
-            .unformattedTagPath(FORGE, "ores")
-            .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "raw/rock/marble")).defaultBlockState());
+            .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/marble")).defaultBlockState());
 
     public static final TagPrefix oreBasalt = TagPrefix.oreTagPrefix("tfc_basalt")
-            .langValue("Basalt %s Ore")
             .materialIconType(MaterialIconType.ore)
             .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
             .unificationEnabled(true)
             .generationCondition(hasOreProperty)
-            .prefixTagPath(FORGE, "ores/%s/%s")
-            .defaultTagPath(FORGE, "ores/%s")
-            .prefixOnlyTagPath(FORGE, "ores_in_ground/%s")
-            .unformattedTagPath(FORGE, "ores")
-            .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "raw/rock/basalt")).defaultBlockState());
+            .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/basalt")).defaultBlockState());
 
     public static final TagPrefix oreDiorite = TagPrefix.oreTagPrefix("tfc_diorite")
-            .langValue("Diorite %s Ore")
             .materialIconType(MaterialIconType.ore)
             .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
             .unificationEnabled(true)
             .generationCondition(hasOreProperty)
-            .prefixTagPath(FORGE, "ores/%s/%s")
-            .defaultTagPath(FORGE, "ores/%s")
-            .prefixOnlyTagPath(FORGE, "ores_in_ground/%s")
-            .unformattedTagPath(FORGE, "ores")
-            .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "raw/rock/diorite")).defaultBlockState());
+            .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/diorite")).defaultBlockState());
 
     public static final TagPrefix oreAndesite = TagPrefix.oreTagPrefix("tfc_andesite")
-            .langValue("Andesite %s Ore")
             .materialIconType(MaterialIconType.ore)
             .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
             .unificationEnabled(true)
             .generationCondition(hasOreProperty)
-            .prefixTagPath(FORGE, "ores/%s/%s")
-            .defaultTagPath(FORGE, "ores/%s")
-            .prefixOnlyTagPath(FORGE, "ores_in_ground/%s")
-            .unformattedTagPath(FORGE, "ores")
-            .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "raw/rock/andesite")).defaultBlockState());
+            .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/andesite")).defaultBlockState());
 
     public static final TagPrefix oreGranite = TagPrefix.oreTagPrefix("tfc_granite")
-            .langValue("Granite %s Ore")
             .materialIconType(MaterialIconType.ore)
             .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
             .unificationEnabled(true)
             .generationCondition(hasOreProperty)
-            .prefixTagPath(FORGE, "ores/%s/%s")
-            .defaultTagPath(FORGE, "ores/%s")
-            .prefixOnlyTagPath(FORGE, "ores_in_ground/%s")
-            .unformattedTagPath(FORGE, "ores")
-            .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "raw/rock/granite")).defaultBlockState());
+            .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/granite")).defaultBlockState());
 
     public static final TagPrefix oreChalk = TagPrefix.oreTagPrefix("tfc_chalk")
-            .langValue("Chalk %s Ore")
             .materialIconType(MaterialIconType.ore)
             .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
             .unificationEnabled(true)
             .generationCondition(hasOreProperty)
-            .prefixTagPath(FORGE, "ores/%s/%s")
-            .defaultTagPath(FORGE, "ores/%s")
-            .prefixOnlyTagPath(FORGE, "ores_in_ground/%s")
-            .unformattedTagPath(FORGE, "ores")
-            .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "raw/rock/chalk")).defaultBlockState());*/
+            .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/chalk")).defaultBlockState());
 }
 
