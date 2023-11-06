@@ -14,9 +14,7 @@ import java.util.function.Consumer;
 @GTAddon
 public class TFGGTAddon implements IGTAddon {
     @Override
-    public void initializeAddon() {
-
-    }
+    public void initializeAddon() {}
 
     @Override
     public String addonModId() {
@@ -29,57 +27,8 @@ public class TFGGTAddon implements IGTAddon {
     }
 
     @Override
-    public void registerElements() {
-        IGTAddon.super.registerElements();
-    }
-
-    @Override
     public void registerMaterials() {
         TFGMaterials.init();
     }
 
-    @Override
-    public void registerSounds() {
-        IGTAddon.super.registerSounds();
-    }
-
-    @Override
-    public void registerCovers() {
-        IGTAddon.super.registerCovers();
-    }
-
-    @Override
-    public void registerRecipeTypes() {
-        IGTAddon.super.registerRecipeTypes();
-    }
-
-    @Override
-    public void registerMachines() {
-        IGTAddon.super.registerMachines();
-    }
-
-    @Override
-    public void registerWorldgenLayers() {
-        IGTAddon.super.registerWorldgenLayers();
-    }
-
-    @Override
-    public void registerVeinGenerators() {
-        IGTAddon.super.registerVeinGenerators();
-    }
-
-    @Override
-    public void initializeRecipes(Consumer<FinishedRecipe> provider) {
-        IGTAddon.super.initializeRecipes(provider);
-    }
-
-    @Override
-    public void collectMaterialCasings(MaterialCasingCollectionEvent event) {
-        IGTAddon.super.collectMaterialCasings(event);
-    }
-
-    @Override
-    public void registerRecipeKeys(KJSRecipeKeyEvent event) {
-        IGTAddon.super.registerRecipeKeys(event);
-    }
 }

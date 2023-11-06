@@ -14,7 +14,7 @@ description="Compat mod for TFC and GTCEu"
 [[dependencies.terrafirmagreg]]
 modId = "gtceu"
 mandatory = false
-versionRange = "[1.0.13,)"
+versionRange = "[1.0.14,)"
 ordering = "NONE"
 side = "BOTH"
 
