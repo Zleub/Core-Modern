@@ -4,7 +4,6 @@ import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
 import com.gregtechceu.gtceu.api.registry.GTRegistries;
 import net.dries007.tfc.common.blocks.rock.Rock;
 import net.minecraft.data.PackOutput;
-import net.minecraft.network.chat.Component;
 import net.minecraftforge.common.data.LanguageProvider;
 
 public class TFGLangProvider extends LanguageProvider {
@@ -22,7 +21,7 @@ public class TFGLangProvider extends LanguageProvider {
                 {
                     this.add(
                             String.format("block.gtceu.tfc_%s_%s_ore.prospected", rock.getSerializedName(), material.getName()),
-                            String.format("Found %s", CapitalizeWords(material.getName().split("_")))
+                            CapitalizeWords(material.getName().split("_"))
                     );
                 }
             }
