@@ -1,5 +1,6 @@
 {
   "tagprefix.poor_raw": "Poor Raw %s Ore",
+  "tagprefix._raw": "Normal Raw %s Ore",
   "tagprefix.rich_raw": "Rich Raw %s Ore",
 
   "material.gabbro": "Gabbro",
