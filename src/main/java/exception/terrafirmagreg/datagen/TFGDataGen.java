@@ -21,5 +21,6 @@ public class TFGDataGen {
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
         generator.addProvider(event.includeServer(), new TFGBlockTagProvider(packOutput, lookupProvider, TerraFirmaGreg.MOD_ID, existingFileHelper));
+        generator.addProvider(event.includeServer(), new TFGLangProvider(packOutput, TerraFirmaGreg.MOD_ID, "en_us"));
     }
 }
