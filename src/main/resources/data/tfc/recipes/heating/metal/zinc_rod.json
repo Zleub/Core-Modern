@@ -1,0 +1,11 @@
+{
+  "type": "tfc:heating",
+  "ingredient": {
+    "item": "tfc:metal/rod/zinc"
+  },
+  "result_fluid": {
+    "fluid": "gtceu:zinc",
+    "amount": 72
+  },
+  "temperature": 420
+}

@@ -1,15 +1,22 @@
 package exception.terrafirmagreg.compat.gregtech;
 
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
+import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlag;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.OreProperty;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
 
+import java.util.Arrays;
+
+import static com.gregtechceu.gtceu.common.data.GTMaterials.EXT2_METAL;
+
 public class TFGMaterials {
     public static void init()
     {
         GTMaterials.Bismuth.setProperty(PropertyKey.ORE, new OreProperty());
+        GTMaterials.Bismuth.addFlags(EXT2_METAL.toArray(new MaterialFlag[0]));
+
         GTMaterials.Borax.setProperty(PropertyKey.ORE, new OreProperty());
     }
 

@@ -1,0 +1,11 @@
+{
+  "type": "tfc:heating",
+  "ingredient": {
+    "item": "tfc:metal/block/rose_gold_stairs"
+  },
+  "result_fluid": {
+    "fluid": "gtceu:rose_gold",
+    "amount": 108
+  },
+  "temperature": 960
+}

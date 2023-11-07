@@ -1,0 +1,11 @@
+{
+  "type": "tfc:heating",
+  "ingredient": {
+    "item": "tfc:metal/rod/steel"
+  },
+  "result_fluid": {
+    "fluid": "gtceu:steel",
+    "amount": 72
+  },
+  "temperature": 1540
+}

@@ -1,0 +1,11 @@
+{
+  "type": "tfc:heating",
+  "ingredient": {
+    "item": "tfc:metal/block/black_bronze_stairs"
+  },
+  "result_fluid": {
+    "fluid": "gtceu:black_bronze",
+    "amount": 108
+  },
+  "temperature": 1070
+}

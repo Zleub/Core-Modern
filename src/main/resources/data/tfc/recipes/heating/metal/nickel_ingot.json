@@ -1,0 +1,11 @@
+{
+  "type": "tfc:heating",
+  "ingredient": {
+    "item": "tfc:metal/ingot/nickel"
+  },
+  "result_fluid": {
+    "fluid": "gtceu:nickel",
+    "amount": 144
+  },
+  "temperature": 1453
+}

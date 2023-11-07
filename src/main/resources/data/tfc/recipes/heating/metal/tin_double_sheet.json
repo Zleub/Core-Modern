@@ -1,0 +1,11 @@
+{
+  "type": "tfc:heating",
+  "ingredient": {
+    "item": "tfc:metal/double_sheet/tin"
+  },
+  "result_fluid": {
+    "fluid": "gtceu:tin",
+    "amount": 576
+  },
+  "temperature": 230
+}

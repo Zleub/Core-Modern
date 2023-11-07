@@ -1,0 +1,11 @@
+{
+  "type": "tfc:heating",
+  "ingredient": {
+    "item": "tfc:metal/rod/bronze"
+  },
+  "result_fluid": {
+    "fluid": "gtceu:bronze",
+    "amount": 72
+  },
+  "temperature": 950
+}
