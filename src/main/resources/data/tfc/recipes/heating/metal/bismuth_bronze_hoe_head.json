@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "tfc:metal/hoe_head/bismuth_bronze"
+    "item": "gtceu:bismuth_bronze_hoe_head"
   },
   "result_fluid": {
     "fluid": "gtceu:bismuth_bronze",

@@ -5,7 +5,7 @@
     "tag": "forge:ingots/red_steel"
   },
   "result": {
-    "item": "tfc:metal/hammer_head/red_steel"
+    "item": "gtceu:red_steel_hammer_head"
   },
   "tier": 6,
   "rules": [

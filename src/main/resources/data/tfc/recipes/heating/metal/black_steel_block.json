@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "tfc:metal/block/black_steel"
+    "tag": "forge:storage_blocks/black_steel"
   },
   "result_fluid": {
     "fluid": "gtceu:black_steel",

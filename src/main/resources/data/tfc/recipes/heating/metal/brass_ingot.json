@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "tfc:metal/ingot/brass"
+    "tag": "forge:ingots/brass"
   },
   "result_fluid": {
     "fluid": "gtceu:brass",

@@ -1,16 +1,22 @@
 package exception.terrafirmagreg.compat.gregtech;
 
+import com.gregtechceu.gtceu.api.GTValues;
+import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconType;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
+import com.gregtechceu.gtceu.common.data.GTItems;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.Conditions.hasOreProperty;
+import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.Conditions.hasToolProperty;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.LoaderType.FORGE;
 
 public class TFGTagPrefixes {
     public static void init() {}
+
+    /* Raw Ores */
 
     public static final TagPrefix poorRawOre = new TagPrefix("poor_raw", true)
             .defaultTagPath(FORGE, "poor_raw_materials/%s")
@@ -27,6 +33,165 @@ public class TFGTagPrefixes {
             .unificationEnabled(true)
             .generateItem(true)
             .generationCondition(hasOreProperty);
+
+    /* Tool Heads */
+
+    public static final TagPrefix toolHeadSword = new TagPrefix("swordHead")
+            .itemTable(() -> GTItems.MATERIAL_ITEMS)
+            .langValue("%s Sword Head")
+            .materialAmount(GTValues.M * 2)
+            .maxStackSize(16)
+            .materialIconType(MaterialIconType.toolHeadSword)
+            .unificationEnabled(true)
+            .generateItem(true)
+            .generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE)));
+
+    public static final TagPrefix toolHeadPickaxe = new TagPrefix("pickaxeHead")
+            .itemTable(() -> GTItems.MATERIAL_ITEMS)
+            .langValue("%s Pickaxe Head")
+            .materialAmount(GTValues.M * 2)
+            .maxStackSize(16)
+            .materialIconType(MaterialIconType.toolHeadPickaxe)
+            .unificationEnabled(true)
+            .generateItem(true)
+            .generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE)));
+
+    public static final TagPrefix toolHeadShovel = new TagPrefix("shovelHead")
+            .itemTable(() -> GTItems.MATERIAL_ITEMS)
+            .langValue("%s Shovel Head")
+            .materialAmount(GTValues.M * 2)
+            .maxStackSize(16)
+            .materialIconType(MaterialIconType.toolHeadShovel)
+            .unificationEnabled(true)
+            .generateItem(true)
+            .generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE)));
+
+    public static final TagPrefix toolHeadAxe = new TagPrefix("axeHead")
+            .itemTable(() -> GTItems.MATERIAL_ITEMS)
+            .langValue("%s Axe Head")
+            .materialAmount(GTValues.M * 2)
+            .maxStackSize(16)
+            .materialIconType(MaterialIconType.toolHeadAxe)
+            .unificationEnabled(true)
+            .generateItem(true)
+            .generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE)));
+
+    public static final TagPrefix toolHeadHoe = new TagPrefix("hoeHead")
+            .itemTable(() -> GTItems.MATERIAL_ITEMS)
+            .langValue("%s Hoe Head")
+            .materialAmount(GTValues.M)
+            .maxStackSize(16)
+            .materialIconType(MaterialIconType.toolHeadHoe)
+            .unificationEnabled(true)
+            .generateItem(true)
+            .generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE)));
+
+    public static final TagPrefix toolHeadScythe = new TagPrefix("scytheHead")
+            .itemTable(() -> GTItems.MATERIAL_ITEMS)
+            .langValue("%s Scythe Head")
+            .materialAmount(GTValues.M)
+            .maxStackSize(16)
+            .materialIconType(MaterialIconType.toolHeadScythe)
+            .unificationEnabled(true)
+            .generateItem(true)
+            .generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE)));
+
+    public static final TagPrefix toolHeadFile = new TagPrefix("fileHead")
+            .itemTable(() -> GTItems.MATERIAL_ITEMS)
+            .langValue("%s File Head")
+            .materialAmount(GTValues.M)
+            .maxStackSize(16)
+            .materialIconType(MaterialIconType.toolHeadFile)
+            .unificationEnabled(true)
+            .generateItem(true)
+            .generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE)));
+
+    public static final TagPrefix toolHeadHammer = new TagPrefix("hammerHead")
+            .itemTable(() -> GTItems.MATERIAL_ITEMS)
+            .langValue("%s Hammer Head")
+            .materialAmount(GTValues.M)
+            .maxStackSize(16)
+            .materialIconType(MaterialIconType.toolHeadHammer)
+            .unificationEnabled(true)
+            .generateItem(true)
+            .generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE)));
+
+    public static final TagPrefix toolHeadSaw = new TagPrefix("sawHead")
+            .itemTable(() -> GTItems.MATERIAL_ITEMS)
+            .langValue("%s Saw Head")
+            .materialAmount(GTValues.M)
+            .maxStackSize(16)
+            .materialIconType(MaterialIconType.toolHeadSaw)
+            .unificationEnabled(true)
+            .generateItem(true)
+            .generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE)));
+
+    public static final TagPrefix toolHeadKnife = new TagPrefix("knifeHead")
+            .itemTable(() -> GTItems.MATERIAL_ITEMS)
+            .langValue("%s Knife Head")
+            .materialAmount(GTValues.M)
+            .maxStackSize(16)
+            .materialIconType(TFGMaterialIconType.toolHeadKnife)
+            .unificationEnabled(true)
+            .generateItem(true)
+            .generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE)));
+
+    public static final TagPrefix toolHeadButcheryKnife = new TagPrefix("knifeButcheryHead")
+            .itemTable(() -> GTItems.MATERIAL_ITEMS)
+            .langValue("%s Butchery Knife Head")
+            .materialAmount(GTValues.M)
+            .maxStackSize(16)
+            .materialIconType(TFGMaterialIconType.toolHeadButcheryKnife)
+            .unificationEnabled(true)
+            .generateItem(true)
+            .generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE)));
+
+    // Возможно включим если сделаем свои инструменты
+    // похожие на тфкшные (с функционалом тфк инструментов, а пока без надобности)
+    /*
+    public static final TagPrefix toolHeadPropick = new TagPrefix("propickHead")
+            .itemTable(() -> GTItems.MATERIAL_ITEMS)
+            .langValue("%s Propick Head")
+            .materialAmount(GTValues.M)
+            .maxStackSize(16)
+            .materialIconType(TFGMaterialIconType.toolHeadPropick)
+            .unificationEnabled(true)
+            .generateItem(true)
+            .generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE)));
+
+    public static final TagPrefix toolHeadChisel = new TagPrefix("chiselHead")
+            .itemTable(() -> GTItems.MATERIAL_ITEMS)
+            .langValue("%s Chisel Head")
+            .materialAmount(GTValues.M)
+            .maxStackSize(16)
+            .materialIconType(TFGMaterialIconType.toolHeadChisel)
+            .unificationEnabled(true)
+            .generateItem(true)
+            .generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE)));
+
+    public static final TagPrefix toolHeadJavelin = new TagPrefix("javelinHead")
+            .itemTable(() -> GTItems.MATERIAL_ITEMS)
+            .langValue("%s Javelin Head")
+            .materialAmount(GTValues.M)
+            .maxStackSize(16)
+            .materialIconType(TFGMaterialIconType.toolHeadChisel)
+            .unificationEnabled(true)
+            .generateItem(true)
+            .generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE)));
+
+    public static final TagPrefix toolHeadMace = new TagPrefix("maceHead")
+            .itemTable(() -> GTItems.MATERIAL_ITEMS)
+            .langValue("%s Mace Head")
+            .materialAmount(GTValues.M)
+            .maxStackSize(16)
+            .materialIconType(TFGMaterialIconType.toolHeadMace)
+            .unificationEnabled(true)
+            .generateItem(true)
+            .generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE)));
+
+        */
+
+    /* Stone Types */
 
     public static final TagPrefix oreGabbro = TagPrefix.oreTagPrefix("tfc_gabbro")
             .materialIconType(MaterialIconType.ore)

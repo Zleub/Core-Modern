@@ -5,7 +5,7 @@
     "tag": "forge:ingots/blue_steel"
   },
   "result": {
-    "item": "tfc:metal/scythe_blade/blue_steel"
+    "item": "gtceu:blue_steel_scythe_head"
   },
   "tier": 6,
   "rules": [

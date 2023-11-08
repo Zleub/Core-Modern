@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "tfc:metal/block/blue_steel"
+    "tag": "forge:storage_blocks/blue_steel"
   },
   "result_fluid": {
     "fluid": "tfc:metal/blue_steel",

@@ -5,7 +5,7 @@
     "tag": "forge:ingots/bismuth_bronze"
   },
   "result": {
-    "item": "tfc:metal/saw_blade/bismuth_bronze"
+    "item": "gtceu:bismuth_bronze_saw_head"
   },
   "tier": 2,
   "rules": [

@@ -5,7 +5,7 @@
     "tag": "forge:double_ingots/bismuth"
   },
   "result": {
-    "item": "tfc:metal/sheet/bismuth"
+    "item": "gtceu:bismuth_plate"
   },
   "tier": 1,
   "rules": [

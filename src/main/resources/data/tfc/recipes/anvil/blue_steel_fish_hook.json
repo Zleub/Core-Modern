@@ -2,7 +2,7 @@
   "__comment__": "This file was automatically created by mcresources",
   "type": "tfc:anvil",
   "input": {
-    "tag": "forge:sheets/blue_steel"
+    "tag": "forge:plates/blue_steel"
   },
   "result": {
     "item": "tfc:metal/fish_hook/blue_steel"

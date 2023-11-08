@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "tag": "rods/bismuth"
+    "tag": "forge:rods/bismuth"
   },
   "result_fluid": {
     "fluid": "gtceu:bismuth",

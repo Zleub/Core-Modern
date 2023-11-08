@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "tfc:metal/axe/bismuth_bronze"
+    "item": "gtceu:bismuth_bronze_axe"
   },
   "result_fluid": {
     "fluid": "gtceu:bismuth_bronze",

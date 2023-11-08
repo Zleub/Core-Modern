@@ -5,7 +5,7 @@
     "tag": "forge:ingots/black_steel"
   },
   "result": {
-    "item": "tfc:metal/pickaxe_head/black_steel"
+    "item": "gtceu:black_steel_pickaxe_head"
   },
   "tier": 5,
   "rules": [

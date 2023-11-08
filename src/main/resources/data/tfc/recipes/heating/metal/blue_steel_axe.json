@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "tfc:metal/axe/blue_steel"
+    "item": "gtceu:blue_steel_axe"
   },
   "result_fluid": {
     "fluid": "tfc:metal/blue_steel",

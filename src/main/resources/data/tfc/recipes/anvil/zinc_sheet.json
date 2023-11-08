@@ -5,7 +5,7 @@
     "tag": "forge:double_ingots/zinc"
   },
   "result": {
-    "item": "tfc:metal/sheet/zinc"
+    "item": "gtceu:zinc_plate"
   },
   "tier": 1,
   "rules": [

@@ -5,7 +5,7 @@
     "tag": "forge:ingots/wrought_iron"
   },
   "result": {
-    "item": "tfc:metal/hoe_head/wrought_iron"
+    "item": "gtceu:wrought_iron_hoe_head"
   },
   "tier": 3,
   "rules": [

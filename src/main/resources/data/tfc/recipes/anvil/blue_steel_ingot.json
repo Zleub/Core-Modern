@@ -5,7 +5,7 @@
     "item": "tfc:metal/ingot/high_carbon_blue_steel"
   },
   "result": {
-    "item": "tfc:metal/ingot/blue_steel"
+    "item": "gtceu:blue_steel_ingot"
   },
   "tier": 5,
   "rules": [

@@ -5,7 +5,7 @@
     "tag": "forge:ingots/black_steel"
   },
   "result": {
-    "item": "tfc:metal/rod/black_steel",
+    "item": "gtceu:black_steel_rod",
     "count": 2
   },
   "tier": 5,

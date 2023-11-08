@@ -5,7 +5,7 @@
     "tag": "forge:double_ingots/black_steel"
   },
   "result": {
-    "item": "tfc:metal/sheet/black_steel"
+    "item": "gtceu:black_steel_plate"
   },
   "tier": 5,
   "rules": [

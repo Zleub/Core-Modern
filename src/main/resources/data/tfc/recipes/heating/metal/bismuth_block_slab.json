@@ -1,11 +1,5 @@
 {
-  "type": "tfc:heating",
-  "ingredient": {
-    "item": "tfc:metal/block/bismuth_slab"
-  },
-  "result_fluid": {
-    "fluid": "gtceu:bismuth",
-    "amount": 72
-  },
-  "temperature": 270
+  "conditions": [
+    { "type": "forge:false" }
+  ]
 }

@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "tfc:metal/sword/black_bronze"
+    "item": "gtceu:black_bronze_sword"
   },
   "result_fluid": {
     "fluid": "gtceu:black_bronze",

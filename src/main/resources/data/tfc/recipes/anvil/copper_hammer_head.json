@@ -5,7 +5,7 @@
     "tag": "forge:ingots/copper"
   },
   "result": {
-    "item": "tfc:metal/hammer_head/copper"
+    "item": "gtceu:copper_hammer_head"
   },
   "tier": 1,
   "rules": [

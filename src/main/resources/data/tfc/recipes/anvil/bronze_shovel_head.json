@@ -5,7 +5,7 @@
     "tag": "forge:ingots/bronze"
   },
   "result": {
-    "item": "tfc:metal/shovel_head/bronze"
+    "item": "gtceu:bronze_shovel_head"
   },
   "tier": 2,
   "rules": [

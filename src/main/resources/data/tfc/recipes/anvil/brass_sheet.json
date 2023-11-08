@@ -5,7 +5,7 @@
     "tag": "forge:double_ingots/brass"
   },
   "result": {
-    "item": "tfc:metal/sheet/brass"
+    "item": "gtceu:brass_plate"
   },
   "tier": 2,
   "rules": [

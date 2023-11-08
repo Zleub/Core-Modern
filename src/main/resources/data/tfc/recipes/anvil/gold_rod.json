@@ -5,7 +5,7 @@
     "tag": "forge:ingots/gold"
   },
   "result": {
-    "item": "tfc:metal/rod/gold",
+    "item": "gtceu:gold_rod",
     "count": 2
   },
   "tier": 1,

@@ -5,7 +5,7 @@
     "tag": "forge:double_ingots/nickel"
   },
   "result": {
-    "item": "tfc:metal/sheet/nickel"
+    "item": "gtceu:nickel_plate"
   },
   "tier": 1,
   "rules": [

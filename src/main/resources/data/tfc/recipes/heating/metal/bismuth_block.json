@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "tag": "storage_blocks/bismuth"
+    "tag": "forge:storage_blocks/bismuth"
   },
   "result_fluid": {
     "fluid": "gtceu:bismuth",

@@ -5,7 +5,7 @@
     "tag": "forge:double_ingots/tin"
   },
   "result": {
-    "item": "tfc:metal/sheet/tin"
+    "item": "gtceu:tin_plate"
   },
   "tier": 1,
   "rules": [

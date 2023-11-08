@@ -5,7 +5,7 @@
     "tag": "forge:ingots/bismuth"
   },
   "result": {
-    "item": "tfc:metal/rod/bismuth",
+    "item": "gtceu:bismuth_rod",
     "count": 2
   },
   "tier": 1,

@@ -5,7 +5,7 @@
     "tag": "forge:ingots/copper"
   },
   "result": {
-    "item": "tfc:metal/saw_blade/copper"
+    "item": "gtceu:copper_saw_head"
   },
   "tier": 1,
   "rules": [

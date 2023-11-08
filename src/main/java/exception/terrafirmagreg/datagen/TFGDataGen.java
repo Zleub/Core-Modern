@@ -20,7 +20,10 @@ public class TFGDataGen {
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
-        generator.addProvider(event.includeServer(), new TFGBlockTagProvider(packOutput, lookupProvider, TerraFirmaGreg.MOD_ID, existingFileHelper));
+
+        var blockTagGenerator = generator.addProvider(event.includeServer(), new TFGBlockTagProvider(packOutput, lookupProvider, TerraFirmaGreg.MOD_ID, existingFileHelper));
+        generator.addProvider(event.includeServer(), new TFGItemTagProvider(packOutput, lookupProvider, blockTagGenerator.contentsGetter(), TerraFirmaGreg.MOD_ID, existingFileHelper));
         generator.addProvider(event.includeServer(), new TFGLangProvider(packOutput, TerraFirmaGreg.MOD_ID, "en_us"));
+
     }
 }

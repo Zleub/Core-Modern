@@ -5,7 +5,7 @@
     "tag": "forge:ingots/bismuth_bronze"
   },
   "result": {
-    "item": "tfc:metal/hoe_head/bismuth_bronze"
+    "item": "gtceu:bismuth_bronze_hoe_head"
   },
   "tier": 2,
   "rules": [

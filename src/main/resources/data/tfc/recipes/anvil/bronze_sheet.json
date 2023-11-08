@@ -5,7 +5,7 @@
     "tag": "forge:double_ingots/bronze"
   },
   "result": {
-    "item": "tfc:metal/sheet/bronze"
+    "item": "gtceu:bronze_plate"
   },
   "tier": 2,
   "rules": [

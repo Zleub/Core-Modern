@@ -5,10 +5,13 @@ import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlag;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.OreProperty;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
+import com.gregtechceu.gtceu.api.data.chemical.material.properties.ToolProperty;
+import com.gregtechceu.gtceu.api.item.tool.MaterialToolTier;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
 
 import java.util.Arrays;
 
+import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.GENERATE_ROD;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.EXT2_METAL;
 
 public class TFGMaterials {
@@ -18,6 +21,14 @@ public class TFGMaterials {
         GTMaterials.Bismuth.addFlags(EXT2_METAL.toArray(new MaterialFlag[0]));
 
         GTMaterials.Borax.setProperty(PropertyKey.ORE, new OreProperty());
+
+        GTMaterials.Nickel.addFlags(GENERATE_ROD);
+
+        GTMaterials.Copper.setProperty(PropertyKey.TOOL, new ToolProperty());
+        GTMaterials.BismuthBronze.setProperty(PropertyKey.TOOL, new ToolProperty());
+        GTMaterials.BlackBronze.setProperty(PropertyKey.TOOL, new ToolProperty());
+        GTMaterials.BlackSteel.setProperty(PropertyKey.TOOL, new ToolProperty());
+        // todo: custom durability
     }
 
     public static Material Sylvite = new Material.Builder("sylvite")

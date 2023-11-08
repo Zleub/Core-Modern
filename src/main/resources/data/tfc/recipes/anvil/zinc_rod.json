@@ -5,7 +5,7 @@
     "tag": "forge:ingots/zinc"
   },
   "result": {
-    "item": "tfc:metal/rod/zinc",
+    "item": "gtceu:zinc_rod",
     "count": 2
   },
   "tier": 1,

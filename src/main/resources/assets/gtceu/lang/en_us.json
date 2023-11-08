@@ -1,8 +1,4 @@
 {
-  "tagprefix.poor_raw": "Poor Raw %s Ore",
-  "tagprefix.raw": "Normal Raw %s",
-  "tagprefix.rich_raw": "Rich Raw %s Ore",
-
   "material.gabbro": "Gabbro",
   "material.shale": "Shale",
   "material.claystone": "Claystone",
@@ -17,6 +13,22 @@
   "material.schist": "Schist",
   "material.gneiss": "Gneiss",
   "material.chalk": "Chalk",
+
+  "tagprefix.poor_raw": "Poor Raw %s Ore",
+  "tagprefix.raw": "Normal Raw %s",
+  "tagprefix.rich_raw": "Rich Raw %s Ore",
+
+  "tagprefix.sword_head": "%s Sword Head",
+  "tagprefix.pickaxe_head": "%s Pickaxe Head",
+  "tagprefix.shovel_head": "%s Shovel Head",
+  "tagprefix.axe_head": "%s Axe Head",
+  "tagprefix.hoe_head": "%s Hoe Head",
+  "tagprefix.scythe_head": "%s Scythe Head",
+  "tagprefix.file_head": "%s File Head",
+  "tagprefix.hammer_head": "%s Hammer Head",
+  "tagprefix.saw_head": "%s Saw Head",
+  "tagprefix.knife_head": "%s Knife Head",
+  "tagprefix.knife_butchery_head": "%s Butchery Knife Head",
 
   "tagprefix.tfc_gabbro": "TFC Gabbro %s Ore",
   "tagprefix.tfc_shale": "TFC Shale %s Ore",

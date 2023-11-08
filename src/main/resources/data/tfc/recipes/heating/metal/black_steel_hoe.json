@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "tfc:metal/hoe/black_steel"
+    "item": "gtceu:black_steel_hoe"
   },
   "result_fluid": {
     "fluid": "gtceu:black_steel",

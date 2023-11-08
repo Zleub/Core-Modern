@@ -5,7 +5,7 @@
     "tag": "forge:ingots/nickel"
   },
   "result": {
-    "item": "tfc:metal/rod/nickel",
+    "item": "gtceu:nickel_rod",
     "count": 2
   },
   "tier": 1,

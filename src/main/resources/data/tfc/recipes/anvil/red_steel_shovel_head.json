@@ -5,7 +5,7 @@
     "tag": "forge:ingots/red_steel"
   },
   "result": {
-    "item": "tfc:metal/shovel_head/red_steel"
+    "item": "gtceu:red_steel_shovel_head"
   },
   "tier": 6,
   "rules": [

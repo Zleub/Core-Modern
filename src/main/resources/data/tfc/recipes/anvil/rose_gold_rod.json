@@ -5,7 +5,7 @@
     "tag": "forge:ingots/rose_gold"
   },
   "result": {
-    "item": "tfc:metal/rod/rose_gold",
+    "item": "gtceu:rose_gold_rod",
     "count": 2
   },
   "tier": 1,

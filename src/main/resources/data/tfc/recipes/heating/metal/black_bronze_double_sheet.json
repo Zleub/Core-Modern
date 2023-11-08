@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "tag": "plates/double/black_bronze"
+    "tag": "forge:plates/double/black_bronze"
   },
   "result_fluid": {
     "fluid": "gtceu:black_bronze",

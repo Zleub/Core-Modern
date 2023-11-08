@@ -2,7 +2,7 @@
   "__comment__": "This file was automatically created by mcresources",
   "type": "tfc:anvil",
   "input": {
-    "tag": "forge:sheets/copper"
+    "tag": "forge:plates/copper"
   },
   "result": {
     "item": "tfc:metal/bars/copper",

@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "tfc:metal/double_sheet/brass"
+    "tag": "forge:plates/double/brass"
   },
   "result_fluid": {
     "fluid": "gtceu:brass",

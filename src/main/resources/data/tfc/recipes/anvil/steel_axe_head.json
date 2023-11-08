@@ -5,7 +5,7 @@
     "tag": "forge:ingots/steel"
   },
   "result": {
-    "item": "tfc:metal/axe_head/steel"
+    "item": "gtceu:steel_axe_head"
   },
   "tier": 4,
   "rules": [

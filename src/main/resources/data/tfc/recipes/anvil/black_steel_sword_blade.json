@@ -5,7 +5,7 @@
     "tag": "forge:double_ingots/black_steel"
   },
   "result": {
-    "item": "tfc:metal/sword_blade/black_steel"
+    "item": "gtceu:black_steel_sword_head"
   },
   "tier": 5,
   "rules": [

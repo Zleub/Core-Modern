@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "tag": "plates/double/bismuth_bronze"
+    "tag": "forge:plates/double/bismuth_bronze"
   },
   "result_fluid": {
     "fluid": "gtceu:bismuth_bronze",

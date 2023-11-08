@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "tfc:metal/double_sheet/black_steel"
+    "tag": "forge:plates/double/black_steel"
   },
   "result_fluid": {
     "fluid": "gtceu:black_steel",

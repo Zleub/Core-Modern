@@ -5,7 +5,7 @@
     "tag": "forge:double_ingots/silver"
   },
   "result": {
-    "item": "tfc:metal/sheet/silver"
+    "item": "gtceu:silver_plate"
   },
   "tier": 1,
   "rules": [

@@ -5,7 +5,7 @@
     "tag": "forge:ingots/brass"
   },
   "result": {
-    "item": "tfc:metal/rod/brass",
+    "item": "gtceu:brass_rod",
     "count": 2
   },
   "tier": 2,

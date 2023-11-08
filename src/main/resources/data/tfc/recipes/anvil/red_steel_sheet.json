@@ -5,7 +5,7 @@
     "tag": "forge:double_ingots/red_steel"
   },
   "result": {
-    "item": "tfc:metal/sheet/red_steel"
+    "item": "gtceu:red_steel_plate"
   },
   "tier": 6,
   "rules": [

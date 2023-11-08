@@ -5,7 +5,7 @@
     "tag": "forge:ingots/steel"
   },
   "result": {
-    "item": "tfc:metal/hammer_head/steel"
+    "item": "gtceu:steel_hammer_head"
   },
   "tier": 4,
   "rules": [

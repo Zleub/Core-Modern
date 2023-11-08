@@ -5,7 +5,7 @@
     "tag": "forge:ingots/sterling_silver"
   },
   "result": {
-    "item": "tfc:metal/rod/sterling_silver",
+    "item": "gtceu:sterling_silver_rod",
     "count": 2
   },
   "tier": 1,

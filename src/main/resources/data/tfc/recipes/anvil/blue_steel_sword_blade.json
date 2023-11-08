@@ -5,7 +5,7 @@
     "tag": "forge:double_ingots/blue_steel"
   },
   "result": {
-    "item": "tfc:metal/sword_blade/blue_steel"
+    "item": "gtceu:blue_steel_sword_head"
   },
   "tier": 6,
   "rules": [

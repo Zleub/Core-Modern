@@ -5,7 +5,7 @@
     "tag": "forge:ingots/steel"
   },
   "result": {
-    "item": "tfc:metal/saw_blade/steel"
+    "item": "gtceu:steel_saw_head"
   },
   "tier": 4,
   "rules": [

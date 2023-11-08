@@ -5,7 +5,7 @@
     "tag": "forge:ingots/red_steel"
   },
   "result": {
-    "item": "tfc:metal/axe_head/red_steel"
+    "item": "gtceu:red_steel_axe_head"
   },
   "tier": 6,
   "rules": [

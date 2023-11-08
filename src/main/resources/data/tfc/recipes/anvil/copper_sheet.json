@@ -5,7 +5,7 @@
     "tag": "forge:double_ingots/copper"
   },
   "result": {
-    "item": "tfc:metal/sheet/copper"
+    "item": "gtceu:copper_plate"
   },
   "tier": 1,
   "rules": [

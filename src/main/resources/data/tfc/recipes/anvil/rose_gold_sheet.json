@@ -5,7 +5,7 @@
     "tag": "forge:double_ingots/rose_gold"
   },
   "result": {
-    "item": "tfc:metal/sheet/rose_gold"
+    "item": "gtceu:rose_gold_plate"
   },
   "tier": 1,
   "rules": [
