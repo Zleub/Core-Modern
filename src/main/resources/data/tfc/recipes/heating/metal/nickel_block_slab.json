@@ -1,11 +1,5 @@
 {
-  "type": "tfc:heating",
-  "ingredient": {
-    "item": "tfc:metal/block/nickel_slab"
-  },
-  "result_fluid": {
-    "fluid": "gtceu:nickel",
-    "amount": 72
-  },
-  "temperature": 1453
+  "conditions": [
+    { "type": "forge:false" }
+  ]
 }

@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "tfc:metal/rod/red_steel"
+    "tag": "forge:rods/red_steel"
   },
   "result_fluid": {
     "fluid": "gtceu:red_steel",

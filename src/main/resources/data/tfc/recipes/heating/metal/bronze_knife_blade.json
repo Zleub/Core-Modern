@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "tfc:metal/knife_blade/bronze"
+    "item": "gtceu:bronze_knife_head"
   },
   "result_fluid": {
     "fluid": "gtceu:bronze",

@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "tfc:metal/block/copper"
+    "tag": "forge:storage_blocks/copper"
   },
   "result_fluid": {
     "fluid": "gtceu:copper",

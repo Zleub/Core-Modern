@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "tfc:metal/double_sheet/copper"
+    "tag": "forge:plates/double/copper"
   },
   "result_fluid": {
     "fluid": "gtceu:copper",

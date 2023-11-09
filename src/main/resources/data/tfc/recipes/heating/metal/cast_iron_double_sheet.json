@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "tfc:metal/double_sheet/cast_iron"
+    "tag": "forge:plates/double/iron"
   },
   "result_fluid": {
     "fluid": "gtceu:iron",

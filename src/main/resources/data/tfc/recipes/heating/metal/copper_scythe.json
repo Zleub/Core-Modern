@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "tfc:metal/scythe/copper"
+    "item": "gtceu:copper_scythe"
   },
   "result_fluid": {
     "fluid": "gtceu:copper",

@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "tfc:metal/hoe_head/bronze"
+    "item": "gtceu:bronze_hoe_head"
   },
   "result_fluid": {
     "fluid": "gtceu:bronze",

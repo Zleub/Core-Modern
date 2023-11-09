@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "tfc:metal/double_sheet/red_steel"
+    "tag": "forge:plates/double/red_steel"
   },
   "result_fluid": {
     "fluid": "gtceu:red_steel",

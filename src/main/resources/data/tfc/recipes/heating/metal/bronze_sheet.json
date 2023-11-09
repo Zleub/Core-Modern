@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "tfc:metal/sheet/bronze"
+    "tag": "forge:plates/bronze"
   },
   "result_fluid": {
     "fluid": "gtceu:bronze",
