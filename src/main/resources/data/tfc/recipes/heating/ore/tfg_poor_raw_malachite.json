@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "gtceu:poor_raw_malachite"
+    "tag": "forge:poor_raw_materials/malachite"
   },
   "result_fluid": {
     "fluid": "gtceu:copper",

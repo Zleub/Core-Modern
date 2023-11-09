@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "gtceu:rich_raw_magnetite"
+    "tag": "forge:rich_raw_materials/magnetite"
   },
   "result_fluid": {
     "fluid": "gtceu:iron",

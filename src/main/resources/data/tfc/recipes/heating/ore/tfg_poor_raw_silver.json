@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "gtceu:poor_raw_silver"
+    "tag": "forge:poor_raw_materials/silver"
   },
   "result_fluid": {
     "fluid": "gtceu:silver",

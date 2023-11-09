@@ -2,13 +2,13 @@
   "__comment__": "This file was automatically created by mcresources",
   "ingredient": [
     {
-      "item": "gtceu:poor_raw_garnierite"
+      "tag": "forge:poor_raw_materials/garnierite"
     },
     {
-      "item": "gtceu:raw_garnierite"
+      "tag": "forge:raw_materials/garnierite"
     },
     {
-      "item": "gtceu:rich_raw_garnierite"
+      "tag": "forge:rich_raw_materials/garnierite"
     }
   ],
   "heat_capacity": 0.833,

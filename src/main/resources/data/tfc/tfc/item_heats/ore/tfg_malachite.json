@@ -2,13 +2,13 @@
   "__comment__": "This file was automatically created by mcresources",
   "ingredient": [
     {
-      "item": "gtceu:poor_raw_malachite"
+      "tag": "forge:poor_raw_materials/malachite"
     },
     {
-      "item": "gtceu:raw_malachite"
+      "tag": "forge:raw_materials/malachite"
     },
     {
-      "item": "gtceu:rich_raw_malachite"
+      "tag": "forge:rich_raw_materials/malachite"
     }
   ],
   "heat_capacity": 1.143,

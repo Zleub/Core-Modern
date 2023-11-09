@@ -2,13 +2,13 @@
   "__comment__": "This file was automatically created by mcresources",
   "ingredient": [
     {
-      "item": "gtceu:poor_raw_tetrahedrite"
+      "tag": "forge:poor_raw_materials/tetrahedrite"
     },
     {
-      "item": "gtceu:raw_tetrahedrite"
+      "tag": "forge:raw_materials/tetrahedrite"
     },
     {
-      "item": "gtceu:rich_raw_tetrahedrite"
+      "tag": "forge:rich_raw_materials/tetrahedrite"
     }
   ],
   "heat_capacity": 1.143,

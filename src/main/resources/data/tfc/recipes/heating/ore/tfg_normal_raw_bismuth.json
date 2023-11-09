@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "gtceu:raw_bismuth"
+    "tag": "forge:raw_materials/bismuth"
   },
   "result_fluid": {
     "fluid": "gtceu:bismuth",

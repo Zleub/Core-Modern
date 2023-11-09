@@ -2,13 +2,13 @@
   "__comment__": "This file was automatically created by mcresources",
   "ingredient": [
     {
-      "item": "gtceu:poor_raw_hematite"
+      "tag": "forge:poor_raw_materials/hematite"
     },
     {
-      "item": "gtceu:raw_hematite"
+      "tag": "forge:raw_materials/hematite"
     },
     {
-      "item": "gtceu:rich_raw_hematite"
+      "tag": "forge:rich_raw_materials/hematite"
     }
   ],
   "heat_capacity": 1.143,

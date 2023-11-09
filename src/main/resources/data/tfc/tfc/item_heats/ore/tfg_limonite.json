@@ -2,13 +2,13 @@
   "__comment__": "This file was automatically created by mcresources",
   "ingredient": [
     {
-      "item": "gtceu:poor_raw_yellow_limonite"
+      "tag": "forge:poor_raw_materials/yellow_limonite"
     },
     {
-      "item": "gtceu:raw_yellow_limonite"
+      "tag": "forge:raw_materials/yellow_limonite"
     },
     {
-      "item": "gtceu:rich_raw_yellow_limonite"
+      "tag": "forge:rich_raw_materials/yellow_limonite"
     }
   ],
   "heat_capacity": 1.143,

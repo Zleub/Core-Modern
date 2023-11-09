@@ -2,13 +2,13 @@
   "__comment__": "This file was automatically created by mcresources",
   "ingredient": [
     {
-      "item": "gtceu:poor_raw_copper"
+      "tag": "forge:poor_raw_materials/copper"
     },
     {
-      "item": "gtceu:raw_copper"
+      "tag": "forge:raw_materials/copper"
     },
     {
-      "item": "gtceu:rich_raw_copper"
+      "tag": "forge:rich_raw_materials/copper"
     }
   ],
   "heat_capacity": 1.143,

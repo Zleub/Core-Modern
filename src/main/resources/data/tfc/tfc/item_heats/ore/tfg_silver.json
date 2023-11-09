@@ -2,13 +2,13 @@
   "__comment__": "This file was automatically created by mcresources",
   "ingredient": [
     {
-      "item": "gtceu:poor_raw_silver"
+      "tag": "forge:poor_raw_materials/silver"
     },
     {
-      "item": "gtceu:raw_silver"
+      "tag": "forge:raw_materials/silver"
     },
     {
-      "item": "gtceu:rich_raw_silver"
+      "tag": "forge:rich_raw_materials/silver"
     }
   ],
   "heat_capacity": 0.833,

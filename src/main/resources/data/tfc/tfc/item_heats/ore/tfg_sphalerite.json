@@ -2,13 +2,13 @@
   "__comment__": "This file was automatically created by mcresources",
   "ingredient": [
     {
-      "item": "gtceu:poor_raw_sphalerite"
+      "tag": "forge:poor_raw_materials/sphalerite"
     },
     {
-      "item": "gtceu:raw_sphalerite"
+      "tag": "forge:raw_materials/sphalerite"
     },
     {
-      "item": "gtceu:rich_raw_sphalerite"
+      "tag": "forge:rich_raw_materials/sphalerite"
     }
   ],
   "heat_capacity": 1.905,

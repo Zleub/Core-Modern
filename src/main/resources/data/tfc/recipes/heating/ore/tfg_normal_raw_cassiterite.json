@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "gtceu:raw_cassiterite"
+    "tag": "forge:raw_materials/cassiterite"
   },
   "result_fluid": {
     "fluid": "gtceu:tin",

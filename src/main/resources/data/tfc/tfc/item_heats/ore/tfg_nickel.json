@@ -2,13 +2,13 @@
   "__comment__": "This file was automatically created by mcresources",
   "ingredient": [
     {
-      "item": "gtceu:poor_raw_nickel"
+      "tag": "forge:poor_raw_materials/nickel"
     },
     {
-      "item": "gtceu:raw_nickel"
+      "tag": "forge:raw_materials/nickel"
     },
     {
-      "item": "gtceu:rich_raw_nickel"
+      "tag": "forge:rich_raw_materials/nickel"
     }
   ],
   "heat_capacity": 0.833,

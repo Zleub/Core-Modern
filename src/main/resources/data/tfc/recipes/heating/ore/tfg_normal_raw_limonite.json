@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "gtceu:raw_yellow_limonite"
+    "tag": "forge:raw_materials/yellow_limonite"
   },
   "result_fluid": {
     "fluid": "gtceu:iron",

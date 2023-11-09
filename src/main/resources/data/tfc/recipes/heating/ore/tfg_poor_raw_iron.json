@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "gtceu:poor_raw_iron"
+    "tag": "forge:poor_raw_materials/iron"
   },
   "result_fluid": {
     "fluid": "gtceu:iron",

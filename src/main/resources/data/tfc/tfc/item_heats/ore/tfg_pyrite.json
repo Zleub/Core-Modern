@@ -2,13 +2,13 @@
   "__comment__": "This file was automatically created by mcresources",
   "ingredient": [
     {
-      "item": "gtceu:poor_raw_pyrite"
+      "tag": "forge:poor_raw_materials/pyrite"
     },
     {
-      "item": "gtceu:raw_pyrite"
+      "tag": "forge:raw_materials/pyrite"
     },
     {
-      "item": "gtceu:rich_raw_pyrite"
+      "tag": "forge:rich_raw_materials/pyrite"
     }
   ],
   "heat_capacity": 1.143,

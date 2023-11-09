@@ -2,13 +2,13 @@
   "__comment__": "This file was automatically created by mcresources",
   "ingredient": [
     {
-      "item": "gtceu:poor_raw_iron"
+      "tag": "forge:poor_raw_materials/iron"
     },
     {
-      "item": "gtceu:raw_iron"
+      "tag": "forge:raw_materials/iron"
     },
     {
-      "item": "gtceu:rich_raw_iron"
+      "tag": "forge:rich_raw_materials/iron"
     }
   ],
   "heat_capacity": 1.143,

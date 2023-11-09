@@ -2,13 +2,13 @@
   "__comment__": "This file was automatically created by mcresources",
   "ingredient": [
     {
-      "item": "gtceu:poor_raw_magnetite"
+      "tag": "forge:poor_raw_materials/magnetite"
     },
     {
-      "item": "gtceu:raw_magnetite"
+      "tag": "forge:raw_materials/magnetite"
     },
     {
-      "item": "gtceu:rich_raw_magnetite"
+      "tag": "forge:rich_raw_materials/magnetite"
     }
   ],
   "heat_capacity": 1.143,

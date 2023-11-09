@@ -2,13 +2,13 @@
   "__comment__": "This file was automatically created by mcresources",
   "ingredient": [
     {
-      "item": "gtceu:poor_raw_tin"
+      "tag": "forge:poor_raw_materials/tin"
     },
     {
-      "item": "gtceu:raw_tin"
+      "tag": "forge:raw_materials/tin"
     },
     {
-      "item": "gtceu:rich_raw_tin"
+      "tag": "forge:rich_raw_materials/tin"
     }
   ],
   "heat_capacity": 2.857,

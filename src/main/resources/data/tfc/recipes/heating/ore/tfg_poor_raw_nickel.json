@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "gtceu:poor_raw_nickel"
+    "tag": "forge:poor_raw_materials/nickel"
   },
   "result_fluid": {
     "fluid": "gtceu:nickel",

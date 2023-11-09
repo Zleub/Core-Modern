@@ -2,13 +2,13 @@
   "__comment__": "This file was automatically created by mcresources",
   "ingredient": [
     {
-      "item": "gtceu:poor_raw_cassiterite"
+      "tag": "forge:poor_raw_materials/cassiterite"
     },
     {
-      "item": "gtceu:raw_cassiterite"
+      "tag": "forge:raw_materials/cassiterite"
     },
     {
-      "item": "gtceu:rich_raw_cassiterite"
+      "tag": "forge:rich_raw_materials/cassiterite"
     }
   ],
   "heat_capacity": 2.857,

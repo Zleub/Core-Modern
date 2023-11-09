@@ -2,13 +2,13 @@
   "__comment__": "This file was automatically created by mcresources",
   "ingredient": [
     {
-      "item": "gtceu:poor_raw_bismuth"
+      "tag": "forge:poor_raw_materials/bismuth"
     },
     {
-      "item": "gtceu:raw_bismuth"
+      "tag": "forge:raw_materials/bismuth"
     },
     {
-      "item": "gtceu:rich_raw_bismuth"
+      "tag": "forge:rich_raw_materials/bismuth"
     }
   ],
   "heat_capacity": 2.857,

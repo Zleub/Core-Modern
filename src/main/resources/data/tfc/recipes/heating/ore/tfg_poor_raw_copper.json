@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "gtceu:poor_raw_copper"
+    "tag": "forge:poor_raw_materials/copper"
   },
   "result_fluid": {
     "fluid": "gtceu:copper",

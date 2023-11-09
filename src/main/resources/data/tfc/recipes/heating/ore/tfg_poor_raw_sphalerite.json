@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "gtceu:poor_raw_sphalerite"
+    "tag": "forge:poor_raw_materials/sphalerite"
   },
   "result_fluid": {
     "fluid": "gtceu:zinc",
