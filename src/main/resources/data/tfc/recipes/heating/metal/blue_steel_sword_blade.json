@@ -4,7 +4,7 @@
     "item": "gtceu:blue_steel_sword_head"
   },
   "result_fluid": {
-    "fluid": "tfc:metal/blue_steel",
+    "fluid": "gtceu:blue_steel",
     "amount": 288
   },
   "temperature": 1540

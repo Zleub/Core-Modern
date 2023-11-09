@@ -4,7 +4,7 @@
     "item": "tfc:metal/fishing_rod/blue_steel"
   },
   "result_fluid": {
-    "fluid": "tfc:metal/blue_steel",
+    "fluid": "gtceu:blue_steel",
     "amount": 288
   },
   "temperature": 1540,

@@ -4,7 +4,7 @@
     "item": "tfc:metal/unfinished_chestplate/blue_steel"
   },
   "result_fluid": {
-    "fluid": "tfc:metal/blue_steel",
+    "fluid": "gtceu:blue_steel",
     "amount": 576
   },
   "temperature": 1540

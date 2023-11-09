@@ -4,7 +4,7 @@
     "tag": "forge:storage_blocks/blue_steel"
   },
   "result_fluid": {
-    "fluid": "tfc:metal/blue_steel",
+    "fluid": "gtceu:blue_steel",
     "amount": 144
   },
   "temperature": 1540
