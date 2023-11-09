@@ -20,6 +20,7 @@ public class TFGTagPrefixes {
 
     public static final TagPrefix poorRawOre = new TagPrefix("poor_raw", true)
             .defaultTagPath(FORGE, "poor_raw_materials/%s")
+            .unformattedTagPath(FORGE, "poor_raw_materials")
             .langValue("Poor Raw %s")
             .materialIconType(TFGMaterialIconType.poorRawOre)
             .unificationEnabled(true)
@@ -28,6 +29,7 @@ public class TFGTagPrefixes {
 
     public static final TagPrefix richRawOre = new TagPrefix("rich_raw", true)
             .defaultTagPath(FORGE, "rich_raw_materials/%s")
+            .unformattedTagPath(FORGE, "rich_raw_materials")
             .langValue("Rich Raw %s")
             .materialIconType(TFGMaterialIconType.richRawOre)
             .unificationEnabled(true)
@@ -37,6 +39,8 @@ public class TFGTagPrefixes {
     /* Tool Heads */
 
     public static final TagPrefix toolHeadSword = new TagPrefix("swordHead")
+            .defaultTagPath(FORGE, "sword_heads/%s")
+            .unformattedTagPath(FORGE, "sword_heads")
             .itemTable(() -> GTItems.MATERIAL_ITEMS)
             .langValue("%s Sword Head")
             .materialAmount(GTValues.M * 2)
@@ -47,9 +51,11 @@ public class TFGTagPrefixes {
             .generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE)));
 
     public static final TagPrefix toolHeadPickaxe = new TagPrefix("pickaxeHead")
+            .defaultTagPath(FORGE, "pickaxe_heads/%s")
+            .unformattedTagPath(FORGE, "pickaxe_heads")
             .itemTable(() -> GTItems.MATERIAL_ITEMS)
             .langValue("%s Pickaxe Head")
-            .materialAmount(GTValues.M * 2)
+            .materialAmount(GTValues.M)
             .maxStackSize(16)
             .materialIconType(MaterialIconType.toolHeadPickaxe)
             .unificationEnabled(true)
@@ -57,9 +63,11 @@ public class TFGTagPrefixes {
             .generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE)));
 
     public static final TagPrefix toolHeadShovel = new TagPrefix("shovelHead")
+            .defaultTagPath(FORGE, "shovel_heads/%s")
+            .unformattedTagPath(FORGE, "shovel_heads")
             .itemTable(() -> GTItems.MATERIAL_ITEMS)
             .langValue("%s Shovel Head")
-            .materialAmount(GTValues.M * 2)
+            .materialAmount(GTValues.M)
             .maxStackSize(16)
             .materialIconType(MaterialIconType.toolHeadShovel)
             .unificationEnabled(true)
@@ -67,9 +75,11 @@ public class TFGTagPrefixes {
             .generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE)));
 
     public static final TagPrefix toolHeadAxe = new TagPrefix("axeHead")
+            .defaultTagPath(FORGE, "axe_heads/%s")
+            .unformattedTagPath(FORGE, "axe_heads")
             .itemTable(() -> GTItems.MATERIAL_ITEMS)
             .langValue("%s Axe Head")
-            .materialAmount(GTValues.M * 2)
+            .materialAmount(GTValues.M)
             .maxStackSize(16)
             .materialIconType(MaterialIconType.toolHeadAxe)
             .unificationEnabled(true)
@@ -77,6 +87,8 @@ public class TFGTagPrefixes {
             .generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE)));
 
     public static final TagPrefix toolHeadHoe = new TagPrefix("hoeHead")
+            .defaultTagPath(FORGE, "hoe_heads/%s")
+            .unformattedTagPath(FORGE, "hoe_heads")
             .itemTable(() -> GTItems.MATERIAL_ITEMS)
             .langValue("%s Hoe Head")
             .materialAmount(GTValues.M)
@@ -87,6 +99,8 @@ public class TFGTagPrefixes {
             .generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE)));
 
     public static final TagPrefix toolHeadScythe = new TagPrefix("scytheHead")
+            .defaultTagPath(FORGE, "scythe_heads/%s")
+            .unformattedTagPath(FORGE, "scythe_heads")
             .itemTable(() -> GTItems.MATERIAL_ITEMS)
             .langValue("%s Scythe Head")
             .materialAmount(GTValues.M)
@@ -97,6 +111,8 @@ public class TFGTagPrefixes {
             .generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE)));
 
     public static final TagPrefix toolHeadFile = new TagPrefix("fileHead")
+            .defaultTagPath(FORGE, "file_heads/%s")
+            .unformattedTagPath(FORGE, "file_heads")
             .itemTable(() -> GTItems.MATERIAL_ITEMS)
             .langValue("%s File Head")
             .materialAmount(GTValues.M)
@@ -107,6 +123,8 @@ public class TFGTagPrefixes {
             .generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE)));
 
     public static final TagPrefix toolHeadHammer = new TagPrefix("hammerHead")
+            .defaultTagPath(FORGE, "hammer_heads/%s")
+            .unformattedTagPath(FORGE, "hammer_heads")
             .itemTable(() -> GTItems.MATERIAL_ITEMS)
             .langValue("%s Hammer Head")
             .materialAmount(GTValues.M)
@@ -117,6 +135,8 @@ public class TFGTagPrefixes {
             .generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE)));
 
     public static final TagPrefix toolHeadSaw = new TagPrefix("sawHead")
+            .defaultTagPath(FORGE, "saw_heads/%s")
+            .unformattedTagPath(FORGE, "saw_heads")
             .itemTable(() -> GTItems.MATERIAL_ITEMS)
             .langValue("%s Saw Head")
             .materialAmount(GTValues.M)
@@ -127,6 +147,8 @@ public class TFGTagPrefixes {
             .generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE)));
 
     public static final TagPrefix toolHeadKnife = new TagPrefix("knifeHead")
+            .defaultTagPath(FORGE, "knife_heads/%s")
+            .unformattedTagPath(FORGE, "knife_heads")
             .itemTable(() -> GTItems.MATERIAL_ITEMS)
             .langValue("%s Knife Head")
             .materialAmount(GTValues.M)
@@ -137,6 +159,8 @@ public class TFGTagPrefixes {
             .generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE)));
 
     public static final TagPrefix toolHeadButcheryKnife = new TagPrefix("knifeButcheryHead")
+            .defaultTagPath(FORGE, "butchery_knife_heads/%s")
+            .unformattedTagPath(FORGE, "butchery_knife_heads")
             .itemTable(() -> GTItems.MATERIAL_ITEMS)
             .langValue("%s Butchery Knife Head")
             .materialAmount(GTValues.M)
