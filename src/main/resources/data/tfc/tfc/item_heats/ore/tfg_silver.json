@@ -1,0 +1,17 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "ingredient": [
+    {
+      "item": "gtceu:poor_raw_silver"
+    },
+    {
+      "item": "gtceu:raw_silver"
+    },
+    {
+      "item": "gtceu:rich_raw_silver"
+    }
+  ],
+  "heat_capacity": 0.833,
+  "forging_temperature": 577,
+  "welding_temperature": 769
+}

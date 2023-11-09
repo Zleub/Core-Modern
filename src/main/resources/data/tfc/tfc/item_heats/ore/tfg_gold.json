@@ -1,0 +1,17 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "ingredient": [
+    {
+      "item": "gtceu:poor_raw_gold"
+    },
+    {
+      "item": "gtceu:raw_gold"
+    },
+    {
+      "item": "gtceu:rich_raw_gold"
+    }
+  ],
+  "heat_capacity": 0.667,
+  "forging_temperature": 636,
+  "welding_temperature": 848
+}

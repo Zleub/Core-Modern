@@ -1,0 +1,17 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "ingredient": [
+    {
+      "item": "gtceu:poor_raw_zinc"
+    },
+    {
+      "item": "gtceu:raw_zinc"
+    },
+    {
+      "item": "gtceu:rich_raw_zinc"
+    }
+  ],
+  "heat_capacity": 1.905,
+  "forging_temperature": 252,
+  "welding_temperature": 336
+}

@@ -1,0 +1,17 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "ingredient": [
+    {
+      "item": "gtceu:poor_raw_nickel"
+    },
+    {
+      "item": "gtceu:raw_nickel"
+    },
+    {
+      "item": "gtceu:rich_raw_nickel"
+    }
+  ],
+  "heat_capacity": 0.833,
+  "forging_temperature": 872,
+  "welding_temperature": 1162
+}

@@ -1,0 +1,17 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "ingredient": [
+    {
+      "item": "gtceu:poor_raw_iron"
+    },
+    {
+      "item": "gtceu:raw_iron"
+    },
+    {
+      "item": "gtceu:rich_raw_iron"
+    }
+  ],
+  "heat_capacity": 1.143,
+  "forging_temperature": 921,
+  "welding_temperature": 1228
+}

@@ -1,0 +1,11 @@
+{
+  "type": "tfc:heating",
+  "ingredient": {
+    "item": "gtceu:raw_nickel"
+  },
+  "result_fluid": {
+    "fluid": "gtceu:nickel",
+    "amount": 36
+  },
+  "temperature": 270
+}

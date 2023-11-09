@@ -1,0 +1,17 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "ingredient": [
+    {
+      "item": "gtceu:poor_raw_yellow_limonite"
+    },
+    {
+      "item": "gtceu:raw_yellow_limonite"
+    },
+    {
+      "item": "gtceu:rich_raw_yellow_limonite"
+    }
+  ],
+  "heat_capacity": 1.143,
+  "forging_temperature": 921,
+  "welding_temperature": 1228
+}
