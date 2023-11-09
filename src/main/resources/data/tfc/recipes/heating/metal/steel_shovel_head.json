@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "tfc:metal/shovel_head/steel"
+    "item": "gtceu:steel_shovel_head"
   },
   "result_fluid": {
     "fluid": "gtceu:steel",

@@ -1,11 +1,5 @@
 {
-  "type": "tfc:heating",
-  "ingredient": {
-    "item": "tfc:metal/block/wrought_iron_slab"
-  },
-  "result_fluid": {
-    "fluid": "gtceu:iron",
-    "amount": 72
-  },
-  "temperature": 1535
+  "conditions": [
+    { "type": "forge:false" }
+  ]
 }

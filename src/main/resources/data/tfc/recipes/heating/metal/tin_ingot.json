@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "tfc:metal/ingot/tin"
+    "tag": "forge:ingots/tin"
   },
   "result_fluid": {
     "fluid": "gtceu:tin",

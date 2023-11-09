@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "tfc:metal/pickaxe/steel"
+    "item": "gtceu:steel_pickaxe"
   },
   "result_fluid": {
     "fluid": "gtceu:steel",

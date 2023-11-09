@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "rod": "forge:rods/black_steel"
+    "tag": "forge:rods/black_steel"
   },
   "result_fluid": {
     "fluid": "gtceu:black_steel",

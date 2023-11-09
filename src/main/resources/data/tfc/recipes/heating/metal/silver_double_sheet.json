@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "tfc:metal/double_sheet/silver"
+    "tag": "forge:plates/double/silver"
   },
   "result_fluid": {
     "fluid": "gtceu:silver",

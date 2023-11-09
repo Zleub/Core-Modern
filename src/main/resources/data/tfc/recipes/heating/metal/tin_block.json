@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "tfc:metal/block/tin"
+    "tag": "forge:storage_blocks/tin"
   },
   "result_fluid": {
     "fluid": "gtceu:tin",

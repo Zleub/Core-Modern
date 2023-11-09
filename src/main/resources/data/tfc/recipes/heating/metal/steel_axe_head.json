@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "tfc:metal/axe_head/steel"
+    "item": "gtceu:steel_axe_head"
   },
   "result_fluid": {
     "fluid": "gtceu:steel",

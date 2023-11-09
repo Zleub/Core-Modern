@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "tfc:metal/shovel/wrought_iron"
+    "item": "gtceu:wrought_iron_shovel"
   },
   "result_fluid": {
     "fluid": "gtceu:iron",

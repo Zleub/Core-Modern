@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "tfc:metal/hoe/wrought_iron"
+    "item": "gtceu:wrought_iron_hoe"
   },
   "result_fluid": {
     "fluid": "gtceu:iron",

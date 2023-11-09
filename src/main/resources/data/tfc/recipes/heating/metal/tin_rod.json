@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "tfc:metal/rod/tin"
+    "tag": "forge:rods/tin"
   },
   "result_fluid": {
     "fluid": "gtceu:tin",

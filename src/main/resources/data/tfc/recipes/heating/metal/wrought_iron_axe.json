@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "tfc:metal/axe/wrought_iron"
+    "item": "gtceu:wrought_iron_axe"
   },
   "result_fluid": {
     "fluid": "gtceu:iron",

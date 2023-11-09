@@ -1,11 +1,5 @@
 {
-  "type": "tfc:heating",
-  "ingredient": {
-    "item": "tfc:metal/block/silver_stairs"
-  },
-  "result_fluid": {
-    "fluid": "gtceu:silver",
-    "amount": 108
-  },
-  "temperature": 961
+  "conditions": [
+    { "type": "forge:false" }
+  ]
 }

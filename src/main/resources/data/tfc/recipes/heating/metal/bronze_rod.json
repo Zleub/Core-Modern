@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "tag": "gtceu:rods/bronze"
+    "tag": "forge:rods/bronze"
   },
   "result_fluid": {
     "fluid": "gtceu:bronze",

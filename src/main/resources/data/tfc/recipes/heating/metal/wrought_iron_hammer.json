@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "tfc:metal/hammer/wrought_iron"
+    "item": "gtceu:wrought_iron_hammer"
   },
   "result_fluid": {
     "fluid": "gtceu:iron",

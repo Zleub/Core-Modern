@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "tfc:metal/block/wrought_iron"
+    "tag": "forge:storage_blocks/wrought_iron"
   },
   "result_fluid": {
     "fluid": "gtceu:iron",

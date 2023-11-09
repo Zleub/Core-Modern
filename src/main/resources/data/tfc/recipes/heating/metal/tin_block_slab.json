@@ -1,11 +1,5 @@
 {
-  "type": "tfc:heating",
-  "ingredient": {
-    "item": "tfc:metal/block/tin_slab"
-  },
-  "result_fluid": {
-    "fluid": "gtceu:tin",
-    "amount": 72
-  },
-  "temperature": 230
+  "conditions": [
+    { "type": "forge:false" }
+  ]
 }

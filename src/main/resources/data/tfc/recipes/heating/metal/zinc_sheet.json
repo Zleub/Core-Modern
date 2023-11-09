@@ -1,7 +1,7 @@
 {
   "type": "tfc:heating",
   "ingredient": {
-    "item": "tfc:metal/sheet/zinc"
+    "tag": "forge:plates/zinc"
   },
   "result_fluid": {
     "fluid": "gtceu:zinc",
