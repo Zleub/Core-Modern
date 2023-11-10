@@ -5,7 +5,7 @@
     "item": "tfc:metal/unfinished_boots/wrought_iron"
   },
   "second_input": {
-    "tag": "tfc:plates/wrought_iron"
+    "tag": "forge:plates/wrought_iron"
   },
   "tier": 2,
   "result": {
