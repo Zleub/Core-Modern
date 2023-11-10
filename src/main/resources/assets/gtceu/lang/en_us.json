@@ -1,4 +1,17 @@
 {
+  "item.gtceu.mining_hammer_head_mold": "Extruder Mold (Mining Hammer)",
+  "item.gtceu.sword_head_mold": "Extruder Mold (Sword Head)",
+  "item.gtceu.pickaxe_head_mold": "Extruder Mold (Pickaxe Head)",
+  "item.gtceu.shovel_head_mold": "Extruder Mold (Shovel Head)",
+  "item.gtceu.axe_head_mold": "Extruder Mold (Axe Head)",
+  "item.gtceu.hoe_head_mold": "Extruder Mold (Hoe Head)",
+  "item.gtceu.scythe_head_mold": "Extruder Mold (Scythe Head)",
+  "item.gtceu.file_head_mold": "Extruder Mold (File Head)",
+  "item.gtceu.hammer_head_mold": "Extruder Mold (Hammer Head)",
+  "item.gtceu.saw_head_mold": "Extruder Mold (Saw Head)",
+  "item.gtceu.knife_head_mold": "Extruder Mold (Knife Head)",
+  "item.gtceu.butchery_knife_head_mold": "Extruder Mold (Butchery Knife Head)",
+
   "material.gabbro": "Gabbro",
   "material.shale": "Shale",
   "material.claystone": "Claystone",

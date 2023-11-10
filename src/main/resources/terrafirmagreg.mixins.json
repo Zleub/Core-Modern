@@ -5,10 +5,12 @@
   "compatibilityLevel": "JAVA_17",
   "plugin": "exception.terrafirmagreg.TFGMixinPlugin",
   "mixins": [
+    "GTRecipesMixin",
     "MaterialRecipeHandlerMixin",
     "OreRecipeHandlerMixin",
     "PartsRecipeHandlerMixin",
     "RecyclingRecipeHandlerMixin",
+    "TFGItemsMixin",
     "ToolRecipeHandlerMixin"
   ],
   "injectors": {
