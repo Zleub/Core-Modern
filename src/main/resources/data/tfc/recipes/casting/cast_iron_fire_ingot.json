@@ -9,7 +9,7 @@
     "amount": 144
   },
   "result": {
-    "item": "tfc:metal/ingot/cast_iron"
+    "item": "minecraft:iron_ingot"
   },
   "break_chance": 0.01
 }

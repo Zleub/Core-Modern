@@ -9,7 +9,7 @@
     "amount": 144
   },
   "result": {
-    "item": "tfc:metal/ingot/bismuth"
+    "item": "gtceu:bismuth_ingot"
   },
   "break_chance": 0.1
 }

@@ -9,7 +9,7 @@
     "amount": 144
   },
   "result": {
-    "item": "tfc:metal/ingot/gold"
+    "item": "minecraft:gold_ingot"
   },
   "break_chance": 0.1
 }

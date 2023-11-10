@@ -9,7 +9,7 @@
     "amount": 144
   },
   "result": {
-    "item": "tfc:metal/ingot/steel"
+    "item": "gtceu:steel_ingot"
   },
   "break_chance": 0.01
 }

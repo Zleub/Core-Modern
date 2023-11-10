@@ -9,7 +9,7 @@
     "amount": 144
   },
   "result": {
-    "item": "tfc:metal/ingot/copper"
+    "item": "minecraft:copper_ingot"
   },
   "break_chance": 0.1
 }
