@@ -5,7 +5,7 @@
     "item": "tfc:metal/unfinished_boots/bismuth_bronze"
   },
   "second_input": {
-    "item": "tfc:metal/sheet/bismuth_bronze"
+    "tag": "forge:plates/bismuth_bronze"
   },
   "tier": 1,
   "result": {

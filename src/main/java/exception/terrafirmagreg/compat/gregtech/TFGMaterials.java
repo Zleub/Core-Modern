@@ -6,11 +6,14 @@ import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.OreProperty;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.ToolProperty;
+import com.gregtechceu.gtceu.api.item.tool.GTToolType;
 import com.gregtechceu.gtceu.api.item.tool.MaterialToolTier;
+import com.gregtechceu.gtceu.api.registry.GTRegistries;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
 
 import java.util.Arrays;
 
+import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.GENERATE_LONG_ROD;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.GENERATE_ROD;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.EXT2_METAL;
 
@@ -23,12 +26,23 @@ public class TFGMaterials {
         GTMaterials.Borax.setProperty(PropertyKey.ORE, new OreProperty());
 
         GTMaterials.Nickel.addFlags(GENERATE_ROD);
+        GTMaterials.Nickel.addFlags(GENERATE_LONG_ROD);
+        GTMaterials.BlackSteel.addFlags(GENERATE_LONG_ROD);
+        GTMaterials.BlueSteel.addFlags(GENERATE_LONG_ROD);
+        GTMaterials.RedSteel.addFlags(GENERATE_LONG_ROD);
 
-        GTMaterials.Copper.setProperty(PropertyKey.TOOL, new ToolProperty());
-        GTMaterials.BismuthBronze.setProperty(PropertyKey.TOOL, new ToolProperty());
-        GTMaterials.BlackBronze.setProperty(PropertyKey.TOOL, new ToolProperty());
-        GTMaterials.BlackSteel.setProperty(PropertyKey.TOOL, new ToolProperty());
-        // todo: custom durability
+        GTMaterials.Copper.setProperty(PropertyKey.TOOL, new ToolProperty(1.0F, 1.0F, 128, 2, GTToolType.values()));
+        GTMaterials.BismuthBronze.setProperty(PropertyKey.TOOL, new ToolProperty(3.0F, 2.0F, 178, 2, GTToolType.values()));
+        GTMaterials.BlackBronze.setProperty(PropertyKey.TOOL, new ToolProperty(3.0F, 2.0F, 228, 2, GTToolType.values()));
+        GTMaterials.BlackSteel.setProperty(PropertyKey.TOOL, new ToolProperty(15.0F, 7.0F, 1000, 3, GTToolType.values()));
+
+        for (var material : GTRegistries.MATERIALS.values())
+        {
+            var toolProperty = material.getProperty(PropertyKey.TOOL);
+            if (toolProperty == null) continue;
+
+            toolProperty.setDurability(toolProperty.getDurability() * 6);
+        }
     }
 
     public static Material Sylvite = new Material.Builder("sylvite")

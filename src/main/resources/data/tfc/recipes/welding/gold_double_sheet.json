@@ -2,13 +2,13 @@
   "__comment__": "This file was automatically created by mcresources",
   "type": "tfc:welding",
   "first_input": {
-    "tag": "forge:sheets/gold"
+    "tag": "forge:plates/gold"
   },
   "second_input": {
-    "tag": "forge:sheets/gold"
+    "tag": "forge:plates/gold"
   },
   "tier": 0,
   "result": {
-    "item": "tfc:metal/double_sheet/gold"
+    "item": "gtceu:gold_double_plate"
   }
 }

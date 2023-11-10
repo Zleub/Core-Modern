@@ -2,13 +2,13 @@
   "__comment__": "This file was automatically created by mcresources",
   "type": "tfc:welding",
   "first_input": {
-    "tag": "forge:sheets/zinc"
+    "tag": "forge:plates/zinc"
   },
   "second_input": {
-    "tag": "forge:sheets/zinc"
+    "tag": "forge:plates/zinc"
   },
   "tier": 0,
   "result": {
-    "item": "tfc:metal/double_sheet/zinc"
+    "item": "gtceu:zinc_double_plate"
   }
 }

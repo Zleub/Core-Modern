@@ -5,7 +5,7 @@
     "item": "tfc:metal/unfinished_boots/black_steel"
   },
   "second_input": {
-    "item": "tfc:metal/sheet/black_steel"
+    "tag": "forge:plates/black_steel"
   },
   "tier": 4,
   "result": {

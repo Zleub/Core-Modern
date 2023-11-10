@@ -38,6 +38,18 @@ public class TFGTagPrefixes {
 
     /* Tool Heads */
 
+    public static final TagPrefix toolHeadMiningHammer = new TagPrefix("miningHammerHead")
+            .defaultTagPath(FORGE, "mining_hammer_heads/%s")
+            .unformattedTagPath(FORGE, "mining_hammer_heads")
+            .itemTable(() -> GTItems.MATERIAL_ITEMS)
+            .langValue("%s Mining Hammer Head")
+            .materialAmount(GTValues.M * 6)
+            .maxStackSize(16)
+            .materialIconType(TFGMaterialIconType.toolHeadMiningHammer)
+            .unificationEnabled(true)
+            .generateItem(true)
+            .generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE)));
+
     public static final TagPrefix toolHeadSword = new TagPrefix("swordHead")
             .defaultTagPath(FORGE, "sword_heads/%s")
             .unformattedTagPath(FORGE, "sword_heads")

@@ -24,6 +24,7 @@ public class RecyclingRecipeHandlerMixin {
      * */
     @Inject(method = "init", at = @At(value = "TAIL"), remap = false)
     private static void onInit(Consumer<FinishedRecipe> provider, CallbackInfo ci) {
+        TFGTagPrefixes.toolHeadMiningHammer.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, provider));
         TFGTagPrefixes.toolHeadSword.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, provider));
         TFGTagPrefixes.toolHeadPickaxe.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, provider));
         TFGTagPrefixes.toolHeadShovel.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, provider));

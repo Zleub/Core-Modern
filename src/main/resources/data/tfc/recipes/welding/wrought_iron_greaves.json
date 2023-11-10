@@ -5,7 +5,7 @@
     "item": "tfc:metal/unfinished_greaves/wrought_iron"
   },
   "second_input": {
-    "item": "tfc:metal/sheet/wrought_iron"
+    "tag": "forge:plates/wrought_iron"
   },
   "tier": 2,
   "result": {

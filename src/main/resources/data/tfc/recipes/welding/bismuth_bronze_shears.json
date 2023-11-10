@@ -2,10 +2,10 @@
   "__comment__": "This file was automatically created by mcresources",
   "type": "tfc:welding",
   "first_input": {
-    "item": "tfc:metal/knife_blade/bismuth_bronze"
+    "tag": "forge:knife_heads/bismuth_bronze"
   },
   "second_input": {
-    "item": "tfc:metal/knife_blade/bismuth_bronze"
+    "tag": "forge:knife_heads/bismuth_bronze"
   },
   "tier": 1,
   "result": {

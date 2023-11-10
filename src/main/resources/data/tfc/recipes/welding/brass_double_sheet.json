@@ -2,13 +2,13 @@
   "__comment__": "This file was automatically created by mcresources",
   "type": "tfc:welding",
   "first_input": {
-    "tag": "forge:sheets/brass"
+    "tag": "forge:plates/brass"
   },
   "second_input": {
-    "tag": "forge:sheets/brass"
+    "tag": "forge:plates/brass"
   },
   "tier": 1,
   "result": {
-    "item": "tfc:metal/double_sheet/brass"
+    "item": "gtceu:brass_double_plate"
   }
 }

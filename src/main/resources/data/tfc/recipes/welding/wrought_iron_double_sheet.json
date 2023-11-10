@@ -2,13 +2,13 @@
   "__comment__": "This file was automatically created by mcresources",
   "type": "tfc:welding",
   "first_input": {
-    "tag": "forge:sheets/wrought_iron"
+    "tag": "forge:plates/wrought_iron"
   },
   "second_input": {
-    "tag": "forge:sheets/wrought_iron"
+    "tag": "forge:plates/wrought_iron"
   },
   "tier": 2,
   "result": {
-    "item": "tfc:metal/double_sheet/wrought_iron"
+    "item": "gtceu:wrought_iron_double_plate"
   }
 }

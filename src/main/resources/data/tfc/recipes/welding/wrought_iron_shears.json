@@ -2,10 +2,10 @@
   "__comment__": "This file was automatically created by mcresources",
   "type": "tfc:welding",
   "first_input": {
-    "item": "tfc:metal/knife_blade/wrought_iron"
+    "tag": "forge:knife_heads/wrought_iron"
   },
   "second_input": {
-    "item": "tfc:metal/knife_blade/wrought_iron"
+    "tag": "forge:knife_heads/wrought_iron"
   },
   "tier": 2,
   "result": {

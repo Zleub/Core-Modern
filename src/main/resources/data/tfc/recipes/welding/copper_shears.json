@@ -2,10 +2,10 @@
   "__comment__": "This file was automatically created by mcresources",
   "type": "tfc:welding",
   "first_input": {
-    "item": "tfc:metal/knife_blade/copper"
+    "tag": "forge:knife_heads/copper"
   },
   "second_input": {
-    "item": "tfc:metal/knife_blade/copper"
+    "tag": "forge:knife_heads/copper"
   },
   "tier": 0,
   "result": {

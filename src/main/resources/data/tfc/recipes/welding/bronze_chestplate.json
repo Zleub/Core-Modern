@@ -5,7 +5,7 @@
     "item": "tfc:metal/unfinished_chestplate/bronze"
   },
   "second_input": {
-    "item": "tfc:metal/double_sheet/bronze"
+    "tag": "forge:plates/double/bronze"
   },
   "tier": 1,
   "result": {

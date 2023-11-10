@@ -5,7 +5,7 @@
     "item": "tfc:metal/unfinished_chestplate/wrought_iron"
   },
   "second_input": {
-    "item": "tfc:metal/double_sheet/wrought_iron"
+    "tag": "forge:plates/double/wrought_iron"
   },
   "tier": 2,
   "result": {

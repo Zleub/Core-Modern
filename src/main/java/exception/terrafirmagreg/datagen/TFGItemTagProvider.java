@@ -5,7 +5,10 @@ import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlag;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
+import com.gregtechceu.gtceu.api.item.tool.GTToolType;
+import com.gregtechceu.gtceu.api.item.tool.ToolHelper;
 import com.gregtechceu.gtceu.api.registry.GTRegistries;
+import com.gregtechceu.gtceu.data.tags.TagsHandler;
 import net.dries007.tfc.common.TFCTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -40,6 +43,17 @@ public class TFGItemTagProvider extends ItemTagsProvider {
             if (!itemStackPlate.isEmpty())
             {
                 this.tag(TFCTags.Items.PILEABLE_SHEETS).add(itemStackPlate.getItem());
+            }
+
+            if (material.hasProperty(PropertyKey.TOOL))
+            {
+                for (var toolType : GTToolType.values())
+                {
+                    var toolItem = ToolHelper.get(toolType, material);
+
+                    if (!toolItem.isEmpty())
+                        this.tag(TFCTags.Items.USABLE_ON_TOOL_RACK).add(toolItem.getItem());
+                }
             }
         }
     }
