@@ -15,7 +15,11 @@ import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.Conditions.hasToolPro
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.LoaderType.FORGE;
 
 public class TFGTagPrefixes {
-    public static void init() {}
+    public static void init() {
+        TagPrefix.rawOre.unformattedTagPath(FORGE, "raw_materials");
+        TagPrefix.block.unformattedTagPath(FORGE, "material_blocks");
+        TagPrefix.rawOreBlock.unformattedTagPath(FORGE, "raw_material_blocks");
+    }
 
     /* Raw Ores */
 
