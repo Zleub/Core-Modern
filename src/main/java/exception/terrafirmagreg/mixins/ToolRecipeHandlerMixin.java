@@ -30,133 +30,74 @@ public class ToolRecipeHandlerMixin {
     private static void redirectRegisterFlintToolRecipes(Consumer<FinishedRecipe> provider) {}
 
     /**
-     * Фикс рецепта miningHammer
+     * Отключение рецепта miningHammer
      * */
     @Redirect(method = "processTool", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V", ordinal = 0), remap = false)
-    private static void processMiningHammer(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
-        ItemStack stick = new ItemStack(Items.STICK);
-        UnificationEntry head = new UnificationEntry(TFGTagPrefixes.toolHeadMiningHammer, material);
-
-        terraFirmaGreg_1_20_x$addToolRecipe(provider, material, GTToolType.MINING_HAMMER, false, head, stick);
-    }
+    private static void processMiningHammer(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {}
 
     /**
-     * Фикс рецепта saw
+     * Отключение рецепта saw
      * */
     @Redirect(method = "processTool", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V", ordinal = 1), remap = false)
-    private static void processSaw(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
-        ItemStack stick = new ItemStack(Items.STICK);
-        UnificationEntry head = new UnificationEntry(TFGTagPrefixes.toolHeadSaw, material);
-
-        terraFirmaGreg_1_20_x$addToolRecipe(provider, material, GTToolType.SAW, head, stick);
-    }
+    private static void processSaw(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {}
 
     /**
-     * Фикс рецепта axe
+     * Отключение рецепта axe
      * */
     @Redirect(method = "processTool", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V", ordinal = 2), remap = false)
-    private static void processAxe(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
-        ItemStack stick = new ItemStack(Items.STICK);
-        UnificationEntry head = new UnificationEntry(TFGTagPrefixes.toolHeadAxe, material);
-
-        terraFirmaGreg_1_20_x$addToolRecipe(provider, material, GTToolType.AXE, head, stick);
-    }
+    private static void processAxe(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {}
 
     /**
-     * Фикс рецепта hoe
+     * Отключение рецепта hoe
      * */
     @Redirect(method = "processTool", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V", ordinal = 3), remap = false)
-    private static void processHoe(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
-        ItemStack stick = new ItemStack(Items.STICK);
-        UnificationEntry head = new UnificationEntry(TFGTagPrefixes.toolHeadHoe, material);
-
-        terraFirmaGreg_1_20_x$addToolRecipe(provider, material, GTToolType.HOE, head, stick);
-    }
+    private static void processHoe(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {}
 
     /**
-     * Фикс рецепта pickaxe
+     * Отключение рецепта pickaxe
      * */
     @Redirect(method = "processTool", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V", ordinal = 4), remap = false)
-    private static void processPickaxe(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
-        ItemStack stick = new ItemStack(Items.STICK);
-        UnificationEntry head = new UnificationEntry(TFGTagPrefixes.toolHeadPickaxe, material);
-
-        terraFirmaGreg_1_20_x$addToolRecipe(provider, material, GTToolType.PICKAXE, head, stick);
-    }
+    private static void processPickaxe(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {}
 
     /**
-     * Фикс рецепта scythe
+     * Отключение рецепта scythe
      * */
     @Redirect(method = "processTool", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V", ordinal = 5), remap = false)
-    private static void processScythe(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
-        ItemStack stick = new ItemStack(Items.STICK);
-        UnificationEntry head = new UnificationEntry(TFGTagPrefixes.toolHeadScythe, material);
-
-        terraFirmaGreg_1_20_x$addToolRecipe(provider, material, GTToolType.SCYTHE, head, stick);
-    }
+    private static void processScythe(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {}
 
     /**
-     * Фикс рецепта shovel
+     * Отключение рецепта shovel
      * */
     @Redirect(method = "processTool", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V", ordinal = 6), remap = false)
-    private static void processShovel(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
-        ItemStack stick = new ItemStack(Items.STICK);
-        UnificationEntry head = new UnificationEntry(TFGTagPrefixes.toolHeadShovel, material);
-
-        terraFirmaGreg_1_20_x$addToolRecipe(provider, material, GTToolType.SHOVEL, head, stick);
-    }
+    private static void processShovel(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {}
 
     /**
-     * Фикс рецепта sword
+     * Отключение рецепта sword
      * */
     @Redirect(method = "processTool", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V", ordinal = 7), remap = false)
-    private static void processSword(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
-        ItemStack stick = new ItemStack(Items.STICK);
-        UnificationEntry head = new UnificationEntry(TFGTagPrefixes.toolHeadSword, material);
-
-        terraFirmaGreg_1_20_x$addToolRecipe(provider, material, GTToolType.SWORD, head, stick);
-    }
+    private static void processSword(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {}
 
     /**
-     * Фикс рецепта hammer
+     * Отключение рецепта hammer
      * */
     @Redirect(method = "processTool", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V", ordinal = 8), remap = false)
-    private static void processHammer(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
-        ItemStack stick = new ItemStack(Items.STICK);
-        UnificationEntry head = new UnificationEntry(TFGTagPrefixes.toolHeadHammer, material);
-
-        terraFirmaGreg_1_20_x$addToolRecipe(provider, material, GTToolType.HARD_HAMMER, head, stick);
-    }
+    private static void processHammer(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {}
 
     /**
-     * Фикс рецепта file
+     * Отключение рецепта file
      * */
     @Redirect(method = "processTool", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V", ordinal = 9), remap = false)
-    private static void processFile(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
-        ItemStack stick = new ItemStack(Items.STICK);
-        UnificationEntry head = new UnificationEntry(TFGTagPrefixes.toolHeadFile, material);
-
-        terraFirmaGreg_1_20_x$addToolRecipe(provider, material, GTToolType.FILE, head, stick);
-    }
+    private static void processFile(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {}
 
     /**
-     * Фикс рецепта knife
+     * Отключение рецепта knife
      * */
     @Redirect(method = "processTool", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V", ordinal = 10), remap = false)
-    private static void processKnife(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
-        ItemStack stick = new ItemStack(Items.STICK);
-        UnificationEntry head = new UnificationEntry(TFGTagPrefixes.toolHeadKnife, material);
+    private static void processKnife(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {}
 
-        terraFirmaGreg_1_20_x$addToolRecipe(provider, material, GTToolType.KNIFE, head, stick);
-    }
-
-    @Unique
-    private static void terraFirmaGreg_1_20_x$addToolRecipe(Consumer<FinishedRecipe> provider, @Nonnull Material material, @Nonnull GTToolType tool, Object... recipe) {
-        ItemStack toolStack = ToolHelper.get(tool, material);
-
-        if (toolStack.isEmpty()) return;
-
-        VanillaRecipeHelper.addShapelessRecipe(provider, String.format("%s_%s", tool.name, material),
-                toolStack, recipe);
-    }
+    /**
+     * Отключение рецепта buthceryKnife
+     * */
+    @Redirect(method = "processTool", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V", ordinal = 13), remap = false)
+    private static void processButcheryKnife(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {}
 }
