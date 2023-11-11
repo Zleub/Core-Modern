@@ -1,11 +1,5 @@
 {
-  "type": "tfc:heating",
-  "ingredient": {
-    "item": "tfc:metal/double_ingot/cast_iron"
-  },
-  "result_fluid": {
-    "fluid": "gtceu:iron",
-    "amount": 288
-  },
-  "temperature": 1535
+  "conditions": [
+    { "type": "forge:false" }
+  ]
 }
