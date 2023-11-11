@@ -45,6 +45,11 @@ public class TFGMaterials {
         }
     }
 
+    public static Material Latex = new Material.Builder("latex")
+            .fluid()
+            .color(0xFBB982)
+            .buildAndRegister();
+
     public static Material Sylvite = new Material.Builder("sylvite")
             .dust()
             .ore()
