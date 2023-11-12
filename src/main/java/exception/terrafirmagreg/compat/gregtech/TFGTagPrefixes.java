@@ -91,8 +91,8 @@ public class TFGTagPrefixes {
         TagPrefix.toolHeadWrench.defaultTagPath(FORGE, "wrench_tips/%s");
         TagPrefix.toolHeadWrench.unformattedTagPath(FORGE, "wrench_tips");
 
-        TagPrefix.toolHeadScrewdriver.defaultTagPath(FORGE, "screwdriver_heads/%s");
-        TagPrefix.toolHeadScrewdriver.unformattedTagPath(FORGE, "screwdriver_heads");
+        TagPrefix.toolHeadScrewdriver.defaultTagPath(FORGE, "screwdriver_tips/%s");
+        TagPrefix.toolHeadScrewdriver.unformattedTagPath(FORGE, "screwdriver_tips");
 
         TagPrefix.turbineBlade.defaultTagPath(FORGE, "turbine_blades/%s");
         TagPrefix.turbineBlade.unformattedTagPath(FORGE, "turbine_blades");
@@ -312,6 +312,7 @@ public class TFGTagPrefixes {
     /* Stone Types */
 
     public static final TagPrefix oreGabbro = TagPrefix.oreTagPrefix("tfc_gabbro")
+            .unformattedTagPath(FORGE, "tfc_stonetype_ore")
             .materialIconType(MaterialIconType.ore)
             .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
             .unificationEnabled(true)
@@ -319,6 +320,7 @@ public class TFGTagPrefixes {
             .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/gabbro")).defaultBlockState());
 
     public static final TagPrefix oreShale = TagPrefix.oreTagPrefix("tfc_shale")
+            .unformattedTagPath(FORGE, "tfc_stonetype_ore")
             .materialIconType(MaterialIconType.ore)
             .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
             .unificationEnabled(true)
@@ -326,6 +328,7 @@ public class TFGTagPrefixes {
             .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/shale")).defaultBlockState());
 
     public static final TagPrefix oreClaystone = TagPrefix.oreTagPrefix("tfc_claystone")
+            .unformattedTagPath(FORGE, "tfc_stonetype_ore")
             .materialIconType(MaterialIconType.ore)
             .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
             .unificationEnabled(true)
@@ -333,6 +336,7 @@ public class TFGTagPrefixes {
             .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/claystone")).defaultBlockState());
 
     public static final TagPrefix oreLimestone = TagPrefix.oreTagPrefix("tfc_limestone")
+            .unformattedTagPath(FORGE, "tfc_stonetype_ore")
             .materialIconType(MaterialIconType.ore)
             .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
             .unificationEnabled(true)
@@ -340,6 +344,7 @@ public class TFGTagPrefixes {
             .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/limestone")).defaultBlockState());
 
     public static final TagPrefix oreConglomerate = TagPrefix.oreTagPrefix("tfc_conglomerate")
+            .unformattedTagPath(FORGE, "tfc_stonetype_ore")
             .materialIconType(MaterialIconType.ore)
             .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
             .unificationEnabled(true)
@@ -347,6 +352,7 @@ public class TFGTagPrefixes {
             .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/conglomerate")).defaultBlockState());
 
     public static final TagPrefix oreDolomite = TagPrefix.oreTagPrefix("tfc_dolomite")
+            .unformattedTagPath(FORGE, "tfc_stonetype_ore")
             .materialIconType(MaterialIconType.ore)
             .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
             .unificationEnabled(true)
@@ -354,6 +360,7 @@ public class TFGTagPrefixes {
             .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/dolomite")).defaultBlockState());
 
     public static final TagPrefix oreChert = TagPrefix.oreTagPrefix("tfc_chert")
+            .unformattedTagPath(FORGE, "tfc_stonetype_ore")
             .materialIconType(MaterialIconType.ore)
             .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
             .unificationEnabled(true)
@@ -361,6 +368,7 @@ public class TFGTagPrefixes {
             .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/chert")).defaultBlockState());
 
     public static final TagPrefix oreRhyolite = TagPrefix.oreTagPrefix("tfc_rhyolite")
+            .unformattedTagPath(FORGE, "tfc_stonetype_ore")
             .materialIconType(MaterialIconType.ore)
             .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
             .unificationEnabled(true)
@@ -368,6 +376,7 @@ public class TFGTagPrefixes {
             .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/rhyolite")).defaultBlockState());
 
     public static final TagPrefix oreDacite = TagPrefix.oreTagPrefix("tfc_dacite")
+            .unformattedTagPath(FORGE, "tfc_stonetype_ore")
             .materialIconType(MaterialIconType.ore)
             .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
             .unificationEnabled(true)
@@ -375,6 +384,7 @@ public class TFGTagPrefixes {
             .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/dacite")).defaultBlockState());
 
     public static final TagPrefix oreQuartzite = TagPrefix.oreTagPrefix("tfc_quartzite")
+            .unformattedTagPath(FORGE, "tfc_stonetype_ore")
             .materialIconType(MaterialIconType.ore)
             .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
             .unificationEnabled(true)
@@ -382,6 +392,7 @@ public class TFGTagPrefixes {
             .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/quartzite")).defaultBlockState());
 
     public static final TagPrefix oreSlate = TagPrefix.oreTagPrefix("tfc_slate")
+            .unformattedTagPath(FORGE, "tfc_stonetype_ore")
             .materialIconType(MaterialIconType.ore)
             .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
             .unificationEnabled(true)
@@ -389,6 +400,7 @@ public class TFGTagPrefixes {
             .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/slate")).defaultBlockState());
 
     public static final TagPrefix orePhyllite = TagPrefix.oreTagPrefix("tfc_phyllite")
+            .unformattedTagPath(FORGE, "tfc_stonetype_ore")
             .materialIconType(MaterialIconType.ore)
             .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
             .unificationEnabled(true)
@@ -396,6 +408,7 @@ public class TFGTagPrefixes {
             .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/phyllite")).defaultBlockState());
 
     public static final TagPrefix oreSchist = TagPrefix.oreTagPrefix("tfc_schist")
+            .unformattedTagPath(FORGE, "tfc_stonetype_ore")
             .materialIconType(MaterialIconType.ore)
             .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
             .unificationEnabled(true)
@@ -403,6 +416,7 @@ public class TFGTagPrefixes {
             .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/schist")).defaultBlockState());
 
     public static final TagPrefix oreGneiss = TagPrefix.oreTagPrefix("tfc_gneiss")
+            .unformattedTagPath(FORGE, "tfc_stonetype_ore")
             .materialIconType(MaterialIconType.ore)
             .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
             .unificationEnabled(true)
@@ -410,6 +424,7 @@ public class TFGTagPrefixes {
             .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/gneiss")).defaultBlockState());
 
     public static final TagPrefix oreMarble = TagPrefix.oreTagPrefix("tfc_marble")
+            .unformattedTagPath(FORGE, "tfc_stonetype_ore")
             .materialIconType(MaterialIconType.ore)
             .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
             .unificationEnabled(true)
@@ -417,6 +432,7 @@ public class TFGTagPrefixes {
             .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/marble")).defaultBlockState());
 
     public static final TagPrefix oreBasalt = TagPrefix.oreTagPrefix("tfc_basalt")
+            .unformattedTagPath(FORGE, "tfc_stonetype_ore")
             .materialIconType(MaterialIconType.ore)
             .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
             .unificationEnabled(true)
@@ -424,6 +440,7 @@ public class TFGTagPrefixes {
             .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/basalt")).defaultBlockState());
 
     public static final TagPrefix oreDiorite = TagPrefix.oreTagPrefix("tfc_diorite")
+            .unformattedTagPath(FORGE, "tfc_stonetype_ore")
             .materialIconType(MaterialIconType.ore)
             .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
             .unificationEnabled(true)
@@ -431,6 +448,7 @@ public class TFGTagPrefixes {
             .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/diorite")).defaultBlockState());
 
     public static final TagPrefix oreAndesite = TagPrefix.oreTagPrefix("tfc_andesite")
+            .unformattedTagPath(FORGE, "tfc_stonetype_ore")
             .materialIconType(MaterialIconType.ore)
             .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
             .unificationEnabled(true)
@@ -438,6 +456,7 @@ public class TFGTagPrefixes {
             .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/andesite")).defaultBlockState());
 
     public static final TagPrefix oreGranite = TagPrefix.oreTagPrefix("tfc_granite")
+            .unformattedTagPath(FORGE, "tfc_stonetype_ore")
             .materialIconType(MaterialIconType.ore)
             .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
             .unificationEnabled(true)
@@ -445,6 +464,7 @@ public class TFGTagPrefixes {
             .registerOre(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation("tfc", "rock/raw/granite")).defaultBlockState());
 
     public static final TagPrefix oreChalk = TagPrefix.oreTagPrefix("tfc_chalk")
+            .unformattedTagPath(FORGE, "tfc_stonetype_ore")
             .materialIconType(MaterialIconType.ore)
             .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
             .unificationEnabled(true)
