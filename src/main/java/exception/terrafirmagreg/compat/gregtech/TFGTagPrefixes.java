@@ -82,10 +82,10 @@ public class TFGTagPrefixes {
         TagPrefix.toolHeadDrill.defaultTagPath(FORGE, "drill_heads/%s");
         TagPrefix.toolHeadDrill.unformattedTagPath(FORGE, "drill_heads");
 
-        TagPrefix.toolHeadChainsaw.unformattedTagPath(FORGE, "chainsaw_heads/%s");
+        TagPrefix.toolHeadChainsaw.defaultTagPath(FORGE, "chainsaw_heads/%s");
         TagPrefix.toolHeadChainsaw.unformattedTagPath(FORGE, "chainsaw_heads");
 
-        TagPrefix.toolHeadBuzzSaw.unformattedTagPath(FORGE, "buzz_saw_heads/%s");
+        TagPrefix.toolHeadBuzzSaw.defaultTagPath(FORGE, "buzz_saw_heads/%s");
         TagPrefix.toolHeadChainsaw.unformattedTagPath(FORGE, "buzz_saw_heads");
 
         TagPrefix.toolHeadWrench.defaultTagPath(FORGE, "wrench_tips/%s");
