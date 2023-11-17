@@ -10,6 +10,7 @@
     "OreRecipeHandlerMixin",
     "PartsRecipeHandlerMixin",
     "RecyclingRecipeHandlerMixin",
+    "ServerAdvancementManagerMixin",
     "TFGItemsMixin",
     "ToolRecipeHandlerMixin"
   ],
