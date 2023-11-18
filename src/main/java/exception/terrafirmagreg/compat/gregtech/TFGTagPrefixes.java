@@ -16,6 +16,9 @@ import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.LoaderType.FORGE;
 
 public class TFGTagPrefixes {
     public static void init() {
+        TagPrefix.plate.defaultTagPath(FORGE, "sheets/%s");
+        TagPrefix.plateDouble.defaultTagPath(FORGE, "double_sheets/%s");
+
         TagPrefix.rawOre.unformattedTagPath(FORGE, "raw_materials");
 
         TagPrefix.block.unformattedTagPath(FORGE, "material_blocks/block");
