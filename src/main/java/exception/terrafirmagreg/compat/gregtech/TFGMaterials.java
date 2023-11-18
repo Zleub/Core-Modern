@@ -32,9 +32,10 @@ public class TFGMaterials {
         GTMaterials.RedSteel.addFlags(GENERATE_LONG_ROD);
 
         GTMaterials.Copper.setProperty(PropertyKey.TOOL, new ToolProperty(1.0F, 1.0F, 128, 2, GTToolType.values()));
-        GTMaterials.BismuthBronze.setProperty(PropertyKey.TOOL, new ToolProperty(3.0F, 2.0F, 178, 2, GTToolType.values()));
-        GTMaterials.BlackBronze.setProperty(PropertyKey.TOOL, new ToolProperty(3.0F, 2.0F, 228, 2, GTToolType.values()));
-        GTMaterials.BlackSteel.setProperty(PropertyKey.TOOL, new ToolProperty(15.0F, 7.0F, 1000, 3, GTToolType.values()));
+        GTMaterials.BismuthBronze.setProperty(PropertyKey.TOOL, new ToolProperty(1.2F, 2.0F, 178, 2, GTToolType.values()));
+        GTMaterials.Bronze.getProperty(PropertyKey.TOOL).setHarvestSpeed(1.3F);
+        GTMaterials.BlackBronze.setProperty(PropertyKey.TOOL, new ToolProperty(1.4F, 2.0F, 228, 2, GTToolType.values()));
+        GTMaterials.BlackSteel.setProperty(PropertyKey.TOOL, new ToolProperty(3.0F, 7.0F, 1000, 3, GTToolType.values()));
 
         for (var material : GTRegistries.MATERIALS.values())
         {
@@ -42,6 +43,7 @@ public class TFGMaterials {
             if (toolProperty == null) continue;
 
             toolProperty.setDurability(toolProperty.getDurability() * 6);
+            toolProperty.setHarvestSpeed(toolProperty.getHarvestSpeed() * 5);
         }
     }
 
