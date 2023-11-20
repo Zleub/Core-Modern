@@ -39,7 +39,6 @@ public abstract class ClientTeamManagerImplMixin implements ClientTeamManager {
     private void dolbaeb(UUID selfTeamID, CallbackInfo ci) {
         selfTeam = teamMap.get(selfTeamID);
         UUID userId = UUIDTypeAdapter.fromString(Minecraft.getInstance().player.getStringUUID());
-        System.out.println(userId);
         selfKnownPlayer = knownPlayers.get(userId);
         if (selfKnownPlayer == null) {
             FTBTeams.LOGGER.error("Local player id {} was not found in the known players list [{}]! FTB Teams will not be able to function correctly!",
