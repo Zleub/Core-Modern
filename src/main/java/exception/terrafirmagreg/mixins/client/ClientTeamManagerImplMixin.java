@@ -1,5 +1,6 @@
 package exception.terrafirmagreg.mixins.client;
 
+import com.mojang.util.UUIDTypeAdapter;
 import dev.ftb.mods.ftbteams.FTBTeams;
 import dev.ftb.mods.ftbteams.api.client.ClientTeamManager;
 import dev.ftb.mods.ftbteams.api.client.KnownClientPlayer;
@@ -37,7 +38,8 @@ public abstract class ClientTeamManagerImplMixin implements ClientTeamManager {
     @Inject(method = "initSelfDetails", at = @At(value = "HEAD"), remap = false)
     private void dolbaeb(UUID selfTeamID, CallbackInfo ci) {
         selfTeam = teamMap.get(selfTeamID);
-        UUID userId = Minecraft.getInstance().getUser().getProfileId();
+        UUID userId = UUIDTypeAdapter.fromString(Minecraft.getInstance().player.getStringUUID());
+        System.out.println(userId);
         selfKnownPlayer = knownPlayers.get(userId);
         if (selfKnownPlayer == null) {
             FTBTeams.LOGGER.error("Local player id {} was not found in the known players list [{}]! FTB Teams will not be able to function correctly!",
