@@ -5,20 +5,21 @@
   "compatibilityLevel": "JAVA_17",
   "plugin": "exception.terrafirmagreg.TFGMixinPlugin",
   "mixins": [
-    "GTRecipesMixin",
-    "MaterialRecipeHandlerMixin",
-    "OreRecipeHandlerMixin",
-    "PartsRecipeHandlerMixin",
-    "RecyclingRecipeHandlerMixin",
-    "ServerAdvancementManagerMixin",
-    "TFGItemsMixin",
-    "ToolRecipeHandlerMixin"
+    "common.GTRecipesMixin",
+    "common.MaterialRecipeHandlerMixin",
+    "common.OreRecipeHandlerMixin",
+    "common.PartsRecipeHandlerMixin",
+    "common.RecyclingRecipeHandlerMixin",
+    "common.ServerAdvancementManagerMixin",
+    "common.TFGItemsMixin",
+    "common.ToolRecipeHandlerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
   },
   "refmap": "terrafirmagreg.mixin-refmap.json",
   "client": [
-    "SetPasswordScreenMixin"
+    "client.ClientTeamManagerImplMixin",
+    "client.SetPasswordScreenMixin"
   ]
 }

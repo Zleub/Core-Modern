@@ -1,4 +1,4 @@
-package exception.terrafirmagreg.mixins;
+package exception.terrafirmagreg.mixins.common;
 
 import com.gregtechceu.gtceu.common.data.GTItems;
 import exception.terrafirmagreg.objects.TFGItems;

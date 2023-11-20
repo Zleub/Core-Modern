@@ -1,8 +1,6 @@
 package exception.terrafirmagreg;
 
 import com.mojang.logging.LogUtils;
-import com.tterrag.registrate.Registrate;
-import com.tterrag.registrate.util.nullness.NonNullSupplier;
 import dev.toma.configuration.Configuration;
 import dev.toma.configuration.config.format.ConfigFormats;
 import net.minecraftforge.common.MinecraftForge;

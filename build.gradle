@@ -146,6 +146,8 @@ dependencies {
     implementation fg.deobf("me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}")
     implementation fg.deobf("curse.maven:configuration-444699:${configuration_version}")
     implementation fg.deobf("curse.maven:ldlib-626676:${ldlib_version}")
+    implementation fg.deobf("curse.maven:ftb-teams-forge-404468:4623116")
+    implementation fg.deobf("curse.maven:ftb-library-forge-404465:4864329")
 
     compileOnly fg.deobf("vazkii.patchouli:Patchouli:${patcouli_version}:api")
     runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patcouli_version}")
