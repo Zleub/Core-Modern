@@ -19,6 +19,7 @@
   },
   "refmap": "terrafirmagreg.mixin-refmap.json",
   "client": [
+    "client.ClientTeamManagerImplMixin",
     "client.SetPasswordScreenMixin"
   ]
 }
