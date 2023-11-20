@@ -1,4 +1,6 @@
 {
+  "tfg.simplelogin.description": "Needed to log in to the official TerraFirmaGreg server. If you want to make a random one, press R or enter your own. Does not affect local worlds. It may need to be deleted on your own servers.",
+
   "item.gtceu.mining_hammer_head_mold": "Extruder Mold (Mining Hammer)",
   "item.gtceu.sword_head_mold": "Extruder Mold (Sword Head)",
   "item.gtceu.pickaxe_head_mold": "Extruder Mold (Pickaxe Head)",
