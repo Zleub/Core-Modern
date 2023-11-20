@@ -15,7 +15,7 @@ logoFile = "logo.png"
 [[dependencies.terrafirmagreg]]
 modId = "gtceu"
 mandatory = true
-versionRange = "[1.0.14,)"
+versionRange = "[1.0.15,)"
 ordering = "NONE"
 side = "BOTH"
 
