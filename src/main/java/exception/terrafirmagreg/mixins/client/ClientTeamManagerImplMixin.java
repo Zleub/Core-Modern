@@ -35,8 +35,8 @@ public abstract class ClientTeamManagerImplMixin implements ClientTeamManager {
     @Shadow
     private KnownClientPlayer selfKnownPlayer;
 
-    @Inject(method = "initSelfDetails", at = @At(value = "HEAD"), remap = false)
-    private void dolbaeb(UUID selfTeamID, CallbackInfo ci) {
+    @Inject(method = "initSelfDetails", at = @At(value = "HEAD"), remap = false, cancellable = true)
+    private void onInitSelfDetails(UUID selfTeamID, CallbackInfo ci) {
         selfTeam = teamMap.get(selfTeamID);
         UUID userId = UUIDTypeAdapter.fromString(Minecraft.getInstance().player.getStringUUID());
         selfKnownPlayer = knownPlayers.get(userId);
@@ -44,5 +44,7 @@ public abstract class ClientTeamManagerImplMixin implements ClientTeamManager {
             FTBTeams.LOGGER.error("Local player id {} was not found in the known players list [{}]! FTB Teams will not be able to function correctly!",
                     userId, String.join(",", knownPlayers.keySet().stream().map(UUID::toString).toList()));
         }
+
+        ci.cancel();
     }
 }
