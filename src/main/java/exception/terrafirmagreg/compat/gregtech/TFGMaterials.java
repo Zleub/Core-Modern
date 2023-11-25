@@ -10,8 +10,7 @@ import com.gregtechceu.gtceu.api.item.tool.GTToolType;
 import com.gregtechceu.gtceu.api.registry.GTRegistries;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
 
-import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.GENERATE_LONG_ROD;
-import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.GENERATE_ROD;
+import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.*;
 import static com.gregtechceu.gtceu.api.item.tool.GTToolType.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.EXT2_METAL;
 
@@ -51,6 +50,7 @@ public class TFGMaterials {
         GTMaterials.BlackSteel.addFlags(GENERATE_LONG_ROD);
         GTMaterials.BlueSteel.addFlags(GENERATE_LONG_ROD);
         GTMaterials.RedSteel.addFlags(GENERATE_LONG_ROD);
+        GTMaterials.WroughtIron.addFlags(GENERATE_ROTOR);
 
         GTMaterials.Copper.setProperty(PropertyKey.TOOL, new ToolProperty(1.0F, 1.0F, 128, 2, GT_TOOL_TYPES));
         GTMaterials.BismuthBronze.setProperty(PropertyKey.TOOL, new ToolProperty(1.2F, 2.0F, 178, 2, GT_TOOL_TYPES));
