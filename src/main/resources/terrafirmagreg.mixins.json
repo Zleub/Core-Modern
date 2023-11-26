@@ -6,6 +6,7 @@
   "plugin": "exception.terrafirmagreg.TFGMixinPlugin",
   "mixins": [
     "common.GTRecipesMixin",
+    "common.GTToolItemMixin",
     "common.MaterialRecipeHandlerMixin",
     "common.OreRecipeHandlerMixin",
     "common.PartsRecipeHandlerMixin",
