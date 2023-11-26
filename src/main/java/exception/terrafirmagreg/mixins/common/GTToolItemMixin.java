@@ -35,15 +35,6 @@ import static net.minecraft.world.item.HoeItem.changeIntoState;
 @Mixin(value = GTToolItem.class, remap = false)
 public abstract class GTToolItemMixin {
 
-    @Shadow @Final protected GTToolType toolType;
-
-    @Inject(method = "useOn", at = @At(value = "HEAD"), remap = false, cancellable = true)
-    public void useOn(UseOnContext context, CallbackInfoReturnable<InteractionResult> cir) {
-        if (this.toolType == GTToolType.HOE) {
-            cir.setReturnValue(useHoeOn(context));
-        }
-    }
-
     @Inject(method = "useAxeOn", at = @At(value = "HEAD"), remap = false, cancellable = true)
     private void onUseAxeOn(UseOnContext context, CallbackInfoReturnable<InteractionResult> cir)
     {
