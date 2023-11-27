@@ -5,8 +5,8 @@ issueTrackerURL="https://github.com/TerraFirmaGreg-Team/TFG-Modpack-1.20.x/issue
 
 [[mods]]
 modId="${mod_id}"
-version = "${version}"
-displayName = "${mod_name}"
+version="${version}"
+displayName="${mod_name}"
 credits="By Exception, Xikaro"
 authors="Exception"
 description = "${mod_description}"
