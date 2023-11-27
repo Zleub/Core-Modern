@@ -167,6 +167,25 @@ mixin {
     add sourceSets.main, "terrafirmagreg.mixin-refmap.json"
 }
 
+processResources {
+    // set up properties for filling into metadata
+    Map<String, String> properties = Map.of(
+            "version", mod_version,
+            "mod_id", mod_archives_bas_name,
+    //      "forge_version", forge.versions.forgeShortVersion.get().split("\\.")[0],
+    //      "minecraft_version", libs.versions.minecraft.get(),
+    //      "mod_license", mod_license,
+            "mod_name", mod_name,
+            "mod_description", mod_description,
+            "mod_url", mod_url
+    )
+    properties.forEach((k, v) -> inputs.property(k, v))
+
+    filesMatching("META-INF/mods.toml") {
+        expand properties
+    }
+}
+
 jar {
     manifest {
         attributes([
