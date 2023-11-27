@@ -45,12 +45,15 @@ public class TFGMaterials {
 
         GTMaterials.Borax.setProperty(PropertyKey.ORE, new OreProperty());
 
-        GTMaterials.Nickel.addFlags(GENERATE_ROD);
-        GTMaterials.Nickel.addFlags(GENERATE_LONG_ROD);
-        GTMaterials.BlackSteel.addFlags(GENERATE_LONG_ROD);
-        GTMaterials.BlueSteel.addFlags(GENERATE_LONG_ROD);
-        GTMaterials.RedSteel.addFlags(GENERATE_LONG_ROD);
+        GTMaterials.Nickel.addFlags(GENERATE_ROD, GENERATE_LONG_ROD);
+        GTMaterials.BlackSteel.addFlags(GENERATE_LONG_ROD, GENERATE_BOLT_SCREW);
+        GTMaterials.BlueSteel.addFlags(GENERATE_LONG_ROD, GENERATE_BOLT_SCREW);
+        GTMaterials.RedSteel.addFlags(GENERATE_LONG_ROD, GENERATE_BOLT_SCREW);
         GTMaterials.WroughtIron.addFlags(GENERATE_ROTOR);
+
+        GTMaterials.Copper.addFlags(GENERATE_BOLT_SCREW);
+        GTMaterials.DamascusSteel.addFlags(GENERATE_BOLT_SCREW);
+        GTMaterials.Duranium.addFlags(GENERATE_BOLT_SCREW);
 
         GTMaterials.Copper.setProperty(PropertyKey.TOOL, new ToolProperty(1.0F, 1.0F, 128, 2, GT_TOOL_TYPES));
         GTMaterials.BismuthBronze.setProperty(PropertyKey.TOOL, new ToolProperty(1.2F, 2.0F, 178, 2, GT_TOOL_TYPES));
