@@ -78,4 +78,9 @@ public class TFGMaterials {
             .fluid()
             .color(0xFBB982)
             .buildAndRegister();
+
+    public static Material Fluix = new Material.Builder("fluix")
+            .fluid()
+            .color(0xFBB982)
+            .buildAndRegister();
 }
