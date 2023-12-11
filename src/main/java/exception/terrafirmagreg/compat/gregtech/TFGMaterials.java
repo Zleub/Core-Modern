@@ -45,6 +45,9 @@ public class TFGMaterials {
 
         GTMaterials.Borax.setProperty(PropertyKey.ORE, new OreProperty());
 
+        GTMaterials.CertusQuartz.addFlags(GENERATE_ROD);
+        GTMaterials.NetherQuartz.addFlags(GENERATE_ROD);
+
         GTMaterials.Nickel.addFlags(GENERATE_ROD, GENERATE_LONG_ROD);
         GTMaterials.BlackSteel.addFlags(GENERATE_LONG_ROD, GENERATE_BOLT_SCREW);
         GTMaterials.BlueSteel.addFlags(GENERATE_LONG_ROD, GENERATE_BOLT_SCREW);
