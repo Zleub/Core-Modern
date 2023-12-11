@@ -52,26 +52,26 @@ public abstract class OreRecipeHandlerMixin {
         TagPrefix.rawOre.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processRawOre(tagPrefix, material, property, provider, 2));
         TFGTagPrefixes.richRawOre.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processRawOre(tagPrefix, material, property, provider, 3));
 
-        TFGTagPrefixes.oreGabbro.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider, TFGMaterials.Gabbro));
-        TFGTagPrefixes.oreShale.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider, TFGMaterials.Shale));
-        TFGTagPrefixes.oreClaystone.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider, TFGMaterials.Claystone));
-        TFGTagPrefixes.oreLimestone.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider, TFGMaterials.Limestone));
-        TFGTagPrefixes.oreConglomerate.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider, TFGMaterials.Conglomerate));
-        TFGTagPrefixes.oreDolomite.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider, TFGMaterials.Dolomite));
-        TFGTagPrefixes.oreChert.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider, TFGMaterials.Chert));
-        TFGTagPrefixes.oreRhyolite.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider, TFGMaterials.Rhyolite));
-        TFGTagPrefixes.oreDacite.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider, TFGMaterials.Dacite));
-        TFGTagPrefixes.oreQuartzite.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider, GTMaterials.Quartzite));
-        TFGTagPrefixes.oreSlate.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider, TFGMaterials.Slate));
-        TFGTagPrefixes.orePhyllite.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider, TFGMaterials.Phyllite));
-        TFGTagPrefixes.oreSchist.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider, TFGMaterials.Schist));
-        TFGTagPrefixes.oreGneiss.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider, TFGMaterials.Gneiss));
-        TFGTagPrefixes.oreMarble.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider, GTMaterials.Marble));
-        TFGTagPrefixes.oreBasalt.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider, GTMaterials.Basalt));
-        TFGTagPrefixes.oreDiorite.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider, GTMaterials.Diorite));
-        TFGTagPrefixes.oreAndesite.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider, GTMaterials.Andesite));
-        TFGTagPrefixes.oreGranite.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider, GTMaterials.Granite));
-        TFGTagPrefixes.oreChalk.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider, TFGMaterials.Chalk));
+        TFGTagPrefixes.oreGabbro.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider));
+        TFGTagPrefixes.oreShale.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider));
+        TFGTagPrefixes.oreClaystone.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider));
+        TFGTagPrefixes.oreLimestone.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider));
+        TFGTagPrefixes.oreConglomerate.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider));
+        TFGTagPrefixes.oreDolomite.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider));
+        TFGTagPrefixes.oreChert.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider));
+        TFGTagPrefixes.oreRhyolite.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider));
+        TFGTagPrefixes.oreDacite.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider));
+        TFGTagPrefixes.oreQuartzite.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider));
+        TFGTagPrefixes.oreSlate.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider));
+        TFGTagPrefixes.orePhyllite.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider));
+        TFGTagPrefixes.oreSchist.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider));
+        TFGTagPrefixes.oreGneiss.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider));
+        TFGTagPrefixes.oreMarble.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider));
+        TFGTagPrefixes.oreBasalt.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider));
+        TFGTagPrefixes.oreDiorite.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider));
+        TFGTagPrefixes.oreAndesite.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider));
+        TFGTagPrefixes.oreGranite.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider));
+        TFGTagPrefixes.oreChalk.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> terraFirmaGreg_1_20_x$processOre(tagPrefix, material, property, provider));
 
     }
 
@@ -124,7 +124,7 @@ public abstract class OreRecipeHandlerMixin {
     }
 
     @Unique
-    private static void terraFirmaGreg_1_20_x$processOre(TagPrefix orePrefix, Material material, OreProperty property, Consumer<FinishedRecipe> provider, Material stoneTypeMaterial) {
+    private static void terraFirmaGreg_1_20_x$processOre(TagPrefix orePrefix, Material material, OreProperty property, Consumer<FinishedRecipe> provider) {
         Material byproductMaterial = GTUtil.selectItemInList(0, material, property.getOreByProducts(), Material.class);
         ItemStack ingotStack;
         ItemStack byproductStack = ChemicalHelper.get(gem, byproductMaterial);
@@ -161,7 +161,7 @@ public abstract class OreRecipeHandlerMixin {
                     .EUt(2)
                     .duration(400);
 
-            builder.outputItems(dust, stoneTypeMaterial);
+            builder.outputItems(dust, GTMaterials.Stone);
             builder.save(provider);
         }
 
