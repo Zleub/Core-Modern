@@ -1,18 +1,22 @@
 package exception.terrafirmagreg.compat.gregtech;
 
+import appeng.core.definitions.AEBlocks;
+import appeng.core.definitions.AEItems;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlag;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.OreProperty;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.ToolProperty;
+import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.api.item.tool.GTToolType;
 import com.gregtechceu.gtceu.api.registry.GTRegistries;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
 
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.*;
+import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet.CERTUS;
 import static com.gregtechceu.gtceu.api.item.tool.GTToolType.*;
-import static com.gregtechceu.gtceu.common.data.GTMaterials.EXT2_METAL;
+import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 
 public class TFGMaterials {
 
@@ -72,6 +76,14 @@ public class TFGMaterials {
             toolProperty.setDurability(toolProperty.getDurability() * 6);
             toolProperty.setHarvestSpeed(toolProperty.getHarvestSpeed() * 5);
         }
+
+        TagPrefix.block.setIgnored(TFGMaterials.Fluix, AEBlocks.FLUIX_BLOCK);
+        TagPrefix.dust.setIgnored(TFGMaterials.Fluix, AEItems.FLUIX_DUST);
+        TagPrefix.gem.setIgnored(TFGMaterials.Fluix, AEItems.FLUIX_CRYSTAL);
+
+        TagPrefix.block.setIgnored(GTMaterials.CertusQuartz, AEBlocks.QUARTZ_BLOCK);
+        TagPrefix.dust.setIgnored(GTMaterials.CertusQuartz, AEItems.CERTUS_QUARTZ_DUST);
+        TagPrefix.gem.setIgnored(GTMaterials.CertusQuartz, AEItems.CERTUS_QUARTZ_CRYSTAL);
     }
 
     public static Material Latex = new Material.Builder("latex")
@@ -81,6 +93,10 @@ public class TFGMaterials {
 
     public static Material Fluix = new Material.Builder("fluix")
             .fluid()
+            .gem(1)
+            .color(0xD2D2E6).iconSet(CERTUS)
+            .flags(GENERATE_PLATE, NO_SMELTING, CRYSTALLIZABLE, DISABLE_DECOMPOSITION, FORCE_GENERATE_BLOCK)
+            .components(Silicon, 1, Oxygen, 2)
             .color(0x57448d)
             .buildAndRegister();
 }

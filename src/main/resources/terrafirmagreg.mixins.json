@@ -12,6 +12,7 @@
     "common.PartsRecipeHandlerMixin",
     "common.RecyclingRecipeHandlerMixin",
     "common.ServerAdvancementManagerMixin",
+    "common.TagPrefixMixin",
     "common.TFGItemsMixin",
     "common.ToolRecipeHandlerMixin"
   ],
