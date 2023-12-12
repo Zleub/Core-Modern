@@ -23,11 +23,9 @@ public class TFGTagPrefixes {
 
         TagPrefix.rawOre.unformattedTagPath(FORGE, "raw_materials");
 
-        TagPrefix.block.unformattedTagPath(FORGE, "material_blocks/block");
-        TagPrefix.rawOreBlock.unformattedTagPath(FORGE, "material_blocks/raw");
-
-        TagPrefix.frameGt.defaultTagPath(FORGE, "material_blocks/frame/%s");
-        TagPrefix.frameGt.unformattedTagPath(FORGE, "material_blocks/frame");
+        TagPrefix.block.unformattedTagPath(FORGE, "material_blocks");
+        TagPrefix.rawOreBlock.unformattedTagPath(FORGE, "raw_blocks");
+        TagPrefix.frameGt.unformattedTagPath(FORGE, "frame_blocks");
 
         TagPrefix.wireGtSingle.defaultTagPath(FORGE, "wires/single/%s");
         TagPrefix.wireGtSingle.unformattedTagPath(FORGE, "wires/single");

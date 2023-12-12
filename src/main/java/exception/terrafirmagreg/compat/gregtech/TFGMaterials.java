@@ -84,6 +84,8 @@ public class TFGMaterials {
         TagPrefix.block.setIgnored(GTMaterials.CertusQuartz, AEBlocks.QUARTZ_BLOCK);
         TagPrefix.dust.setIgnored(GTMaterials.CertusQuartz, AEItems.CERTUS_QUARTZ_DUST);
         TagPrefix.gem.setIgnored(GTMaterials.CertusQuartz, AEItems.CERTUS_QUARTZ_CRYSTAL);
+
+        TagPrefix.dust.setIgnored(EnderPearl, AEItems.ENDER_DUST);
     }
 
     public static Material Latex = new Material.Builder("latex")
