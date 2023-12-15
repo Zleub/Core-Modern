@@ -1,4 +1,4 @@
-package exception.terrafirmagreg.mixins.common;
+package exception.terrafirmagreg.mixins.common.gtceu;
 
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;

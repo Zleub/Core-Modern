@@ -1,4 +1,4 @@
-package exception.terrafirmagreg.mixins.common;
+package exception.terrafirmagreg.mixins.common.gtceu;
 
 import com.gregtechceu.gtceu.data.recipe.generated.PartsRecipeHandler;
 import net.minecraft.data.recipes.FinishedRecipe;

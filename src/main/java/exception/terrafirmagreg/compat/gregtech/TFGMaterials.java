@@ -4,7 +4,6 @@ import appeng.core.definitions.AEBlocks;
 import appeng.core.definitions.AEItems;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlag;
-import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.OreProperty;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.ToolProperty;
@@ -12,6 +11,8 @@ import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.api.item.tool.GTToolType;
 import com.gregtechceu.gtceu.api.registry.GTRegistries;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
+import net.dries007.tfc.common.items.TFCItems;
+import net.dries007.tfc.util.Metal;
 
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.*;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet.CERTUS;
@@ -77,15 +78,18 @@ public class TFGMaterials {
             toolProperty.setHarvestSpeed(toolProperty.getHarvestSpeed() * 5);
         }
 
-        TagPrefix.block.setIgnored(TFGMaterials.Fluix, AEBlocks.FLUIX_BLOCK);
-        TagPrefix.dust.setIgnored(TFGMaterials.Fluix, AEItems.FLUIX_DUST);
-        TagPrefix.gem.setIgnored(TFGMaterials.Fluix, AEItems.FLUIX_CRYSTAL);
+        TagPrefix.block.setIgnored(Fluix, AEBlocks.FLUIX_BLOCK);
+        TagPrefix.dust.setIgnored(Fluix, AEItems.FLUIX_DUST);
+        TagPrefix.gem.setIgnored(Fluix, AEItems.FLUIX_CRYSTAL);
 
-        TagPrefix.block.setIgnored(GTMaterials.CertusQuartz, AEBlocks.QUARTZ_BLOCK);
-        TagPrefix.dust.setIgnored(GTMaterials.CertusQuartz, AEItems.CERTUS_QUARTZ_DUST);
-        TagPrefix.gem.setIgnored(GTMaterials.CertusQuartz, AEItems.CERTUS_QUARTZ_CRYSTAL);
+        TagPrefix.block.setIgnored(CertusQuartz, AEBlocks.QUARTZ_BLOCK);
+        TagPrefix.dust.setIgnored(CertusQuartz, AEItems.CERTUS_QUARTZ_DUST);
+        TagPrefix.gem.setIgnored(CertusQuartz, AEItems.CERTUS_QUARTZ_CRYSTAL);
 
         TagPrefix.dust.setIgnored(EnderPearl, AEItems.ENDER_DUST);
+
+        TagPrefix.ingot.setIgnored(Copper, () -> TFCItems.METAL_ITEMS.get(Metal.Default.COPPER).get(Metal.ItemType.INGOT).get());
+        TagPrefix.ingot.setIgnored(Gold, () -> TFCItems.METAL_ITEMS.get(Metal.Default.GOLD).get(Metal.ItemType.INGOT).get());
     }
 
     public static Material Latex = new Material.Builder("latex")

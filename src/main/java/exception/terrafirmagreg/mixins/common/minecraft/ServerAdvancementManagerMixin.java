@@ -1,4 +1,4 @@
-package exception.terrafirmagreg.mixins.common;
+package exception.terrafirmagreg.mixins.common.minecraft;
 
 import exception.terrafirmagreg.TFGConfig;
 import exception.terrafirmagreg.TerraFirmaGreg;

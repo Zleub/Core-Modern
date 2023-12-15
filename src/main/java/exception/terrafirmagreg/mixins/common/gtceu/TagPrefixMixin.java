@@ -1,4 +1,4 @@
-package exception.terrafirmagreg.mixins.common;
+package exception.terrafirmagreg.mixins.common.gtceu;
 
 import com.google.common.collect.ImmutableMap;
 import com.gregtechceu.gtceu.api.GTValues;
@@ -9,9 +9,6 @@ import exception.terrafirmagreg.compat.gregtech.TFGMaterials;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Map;
 
