@@ -21,28 +21,6 @@ import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 
 public class TFGMaterials {
 
-    private static final GTToolType[] GT_TOOL_TYPES = new GTToolType[]{
-            SWORD,
-            PICKAXE,
-            SHOVEL,
-            AXE,
-            HOE,
-            MINING_HAMMER,
-            SAW,
-            HARD_HAMMER,
-            // SOFT_MALLET,
-            WRENCH,
-            FILE,
-            CROWBAR,
-            SCREWDRIVER,
-            // MORTAR,
-            WIRE_CUTTER,
-            SCYTHE,
-            KNIFE,
-            BUTCHERY_KNIFE,
-            PLUNGER
-    };
-
     public static void init()
     {
         GTMaterials.Bismuth.setProperty(PropertyKey.ORE, new OreProperty());
@@ -63,11 +41,11 @@ public class TFGMaterials {
         GTMaterials.DamascusSteel.addFlags(GENERATE_BOLT_SCREW);
         GTMaterials.Duranium.addFlags(GENERATE_BOLT_SCREW);
 
-        GTMaterials.Copper.setProperty(PropertyKey.TOOL, new ToolProperty(1.0F, 1.0F, 128, 2, GT_TOOL_TYPES));
-        GTMaterials.BismuthBronze.setProperty(PropertyKey.TOOL, new ToolProperty(1.2F, 2.0F, 178, 2, GT_TOOL_TYPES));
+        GTMaterials.Copper.setProperty(PropertyKey.TOOL, ToolProperty.Builder.of(1.0F, 1.0F, 128, 2).build());
+        GTMaterials.BismuthBronze.setProperty(PropertyKey.TOOL, ToolProperty.Builder.of(1.2F, 2.0F, 178, 2).build());
         GTMaterials.Bronze.getProperty(PropertyKey.TOOL).setHarvestSpeed(1.3F);
-        GTMaterials.BlackBronze.setProperty(PropertyKey.TOOL, new ToolProperty(1.4F, 2.0F, 228, 2, GT_TOOL_TYPES));
-        GTMaterials.BlackSteel.setProperty(PropertyKey.TOOL, new ToolProperty(3.0F, 7.0F, 1000, 3, GT_TOOL_TYPES));
+        GTMaterials.BlackBronze.setProperty(PropertyKey.TOOL, ToolProperty.Builder.of(1.4F, 2.0F, 228, 2).build());
+        GTMaterials.BlackSteel.setProperty(PropertyKey.TOOL, ToolProperty.Builder.of(3.0F, 7.0F, 1000, 3).build());
 
         for (var material : GTRegistries.MATERIALS.values())
         {
