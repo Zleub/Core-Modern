@@ -1,4 +1,4 @@
-package exception.terrafirmagreg.mixins.client;
+package exception.terrafirmagreg.mixins.client.ftb;
 
 import com.mojang.util.UUIDTypeAdapter;
 import dev.ftb.mods.ftbteams.FTBTeams;

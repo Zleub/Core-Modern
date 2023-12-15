@@ -11,16 +11,17 @@
     "common.gtceu.OreRecipeHandlerMixin",
     "common.gtceu.PartsRecipeHandlerMixin",
     "common.gtceu.RecyclingRecipeHandlerMixin",
-    "common.minecraft.ServerAdvancementManagerMixin",
     "common.gtceu.TagPrefixMixin",
     "common.gtceu.TFGItemsMixin",
-    "common.gtceu.ToolRecipeHandlerMixin"
+    "common.gtceu.ToolRecipeHandlerMixin",
+    "common.minecraft.ServerAdvancementManagerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
   },
   "refmap": "terrafirmagreg.mixin-refmap.json",
   "client": [
-
+    "client.ftb.ClientTeamManagerImplMixin",
+    "client.simplelogin.SetPasswordScreenMixin"
   ]
 }

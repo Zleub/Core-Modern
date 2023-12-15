@@ -2,6 +2,7 @@ package exception.terrafirmagreg.compat.gregtech;
 
 import appeng.core.definitions.AEBlocks;
 import appeng.core.definitions.AEItems;
+import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlag;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.OreProperty;
@@ -13,6 +14,7 @@ import com.gregtechceu.gtceu.api.registry.GTRegistries;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
 import net.dries007.tfc.common.items.TFCItems;
 import net.dries007.tfc.util.Metal;
+import net.minecraft.world.level.ItemLike;
 
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.*;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet.CERTUS;
@@ -72,8 +74,8 @@ public class TFGMaterials {
 
         TagPrefix.dust.setIgnored(EnderPearl, AEItems.ENDER_DUST);
 
-        TagPrefix.ingot.setIgnored(Copper, () -> TFCItems.METAL_ITEMS.get(Metal.Default.COPPER).get(Metal.ItemType.INGOT).get());
-        TagPrefix.ingot.setIgnored(Gold, () -> TFCItems.METAL_ITEMS.get(Metal.Default.GOLD).get(Metal.ItemType.INGOT).get());
+        TagPrefix.ingot.removeIgnored(Copper);
+        TagPrefix.ingot.removeIgnored(Gold);
     }
 
     public static Material Latex = new Material.Builder("latex")

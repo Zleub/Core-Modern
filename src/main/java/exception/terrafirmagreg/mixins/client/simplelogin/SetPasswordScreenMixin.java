@@ -1,4 +1,4 @@
-package exception.terrafirmagreg.mixins.client;
+package exception.terrafirmagreg.mixins.client.simplelogin;
 
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.MultiLineTextWidget;

@@ -101,26 +101,6 @@ public class TFGTagPrefixes {
         TagPrefix.turbineBlade.unformattedTagPath(FORGE, "turbine_blades");
     }
 
-    /* Raw Ores */
-
-    public static final TagPrefix poorRawOre = new TagPrefix("poor_raw", true)
-            .defaultTagPath(FORGE, "poor_raw_materials/%s")
-            .unformattedTagPath(FORGE, "poor_raw_materials")
-            .langValue("Poor Raw %s")
-            .materialIconType(TFGMaterialIconType.poorRawOre)
-            .unificationEnabled(true)
-            .generateItem(true)
-            .generationCondition(hasOreProperty);
-
-    public static final TagPrefix richRawOre = new TagPrefix("rich_raw", true)
-            .defaultTagPath(FORGE, "rich_raw_materials/%s")
-            .unformattedTagPath(FORGE, "rich_raw_materials")
-            .langValue("Rich Raw %s")
-            .materialIconType(TFGMaterialIconType.richRawOre)
-            .unificationEnabled(true)
-            .generateItem(true)
-            .generationCondition(hasOreProperty);
-
     /* Tool Heads */
 
     public static final TagPrefix toolHeadMiningHammer = new TagPrefix("miningHammerHead")
