@@ -18,8 +18,7 @@ import net.minecraft.world.item.Item;
 
 import java.util.function.Consumer;
 
-import static com.gregtechceu.gtceu.api.GTValues.MV;
-import static com.gregtechceu.gtceu.api.GTValues.VA;
+import static com.gregtechceu.gtceu.api.GTValues.*;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTItems.SHAPE_EMPTY;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
@@ -33,6 +32,12 @@ public class TFGRecipes {
     {
         extruderShapeHeads(consumer);
         stoneTypeDustsDecomposition(consumer);
+
+        FLUID_SOLIDFICATION_RECIPES.recipeBuilder("latex_heating").duration(480).EUt(VA[LV])
+                .inputItems(dust, Sulfur)
+                .inputFluids(Latex.getFluid(1000))
+                .outputItems(GTItems.STICKY_RESIN)
+                .save(consumer);
     }
 
     private static void stoneTypeDustsDecomposition(Consumer<FinishedRecipe> consumer)
