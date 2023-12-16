@@ -73,9 +73,6 @@ public class TFGMaterials {
         TagPrefix.gem.setIgnored(CertusQuartz, AEItems.CERTUS_QUARTZ_CRYSTAL);
 
         TagPrefix.dust.setIgnored(EnderPearl, AEItems.ENDER_DUST);
-
-        TagPrefix.ingot.removeIgnored(Copper);
-        TagPrefix.ingot.removeIgnored(Gold);
     }
 
     public static Material Latex = new Material.Builder("latex")

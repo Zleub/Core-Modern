@@ -9,8 +9,6 @@ import com.gregtechceu.gtceu.data.recipe.generated.ToolRecipeHandler;
 import exception.terrafirmagreg.compat.gregtech.TFGTagPrefixes;
 import exception.terrafirmagreg.objects.TFGTags;
 import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -19,7 +17,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 import java.util.function.Consumer;
 
 import static com.gregtechceu.gtceu.data.recipe.generated.ToolRecipeHandler.addToolRecipe;
-import static exception.terrafirmagreg.objects.TFGTags.AllSticks;
+import static exception.terrafirmagreg.objects.TFGTags.AllWoodenSticks;
 
 @Mixin(value = ToolRecipeHandler.class, remap = false)
 public class ToolRecipeHandlerMixin {
@@ -137,11 +135,11 @@ public class ToolRecipeHandlerMixin {
         addToolRecipe(provider, material, GTToolType.MORTAR, false,
                 " I ", "SIS", "SSS",
                 'I', new UnificationEntry(material.hasProperty(PropertyKey.GEM) ? TagPrefix.gem : TagPrefix.ingot, material),
-                'S', TFGTags.AllRockRaw);
+                'S', TFGTags.AllRockRawBlocks);
     }
 
     @Unique
     private static void terraFirmaGreg_1_20_x$addOwnToolRecipe(Consumer<FinishedRecipe> provider, Material material, GTToolType toolType, TagPrefix tagPrefix) {
-        addToolRecipe(provider, material, toolType, false, "H", "S", 'H', new UnificationEntry(tagPrefix, material), 'S', AllSticks);
+        addToolRecipe(provider, material, toolType, false, "H", "S", 'H', new UnificationEntry(tagPrefix, material), 'S', AllWoodenSticks);
     }
 }
