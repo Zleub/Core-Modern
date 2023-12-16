@@ -5,29 +5,159 @@ import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.gregtechceu.gtceu.api.data.chemical.material.MarkerMaterial;
 import com.gregtechceu.gtceu.api.data.chemical.material.MarkerMaterials;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
-import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
-import com.gregtechceu.gtceu.api.data.chemical.material.stack.UnificationEntry;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
-import com.gregtechceu.gtceu.api.item.tool.ToolHelper;
 import com.gregtechceu.gtceu.api.registry.GTRegistries;
 import com.gregtechceu.gtceu.common.data.GTItems;
-import com.gregtechceu.gtceu.common.data.GTMaterials;
 import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import exception.terrafirmagreg.compat.gregtech.TFGTagPrefixes;
+import net.dries007.tfc.util.Metal;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.Item;
 
 import java.util.function.Consumer;
 
+import static com.gregtechceu.gtceu.api.GTValues.MV;
+import static com.gregtechceu.gtceu.api.GTValues.VA;
+import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTItems.SHAPE_EMPTY;
+import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;
+import static exception.terrafirmagreg.compat.gregtech.TFGMaterials.*;
 import static exception.terrafirmagreg.objects.TFGItems.*;
 
 public class TFGRecipes {
 
     public static void init(Consumer<FinishedRecipe> consumer)
+    {
+        extruderShapeHeads(consumer);
+        stoneTypeDustsDecomposition(consumer);
+    }
+
+    private static void stoneTypeDustsDecomposition(Consumer<FinishedRecipe> consumer)
+    {
+        // Gabbro
+        CENTRIFUGE_RECIPES.recipeBuilder("gabbro_dust_separation").duration(480).EUt(VA[MV])
+                .inputItems(dust, Gabbro)
+                .chancedOutput(dustTiny, Titanium, 6700, 700)
+                .chancedOutput(dustTiny, Iron, 3700, 700)
+                .chancedOutput(dustTiny, MetalMixture, 1700, 700)
+                .save(consumer);
+
+        // Shale
+        CENTRIFUGE_RECIPES.recipeBuilder("shale_dust_separation").duration(480).EUt(VA[MV])
+                .inputItems(dust, Shale)
+                .chancedOutput(dustTiny, Sodium, 7500, 500)
+                .chancedOutput(dustTiny, MetalMixture, 1500, 500)
+                .outputFluids(Oxygen.getFluid(16))
+                .save(consumer);
+
+        // Claystone
+        CENTRIFUGE_RECIPES.recipeBuilder("claystone_dust_separation").duration(480).EUt(VA[MV])
+                .inputItems(dust, Claystone)
+                .chancedOutput(dustTiny, Aluminium, 6700, 700)
+                .chancedOutput(dustTiny, Silicon, 6700, 700)
+                .chancedOutput(dustTiny, Hematite, 6700, 700)
+                .outputFluids(Oxygen.getFluid(5))
+                .save(consumer);
+
+        // Limestone
+        CENTRIFUGE_RECIPES.recipeBuilder("limestone_dust_separation").duration(480).EUt(VA[MV])
+                .inputItems(dust, Limestone)
+                .chancedOutput(dustTiny, Calcium, 8700, 700)
+                .chancedOutput(dustTiny, MetalMixture, 1700, 700)
+                .outputFluids(Oxygen.getFluid(36))
+                .save(consumer);
+
+        // Conglomerate
+        CENTRIFUGE_RECIPES.recipeBuilder("conglomerate_dust_separation").duration(480).EUt(VA[MV])
+                .inputItems(dust, Conglomerate)
+                .chancedOutput(dustTiny, Hematite, 6700, 700)
+                .chancedOutput(dustTiny, Silicon, 4700, 700)
+                .chancedOutput(dustTiny, TricalciumPhosphate, 3700, 700)
+                .outputFluids(Oxygen.getFluid(5))
+                .save(consumer);
+
+        // Dolomite
+        CENTRIFUGE_RECIPES.recipeBuilder("dolomite_dust_separation").duration(480).EUt(VA[MV])
+                .inputItems(dust, Dolomite)
+                .chancedOutput(dustTiny, Magnesium, 6700, 700)
+                .chancedOutput(dustTiny, Calcium, 5700, 700)
+                .chancedOutput(dustTiny, MetalMixture, 3700, 700)
+                .outputFluids(Oxygen.getFluid(16))
+                .save(consumer);
+
+        // Chert
+        CENTRIFUGE_RECIPES.recipeBuilder("chert_dust_separation").duration(480).EUt(VA[MV])
+                .inputItems(dust, Chert)
+                .chancedOutput(dustTiny, Silicon, 6700, 700)
+                .chancedOutput(dustTiny, MetalMixture, 5700, 700)
+                .outputFluids(Oxygen.getFluid(24))
+                .save(consumer);
+
+        // Chalk
+        CENTRIFUGE_RECIPES.recipeBuilder("chalk_dust_separation").duration(480).EUt(VA[MV])
+                .inputItems(dust, Chalk)
+                .chancedOutput(dustTiny, Calcium, 6700, 700)
+                .chancedOutput(dustTiny, Carbon, 3700, 700)
+                .chancedOutput(dustTiny, MetalMixture, 1700, 700)
+                .outputFluids(Oxygen.getFluid(12))
+                .save(consumer);
+
+        // Rhyolite
+        CENTRIFUGE_RECIPES.recipeBuilder("rhyolite_dust_separation").duration(480).EUt(VA[MV])
+                .inputItems(dust, Rhyolite)
+                .chancedOutput(dustTiny, SiliconDioxide, 8700, 700)
+                .chancedOutput(dustTiny, MetalMixture, 800, 700)
+                .save(consumer);
+
+        // Dacite
+        CENTRIFUGE_RECIPES.recipeBuilder("dacite_dust_separation").duration(480).EUt(VA[MV])
+                .inputItems(dust, Dacite)
+                .chancedOutput(dustTiny, Sodium, 6700, 700)
+                .chancedOutput(dustTiny, Calcium, 5700, 700)
+                .chancedOutput(dustTiny, SiliconDioxide, 4700, 700)
+                .chancedOutput(dustTiny, Aluminium, 3700, 700)
+                .chancedOutput(dustTiny, MetalMixture, 150, 700)
+                .outputFluids(Oxygen.getFluid(12))
+                .save(consumer);
+
+        // Slate
+        CENTRIFUGE_RECIPES.recipeBuilder("slate_dust_separation").duration(480).EUt(VA[MV])
+                .inputItems(dust, Slate)
+                .chancedOutput(dustTiny, MetalMixture, 780, 480)
+                .outputFluids(Oxygen.getFluid(6))
+                .save(consumer);
+
+        // Phyllite
+        CENTRIFUGE_RECIPES.recipeBuilder("phyllite_dust_separation").duration(480).EUt(VA[MV])
+                .inputItems(dust, Phyllite)
+                .chancedOutput(dustTiny, Quartzite, 5700, 700)
+                .chancedOutput(dustTiny, CalciumChloride, 1700, 700)
+                .outputFluids(Oxygen.getFluid(2))
+                .save(consumer);
+
+        // Schist
+        CENTRIFUGE_RECIPES.recipeBuilder("schist_dust_separation").duration(480).EUt(VA[MV])
+                .inputItems(dust, Schist)
+                .chancedOutput(dustTiny, Mica, 6700, 700)
+                .chancedOutput(dustTiny, Talc, 5700, 700)
+                .chancedOutput(dustTiny, Graphite, 4700, 700)
+                .chancedOutput(dustTiny, MetalMixture, 780, 700)
+                .outputFluids(Oxygen.getFluid(12))
+                .save(consumer);
+
+        // Gneiss
+        CENTRIFUGE_RECIPES.recipeBuilder("gneiss_dust_separation").duration(480).EUt(VA[MV])
+                .inputItems(dust, Gneiss)
+                .chancedOutput(dustTiny, Quartzite, 6700, 700)
+                .chancedOutput(dustTiny, Biotite, 3700, 700)
+                .outputFluids(Oxygen.getFluid(2))
+                .save(consumer);
+    }
+
+    private static void extruderShapeHeads(Consumer<FinishedRecipe> consumer)
     {
         for (var material : GTRegistries.MATERIALS.values())
         {

@@ -2,23 +2,18 @@ package exception.terrafirmagreg.compat.gregtech;
 
 import appeng.core.definitions.AEBlocks;
 import appeng.core.definitions.AEItems;
-import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlag;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.OreProperty;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.ToolProperty;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
-import com.gregtechceu.gtceu.api.item.tool.GTToolType;
 import com.gregtechceu.gtceu.api.registry.GTRegistries;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
-import net.dries007.tfc.common.items.TFCItems;
-import net.dries007.tfc.util.Metal;
-import net.minecraft.world.level.ItemLike;
 
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.*;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet.CERTUS;
-import static com.gregtechceu.gtceu.api.item.tool.GTToolType.*;
+import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet.ROUGH;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 
 public class TFGMaterials {
@@ -87,5 +82,89 @@ public class TFGMaterials {
             .flags(GENERATE_PLATE, NO_SMELTING, CRYSTALLIZABLE, DISABLE_DECOMPOSITION, FORCE_GENERATE_BLOCK)
             .components(Silicon, 1, Oxygen, 2)
             .color(0x57448d)
+            .buildAndRegister();
+
+    /* Stone Type Materials */
+    public static Material Gabbro = new Material.Builder("gabbro")
+            .dust(2)
+            .color(0x7F8081).secondaryColor(0x898989).iconSet(ROUGH)
+            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
+            .buildAndRegister();
+
+    public static Material Shale = new Material.Builder("shale")
+            .dust(2)
+            .color(0x686567).secondaryColor(0x898989).iconSet(ROUGH)
+            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
+            .buildAndRegister();
+
+    public static Material Claystone = new Material.Builder("claystone")
+            .dust(2)
+            .color(0xAF9377).secondaryColor(0x898989).iconSet(ROUGH)
+            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
+            .buildAndRegister();
+    public static Material Limestone = new Material.Builder("limestone")
+            .dust(2)
+            .color(0xA09885).secondaryColor(0x898989).iconSet(ROUGH)
+            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
+            .buildAndRegister();
+
+    public static Material Conglomerate = new Material.Builder("conglomerate")
+            .dust(2)
+            .color(0xA3977F).secondaryColor(0x898989).iconSet(ROUGH)
+            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
+            .buildAndRegister();
+
+    public static Material Dolomite = new Material.Builder("dolomite")
+            .dust(2)
+            .color(0x515155).secondaryColor(0x898989).iconSet(ROUGH)
+            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
+            .buildAndRegister();
+
+    public static Material Chert = new Material.Builder("chert")
+            .dust(2)
+            .color(0x7A6756).secondaryColor(0x898989).iconSet(ROUGH)
+            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
+            .buildAndRegister();
+
+    public static Material Chalk = new Material.Builder("chalk")
+            .dust(2)
+            .color(0xA4A39F).secondaryColor(0x898989).iconSet(ROUGH)
+            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
+            .buildAndRegister();
+
+    public static Material Rhyolite = new Material.Builder("rhyolite")
+            .dust(2)
+            .color(0x726D69).secondaryColor(0x898989).iconSet(ROUGH)
+            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
+            .buildAndRegister();
+
+    public static Material Dacite = new Material.Builder("dacite")
+            .dust(2)
+            .color(0x979797).secondaryColor(0x898989).iconSet(ROUGH)
+            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
+            .buildAndRegister();
+
+    public static Material Slate = new Material.Builder("slate")
+            .dust(2)
+            .color(0x989287).secondaryColor(0x898989).iconSet(ROUGH)
+            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
+            .buildAndRegister();
+
+    public static Material Phyllite = new Material.Builder("phyllite")
+            .dust(2)
+            .color(0x706B61).secondaryColor(0x898989).iconSet(ROUGH)
+            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
+            .buildAndRegister();
+
+    public static Material Schist = new Material.Builder("schist")
+            .dust(2)
+            .color(0x6E735C).secondaryColor(0x898989).iconSet(ROUGH)
+            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
+            .buildAndRegister();
+
+    public static Material Gneiss = new Material.Builder("gneiss")
+            .dust(2)
+            .color(0x6A6D60).secondaryColor(0x898989).iconSet(ROUGH)
+            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
             .buildAndRegister();
 }
