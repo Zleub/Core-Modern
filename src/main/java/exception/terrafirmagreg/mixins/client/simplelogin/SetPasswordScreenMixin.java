@@ -16,7 +16,7 @@ import top.seraphjack.simplelogin.client.SetPasswordScreen;
 
 
 @OnlyIn(Dist.CLIENT)
-@Mixin(value = SetPasswordScreen.class, remap = false)
+@Mixin(value = SetPasswordScreen.class)
 public final class SetPasswordScreenMixin extends Screen {
 
     @Unique
