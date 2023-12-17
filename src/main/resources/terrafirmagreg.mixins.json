@@ -8,6 +8,7 @@
     "common.gtceu.GTOreProcessingDisplayMixin",
     "common.gtceu.GTOreProcessingWidgetMixin",
     "common.gtceu.GTRecipesMixin",
+    "common.gtceu.GTRecipeTypesMixin",
     "common.gtceu.GTToolItemMixin",
     "common.gtceu.MaterialRecipeHandlerMixin",
     "common.gtceu.PartsRecipeHandlerMixin",
