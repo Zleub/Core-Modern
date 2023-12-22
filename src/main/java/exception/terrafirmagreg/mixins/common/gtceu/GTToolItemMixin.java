@@ -2,18 +2,29 @@ package exception.terrafirmagreg.mixins.common.gtceu;
 
 import com.gregtechceu.gtceu.api.item.GTToolItem;
 import com.gregtechceu.gtceu.api.item.tool.GTToolType;
+import com.gregtechceu.gtceu.api.item.tool.TreeFellingHelper;
+import com.gregtechceu.gtceu.data.recipe.CustomTags;
 import com.mojang.datafixers.util.Pair;
+import net.dries007.tfc.common.TFCTags;
+import net.dries007.tfc.common.items.TFCItems;
+import net.dries007.tfc.util.Metal;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CampfireBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
@@ -33,7 +44,14 @@ import java.util.function.Predicate;
 import static net.minecraft.world.item.HoeItem.changeIntoState;
 
 @Mixin(value = GTToolItem.class, remap = false)
-public abstract class GTToolItemMixin {
+public abstract class GTToolItemMixin extends DiggerItem {
+
+    @Shadow @Final
+    protected GTToolType toolType;
+
+    public GTToolItemMixin(float pAttackDamageModifier, float pAttackSpeedModifier, Tier pTier, TagKey<Block> pBlocks, Properties pProperties) {
+        super(pAttackDamageModifier, pAttackSpeedModifier, pTier, pBlocks, pProperties);
+    }
 
     @Inject(method = "useAxeOn", at = @At(value = "HEAD"), remap = false, cancellable = true)
     private void onUseAxeOn(UseOnContext context, CallbackInfoReturnable<InteractionResult> cir)
@@ -80,7 +98,7 @@ public abstract class GTToolItemMixin {
     }
 
     @Inject(method = "useShovelOn", at = @At(value = "HEAD"), remap = false, cancellable = true)
-    private void  onUseShovelOn(UseOnContext context, CallbackInfoReturnable<InteractionResult> cir) {
+    private void onUseShovelOn(UseOnContext context, CallbackInfoReturnable<InteractionResult> cir) {
         Level level = context.getLevel();
         BlockPos blockPos = context.getClickedPos();
         BlockState blockState = level.getBlockState(blockPos);
@@ -170,5 +188,28 @@ public abstract class GTToolItemMixin {
             }
         }
         return false;
+    }
+
+    @Inject(method = "mineBlock", at = @At(value = "HEAD"), remap = false, cancellable = true)
+    public void mineBlock(ItemStack stack, Level level, BlockState state, BlockPos origin, LivingEntity entity, CallbackInfoReturnable<Boolean> cir) {
+        if (this.toolType == GTToolType.SCYTHE) {
+            if (entity instanceof ServerPlayer player)
+            {
+                for (BlockPos pos : BlockPos.betweenClosed(origin.offset(-1, -1, -1), origin.offset(1, 1, 1)))
+                {
+                    final BlockState stateAt = level.getBlockState(pos);
+                    if (!pos.equals(origin) && stateAt.is(TFCTags.Blocks.MINEABLE_WITH_SCYTHE) && net.minecraftforge.common.TierSortingRegistry.isCorrectTierForDrops(getTier(), stateAt))
+                    {
+                        Block.dropResources(stateAt, level, pos, stateAt.hasBlockEntity() ? level.getBlockEntity(pos) : null, player, new ItemStack(TFCItems.METAL_ITEMS.get(Metal.Default.COPPER).get(Metal.ItemType.SCYTHE).get()));
+
+                        level.destroyBlock(pos, false, player); // we have to drop resources manually as breaking from the level means the tool is ignored
+                    }
+                }
+
+                player.getMainHandItem().hurtAndBreak(1, player, p -> p.broadcastBreakEvent(player.getUsedItemHand()));
+            }
+        }
+
+        cir.setReturnValue(super.mineBlock(stack, level, state, origin, entity));
     }
 }
