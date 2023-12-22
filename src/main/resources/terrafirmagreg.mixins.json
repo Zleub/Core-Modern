@@ -5,8 +5,6 @@
   "compatibilityLevel": "JAVA_17",
   "plugin": "exception.terrafirmagreg.TFGMixinPlugin",
   "mixins": [
-    "common.gtceu.GTOreProcessingDisplayMixin",
-    "common.gtceu.GTOreProcessingWidgetMixin",
     "common.gtceu.GTRecipesMixin",
     "common.gtceu.GTRecipeTypesMixin",
     "common.gtceu.GTToolItemMixin",
