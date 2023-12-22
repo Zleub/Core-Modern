@@ -5,12 +5,14 @@ import com.gregtechceu.gtceu.api.item.tool.GTToolType;
 import com.gregtechceu.gtceu.api.item.tool.TreeFellingHelper;
 import com.gregtechceu.gtceu.data.recipe.CustomTags;
 import com.mojang.datafixers.util.Pair;
+import exception.terrafirmagreg.TerraFirmaGreg;
 import net.dries007.tfc.common.TFCTags;
 import net.dries007.tfc.common.items.TFCItems;
 import net.dries007.tfc.util.Metal;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -30,6 +32,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.ToolActions;
+import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -37,11 +40,13 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 import static net.minecraft.world.item.HoeItem.changeIntoState;
+import static net.minecraft.world.level.block.Block.getDrops;
 
 @Mixin(value = GTToolItem.class, remap = false)
 public abstract class GTToolItemMixin extends DiggerItem {
@@ -166,6 +171,7 @@ public abstract class GTToolItemMixin extends DiggerItem {
         }
     }
 
+    @Override
     public boolean canPerformAction(ItemStack stack, ToolAction toolAction) {
         if (stack.getItem() instanceof GTToolItem item) {
             switch (item.getToolType())
@@ -190,8 +196,8 @@ public abstract class GTToolItemMixin extends DiggerItem {
         return false;
     }
 
-    @Inject(method = "mineBlock", at = @At(value = "HEAD"), remap = false, cancellable = true)
-    public void mineBlock(ItemStack stack, Level level, BlockState state, BlockPos origin, LivingEntity entity, CallbackInfoReturnable<Boolean> cir) {
+    @Override
+    public boolean mineBlock(@NotNull ItemStack stack, @NotNull Level level, @NotNull BlockState state, @NotNull BlockPos origin, @NotNull LivingEntity entity) {
         if (this.toolType == GTToolType.SCYTHE) {
             if (entity instanceof ServerPlayer player)
             {
@@ -200,16 +206,14 @@ public abstract class GTToolItemMixin extends DiggerItem {
                     final BlockState stateAt = level.getBlockState(pos);
                     if (!pos.equals(origin) && stateAt.is(TFCTags.Blocks.MINEABLE_WITH_SCYTHE) && net.minecraftforge.common.TierSortingRegistry.isCorrectTierForDrops(getTier(), stateAt))
                     {
-                        Block.dropResources(stateAt, level, pos, stateAt.hasBlockEntity() ? level.getBlockEntity(pos) : null, player, new ItemStack(TFCItems.METAL_ITEMS.get(Metal.Default.COPPER).get(Metal.ItemType.SCYTHE).get()));
+                        Block.dropResources(stateAt, level, pos, stateAt.hasBlockEntity() ? level.getBlockEntity(pos) : null, player, player.getMainHandItem());
 
                         level.destroyBlock(pos, false, player); // we have to drop resources manually as breaking from the level means the tool is ignored
                     }
                 }
-
-                player.getMainHandItem().hurtAndBreak(1, player, p -> p.broadcastBreakEvent(player.getUsedItemHand()));
             }
         }
 
-        cir.setReturnValue(super.mineBlock(stack, level, state, origin, entity));
+        return super.mineBlock(stack, level, state, origin, entity);
     }
 }
