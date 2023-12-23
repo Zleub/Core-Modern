@@ -8,6 +8,7 @@ import com.gregtechceu.gtceu.api.data.chemical.material.properties.OreProperty;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.ToolProperty;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
+import com.gregtechceu.gtceu.api.item.tool.GTToolType;
 import com.gregtechceu.gtceu.api.registry.GTRegistries;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
 import net.dries007.tfc.common.items.TFCItems;
@@ -22,29 +23,36 @@ public class TFGMaterials {
 
     public static void init()
     {
-        GTMaterials.Bismuth.setProperty(PropertyKey.ORE, new OreProperty());
-        GTMaterials.Bismuth.addFlags(EXT2_METAL.toArray(new MaterialFlag[0]));
+        Bismuth.setProperty(PropertyKey.ORE, new OreProperty());
+        Bismuth.addFlags(EXT2_METAL.toArray(new MaterialFlag[0]));
 
-        GTMaterials.Borax.setProperty(PropertyKey.ORE, new OreProperty());
+        Borax.setProperty(PropertyKey.ORE, new OreProperty());
 
-        GTMaterials.CertusQuartz.addFlags(GENERATE_ROD);
-        GTMaterials.NetherQuartz.addFlags(GENERATE_ROD);
+        CertusQuartz.addFlags(GENERATE_ROD);
+        NetherQuartz.addFlags(GENERATE_ROD);
 
-        GTMaterials.Nickel.addFlags(GENERATE_ROD, GENERATE_LONG_ROD);
-        GTMaterials.BlackSteel.addFlags(GENERATE_LONG_ROD, GENERATE_BOLT_SCREW);
-        GTMaterials.BlueSteel.addFlags(GENERATE_LONG_ROD, GENERATE_BOLT_SCREW);
-        GTMaterials.RedSteel.addFlags(GENERATE_LONG_ROD, GENERATE_BOLT_SCREW);
-        GTMaterials.WroughtIron.addFlags(GENERATE_ROTOR);
+        Nickel.addFlags(GENERATE_ROD, GENERATE_LONG_ROD);
+        BlackSteel.addFlags(GENERATE_LONG_ROD, GENERATE_BOLT_SCREW);
+        BlueSteel.addFlags(GENERATE_LONG_ROD, GENERATE_BOLT_SCREW);
+        RedSteel.addFlags(GENERATE_LONG_ROD, GENERATE_BOLT_SCREW);
+        WroughtIron.addFlags(GENERATE_ROTOR);
 
-        GTMaterials.Copper.addFlags(GENERATE_BOLT_SCREW);
-        GTMaterials.DamascusSteel.addFlags(GENERATE_BOLT_SCREW);
-        GTMaterials.Duranium.addFlags(GENERATE_BOLT_SCREW);
+        Copper.addFlags(GENERATE_BOLT_SCREW);
+        DamascusSteel.addFlags(GENERATE_BOLT_SCREW);
+        Duranium.addFlags(GENERATE_BOLT_SCREW);
 
-        GTMaterials.Copper.setProperty(PropertyKey.TOOL, ToolProperty.Builder.of(1.0F, 1.0F, 128, 2).build());
-        GTMaterials.BismuthBronze.setProperty(PropertyKey.TOOL, ToolProperty.Builder.of(1.2F, 2.0F, 178, 2).build());
-        GTMaterials.Bronze.getProperty(PropertyKey.TOOL).setHarvestSpeed(1.3F);
-        GTMaterials.BlackBronze.setProperty(PropertyKey.TOOL, ToolProperty.Builder.of(1.4F, 2.0F, 228, 2).build());
-        GTMaterials.BlackSteel.setProperty(PropertyKey.TOOL, ToolProperty.Builder.of(3.0F, 7.0F, 1000, 3).build());
+        Stone.setProperty(PropertyKey.TOOL, ToolProperty.Builder.of(1.0F, 1.0F, 8, 1, new GTToolType[]{
+                GTToolType.AXE,
+                GTToolType.HARD_HAMMER,
+                GTToolType.HOE,
+                GTToolType.KNIFE,
+                GTToolType.SHOVEL
+        }).build());
+        Copper.setProperty(PropertyKey.TOOL, ToolProperty.Builder.of(1.0F, 1.0F, 128, 2).build());
+        BismuthBronze.setProperty(PropertyKey.TOOL, ToolProperty.Builder.of(1.2F, 2.0F, 178, 2).build());
+        Bronze.getProperty(PropertyKey.TOOL).setHarvestSpeed(1.3F);
+        BlackBronze.setProperty(PropertyKey.TOOL, ToolProperty.Builder.of(1.4F, 2.0F, 228, 2).build());
+        BlackSteel.setProperty(PropertyKey.TOOL, ToolProperty.Builder.of(3.0F, 7.0F, 1000, 3).build());
 
         for (var material : GTRegistries.MATERIALS.values())
         {
