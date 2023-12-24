@@ -228,8 +228,10 @@ public class TFGTagPrefixes {
 
         /* Tool Heads */
 
-        var withoutPolymerAndWood = (hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE) && !mat.hasProperty(PropertyKey.POLYMER) && mat != GTMaterials.Wood && mat != GTMaterials.Stone));
+        var withoutPolymerAndWood = (hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE) && !mat.hasProperty(PropertyKey.POLYMER) && mat != GTMaterials.Wood));
         var withoutPolymerAndWoodStone = (hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE) && !mat.hasProperty(PropertyKey.POLYMER) && mat != GTMaterials.Wood && mat != GTMaterials.Stone));
+
+
 
         toolHeadMiningHammer = new TagPrefix("miningHammerHead")
                 .defaultTagPath(FORGE, "mining_hammer_heads/%s")
