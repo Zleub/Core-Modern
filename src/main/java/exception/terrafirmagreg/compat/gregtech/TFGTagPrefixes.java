@@ -228,6 +228,9 @@ public class TFGTagPrefixes {
 
         /* Tool Heads */
 
+        var withoutPolymerAndWood = (hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE) && !mat.hasProperty(PropertyKey.POLYMER) && mat != GTMaterials.Wood && mat != GTMaterials.Stone));
+        var withoutPolymerAndWoodStone = (hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE) && !mat.hasProperty(PropertyKey.POLYMER) && mat != GTMaterials.Wood && mat != GTMaterials.Stone));
+
         toolHeadMiningHammer = new TagPrefix("miningHammerHead")
                 .defaultTagPath(FORGE, "mining_hammer_heads/%s")
                 .unformattedTagPath(FORGE, "mining_hammer_heads")
@@ -238,7 +241,7 @@ public class TFGTagPrefixes {
                 .materialIconType(TFGMaterialIconType.toolHeadMiningHammer)
                 .unificationEnabled(true)
                 .generateItem(true)
-                .generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE) && !mat.hasProperty(PropertyKey.POLYMER) && mat != GTMaterials.Wood));
+                .generationCondition(withoutPolymerAndWoodStone);
 
         toolHeadSword = new TagPrefix("swordHead")
                 .defaultTagPath(FORGE, "sword_heads/%s")
@@ -250,7 +253,7 @@ public class TFGTagPrefixes {
                 .materialIconType(MaterialIconType.toolHeadSword)
                 .unificationEnabled(true)
                 .generateItem(true)
-                .generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE) && !mat.hasProperty(PropertyKey.POLYMER) && mat != GTMaterials.Wood));
+                .generationCondition(withoutPolymerAndWoodStone);
 
         toolHeadPickaxe = new TagPrefix("pickaxeHead")
                 .defaultTagPath(FORGE, "pickaxe_heads/%s")
@@ -262,7 +265,7 @@ public class TFGTagPrefixes {
                 .materialIconType(MaterialIconType.toolHeadPickaxe)
                 .unificationEnabled(true)
                 .generateItem(true)
-                .generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE) && !mat.hasProperty(PropertyKey.POLYMER) && mat != GTMaterials.Wood));
+                .generationCondition(withoutPolymerAndWoodStone);
 
         toolHeadShovel = new TagPrefix("shovelHead")
                 .defaultTagPath(FORGE, "shovel_heads/%s")
@@ -274,7 +277,7 @@ public class TFGTagPrefixes {
                 .materialIconType(MaterialIconType.toolHeadShovel)
                 .unificationEnabled(true)
                 .generateItem(true)
-                .generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE) && !mat.hasProperty(PropertyKey.POLYMER) && mat != GTMaterials.Wood));
+                .generationCondition(withoutPolymerAndWood);
 
         toolHeadAxe = new TagPrefix("axeHead")
                 .defaultTagPath(FORGE, "axe_heads/%s")
@@ -286,7 +289,7 @@ public class TFGTagPrefixes {
                 .materialIconType(MaterialIconType.toolHeadAxe)
                 .unificationEnabled(true)
                 .generateItem(true)
-                .generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE) && !mat.hasProperty(PropertyKey.POLYMER) && mat != GTMaterials.Wood));
+                .generationCondition(withoutPolymerAndWood);
 
         toolHeadHoe = new TagPrefix("hoeHead")
                 .defaultTagPath(FORGE, "hoe_heads/%s")
@@ -298,7 +301,7 @@ public class TFGTagPrefixes {
                 .materialIconType(MaterialIconType.toolHeadHoe)
                 .unificationEnabled(true)
                 .generateItem(true)
-                .generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE) && !mat.hasProperty(PropertyKey.POLYMER) && mat != GTMaterials.Wood));
+                .generationCondition(withoutPolymerAndWood);
 
         toolHeadScythe = new TagPrefix("scytheHead")
                 .defaultTagPath(FORGE, "scythe_heads/%s")
@@ -310,7 +313,7 @@ public class TFGTagPrefixes {
                 .materialIconType(MaterialIconType.toolHeadScythe)
                 .unificationEnabled(true)
                 .generateItem(true)
-                .generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE) && !mat.hasProperty(PropertyKey.POLYMER) && mat != GTMaterials.Wood));
+                .generationCondition(withoutPolymerAndWoodStone);
 
         toolHeadFile = new TagPrefix("fileHead")
                 .defaultTagPath(FORGE, "file_heads/%s")
@@ -322,7 +325,7 @@ public class TFGTagPrefixes {
                 .materialIconType(MaterialIconType.toolHeadFile)
                 .unificationEnabled(true)
                 .generateItem(true)
-                .generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE) && !mat.hasProperty(PropertyKey.POLYMER) && mat != GTMaterials.Wood));
+                .generationCondition(withoutPolymerAndWoodStone);
 
         toolHeadHammer = new TagPrefix("hammerHead")
                 .defaultTagPath(FORGE, "hammer_heads/%s")
@@ -334,7 +337,7 @@ public class TFGTagPrefixes {
                 .materialIconType(MaterialIconType.toolHeadHammer)
                 .unificationEnabled(true)
                 .generateItem(true)
-                .generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE) && !mat.hasProperty(PropertyKey.POLYMER) && mat != GTMaterials.Wood));
+                .generationCondition(withoutPolymerAndWood);
 
         toolHeadSaw = new TagPrefix("sawHead")
                 .defaultTagPath(FORGE, "saw_heads/%s")
@@ -346,7 +349,7 @@ public class TFGTagPrefixes {
                 .materialIconType(MaterialIconType.toolHeadSaw)
                 .unificationEnabled(true)
                 .generateItem(true)
-                .generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE) && !mat.hasProperty(PropertyKey.POLYMER) && mat != GTMaterials.Wood));
+                .generationCondition(withoutPolymerAndWoodStone);
 
         toolHeadKnife = new TagPrefix("knifeHead")
                 .defaultTagPath(FORGE, "knife_heads/%s")
@@ -358,7 +361,7 @@ public class TFGTagPrefixes {
                 .materialIconType(TFGMaterialIconType.toolHeadKnife)
                 .unificationEnabled(true)
                 .generateItem(true)
-                .generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE) && !mat.hasProperty(PropertyKey.POLYMER) && mat != GTMaterials.Wood));
+                .generationCondition(withoutPolymerAndWood);
 
         toolHeadButcheryKnife = new TagPrefix("knifeButcheryHead")
                 .defaultTagPath(FORGE, "butchery_knife_heads/%s")
@@ -370,7 +373,7 @@ public class TFGTagPrefixes {
                 .materialIconType(TFGMaterialIconType.toolHeadButcheryKnife)
                 .unificationEnabled(true)
                 .generateItem(true)
-                .generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE) && !mat.hasProperty(PropertyKey.POLYMER) && mat != GTMaterials.Wood));
+                .generationCondition(withoutPolymerAndWoodStone);
 
         /* Tag Fixes */
 
