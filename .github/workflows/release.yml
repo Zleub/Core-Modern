@@ -9,9 +9,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-        with:
-          submodules: true
+      - name: Checkout
+        uses: actions/checkout@v4.1.1
+
+      - name: Get the version
+        id: get_version
+        run: echo ::set-output name=version::${GITHUB_REF#refs/tags/}
+
+      - name: Set the version
+        run: |
+          DEV=${{ steps.get_version.outputs.version }}
+          sed -i -e "s/DEV/${DEV}/g" gradle.properties
 
       - uses: actions/setup-java@v3
         with:
@@ -29,16 +37,10 @@ jobs:
         with:
           arguments: build
 
-      - name: Get the version
-        id: get_version
-        run: echo ::set-output name=version::${GITHUB_REF#refs/tags/}
-
       - name: release
         uses: Kir-Antipov/mc-publish@v3.3
         with:
           modrinth-id: lNttW2Xl
-          modrinth-featured: true
-          modrinth-unfeature-mode: subset
           modrinth-token: ${{ secrets.MODRINTH_API_TOKEN }}
 
           curseforge-id: 513402
