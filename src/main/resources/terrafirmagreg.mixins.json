@@ -1,27 +1,25 @@
 {
   "required": true,
-  "package": "exception.terrafirmagreg.mixins",
   "minVersion": "0.8",
+  "package": "su.terrafirmagreg.tfgcore.mixins",
   "compatibilityLevel": "JAVA_17",
-  "plugin": "exception.terrafirmagreg.TFGMixinPlugin",
+  "refmap": "TFG-Core-1.20.x.refmap.json",
   "mixins": [
-    "common.gtceu.GTRecipesMixin",
+    "common.gtceu.GTItemsMixin",
     "common.gtceu.GTRecipeTypesMixin",
     "common.gtceu.GTToolItemMixin",
     "common.gtceu.MaterialRecipeHandlerMixin",
     "common.gtceu.PartsRecipeHandlerMixin",
     "common.gtceu.RecyclingRecipeHandlerMixin",
     "common.gtceu.TagPrefixMixin",
-    "common.gtceu.TFGItemsMixin",
     "common.gtceu.ToolRecipeHandlerMixin",
     "common.minecraft.ServerAdvancementManagerMixin"
   ],
-  "injectors": {
-    "defaultRequire": 1
-  },
-  "refmap": "terrafirmagreg.mixin-refmap.json",
   "client": [
     "client.ftb.ClientTeamManagerImplMixin",
-    "client.simplelogin.SetPasswordScreenMixin"
-  ]
+    "client.sl.SetPasswordScreenMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
 }
