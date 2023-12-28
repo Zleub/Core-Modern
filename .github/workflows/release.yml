@@ -1,0 +1,65 @@
+name: Deploy mod
+
+on:
+  push:
+    tags:
+      - "*.*.*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.1
+
+      - name: Get the version
+        id: get_version
+        run: echo ::set-output name=version::${GITHUB_REF#refs/tags/}
+
+      - name: Set the version
+        run: |
+          DEV=${{ steps.get_version.outputs.version }}
+          sed -i -e "s/DEV/${DEV}/g" gradle.properties
+
+      - uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'adopt'
+          cache: 'gradle'
+
+      - name: Validate Gradle wrapper
+        uses: gradle/wrapper-validation-action@v1
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Build
+        uses: gradle/gradle-build-action@v2.4.2
+        with:
+          arguments: build
+
+      - name: release
+        uses: Kir-Antipov/mc-publish@v3.3
+        with:
+          modrinth-id: lNttW2Xl
+          modrinth-token: ${{ secrets.MODRINTH_API_TOKEN }}
+
+          curseforge-id: 513402
+          curseforge-token: ${{ secrets.CF_API_TOKEN }}
+
+          files: |
+            build/libs/!(*-@(dev|sources|javadoc)).jar
+            build/libs/*-@(dev|sources|javadoc).jar
+
+          name: TFG-Core-1.20.1-${{ steps.get_version.outputs.version }}
+          version: 1.20.1-${{ steps.get_version.outputs.version }}
+          version-type: release
+
+          loaders: |
+            forge
+          game-versions: 1.20.1
+          game-version-filter: none
+          java: 17
+          retry-attempts: 2
+          retry-delay: 10000
+          fail-mode: fail
