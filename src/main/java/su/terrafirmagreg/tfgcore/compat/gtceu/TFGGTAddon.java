@@ -4,9 +4,11 @@ import com.gregtechceu.gtceu.api.addon.IGTAddon;
 import net.minecraft.data.recipes.FinishedRecipe;
 import su.terrafirmagreg.tfgcore.TerraFirmaGreg;
 import su.terrafirmagreg.tfgcore.objects.TFGRecipes;
+import com.gregtechceu.gtceu.api.addon.GTAddon;
 
 import java.util.function.Consumer;
 
+@GTAddon
 public class TFGGTAddon implements IGTAddon {
     @Override
     public void initializeAddon() {}

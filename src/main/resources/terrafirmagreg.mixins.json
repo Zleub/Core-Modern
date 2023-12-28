@@ -6,7 +6,6 @@
   "refmap": "TFG-Core-1.20.x.refmap.json",
   "mixins": [
     "common.gtceu.GTItemsMixin",
-    "common.gtceu.GTRecipesMixin",
     "common.gtceu.GTRecipeTypesMixin",
     "common.gtceu.GTToolItemMixin",
     "common.gtceu.MaterialRecipeHandlerMixin",
