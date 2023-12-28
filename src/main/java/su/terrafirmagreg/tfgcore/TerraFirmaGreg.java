@@ -25,6 +25,6 @@ public class TerraFirmaGreg {
 
         MinecraftForge.EVENT_BUS.register(this);
 
-        TFCAmbientalCompat.register();
+        //TFCAmbientalCompat.register();
     }
 }

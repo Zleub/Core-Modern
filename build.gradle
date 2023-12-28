@@ -30,6 +30,8 @@ java {
 minecraft {
     mappings channel: mapping_channel, version: mapping_version
 
+    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+
     copyIdeResources = true
 
     runs {
@@ -110,12 +112,18 @@ repositories {
             includeGroup 'com.lowdragmc.ldlib'
         }
     }
+    maven {
+        url = "https://maven.theillusivec4.top/"
+    }
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+
+    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}+${minecraft_version}")
+    compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}+${minecraft_version}:api")
 
     implementation fg.deobf("com.tterrag.registrate:Registrate:${registrate_version}")
     implementation fg.deobf("curse.maven:configuration-444699:${configuration_version}")
@@ -124,24 +132,24 @@ dependencies {
     implementation fg.deobf("dev.latvian.mods:rhino-forge:${rhino_version}")
     implementation fg.deobf("dev.latvian.mods:kubejs-forge:${kubejs_version}")
 
-    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
-    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}")
-    runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
+    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}") { transitive = false }
+    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}") { transitive = false }
+    runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}") { transitive = false }
 
     implementation fg.deobf("com.lowdragmc.ldlib:ldlib-forge-${minecraft_version}:${ldlib_version}") { transitive = false }
-    implementation fg.deobf("curse.maven:gregtechceu-modern-890405:${gregtech_version}")
+    implementation fg.deobf("curse.maven:gregtechceu-modern-890405:${gregtech_version}") { transitive = false }
 
     implementation fg.deobf("curse.maven:simple-login-312664:${simplelogin_version}")
 
-    implementation fg.deobf("curse.maven:ftb-teams-404468:4623116")
-    implementation fg.deobf("curse.maven:ftb-library-404465:4864329")
+    implementation fg.deobf("curse.maven:ftb-teams-404468:4623116") { transitive = false }
+    implementation fg.deobf("curse.maven:ftb-library-404465:4864329") { transitive = false }
 
     compileOnly fg.deobf("vazkii.patchouli:Patchouli:${patcouli_version}:api")
     runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patcouli_version}")
     implementation fg.deobf("curse.maven:tfc-302973:${tfc_version}")
     implementation fg.deobf("curse.maven:tfcambiental-940350:${tfcambiental_version}")
 
-    implementation fg.deobf("curse.maven:ae2-223794:${ae2_version}")
+    implementation fg.deobf("curse.maven:ae2-223794:${ae2_version}") { transitive = false }
 }
 
 tasks.named('processResources', ProcessResources).configure {
