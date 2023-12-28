@@ -20,7 +20,7 @@ jobs:
         id: set_version
         run: |
           DEV=${{ steps.get_version.outputs.version }}
-          sed -i -e "s/DEV/${DEV}/g" gradle.properties
+          sed -i -e "s/0.0.0-indev/${DEV}/g" gradle.properties
 
       - uses: actions/setup-java@v3
         with:
