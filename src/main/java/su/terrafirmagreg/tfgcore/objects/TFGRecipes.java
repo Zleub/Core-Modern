@@ -11,8 +11,16 @@ import com.gregtechceu.gtceu.api.registry.GTRegistries;
 import com.gregtechceu.gtceu.common.data.GTItems;
 import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
 import com.tterrag.registrate.util.entry.ItemEntry;
+import net.dries007.tfc.common.capabilities.forge.ForgeRule;
+import net.dries007.tfc.common.recipes.AnvilRecipe;
+import net.dries007.tfc.common.recipes.outputs.ItemStackModifier;
+import net.dries007.tfc.common.recipes.outputs.ItemStackProvider;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import su.terrafirmagreg.tfgcore.compat.gtceu.TFGTagPrefixes;
 
 import java.util.function.Consumer;
@@ -22,6 +30,7 @@ import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTItems.SHAPE_EMPTY;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;
+import static com.gregtechceu.gtceu.data.recipe.generated.RecyclingRecipeHandler.processCrushing;
 import static su.terrafirmagreg.tfgcore.compat.gtceu.TFGMaterials.*;
 import static su.terrafirmagreg.tfgcore.objects.TFGItems.*;
 
@@ -29,8 +38,9 @@ public class TFGRecipes {
 
     public static void init(Consumer<FinishedRecipe> consumer)
     {
-        extruderShapeHeads(consumer);
         stoneTypeDustsDecomposition(consumer);
+        extruderShapeHeads(consumer);
+        toolHeadRecycling(consumer);
 
         FLUID_SOLIDFICATION_RECIPES.recipeBuilder("latex_heating").duration(480).EUt(VA[LV])
                 .inputItems(dust, Sulfur)
@@ -159,6 +169,22 @@ public class TFGRecipes {
                 .chancedOutput(dustTiny, Biotite, 3700, 700)
                 .outputFluids(Oxygen.getFluid(2))
                 .save(consumer);
+    }
+
+    private static void toolHeadRecycling(Consumer<FinishedRecipe> consumer)
+    {
+        TFGTagPrefixes.toolHeadMiningHammer.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, consumer));
+        TFGTagPrefixes.toolHeadSword.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, consumer));
+        TFGTagPrefixes.toolHeadPickaxe.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, consumer));
+        TFGTagPrefixes.toolHeadShovel.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, consumer));
+        TFGTagPrefixes.toolHeadAxe.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, consumer));
+        TFGTagPrefixes.toolHeadHoe.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, consumer));
+        TFGTagPrefixes.toolHeadScythe.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, consumer));
+        TFGTagPrefixes.toolHeadFile.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, consumer));
+        TFGTagPrefixes.toolHeadHammer.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, consumer));
+        TFGTagPrefixes.toolHeadSaw.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, consumer));
+        TFGTagPrefixes.toolHeadKnife.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, consumer));
+        TFGTagPrefixes.toolHeadButcheryKnife.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, consumer));
     }
 
     private static void extruderShapeHeads(Consumer<FinishedRecipe> consumer)

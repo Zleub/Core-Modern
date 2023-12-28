@@ -11,6 +11,8 @@ import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.api.item.tool.GTToolType;
 import com.gregtechceu.gtceu.api.registry.GTRegistries;
 import net.dries007.tfc.common.items.TFCItems;
+import net.dries007.tfc.common.recipes.AnvilRecipe;
+import net.dries007.tfc.common.recipes.TFCRecipeTypes;
 import net.dries007.tfc.util.Metal;
 
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.*;
@@ -78,8 +80,20 @@ public class TFGMaterials {
 
         TagPrefix.dust.setIgnored(EnderPearl, AEItems.ENDER_DUST);
 
-        TagPrefix.ingot.setIgnored(Copper, () -> TFCItems.METAL_ITEMS.get(Metal.Default.COPPER).get(Metal.ItemType.INGOT).get());
-        TagPrefix.ingot.setIgnored(Gold, () -> TFCItems.METAL_ITEMS.get(Metal.Default.GOLD).get(Metal.ItemType.INGOT).get());
+        TagPrefix.rawOre.removeIgnored(Copper);
+        TagPrefix.rawOre.removeIgnored(Gold);
+        TagPrefix.rawOre.removeIgnored(Iron);
+
+        TagPrefix.rawOreBlock.removeIgnored(Copper);
+        TagPrefix.rawOreBlock.removeIgnored(Gold);
+        TagPrefix.rawOreBlock.removeIgnored(Iron);
+
+        TagPrefix.ingot.removeIgnored(Copper);
+        TagPrefix.ingot.removeIgnored(Gold);
+        TagPrefix.ingot.removeIgnored(Iron);
+
+        //TagPrefix.ingot.setIgnored(Copper, () -> TFCItems.METAL_ITEMS.get(Metal.Default.COPPER).get(Metal.ItemType.INGOT).get());
+        //TagPrefix.ingot.setIgnored(Gold, () -> TFCItems.METAL_ITEMS.get(Metal.Default.GOLD).get(Metal.ItemType.INGOT).get());
     }
 
     public static Material Latex = new Material.Builder("latex")

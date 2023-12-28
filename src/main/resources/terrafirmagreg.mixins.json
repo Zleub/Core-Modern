@@ -10,7 +10,6 @@
     "common.gtceu.GTToolItemMixin",
     "common.gtceu.MaterialRecipeHandlerMixin",
     "common.gtceu.PartsRecipeHandlerMixin",
-    "common.gtceu.RecyclingRecipeHandlerMixin",
     "common.gtceu.TagPrefixMixin",
     "common.gtceu.ToolRecipeHandlerMixin",
     "common.minecraft.ServerAdvancementManagerMixin"
