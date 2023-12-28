@@ -52,7 +52,7 @@ jobs:
             build/libs/!(*-@(dev|sources|javadoc)).jar
             build/libs/*-@(dev|sources|javadoc).jar
 
-          name: ${{ github.repository.name }}-1.20.x-${{ steps.get_version.outputs.version }}
+          name: ${{ github.repository.name }}-${{ steps.get_version.outputs.version }}
           version: ${{ steps.get_version.outputs.version }}
           version-type: release
 
