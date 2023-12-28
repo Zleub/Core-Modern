@@ -139,6 +139,7 @@ dependencies {
     compileOnly fg.deobf("vazkii.patchouli:Patchouli:${patcouli_version}:api")
     runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patcouli_version}")
     implementation fg.deobf("curse.maven:tfc-302973:${tfc_version}")
+    implementation fg.deobf("curse.maven:tfcambiental-940350:${tfcambiental_version}")
 
     implementation fg.deobf("curse.maven:ae2-223794:${ae2_version}")
 }

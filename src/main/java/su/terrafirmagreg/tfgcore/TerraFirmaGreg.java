@@ -9,6 +9,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 import su.terrafirmagreg.tfgcore.compat.gtceu.TFGGTAddon;
+import su.terrafirmagreg.tfgcore.compat.tfcambiental.TFCAmbientalCompat;
 
 @Mod(TerraFirmaGreg.MOD_ID)
 public class TerraFirmaGreg {
@@ -23,5 +24,7 @@ public class TerraFirmaGreg {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         MinecraftForge.EVENT_BUS.register(this);
+
+        TFCAmbientalCompat.register();
     }
 }
