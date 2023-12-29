@@ -80,20 +80,8 @@ public class TFGMaterials {
 
         TagPrefix.dust.setIgnored(EnderPearl, AEItems.ENDER_DUST);
 
-        TagPrefix.rawOre.removeIgnored(Copper);
-        TagPrefix.rawOre.removeIgnored(Gold);
-        TagPrefix.rawOre.removeIgnored(Iron);
-
-        TagPrefix.rawOreBlock.removeIgnored(Copper);
-        TagPrefix.rawOreBlock.removeIgnored(Gold);
-        TagPrefix.rawOreBlock.removeIgnored(Iron);
-
-        TagPrefix.ingot.removeIgnored(Copper);
-        TagPrefix.ingot.removeIgnored(Gold);
-        TagPrefix.ingot.removeIgnored(Iron);
-
-        //TagPrefix.ingot.setIgnored(Copper, () -> TFCItems.METAL_ITEMS.get(Metal.Default.COPPER).get(Metal.ItemType.INGOT).get());
-        //TagPrefix.ingot.setIgnored(Gold, () -> TFCItems.METAL_ITEMS.get(Metal.Default.GOLD).get(Metal.ItemType.INGOT).get());
+        TagPrefix.ingot.setIgnored(Copper, () -> TFCItems.METAL_ITEMS.get(Metal.Default.COPPER).get(Metal.ItemType.INGOT).get());
+        TagPrefix.ingot.setIgnored(Gold, () -> TFCItems.METAL_ITEMS.get(Metal.Default.GOLD).get(Metal.ItemType.INGOT).get());
     }
 
     public static Material Latex = new Material.Builder("latex")
