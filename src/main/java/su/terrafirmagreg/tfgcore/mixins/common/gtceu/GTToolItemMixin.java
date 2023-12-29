@@ -12,6 +12,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DiggerItem;
@@ -37,6 +38,7 @@ import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
+import static net.dries007.tfc.common.items.ToolItem.willConsumeDurability;
 import static net.minecraft.world.item.HoeItem.changeIntoState;
 
 @Mixin(value = GTToolItem.class, remap = false)
@@ -189,7 +191,7 @@ public class GTToolItemMixin extends DiggerItem {
 
     @Override
     public boolean mineBlock(@NotNull ItemStack stack, @NotNull Level level, @NotNull BlockState state, @NotNull BlockPos origin, @NotNull LivingEntity entity) {
-        if (this.toolType == GTToolType.SCYTHE) {
+        if (toolType == GTToolType.SCYTHE) {
             if (entity instanceof ServerPlayer player)
             {
                 for (BlockPos pos : BlockPos.betweenClosed(origin.offset(-1, -1, -1), origin.offset(1, 1, 1)))
@@ -203,6 +205,14 @@ public class GTToolItemMixin extends DiggerItem {
                     }
                 }
             }
+        }
+        else if (toolType == GTToolType.KNIFE) {
+            if (!level.isClientSide && willConsumeDurability(level, origin, state))
+            {
+                stack.hurtAndBreak(1, entity, p -> p.broadcastBreakEvent(EquipmentSlot.MAINHAND));
+            }
+
+            return true;
         }
 
         return super.mineBlock(stack, level, state, origin, entity);
