@@ -5,6 +5,11 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "terrafirmagreg.refmap.json",
   "mixins": [
+    "common.create.BasinBlockEntityMixin",
+    "common.create.BasinCategoryMixin",
+    "common.create.CharcoalForgeBlockMixin",
+    "common.create.CrucibleBlockMixin",
+    "common.flywheel.AnimatedBlazeBurnerMixin",
     "common.gtceu.GTItemsMixin",
     "common.gtceu.GTRecipeTypesMixin",
     "common.gtceu.GTToolItemMixin",

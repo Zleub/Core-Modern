@@ -8,6 +8,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
+import su.terrafirmagreg.tfgcore.compat.create.CustomArmInteractionPointTypes;
 import su.terrafirmagreg.tfgcore.compat.gtceu.TFGGTAddon;
 import su.terrafirmagreg.tfgcore.compat.tfcambiental.TFCAmbientalCompat;
 
@@ -25,6 +26,7 @@ public class TerraFirmaGreg {
 
         MinecraftForge.EVENT_BUS.register(this);
 
-        //TFCAmbientalCompat.register();
+        TFCAmbientalCompat.register();
+        CustomArmInteractionPointTypes.register();
     }
 }
