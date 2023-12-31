@@ -7,8 +7,8 @@
   "mixins": [
     "common.create.BasinBlockEntityMixin",
     "common.create.BasinCategoryMixin",
-    "common.create.CharcoalForgeBlockMixin",
-    "common.create.CrucibleBlockMixin",
+    "common.tfc.CharcoalForgeBlockMixin",
+    "common.tfc.CrucibleBlockMixin",
     "common.flywheel.AnimatedBlazeBurnerMixin",
     "common.gtceu.GTItemsMixin",
     "common.gtceu.GTRecipeTypesMixin",

@@ -1,4 +1,4 @@
-package su.terrafirmagreg.tfgcore.mixins.common.create;
+package su.terrafirmagreg.tfgcore.mixins.common.tfc;
 
 import com.simibubi.create.content.kinetics.mechanicalArm.ArmItem;
 import net.dries007.tfc.common.blocks.devices.CrucibleBlock;
@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(value = CrucibleBlock.class, remap = false)
+@Mixin(value = CrucibleBlock.class)
 public class CrucibleBlockMixin {
 
     @Inject(method = "use", at = @At("HEAD"), cancellable = true)
