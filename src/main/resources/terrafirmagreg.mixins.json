@@ -7,8 +7,6 @@
   "mixins": [
     "common.create.BasinBlockEntityMixin",
     "common.create.BasinCategoryMixin",
-    "common.tfc.CharcoalForgeBlockMixin",
-    "common.tfc.CrucibleBlockMixin",
     "common.flywheel.AnimatedBlazeBurnerMixin",
     "common.gtceu.GTItemsMixin",
     "common.gtceu.GTRecipeTypesMixin",
@@ -17,7 +15,9 @@
     "common.gtceu.PartsRecipeHandlerMixin",
     "common.gtceu.TagPrefixMixin",
     "common.gtceu.ToolRecipeHandlerMixin",
-    "common.minecraft.ServerAdvancementManagerMixin"
+    "common.minecraft.ServerAdvancementManagerMixin",
+    "common.tfc.CharcoalForgeBlockMixin",
+    "common.tfc.CrucibleBlockMixin"
   ],
   "client": [
     "client.ftb.ClientTeamManagerImplMixin",
