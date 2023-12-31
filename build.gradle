@@ -37,8 +37,6 @@ minecraft {
     runs {
         // applies to all the run configs below
         configureEach {
-            workingDirectory project.file('run')
-
             property 'forge.logging.markers', 'REGISTRIES'
 
 
@@ -52,15 +50,21 @@ minecraft {
         }
 
         client {
+            workingDirectory project.file('run-client')
+
             property 'forge.enabledGameTestNamespaces', mod_id
         }
 
         server {
+            workingDirectory project.file('run-server')
+
             property 'forge.enabledGameTestNamespaces', mod_id
             args '--nogui'
         }
 
         gameTestServer {
+            workingDirectory project.file('run-game-test')
+
             property 'forge.enabledGameTestNamespaces', mod_id
         }
 
@@ -131,6 +135,8 @@ dependencies {
 
     implementation fg.deobf("dev.latvian.mods:rhino-forge:${rhino_version}")
     implementation fg.deobf("dev.latvian.mods:kubejs-forge:${kubejs_version}")
+
+    implementation fg.deobf("curse.maven:create-328085:4835191")
 
     compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}") { transitive = false }
     compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}") { transitive = false }
