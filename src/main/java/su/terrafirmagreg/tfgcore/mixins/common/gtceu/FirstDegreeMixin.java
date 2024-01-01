@@ -22,7 +22,7 @@ public class FirstDegreeMixin {
     /**
      * Отключение инстурментов из розового золота GTCEu.
      * */
-    @Redirect(method = "register", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/api/data/chemical/material/Material$Builder;toolStats(Lcom/gregtechceu/gtceu/api/data/chemical/material/properties/ToolProperty;)Lcom/gregtechceu/gtceu/api/data/chemical/material/Material$Builder;", ordinal = 3), remap = false)
+    @Redirect(method = "register", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/api/data/chemical/material/Material$Builder;toolStats(Lcom/gregtechceu/gtceu/api/data/chemical/material/properties/ToolProperty;)Lcom/gregtechceu/gtceu/api/data/chemical/material/Material$Builder;", ordinal = 4), remap = false)
     private static Material.Builder disableRoseGoldTools(Material.Builder instance, ToolProperty toolProperty) {
         return instance;
     }
