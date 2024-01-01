@@ -1,7 +1,6 @@
 package su.terrafirmagreg.tfgcore.compat.create;
 
 import com.simibubi.create.content.equipment.potatoCannon.PotatoCannonProjectileType;
-import net.dries007.tfc.common.blocks.crop.Crop;
 import net.dries007.tfc.common.items.Food;
 import net.dries007.tfc.common.items.TFCItems;
 import net.minecraft.resources.ResourceLocation;
