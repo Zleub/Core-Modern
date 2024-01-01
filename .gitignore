@@ -2,6 +2,7 @@ build/
 *.ipr
 run-client/
 run-client2/
+run/*
 *.iws
 out/
 *.iml
@@ -24,3 +25,4 @@ fabric/src/generated/resources/.cache/
 
 *.patch
 *.DS_Store
+
