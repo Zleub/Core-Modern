@@ -9,6 +9,8 @@
     "common.create.BasinCategoryMixin",
     "common.firmaciv.WoodenBoatFrameBlockMixin",
     "common.flywheel.AnimatedBlazeBurnerMixin",
+    "common.gtceu.ElementMaterialsMixin",
+    "common.gtceu.FirstDegreeMixin",
     "common.gtceu.GTItemsMixin",
     "common.gtceu.GTRecipeTypesMixin",
     "common.gtceu.GTToolItemMixin",
