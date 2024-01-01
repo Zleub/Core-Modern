@@ -7,6 +7,7 @@
   "mixins": [
     "common.create.BasinBlockEntityMixin",
     "common.create.BasinCategoryMixin",
+    "common.firmaciv.WoodenBoatFrameBlockMixin",
     "common.flywheel.AnimatedBlazeBurnerMixin",
     "common.gtceu.GTItemsMixin",
     "common.gtceu.GTRecipeTypesMixin",

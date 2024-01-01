@@ -47,8 +47,37 @@ public class GTToolItemMixin extends DiggerItem {
     @Shadow @Final
     protected GTToolType toolType;
 
+    @Shadow
+    public InteractionResult useShovelOn(UseOnContext context) {
+        return InteractionResult.FAIL;
+    }
+
+    @Shadow
+    public InteractionResult useAxeOn(UseOnContext context) {
+        return InteractionResult.FAIL;
+    }
+
+    @Shadow
+    public InteractionResult useHoeOn(UseOnContext context) {
+        return InteractionResult.FAIL;
+    }
+
+
     public GTToolItemMixin(float pAttackDamageModifier, float pAttackSpeedModifier, Tier pTier, TagKey<Block> pBlocks, Properties pProperties) {
         super(pAttackDamageModifier, pAttackSpeedModifier, pTier, pBlocks, pProperties);
+    }
+
+    @Override
+    @NotNull
+    public InteractionResult useOn(@NotNull UseOnContext context) {
+        if (this.toolType == GTToolType.SHOVEL) {
+            return useShovelOn(context);
+        } else if (this.toolType == GTToolType.AXE || toolType == GTToolType.SAW) {
+            return useAxeOn(context);
+        } else if (this.toolType == GTToolType.HOE) {
+            return useHoeOn(context);
+        }
+        return InteractionResult.PASS;
     }
 
     @Inject(method = "useAxeOn", at = @At(value = "HEAD"), remap = false, cancellable = true)
@@ -134,14 +163,15 @@ public class GTToolItemMixin extends DiggerItem {
         }
     }
 
-    public InteractionResult useHoeOn(UseOnContext context)
+    @Inject(method = "useHoeOn", at = @At(value = "HEAD"), remap = false, cancellable = true)
+    private void onUseHoeOn(UseOnContext context, CallbackInfoReturnable<InteractionResult> cir)
     {
         Level level = context.getLevel();
         BlockPos blockpos = context.getClickedPos();
         BlockState toolModifiedState = level.getBlockState(blockpos).getToolModifiedState(context, ToolActions.HOE_TILL, false);
         Pair<Predicate<UseOnContext>, Consumer<UseOnContext>> pair = toolModifiedState == null ? null : Pair.of(ctx -> true, changeIntoState(toolModifiedState));
         if (pair == null) {
-            return InteractionResult.PASS;
+            cir.setReturnValue(InteractionResult.PASS);
         } else {
             Predicate<UseOnContext> predicate = pair.getFirst();
             Consumer<UseOnContext> consumer = pair.getSecond();
@@ -157,9 +187,9 @@ public class GTToolItemMixin extends DiggerItem {
                     }
                 }
 
-                return InteractionResult.sidedSuccess(level.isClientSide);
+                cir.setReturnValue(InteractionResult.sidedSuccess(level.isClientSide));
             } else {
-                return InteractionResult.PASS;
+                cir.setReturnValue(InteractionResult.PASS);
             }
         }
     }
@@ -169,7 +199,7 @@ public class GTToolItemMixin extends DiggerItem {
         if (stack.getItem() instanceof GTToolItem item) {
             switch (item.getToolType())
             {
-                case AXE -> {
+                case SAW, AXE -> {
                     return ToolActions.DEFAULT_AXE_ACTIONS.contains(toolAction);
                 }
 
