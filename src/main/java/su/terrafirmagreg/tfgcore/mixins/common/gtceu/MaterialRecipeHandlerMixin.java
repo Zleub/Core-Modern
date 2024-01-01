@@ -1,5 +1,7 @@
 package su.terrafirmagreg.tfgcore.mixins.common.gtceu;
 
+import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
+import com.gregtechceu.gtceu.data.recipe.builder.GTRecipeBuilder;
 import com.gregtechceu.gtceu.data.recipe.generated.MaterialRecipeHandler;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.ItemStack;
@@ -18,4 +20,9 @@ public class MaterialRecipeHandlerMixin {
     @Redirect(method = "processIngot", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/VanillaRecipeHelper;addShapedRecipe(Ljava/util/function/Consumer;Ljava/lang/String;Lnet/minecraft/world/item/ItemStack;[Ljava/lang/Object;)V", ordinal = 2), remap = false)
     private static void onPlateRecipeGeneration(Consumer<FinishedRecipe> provider, String regName, ItemStack result, Object[] recipe) {}
 
+    /**
+     * Генерация рецептов 9 слитков -> Блок
+     */
+    @Redirect(method = "processIngot", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/builder/GTRecipeBuilder;save(Ljava/util/function/Consumer;)V", ordinal = 5), remap = false)
+    private static void onPlateRecipeGeneration(GTRecipeBuilder instance, Consumer<FinishedRecipe> consumer) {}
 }
