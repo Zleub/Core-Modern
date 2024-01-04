@@ -12,6 +12,7 @@ plugins {
     id 'eclipse'
     id 'idea'
     id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+    id 'org.parchmentmc.librarian.forgegradle' version '1.+'
 }
 
 apply plugin: 'org.spongepowered.mixin'
@@ -50,26 +51,26 @@ minecraft {
         }
 
         client {
-            workingDirectory project.file('run-client')
+            workingDirectory project.file('run/client')
 
             property 'forge.enabledGameTestNamespaces', mod_id
         }
 
         server {
-            workingDirectory project.file('run-server')
+            workingDirectory project.file('run/server')
 
             property 'forge.enabledGameTestNamespaces', mod_id
             args '--nogui'
         }
 
         gameTestServer {
-            workingDirectory project.file('run-game-test')
+            workingDirectory project.file('run/game-test')
 
             property 'forge.enabledGameTestNamespaces', mod_id
         }
 
         data {
-            workingDirectory project.file('run-data')
+            workingDirectory project.file('run/data')
 
             args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
         }
