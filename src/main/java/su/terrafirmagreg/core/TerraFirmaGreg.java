@@ -14,7 +14,7 @@ import su.terrafirmagreg.core.compat.tfcambiental.TFCAmbientalCompat;
 @Mod(TerraFirmaGreg.MOD_ID)
 public class TerraFirmaGreg {
 
-    public static final String MOD_ID = "terrafirmagreg";
+    public static final String MOD_ID = "tfg";
     public static final Logger LOGGER = LogUtils.getLogger();
     public static TFGConfig CONFIG;
 

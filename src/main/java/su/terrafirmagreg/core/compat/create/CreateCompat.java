@@ -17,7 +17,7 @@ public class CreateCompat {
         // Все семяна имееют одинаковый урон
         for (var item : TFCItems.CROP_SEEDS.entrySet())
         {
-            new PotatoCannonProjectileType.Builder(new ResourceLocation("tfg", item.getKey().toString() + "_seed"))
+            new PotatoCannonProjectileType.Builder(new ResourceLocation("tfg", item.getKey().toString().toLowerCase() + "_seed"))
                     .damage(5)
                     .velocity(1.25F)
                     .knockback(1.5F)
