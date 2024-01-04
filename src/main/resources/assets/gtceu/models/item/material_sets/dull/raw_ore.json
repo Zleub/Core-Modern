@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "gtceu:item/material_sets/dull/normal_ore",
+    "layer1": "gtceu:item/material_sets/dull/normal_ore_overlay"
+  }
+}
