@@ -15,6 +15,7 @@
     "common.gtceu.GTRecipeTypesMixin",
     "common.gtceu.GTToolItemMixin",
     "common.gtceu.MaterialRecipeHandlerMixin",
+    "common.gtceu.OreRecipeHandlerMixin",
     "common.gtceu.PartsRecipeHandlerMixin",
     "common.gtceu.TagPrefixMixin",
     "common.gtceu.ToolRecipeHandlerMixin",

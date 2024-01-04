@@ -65,6 +65,12 @@ public class TFGTagPrefixes {
 
     public static final TagPrefix toolHeadButcheryKnife;
 
+    /* Other */
+
+    public static final TagPrefix poorRawOre;
+
+    public static final TagPrefix richRawOre;
+
 
     static {
         // Делаем все в статическом конструкторе
@@ -373,6 +379,23 @@ public class TFGTagPrefixes {
                 .unificationEnabled(true)
                 .generateItem(true)
                 .generationCondition(withoutPolymerAndWoodStone);
+
+        /* Other */
+        poorRawOre = new TagPrefix("poor_raw", true)
+                .defaultTagPath(FORGE, "poor_raw_materials/%s")
+                .langValue("Poor Raw %s")
+                .materialIconType(TFGMaterialIconType.poorRawOre)
+                .unificationEnabled(true)
+                .generateItem(true)
+                .generationCondition(hasOreProperty);
+
+        richRawOre = new TagPrefix("rich_raw", true)
+                .defaultTagPath(FORGE, "rich_raw_materials/%s")
+                .langValue("Rich Raw %s")
+                .materialIconType(TFGMaterialIconType.richRawOre)
+                .unificationEnabled(true)
+                .generateItem(true)
+                .generationCondition(hasOreProperty);
 
         /* Tag Fixes */
 
