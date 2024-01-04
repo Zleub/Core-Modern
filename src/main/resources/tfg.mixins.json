@@ -1,0 +1,32 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "su.terrafirmagreg.core.mixins",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "tfg.refmap.json",
+  "mixins": [
+    "common.create.BasinBlockEntityMixin",
+    "common.create.BasinCategoryMixin",
+    "common.firmaciv.WoodenBoatFrameBlockMixin",
+    "common.flywheel.AnimatedBlazeBurnerMixin",
+    "common.gtceu.ElementMaterialsMixin",
+    "common.gtceu.FirstDegreeMixin",
+    "common.gtceu.GTItemsMixin",
+    "common.gtceu.GTRecipeTypesMixin",
+    "common.gtceu.GTToolItemMixin",
+    "common.gtceu.MaterialRecipeHandlerMixin",
+    "common.gtceu.PartsRecipeHandlerMixin",
+    "common.gtceu.TagPrefixMixin",
+    "common.gtceu.ToolRecipeHandlerMixin",
+    "common.minecraft.ServerAdvancementManagerMixin",
+    "common.tfc.CharcoalForgeBlockMixin",
+    "common.tfc.CrucibleBlockMixin"
+  ],
+  "client": [
+    "client.ftb.ClientTeamManagerImplMixin",
+    "client.sl.SetPasswordScreenMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
