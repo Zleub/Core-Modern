@@ -19,54 +19,54 @@ jobs:
         env:
          GITHUB_CONTEXT: ${{ toJson(github) }}
 
-      # - name: Get the version
-      #   id: get_version
-      #   run: echo ::set-output name=version::${GITHUB_REF#refs/tags/}
+      - name: Get the version
+        id: get_version
+        run: echo ::set-output name=version::${GITHUB_REF#refs/tags/}
 
-      # - name: Set the version
-      #   id: set_version
-      #   run: |
-      #     DEV=${{ steps.get_version.outputs.version }}
-      #     sed -i -e "s/0.0.0-indev/${DEV}/g" gradle.properties
+      - name: Set the version
+        id: set_version
+        run: |
+          DEV=${{ steps.get_version.outputs.version }}
+          sed -i -e "s/0.0.0-indev/${DEV}/g" gradle.properties
 
-      # - uses: actions/setup-java@v4.0.0
-      #   with:
-      #     java-version: '17'
-      #     distribution: 'adopt'
-      #     cache: 'gradle'
+      - uses: actions/setup-java@v4.0.0
+        with:
+          java-version: '17'
+          distribution: 'adopt'
+          cache: 'gradle'
 
-      # - name: Validate Gradle wrapper
-      #   uses: gradle/wrapper-validation-action@v1.1.0
+      - name: Validate Gradle wrapper
+        uses: gradle/wrapper-validation-action@v1.1.0
 
-      # - name: Grant execute permission for gradlew
-      #   run: chmod +x gradlew
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
 
-      # - name: Build
-      #   uses: gradle/gradle-build-action@v2.11.1
-      #   with:
-      #     arguments: build
+      - name: Build
+        uses: gradle/gradle-build-action@v2.11.1
+        with:
+          arguments: build
 
-      # - name: release
-      #   uses: Kir-Antipov/mc-publish@v3.3
-      #   with:
-      #     modrinth-id: lNttW2Xl
-      #     modrinth-token: ${{ secrets.MODRINTH_API_TOKEN }}
+      - name: release
+        uses: Kir-Antipov/mc-publish@v3.3
+        with:
+          modrinth-id: lNttW2Xl
+          modrinth-token: ${{ secrets.MODRINTH_API_TOKEN }}
 
-      #     curseforge-id: 513402
-      #     curseforge-token: ${{ secrets.CF_API_TOKEN }}
+          curseforge-id: 513402
+          curseforge-token: ${{ secrets.CF_API_TOKEN }}
 
-      #     files: |
-      #       build/libs/!(*-@(dev|sources|javadoc)).jar
-      #       build/libs/*-@(dev|sources|javadoc).jar
+          files: |
+            build/libs/!(*-@(dev|sources|javadoc)).jar
+            build/libs/*-@(dev|sources|javadoc).jar
 
-      #     name: ${{ github.repository_name }}-${{ steps.get_version.outputs.version }}
-      #     version: ${{ steps.get_version.outputs.version }}
-      #     version-type: release
+          name: ${{ github.repository.name }}-${{ steps.get_version.outputs.version }}
+          version: ${{ steps.get_version.outputs.version }}
+          version-type: release
 
-      #     loaders: forge
-      #     game-versions: 1.20.1
-      #     game-version-filter: none
-      #     java: 17
-      #     retry-attempts: 2
-      #     retry-delay: 10000
-      #     fail-mode: fail
+          loaders: forge
+          game-versions: 1.20.1
+          game-version-filter: none
+          java: 17
+          retry-attempts: 2
+          retry-delay: 10000
+          fail-mode: fail
