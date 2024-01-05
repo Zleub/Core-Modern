@@ -22,7 +22,7 @@ jobs:
       - name: Set the version
         id: set_version
         run: |
-          DEV=${{ steps.get_version.outputs.version }}
+          DEV=0.2.7
           sed -i -e "s/0.0.0-indev/${DEV}/g" gradle.properties
 
       - name: Set up JDK 17
