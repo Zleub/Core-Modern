@@ -87,9 +87,10 @@ jobs:
 
       - name: Commit mod
         run: |
-          cd build/libs/
+          mv build/libs/!(*-@(dev|sources|javadoc)).jar ./
+
           
-          git add .
+          git add !(*-@(dev|sources|javadoc)).jar
           git config --global credential.helper '!f() { 
               echo "username=Xikaro"; 
               echo "password=${{ secrets.USER_TOKEN_XIKARO }}"; }; f'
