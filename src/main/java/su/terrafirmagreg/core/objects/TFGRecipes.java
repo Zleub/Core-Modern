@@ -228,11 +228,6 @@ public class TFGRecipes {
                 "S  ", "hf ", "   ", 'S', SHAPE_EMPTY.asStack());
 
         VanillaRecipeHelper.addStrictShapedRecipe(consumer,
-                "shape_extruder_shovel_head",
-                SHAPE_EXTRUDER_SHOVEL_HEAD.asStack(),
-                "S  ", "fh ", "   ", 'S', SHAPE_EMPTY.asStack());
-
-        VanillaRecipeHelper.addStrictShapedRecipe(consumer,
                 "shape_extruder_axe_head",
                 SHAPE_EXTRUDER_AXE_HEAD.asStack(),
                 "S  ", " fh", "   ", 'S', SHAPE_EMPTY.asStack());
@@ -271,6 +266,11 @@ public class TFGRecipes {
                 "shape_extruder_butchery_head_head",
                 SHAPE_EXTRUDER_BUTCHERY_KNIFE_HEAD.asStack(),
                 "S h", "   ", "  f", 'S', SHAPE_EMPTY.asStack());
+
+        VanillaRecipeHelper.addStrictShapedRecipe(consumer,
+                "shape_extruder_shovel_head",
+                SHAPE_EXTRUDER_SHOVEL_HEAD.asStack(),
+                "S  ", "f  ", "h  ", 'S', SHAPE_EMPTY.asStack());
     }
 
     private static void processHead(TagPrefix tagPrefix, Material material, ItemEntry<Item> extruderShape, MarkerMaterial lenseColor, Consumer<FinishedRecipe> consumer)

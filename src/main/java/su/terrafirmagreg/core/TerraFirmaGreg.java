@@ -3,6 +3,7 @@ package su.terrafirmagreg.core;
 import com.mojang.logging.LogUtils;
 import dev.toma.configuration.Configuration;
 import dev.toma.configuration.config.format.ConfigFormats;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -25,7 +26,7 @@ public class TerraFirmaGreg {
 
         eventBus.addListener(TerraFirmaGreg::init);
 
-        // MinecraftForge.EVENT_BUS.register(this);
+        MinecraftForge.EVENT_BUS.register(this);
     }
 
     private static void init(final FMLCommonSetupEvent event) {
