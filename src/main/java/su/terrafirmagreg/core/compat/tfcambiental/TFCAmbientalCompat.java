@@ -51,32 +51,32 @@ public class TFCAmbientalCompat {
         AmbientalRegistry.BLOCKS.register((player, blockPos, state) -> Optional.of(new TempModifier("tungstensteel_firebox", 24.0F, 3.0F)).filter((mod) -> state.getBlock() == GTBlocks.FIREBOX_TUNGSTENSTEEL.get() && state.getValue(ActiveBlock.ACTIVE)));
 
         // Электро-печи
-        for (var item : stringList)
-        {
-            AmbientalRegistry.BLOCKS.register((player, blockPos, state) -> Optional.of(new TempModifier(item + "_electric_furnace", 12.0F, 3.0F)).filter((mod) -> {
-                var isTargetBlock = Arrays.stream(GTMachines.ELECTRIC_FURNACE).anyMatch(s -> s.getBlock() == state.getBlock());
-                var cap = GTCapabilityHelper.getWorkable(player.level(), blockPos, null);
-                return cap != null && cap.isActive() && isTargetBlock;
-            }));
-
-            AmbientalRegistry.BLOCKS.register((player, blockPos, state) -> Optional.of(new TempModifier(item + "_arc_furnace", 10.0F, 3.0F)).filter((mod) -> {
-                var isTargetBlock = Arrays.stream(GTMachines.ARC_FURNACE).anyMatch(s -> s.getBlock() == state.getBlock());
-                var cap = GTCapabilityHelper.getWorkable(player.level(), blockPos, null);
-                return cap != null && cap.isActive() && isTargetBlock;
-            }));
-
-            AmbientalRegistry.BLOCKS.register((player, blockPos, state) -> Optional.of(new TempModifier(item + "_alloy_smelter", 7.0F, 3.0F)).filter((mod) -> {
-                var isTargetBlock = Arrays.stream(GTMachines.ALLOY_SMELTER).anyMatch(s -> s.getBlock() == state.getBlock());
-                var cap = GTCapabilityHelper.getWorkable(player.level(), blockPos, null);
-                return cap != null && cap.isActive() && isTargetBlock;
-            }));
-
-            AmbientalRegistry.BLOCKS.register((player, blockPos, state) -> Optional.of(new TempModifier(item + "_fluid_heater", 8.0F, 3.0F)).filter((mod) -> {
-                var isTargetBlock = Arrays.stream(GTMachines.FLUID_HEATER).anyMatch(s -> s.getBlock() == state.getBlock());
-                var cap = GTCapabilityHelper.getWorkable(player.level(), blockPos, null);
-                return cap != null && cap.isActive() && isTargetBlock;
-            }));
-        }
+//        for (var item : stringList)
+//        {
+//            AmbientalRegistry.BLOCKS.register((player, blockPos, state) -> Optional.of(new TempModifier(item + "_electric_furnace", 12.0F, 3.0F)).filter((mod) -> {
+//                var isTargetBlock = Arrays.stream(GTMachines.ELECTRIC_FURNACE).anyMatch(s -> s.defaultBlockState() == state);
+//                var cap = GTCapabilityHelper.getWorkable(player.level(), blockPos, null);
+//                return cap != null && cap.isActive() && isTargetBlock;
+//            }));
+//
+//            AmbientalRegistry.BLOCKS.register((player, blockPos, state) -> Optional.of(new TempModifier(item + "_arc_furnace", 10.0F, 3.0F)).filter((mod) -> {
+//                var isTargetBlock = Arrays.stream(GTMachines.ARC_FURNACE).anyMatch(s -> s.getBlock() == state.getBlock());
+//                var cap = GTCapabilityHelper.getWorkable(player.level(), blockPos, null);
+//                return cap != null && cap.isActive() && isTargetBlock;
+//            }));
+//
+//            AmbientalRegistry.BLOCKS.register((player, blockPos, state) -> Optional.of(new TempModifier(item + "_alloy_smelter", 7.0F, 3.0F)).filter((mod) -> {
+//                var isTargetBlock = Arrays.stream(GTMachines.ALLOY_SMELTER).anyMatch(s -> s.getBlock() == state.getBlock());
+//                var cap = GTCapabilityHelper.getWorkable(player.level(), blockPos, null);
+//                return cap != null && cap.isActive() && isTargetBlock;
+//            }));
+//
+//            AmbientalRegistry.BLOCKS.register((player, blockPos, state) -> Optional.of(new TempModifier(item + "_fluid_heater", 8.0F, 3.0F)).filter((mod) -> {
+//                var isTargetBlock = Arrays.stream(GTMachines.FLUID_HEATER).anyMatch(s -> s.getBlock() == state.getBlock());
+//                var cap = GTCapabilityHelper.getWorkable(player.level(), blockPos, null);
+//                return cap != null && cap.isActive() && isTargetBlock;
+//            }));
+//        }
 
         // Койлы доменки
         AmbientalRegistry.BLOCKS.register((player, blockPos, state) -> Optional.of(new TempModifier("cupronickel_coil", 18.0F, 3.0F)).filter((mod) -> state.getBlock() == GTBlocks.COIL_CUPRONICKEL.get() && state.getValue(ActiveBlock.ACTIVE)));
