@@ -5,6 +5,8 @@ on:
   push:
     tags:
       - "*.*.*"
+    branches:
+      - main
 
 jobs:
   build:
@@ -52,33 +54,52 @@ jobs:
         with:
           arguments: build
 
-      - name: release
-        uses: Kir-Antipov/mc-publish@v3.3
+      # - name: Release
+      #   uses: Kir-Antipov/mc-publish@v3.3
+      #   with:
+      #     modrinth-id: lNttW2Xl
+      #     modrinth-token: ${{ secrets.MODRINTH_API_TOKEN }}
+      #     modrinth-dependencies: |
+      #       JaCEZUhg(required)
+      #       7tG215v7(required)
+
+      #     curseforge-id: 513402
+      #     curseforge-token: ${{ secrets.CF_API_TOKEN }}
+      #     curseforge-dependencies: |
+      #       gregtechceu-modern(required)
+      #       terrafirmacraft(required)
+
+      #     files: |
+      #       build/libs/!(*-@(dev|sources|javadoc)).jar
+      #       build/libs/*-@(dev|sources|javadoc).jar
+
+      #     name: TerraFirmaGreg-Core-1.20.x-${{ steps.get_version.outputs.version }}
+      #     version: ${{ steps.get_version.outputs.version }}
+      #     version-type: release
+
+      #     loaders: forge
+      #     game-versions: 1.20.1
+      #     game-version-filter: none
+      #     java: 17
+      #     retry-attempts: 2
+      #     retry-delay: 10000
+      #     fail-mode: fail
+
+      - name: Commit mod
+        run: |
+          cd build/libs/
+          
+          git add .
+          git config --global credential.helper '!f() { 
+              echo "username=Xikaro"; 
+              echo "password=${{ secrets.USER_TOKEN_XIKARO }}"; }; f'
+          git commit -m "Automatically update core" -a
+          git rm TerraFirmaGreg-Core-1.20.x-*.jar
+          git commit -m "Remove core old files"
+
+      - name: Push mod
+        uses: ad-m/github-push-action@v0.8.0
         with:
-          modrinth-id: lNttW2Xl
-          modrinth-token: ${{ secrets.MODRINTH_API_TOKEN }}
-          modrinth-dependencies: |
-            JaCEZUhg(required)
-            7tG215v7(required)
-
-          curseforge-id: 513402
-          curseforge-token: ${{ secrets.CF_API_TOKEN }}
-          curseforge-dependencies: |
-            gregtechceu-modern(required)
-            terrafirmacraft(required)
-
-          files: |
-            build/libs/!(*-@(dev|sources|javadoc)).jar
-            build/libs/*-@(dev|sources|javadoc).jar
-
-          name: TerraFirmaGreg-Core-1.20.x-${{ steps.get_version.outputs.version }}
-          version: ${{ steps.get_version.outputs.version }}
-          version-type: release
-
-          loaders: forge
-          game-versions: 1.20.1
-          game-version-filter: none
-          java: 17
-          retry-attempts: 2
-          retry-delay: 10000
-          fail-mode: fail
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
+          repository: https://github.com/TerraFirmaGreg-Team/Mods-1.20.x
