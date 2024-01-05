@@ -21,7 +21,8 @@
     "common.gtceu.ToolRecipeHandlerMixin",
     "common.minecraft.ServerAdvancementManagerMixin",
     "common.tfc.CharcoalForgeBlockMixin",
-    "common.tfc.CrucibleBlockMixin"
+    "common.tfc.CrucibleBlockMixin",
+    "common.tfc.TFCChunkGeneratorMixin"
   ],
   "client": [
     "client.ftb.ClientTeamManagerImplMixin",
