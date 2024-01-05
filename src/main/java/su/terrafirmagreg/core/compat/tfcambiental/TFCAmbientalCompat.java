@@ -1,8 +1,12 @@
 package su.terrafirmagreg.core.compat.tfcambiental;
 
 import com.gregtechceu.gtceu.api.block.ActiveBlock;
+import com.gregtechceu.gtceu.api.capability.GTCapabilityHelper;
+import com.gregtechceu.gtceu.api.capability.IWorkable;
+import com.gregtechceu.gtceu.api.machine.feature.IRecipeLogicMachine;
 import com.gregtechceu.gtceu.common.data.GTBlocks;
 import com.gregtechceu.gtceu.common.data.GTMachines;
+import com.gregtechceu.gtceu.common.machine.steam.SteamSolidBoilerMachine;
 import com.lumintorious.tfcambiental.api.AmbientalRegistry;
 import com.lumintorious.tfcambiental.modifier.TempModifier;
 
@@ -16,24 +20,62 @@ public class TFCAmbientalCompat {
 
     public static void register() {
         // Паровые машинки
-        AmbientalRegistry.BLOCKS.register((player, blockPos, state) -> Optional.of(new TempModifier("hp_steam_solid_boiler", 4.0F, 2.0F)).filter((mod) -> state.getBlock() == GTMachines.get("hp_steam_solid_boiler").getBlock() && state.getValue(ActiveBlock.ACTIVE)));
-        AmbientalRegistry.BLOCKS.register((player, blockPos, state) -> Optional.of(new TempModifier("hp_steam_liquid_boiler", 4.0F, 2.0F)).filter((mod) -> state.getBlock() == GTMachines.get("hp_steam_liquid_boiler").getBlock() && state.getValue(ActiveBlock.ACTIVE)));
-        AmbientalRegistry.BLOCKS.register((player, blockPos, state) -> Optional.of(new TempModifier("hp_steam_furnace", 4.0F, 2.0F)).filter((mod) -> state.getBlock() == GTMachines.get("hp_steam_furnace").getBlock() && state.getValue(ActiveBlock.ACTIVE)));
-        AmbientalRegistry.BLOCKS.register((player, blockPos, state) -> Optional.of(new TempModifier("hp_steam_alloy_smelter", 4.0F, 2.0F)).filter((mod) -> state.getBlock() == GTMachines.get("hp_steam_alloy_smelter").getBlock() && state.getValue(ActiveBlock.ACTIVE)));
+        AmbientalRegistry.BLOCKS.register((player, blockPos, state) -> Optional.of(new TempModifier("hp_steam_solid_boiler", 4.0F, 2.0F)).filter((mod) -> {
+            var isTargetBlock = state.getBlock() == GTMachines.STEAM_SOLID_BOILER.right().getBlock();
+            var cap = GTCapabilityHelper.getWorkable(player.level(), blockPos, null);
+            return cap != null && cap.isActive() && isTargetBlock;
+        }));
+
+        AmbientalRegistry.BLOCKS.register((player, blockPos, state) -> Optional.of(new TempModifier("hp_steam_liquid_boiler", 4.0F, 2.0F)).filter((mod) -> {
+            var isTargetBlock = state.getBlock() == GTMachines.STEAM_LIQUID_BOILER.right().getBlock();
+            var cap = GTCapabilityHelper.getWorkable(player.level(), blockPos, null);
+            return cap != null && cap.isActive() && isTargetBlock;
+        }));
+
+        AmbientalRegistry.BLOCKS.register((player, blockPos, state) -> Optional.of(new TempModifier("hp_steam_furnace", 4.0F, 2.0F)).filter((mod) -> {
+            var isTargetBlock = state.getBlock() == GTMachines.STEAM_FURNACE.right().getBlock();
+            var cap = GTCapabilityHelper.getWorkable(player.level(), blockPos, null);
+            return cap != null && cap.isActive() && isTargetBlock;
+        }));
+
+        AmbientalRegistry.BLOCKS.register((player, blockPos, state) -> Optional.of(new TempModifier("hp_steam_alloy_smelter", 4.0F, 2.0F)).filter((mod) -> {
+            var isTargetBlock = state.getBlock() == GTMachines.STEAM_ALLOY_SMELTER.right().getBlock();
+            var cap = GTCapabilityHelper.getWorkable(player.level(), blockPos, null);
+            return cap != null && cap.isActive() && isTargetBlock;
+        }));
 
         // Бойлеры
-        AmbientalRegistry.BLOCKS.register((player, blockPos, state) -> Optional.of(new TempModifier("bronze_large_boiler", 30.0F, 3.0F)).filter((mod) -> state.getBlock() == GTMachines.get("bronze_large_boiler").getBlock() && state.getValue(ActiveBlock.ACTIVE)));
-        AmbientalRegistry.BLOCKS.register((player, blockPos, state) -> Optional.of(new TempModifier("steel_large_boiler", 40.0F, 3.0F)).filter((mod) -> state.getBlock() == GTMachines.get("steel_large_boiler").getBlock() && state.getValue(ActiveBlock.ACTIVE)));
-        AmbientalRegistry.BLOCKS.register((player, blockPos, state) -> Optional.of(new TempModifier("titanium_large_boiler", 50.0F, 3.0F)).filter((mod) -> state.getBlock() == GTMachines.get("titanium_large_boiler").getBlock() && state.getValue(ActiveBlock.ACTIVE)));
-        AmbientalRegistry.BLOCKS.register((player, blockPos, state) -> Optional.of(new TempModifier("tungstensteel_large_boiler", 60.0F, 3.0F)).filter((mod) -> state.getBlock() == GTMachines.get("tungstensteel_large_boiler").getBlock() && state.getValue(ActiveBlock.ACTIVE)));
+        AmbientalRegistry.BLOCKS.register((player, blockPos, state) -> Optional.of(new TempModifier("bronze_firebox", 18.0F, 3.0F)).filter((mod) -> state.getBlock() == GTBlocks.FIREBOX_BRONZE.get() && state.getValue(ActiveBlock.ACTIVE)));
+        AmbientalRegistry.BLOCKS.register((player, blockPos, state) -> Optional.of(new TempModifier("steel_firebox", 20.0F, 3.0F)).filter((mod) -> state.getBlock() == GTBlocks.FIREBOX_STEEL.get() && state.getValue(ActiveBlock.ACTIVE)));
+        AmbientalRegistry.BLOCKS.register((player, blockPos, state) -> Optional.of(new TempModifier("titanium_firebox", 22.0F, 3.0F)).filter((mod) -> state.getBlock() == GTBlocks.FIREBOX_TITANIUM.get() && state.getValue(ActiveBlock.ACTIVE)));
+        AmbientalRegistry.BLOCKS.register((player, blockPos, state) -> Optional.of(new TempModifier("tungstensteel_firebox", 24.0F, 3.0F)).filter((mod) -> state.getBlock() == GTBlocks.FIREBOX_TUNGSTENSTEEL.get() && state.getValue(ActiveBlock.ACTIVE)));
 
         // Электро-печи
         for (var item : stringList)
         {
-            AmbientalRegistry.BLOCKS.register((player, blockPos, state) -> Optional.of(new TempModifier(item + "_electric_furnace", 12.0F, 3.0F)).filter((mod) -> state.getBlock() == GTMachines.get(item + "_electric_furnace").getBlock() && state.getValue(ActiveBlock.ACTIVE)));
-            AmbientalRegistry.BLOCKS.register((player, blockPos, state) -> Optional.of(new TempModifier(item + "_arc_furnace", 10.0F, 3.0F)).filter((mod) -> state.getBlock() == GTMachines.get(item + "_arc_furnace").getBlock() && state.getValue(ActiveBlock.ACTIVE)));
-            AmbientalRegistry.BLOCKS.register((player, blockPos, state) -> Optional.of(new TempModifier(item + "_alloy_smelter", 7.0F, 3.0F)).filter((mod) -> state.getBlock() == GTMachines.get(item + "_alloy_smelter").getBlock() && state.getValue(ActiveBlock.ACTIVE)));
-            AmbientalRegistry.BLOCKS.register((player, blockPos, state) -> Optional.of(new TempModifier(item + "_fluid_heater", 8.0F, 3.0F)).filter((mod) -> state.getBlock() == GTMachines.get(item + "_fluid_heater").getBlock() && state.getValue(ActiveBlock.ACTIVE)));
+            AmbientalRegistry.BLOCKS.register((player, blockPos, state) -> Optional.of(new TempModifier(item + "_electric_furnace", 12.0F, 3.0F)).filter((mod) -> {
+                var isTargetBlock = Arrays.stream(GTMachines.ELECTRIC_FURNACE).anyMatch(s -> s.getBlock() == state.getBlock());
+                var cap = GTCapabilityHelper.getWorkable(player.level(), blockPos, null);
+                return cap != null && cap.isActive() && isTargetBlock;
+            }));
+
+            AmbientalRegistry.BLOCKS.register((player, blockPos, state) -> Optional.of(new TempModifier(item + "_arc_furnace", 10.0F, 3.0F)).filter((mod) -> {
+                var isTargetBlock = Arrays.stream(GTMachines.ARC_FURNACE).anyMatch(s -> s.getBlock() == state.getBlock());
+                var cap = GTCapabilityHelper.getWorkable(player.level(), blockPos, null);
+                return cap != null && cap.isActive() && isTargetBlock;
+            }));
+
+            AmbientalRegistry.BLOCKS.register((player, blockPos, state) -> Optional.of(new TempModifier(item + "_alloy_smelter", 7.0F, 3.0F)).filter((mod) -> {
+                var isTargetBlock = Arrays.stream(GTMachines.ALLOY_SMELTER).anyMatch(s -> s.getBlock() == state.getBlock());
+                var cap = GTCapabilityHelper.getWorkable(player.level(), blockPos, null);
+                return cap != null && cap.isActive() && isTargetBlock;
+            }));
+
+            AmbientalRegistry.BLOCKS.register((player, blockPos, state) -> Optional.of(new TempModifier(item + "_fluid_heater", 8.0F, 3.0F)).filter((mod) -> {
+                var isTargetBlock = Arrays.stream(GTMachines.FLUID_HEATER).anyMatch(s -> s.getBlock() == state.getBlock());
+                var cap = GTCapabilityHelper.getWorkable(player.level(), blockPos, null);
+                return cap != null && cap.isActive() && isTargetBlock;
+            }));
         }
 
         // Койлы доменки
