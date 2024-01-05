@@ -163,6 +163,10 @@ dependencies {
     implementation fg.deobf("curse.maven:tfcambiental-940350:${tfcambiental_version}")
 
     implementation fg.deobf("curse.maven:ae2-223794:${ae2_version}") { transitive = false }
+
+    // Performance
+    implementation fg.deobf("curse.maven:modernfix-790626:4980929")
+    implementation fg.deobf("curse.maven:embeddium-908741:4984832")
 }
 
 tasks.named('processResources', ProcessResources).configure {
