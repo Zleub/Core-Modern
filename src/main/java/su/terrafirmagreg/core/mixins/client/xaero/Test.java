@@ -1,5 +1,6 @@
 package su.terrafirmagreg.core.mixins.client.xaero;
 
+import net.dries007.tfc.client.TFCColors;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
@@ -8,9 +9,6 @@ import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import xaero.common.IXaeroMinimap;
 import xaero.common.MinimapLogs;
 import xaero.common.minimap.write.MinimapWriter;
@@ -39,25 +37,27 @@ public class Test {
      */
     @Overwrite
     private int addBlockColorMultipliers(int c, BlockState state, Level world, BlockPos pos) {
-        if (this.modMain.getSettings().getBlockColours() == 1 && !this.loadingBiomesVanillaMode) {
+        if (modMain.getSettings().getBlockColours() == 1 && !loadingBiomesVanillaMode) {
             return c;
         } else {
+            /*
             int grassColor = 16777215;
 
             try {
-                grassColor = Minecraft.getInstance().getBlockColors().getColor(state, this.biomeBlendCalculator, pos, 0);
+                grassColor = Minecraft.getInstance().getBlockColors().getColor(state, biomeBlendCalculator, pos, 0);
                 System.out.println(grassColor);
             } catch (Throwable var12) {
                 MinimapLogs.LOGGER.error("suppressed exception", var12);
-            }
+            }*/
+            int grassColor = TFCColors.getGrassColor(pos, 0);
 
             if (grassColor != -1 && grassColor != 16777215) {
                 float rMultiplier = (float)(c >> 16 & 255) / 255.0F;
                 float gMultiplier = (float)(c >> 8 & 255) / 255.0F;
                 float bMultiplier = (float)(c & 255) / 255.0F;
-                int red = (int)((float)(grassColor >> 16 & 255) * rMultiplier);
-                int green = (int)((float)(grassColor >> 8 & 255) * gMultiplier);
-                int blue = (int)((float)(grassColor & 255) * bMultiplier);
+                int red = (int) ((float)(grassColor >> 16 & 255) * rMultiplier);
+                int green = (int) ((float)(grassColor >> 8 & 255) * gMultiplier);
+                int blue = (int) ((float)(grassColor & 255) * bMultiplier);
                 c = c & -16777216 | red << 16 | green << 8 | blue;
             }
 
