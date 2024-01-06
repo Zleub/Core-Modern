@@ -164,6 +164,9 @@ dependencies {
 
     implementation fg.deobf("curse.maven:ae2-223794:${ae2_version}") { transitive = false }
 
+    implementation fg.deobf("curse.maven:xaeros-minimap-263420:4933782")
+    implementation fg.deobf("curse.maven:xaeros-world-map-317780:4929640")
+
     // Performance
     implementation fg.deobf("curse.maven:modernfix-790626:4980929")
     implementation fg.deobf("curse.maven:embeddium-908741:4984832")
