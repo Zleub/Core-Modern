@@ -5,8 +5,6 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "tfg.refmap.json",
   "mixins": [
-    "client.xaero.MinimapWriterMixin",
-    "client.xaero.BlockTintProviderMixin",
     "common.create.BasinBlockEntityMixin",
     "common.create.BasinCategoryMixin",
     "common.firmaciv.WoodenBoatFrameBlockMixin",
@@ -27,6 +25,8 @@
     "common.tfc.TFCChunkGeneratorMixin"
   ],
   "client": [
+    "client.xaero.MinimapWriterMixin",
+    "client.xaero.BlockTintProviderMixin",
     "client.ftb.ClientTeamManagerImplMixin",
     "client.sl.SetPasswordScreenMixin"
   ],
