@@ -15,6 +15,7 @@ import net.minecraft.world.level.block.Blocks;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.Conditions.hasOreProperty;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.Conditions.hasToolProperty;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.LoaderType.FORGE;
+import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.oreTagPrefix;
 
 public class TFGTagPrefixes {
 
@@ -91,140 +92,140 @@ public class TFGTagPrefixes {
         TagPrefix.ORES.remove(TagPrefix.oreGranite);
 
         /* Stone Types */
-        oreGabbro = TagPrefix.oreTagPrefix("gabbro")
+        oreGabbro = oreTagPrefix("gabbro")
                 .materialIconType(MaterialIconType.ore)
                 .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .unificationEnabled(true)
                 .generationCondition(hasOreProperty)
                 .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.GABBRO).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
 
-        oreShale = TagPrefix.oreTagPrefix("shale")
+        oreShale = oreTagPrefix("shale")
                 .materialIconType(MaterialIconType.ore)
                 .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .unificationEnabled(true)
                 .generationCondition(hasOreProperty)
                 .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.SHALE).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
 
-        oreClaystone = TagPrefix.oreTagPrefix("claystone")
+        oreClaystone = oreTagPrefix("claystone")
                 .materialIconType(MaterialIconType.ore)
                 .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .unificationEnabled(true)
                 .generationCondition(hasOreProperty)
                 .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.CLAYSTONE).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
 
-        oreLimestone = TagPrefix.oreTagPrefix("limestone")
+        oreLimestone = oreTagPrefix("limestone")
                 .materialIconType(MaterialIconType.ore)
                 .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .unificationEnabled(true)
                 .generationCondition(hasOreProperty)
                 .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.LIMESTONE).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
 
-        oreConglomerate = TagPrefix.oreTagPrefix("conglomerate")
+        oreConglomerate = oreTagPrefix("conglomerate")
                 .materialIconType(MaterialIconType.ore)
                 .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .unificationEnabled(true)
                 .generationCondition(hasOreProperty)
                 .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.CONGLOMERATE).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
 
-        oreDolomite = TagPrefix.oreTagPrefix("dolomite")
+        oreDolomite = oreTagPrefix("dolomite")
                 .materialIconType(MaterialIconType.ore)
                 .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .unificationEnabled(true)
                 .generationCondition(hasOreProperty)
                 .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.DOLOMITE).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
 
-        oreChert = TagPrefix.oreTagPrefix("chert")
+        oreChert = oreTagPrefix("chert")
                 .materialIconType(MaterialIconType.ore)
                 .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .unificationEnabled(true)
                 .generationCondition(hasOreProperty)
                 .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.CHERT).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
 
-        oreRhyolite = TagPrefix.oreTagPrefix("rhyolite")
+        oreRhyolite = oreTagPrefix("rhyolite")
                 .materialIconType(MaterialIconType.ore)
                 .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .unificationEnabled(true)
                 .generationCondition(hasOreProperty)
                 .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.RHYOLITE).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
 
-        oreDacite = TagPrefix.oreTagPrefix("dacite")
+        oreDacite = oreTagPrefix("dacite")
                 .materialIconType(MaterialIconType.ore)
                 .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .unificationEnabled(true)
                 .generationCondition(hasOreProperty)
                 .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.DACITE).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
 
-        oreQuartzite = TagPrefix.oreTagPrefix("quartzite")
+        oreQuartzite = oreTagPrefix("quartzite")
                 .materialIconType(MaterialIconType.ore)
                 .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .unificationEnabled(true)
                 .generationCondition(hasOreProperty)
                 .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.QUARTZITE).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
 
-        oreSlate = TagPrefix.oreTagPrefix("slate")
+        oreSlate = oreTagPrefix("slate")
                 .materialIconType(MaterialIconType.ore)
                 .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .unificationEnabled(true)
                 .generationCondition(hasOreProperty)
                 .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.SLATE).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
 
-        orePhyllite = TagPrefix.oreTagPrefix("phyllite")
+        orePhyllite = oreTagPrefix("phyllite")
                 .materialIconType(MaterialIconType.ore)
                 .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .unificationEnabled(true)
                 .generationCondition(hasOreProperty)
                 .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.PHYLLITE).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
 
-        oreSchist = TagPrefix.oreTagPrefix("schist")
+        oreSchist = oreTagPrefix("schist")
                 .materialIconType(MaterialIconType.ore)
                 .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .unificationEnabled(true)
                 .generationCondition(hasOreProperty)
                 .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.SCHIST).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
 
-        oreGneiss = TagPrefix.oreTagPrefix("gneiss")
+        oreGneiss = oreTagPrefix("gneiss")
                 .materialIconType(MaterialIconType.ore)
                 .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .unificationEnabled(true)
                 .generationCondition(hasOreProperty)
                 .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.GNEISS).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
 
-        oreMarble = TagPrefix.oreTagPrefix("marble")
+        oreMarble = oreTagPrefix("marble")
                 .materialIconType(MaterialIconType.ore)
                 .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .unificationEnabled(true)
                 .generationCondition(hasOreProperty)
                 .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.MARBLE).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
 
-        oreBasalt = TagPrefix.oreTagPrefix("basalt")
+        oreBasalt = oreTagPrefix("basalt")
                 .materialIconType(MaterialIconType.ore)
                 .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .unificationEnabled(true)
                 .generationCondition(hasOreProperty)
                 .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.BASALT).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
 
-        oreDiorite = TagPrefix.oreTagPrefix("diorite")
+        oreDiorite = oreTagPrefix("diorite")
                 .materialIconType(MaterialIconType.ore)
                 .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .unificationEnabled(true)
                 .generationCondition(hasOreProperty)
                 .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.DIORITE).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
 
-        oreAndesite = TagPrefix.oreTagPrefix("andesite")
+        oreAndesite = oreTagPrefix("andesite")
                 .materialIconType(MaterialIconType.ore)
                 .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .unificationEnabled(true)
                 .generationCondition(hasOreProperty)
                 .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.ANDESITE).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
 
-        oreGranite = TagPrefix.oreTagPrefix("granite")
+        oreGranite = oreTagPrefix("granite")
                 .materialIconType(MaterialIconType.ore)
                 .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .unificationEnabled(true)
                 .generationCondition(hasOreProperty)
                 .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.GRANITE).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
 
-        oreChalk = TagPrefix.oreTagPrefix("chalk")
+        oreChalk = oreTagPrefix("chalk")
                 .materialIconType(MaterialIconType.ore)
                 .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .unificationEnabled(true)

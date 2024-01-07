@@ -60,12 +60,6 @@ public class TFGMaterials {
 
             toolProperty.setDurability(toolProperty.getDurability() * 6);
             toolProperty.setHarvestSpeed(toolProperty.getHarvestSpeed() * 5);
-
-            var dustProperty = material.getProperty(PropertyKey.DUST);
-            if (dustProperty == null) continue;
-
-            if (dustProperty.getHarvestLevel() > 1)
-                dustProperty.setHarvestLevel(dustProperty.getHarvestLevel() - 1);
         }
 
         TagPrefix.block.setIgnored(Fluix, AEBlocks.FLUIX_BLOCK);
