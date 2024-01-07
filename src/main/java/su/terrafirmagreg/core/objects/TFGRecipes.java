@@ -18,7 +18,8 @@ import su.terrafirmagreg.core.compat.gtceu.TFGTagPrefixes;
 import java.util.function.Consumer;
 
 import static com.gregtechceu.gtceu.api.GTValues.*;
-import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
+import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.dust;
+import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.dustTiny;
 import static com.gregtechceu.gtceu.common.data.GTItems.SHAPE_EMPTY;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;

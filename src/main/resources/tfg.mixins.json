@@ -24,10 +24,10 @@
     "common.tfc.TFCChunkGeneratorMixin"
   ],
   "client": [
-    "client.xaero.MinimapWriterMixin",
-    "client.xaero.BlockTintProviderMixin",
     "client.ftb.ClientTeamManagerImplMixin",
-    "client.sl.SetPasswordScreenMixin"
+    "client.sl.SetPasswordScreenMixin",
+    "client.xaero.BlockTintProviderMixin",
+    "client.xaero.MinimapWriterMixin"
   ],
   "injectors": {
     "defaultRequire": 1
