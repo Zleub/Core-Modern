@@ -59,7 +59,6 @@ public class TFGMaterials {
             if (toolProperty == null) continue;
 
             toolProperty.setDurability(toolProperty.getDurability() * 6);
-            toolProperty.setHarvestSpeed(toolProperty.getHarvestSpeed() * 5);
         }
 
         TagPrefix.block.setIgnored(Fluix, AEBlocks.FLUIX_BLOCK);
