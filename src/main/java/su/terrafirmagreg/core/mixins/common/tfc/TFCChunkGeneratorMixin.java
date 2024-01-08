@@ -15,12 +15,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(value = TFCChunkGenerator.class)
 public class TFCChunkGeneratorMixin {
 
-    @Unique
-    private final OrePlacer orePlacer = new OrePlacer();
+    // @Unique
+    // private final OrePlacer orePlacer = new OrePlacer();
 
     @Inject(method = "applyBiomeDecoration", at = @At("TAIL"))
     private void gtceu$applyBiomeDecoration(WorldGenLevel level, ChunkAccess chunk, StructureManager structureManager, CallbackInfo ci) {
-        orePlacer.placeOres(level, (ChunkGenerator) ((Object) this), chunk);
+        // orePlacer.placeOres(level, (ChunkGenerator) ((Object) this), chunk);
     }
 
 }

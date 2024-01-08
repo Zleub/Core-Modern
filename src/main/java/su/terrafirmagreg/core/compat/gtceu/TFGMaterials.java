@@ -10,18 +10,28 @@ import com.gregtechceu.gtceu.api.data.chemical.material.properties.ToolProperty;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.api.item.tool.GTToolType;
 import com.gregtechceu.gtceu.api.registry.GTRegistries;
-import net.dries007.tfc.common.items.TFCItems;
-import net.dries007.tfc.util.Metal;
 
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.*;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet.CERTUS;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet.ROUGH;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
+import static su.terrafirmagreg.core.compat.gtceu.TFGMaterialFlags.HAS_TFC_TOOL;
 
 public class TFGMaterials {
 
     public static void init()
     {
+        // Имеют инструменты TFC
+        Copper.addFlags(HAS_TFC_TOOL);
+        BismuthBronze.addFlags(HAS_TFC_TOOL);
+        Bronze.addFlags(HAS_TFC_TOOL);
+        BlackBronze.addFlags(HAS_TFC_TOOL);
+        WroughtIron.addFlags(HAS_TFC_TOOL);
+        BlackSteel.addFlags(HAS_TFC_TOOL);
+        RedSteel.addFlags(HAS_TFC_TOOL);
+        BlueSteel.addFlags(HAS_TFC_TOOL);
+
+        // Другое
         Bismuth.setProperty(PropertyKey.ORE, new OreProperty());
         Bismuth.addFlags(EXT2_METAL.toArray(new MaterialFlag[0]));
 
@@ -70,9 +80,6 @@ public class TFGMaterials {
         TagPrefix.gem.setIgnored(CertusQuartz, AEItems.CERTUS_QUARTZ_CRYSTAL);
 
         TagPrefix.dust.setIgnored(EnderPearl, AEItems.ENDER_DUST);
-
-        TagPrefix.ingot.setIgnored(Copper, () -> TFCItems.METAL_ITEMS.get(Metal.Default.COPPER).get(Metal.ItemType.INGOT).get());
-        TagPrefix.ingot.setIgnored(Gold, () -> TFCItems.METAL_ITEMS.get(Metal.Default.GOLD).get(Metal.ItemType.INGOT).get());
     }
 
     public static Material Latex = new Material.Builder("latex")
