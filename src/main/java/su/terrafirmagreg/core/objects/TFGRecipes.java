@@ -178,6 +178,7 @@ public class TFGRecipes {
         TFGTagPrefixes.toolHeadSaw.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, consumer));
         TFGTagPrefixes.toolHeadKnife.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, consumer));
         TFGTagPrefixes.toolHeadButcheryKnife.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, consumer));
+        TFGTagPrefixes.toolHeadSpade.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, consumer));
     }
 
     private static void extruderShapeHeads(Consumer<FinishedRecipe> consumer)
@@ -198,6 +199,7 @@ public class TFGRecipes {
                 processHead(TFGTagPrefixes.toolHeadSaw, material, SHAPE_EXTRUDER_SAW_HEAD, MarkerMaterials.Color.Magenta, consumer);
                 processHead(TFGTagPrefixes.toolHeadKnife, material, SHAPE_EXTRUDER_KNIFE_HEAD, MarkerMaterials.Color.Purple, consumer);
                 processHead(TFGTagPrefixes.toolHeadButcheryKnife, material, SHAPE_EXTRUDER_BUTCHERY_KNIFE_HEAD, MarkerMaterials.Color.Red, consumer);
+                processHead(TFGTagPrefixes.toolHeadSpade, material, SHAPE_EXTRUDER_BUTCHERY_KNIFE_HEAD, MarkerMaterials.Color.Yellow, consumer);
             }
         }
 
@@ -272,6 +274,11 @@ public class TFGRecipes {
                 "shape_extruder_shovel_head",
                 SHAPE_EXTRUDER_SHOVEL_HEAD.asStack(),
                 "S  ", "f  ", "h  ", 'S', SHAPE_EMPTY.asStack());
+
+        VanillaRecipeHelper.addStrictShapedRecipe(consumer,
+                "shape_extruder_spade_head",
+                SHAPE_EXTRUDER_SPADE_HEAD.asStack(),
+                "S  ", "f  ", "  h", 'S', SHAPE_EMPTY.asStack());
     }
 
     private static void processHead(TagPrefix tagPrefix, Material material, ItemEntry<Item> extruderShape, MarkerMaterial lenseColor, Consumer<FinishedRecipe> consumer)

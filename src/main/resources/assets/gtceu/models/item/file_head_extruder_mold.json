@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "gtceu:item/mining_hammer_head_mold"
+    "layer0": "gtceu:item/file_head_extruder_mold"
   }
 }
