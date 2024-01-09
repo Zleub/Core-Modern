@@ -11,8 +11,6 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 import su.terrafirmagreg.core.compat.create.CreateCompat;
 import su.terrafirmagreg.core.compat.tfcambiental.TFCAmbientalCompat;
-import xaero.common.minimap.render.MinimapRenderer;
-import xaero.common.minimap.render.MinimapRendererHelper;
 
 @Mod(TerraFirmaGreg.MOD_ID)
 public class TerraFirmaGreg {

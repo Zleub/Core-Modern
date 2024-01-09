@@ -11,6 +11,7 @@
     "common.flywheel.AnimatedBlazeBurnerMixin",
     "common.gtceu.ElementMaterialsMixin",
     "common.gtceu.FirstDegreeMixin",
+    "common.gtceu.GTBedrockFluidsMixin",
     "common.gtceu.GTItemsMixin",
     "common.gtceu.GTRecipeTypesMixin",
     "common.gtceu.GTToolTypeMixin",
