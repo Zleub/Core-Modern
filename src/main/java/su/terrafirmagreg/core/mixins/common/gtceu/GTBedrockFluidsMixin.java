@@ -10,7 +10,7 @@ import su.terrafirmagreg.core.compat.gtceu.TFGFluidVeins;
 @Mixin(value = GTBedrockFluids.class, remap = false)
 public class GTBedrockFluidsMixin {
 
-    @Inject(method = "init", at = @At(value = "TAIL"), remap = false)
+    @Inject(method = "init", at = @At(value = "HEAD"), remap = false)
     private static void onInit(CallbackInfo ci) {
         TFGFluidVeins.register();
     }
