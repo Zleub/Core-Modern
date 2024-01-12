@@ -247,6 +247,7 @@ public class TFGMaterials {
             dustTiny.setIgnored(item);
             dustSmall.setIgnored(item);
             dust.setIgnored(item);
+            block.setIgnored(item);
         }
 
         ingot.setIgnored(PigIron, () -> TFCItems.METAL_ITEMS.get(Metal.Default.PIG_IRON).get(Metal.ItemType.INGOT).get());
@@ -303,8 +304,7 @@ public class TFGMaterials {
         BlackBronze.setProperty(PropertyKey.TOOL, ToolProperty.Builder.of(1.4F, 2.0F, 228, 2).build());
         BlackSteel.setProperty(PropertyKey.TOOL, ToolProperty.Builder.of(3.0F, 7.0F, 1000, 3).build());
 
-        for (var material : GTRegistries.MATERIALS.values())
-        {
+        for (var material : GTRegistries.MATERIALS.values()) {
             var toolProperty = material.getProperty(PropertyKey.TOOL);
             if (toolProperty == null) continue;
 
