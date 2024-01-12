@@ -4,19 +4,15 @@ import appeng.core.definitions.AEBlocks;
 import appeng.core.definitions.AEItems;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlag;
-import com.gregtechceu.gtceu.api.data.chemical.material.properties.OreProperty;
-import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
-import com.gregtechceu.gtceu.api.data.chemical.material.properties.ToolProperty;
-import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
-import com.gregtechceu.gtceu.api.fluids.store.FluidStorageKey;
+import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet;
+import com.gregtechceu.gtceu.api.data.chemical.material.properties.*;
 import com.gregtechceu.gtceu.api.item.tool.GTToolType;
 import com.gregtechceu.gtceu.api.registry.GTRegistries;
-import com.gregtechceu.gtceu.common.data.GTMaterials;
+import com.gregtechceu.gtceu.common.data.GTElements;
 import net.dries007.tfc.common.items.TFCItems;
 import net.dries007.tfc.util.Metal;
 import su.terrafirmagreg.core.compat.gtceu.properties.TFCProperty;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.*;
@@ -24,7 +20,7 @@ import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIcon
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet.ROUGH;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
-import static su.terrafirmagreg.core.compat.gtceu.TFGMaterialFlags.HAS_TFC_TOOL;
+import static su.terrafirmagreg.core.compat.gtceu.TFGMaterialFlags.*;
 
 public class TFGMaterials {
 
@@ -186,13 +182,19 @@ public class TFGMaterials {
             .color(0x2D5596)
             .buildAndRegister();
 
+    /* Dead */
+
+    public static Material Limonite = new Material.Builder("limonite").buildAndRegister();
+
+    public static Material Bismuthinite = new Material.Builder("bismuthinite").buildAndRegister();
+
     public static void init() {
         /* TFC Проперти для материалов */
         Copper.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(648, 864, 1080, 1));
         BismuthBronze.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(591, 788, 985, 2));
         Bronze.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(570, 760, 950, 2));
         BlackBronze.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(642, 856, 1070, 2));
-        WroughtIron.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(921, 1228, 1535, 3));
+        WroughtIron.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(921, 1228, 1535, Iron, 3));
         Steel.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(924, 1232, 1540, 4));
         BlackSteel.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(891, 1188, 1485, 5));
         BlueSteel.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(924, 1232, 1540, 6));
@@ -219,28 +221,28 @@ public class TFGMaterials {
         SterlingSilver.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(570, 760, 950, 1));
         Iron.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(921, 1228, 1535, 3));
 
-        Hematite.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(921, 1228, 1535, Iron.getFluid(), 3, 90));
-        YellowLimonite.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(921, 1228, 1535, Iron.getFluid(), 3, 90));
-        Magnetite.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(921, 1228, 1535, Iron.getFluid(), 3, 90));
-        Pyrite.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(921, 1228, 1535, Iron.getFluid(), 3, 90));
-        Goethite.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(921, 1228, 1535, Iron.getFluid(), 3, 85));
-        Malachite.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(138, 184, 1080, Copper.getFluid(), 1, 90));
-        Tetrahedrite.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(138, 184, 1080, Copper.getFluid(), 1, 90));
-        Chalcopyrite.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(138, 184, 1080, Copper.getFluid(), 1, 90));
-        Cassiterite.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(648, 864, 230, Tin.getFluid(), 1, 200));
-        CassiteriteSand.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(138, 184, 230, Tin.getFluid(), 1, 150));
-        Sphalerite.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(138, 184, 420, Zinc.getFluid(), 1, 90));
-        Garnierite.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(138, 184, 1453, Nickel.getFluid(), 1, 90));
+        Hematite.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(921, 1228, 1535, Iron, 3, 90));
+        YellowLimonite.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(921, 1228, 1535, Iron, 3, 90));
+        Magnetite.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(921, 1228, 1535, Iron, 3, 90));
+        Pyrite.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(921, 1228, 1535, Iron, 3, 90));
+        Goethite.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(921, 1228, 1535, Iron, 3, 85));
+        Malachite.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(138, 184, 1080, Copper, 1, 90));
+        Tetrahedrite.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(138, 184, 1080, Copper, 1, 90));
+        Chalcopyrite.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(138, 184, 1080, Copper, 1, 90));
+        Cassiterite.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(648, 864, 230, Tin, 1, 200));
+        CassiteriteSand.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(138, 184, 230, Tin, 1, 150));
+        Sphalerite.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(138, 184, 420, Zinc, 1, 90));
+        Garnierite.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(138, 184, 1453, Nickel, 1, 90));
 
         Redstone.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(240, 320, 460, 1));
         RedAlloy.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(570, 650, 740, 2));
         TinAlloy.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(1000, 1100, 1250, 3));
 
-        // .setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty()); // Bismuthinite
-        // .setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty()); // Limonite
+        Bismuthinite.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(162, 216, 270, Bismuth, 1));
+        Limonite.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(921, 1228, 1535, Iron, 3, 90));
 
         /* Игнорирование для некоторых металлов */
-        var list = Arrays.asList( PigIron, HighCarbonSteel, HighCarbonBlackSteel, HighCarbonRedSteel, HighCarbonBlueSteel, WeakSteel, WeakBlueSteel, WeakRedSteel );
+        var list = Arrays.asList(PigIron, HighCarbonSteel, HighCarbonBlackSteel, HighCarbonRedSteel, HighCarbonBlueSteel, WeakSteel, WeakBlueSteel, WeakRedSteel);
 
         for (var item : list) {
             nugget.setIgnored(item);
@@ -260,17 +262,54 @@ public class TFGMaterials {
         ingot.setIgnored(WeakRedSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.WEAK_RED_STEEL).get(Metal.ItemType.INGOT).get());
         ingot.setIgnored(Unknown, () -> TFCItems.METAL_ITEMS.get(Metal.Default.UNKNOWN).get(Metal.ItemType.INGOT).get());
 
-        /* Другое */
+        /* Имеют двойные слитки */
+        Copper.addFlags(GENERATE_DOUBLE_INGOTS);
+        BismuthBronze.addFlags(GENERATE_DOUBLE_INGOTS);
+        Bronze.addFlags(GENERATE_DOUBLE_INGOTS);
+        BlackBronze.addFlags(GENERATE_DOUBLE_INGOTS);
+        WroughtIron.addFlags(GENERATE_DOUBLE_INGOTS);
+        Steel.addFlags(GENERATE_DOUBLE_INGOTS);
+        BlackSteel.addFlags(GENERATE_DOUBLE_INGOTS);
+        BlueSteel.addFlags(GENERATE_DOUBLE_INGOTS);
+        RedSteel.addFlags(GENERATE_DOUBLE_INGOTS);
 
-        // Имеют инструменты TFC
-        Copper.addFlags(HAS_TFC_TOOL);
-        BismuthBronze.addFlags(HAS_TFC_TOOL);
-        Bronze.addFlags(HAS_TFC_TOOL);
-        BlackBronze.addFlags(HAS_TFC_TOOL);
-        WroughtIron.addFlags(HAS_TFC_TOOL);
-        BlackSteel.addFlags(HAS_TFC_TOOL);
-        RedSteel.addFlags(HAS_TFC_TOOL);
-        BlueSteel.addFlags(HAS_TFC_TOOL);
+        Gold.addFlags(GENERATE_DOUBLE_INGOTS);
+        Bismuth.addFlags(GENERATE_DOUBLE_INGOTS);
+        Brass.addFlags(GENERATE_DOUBLE_INGOTS);
+        Nickel.addFlags(GENERATE_DOUBLE_INGOTS);
+        RoseGold.addFlags(GENERATE_DOUBLE_INGOTS);
+        Silver.addFlags(GENERATE_DOUBLE_INGOTS);
+        Tin.addFlags(GENERATE_DOUBLE_INGOTS);
+        Zinc.addFlags(GENERATE_DOUBLE_INGOTS);
+        SterlingSilver.addFlags(GENERATE_DOUBLE_INGOTS);
+
+        /* Имеют инструменты и броню TFC */
+        Copper.addFlags(HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY, CAN_BE_UNMOLDED);
+        BismuthBronze.addFlags(HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY, CAN_BE_UNMOLDED);
+        Bronze.addFlags(HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY, CAN_BE_UNMOLDED);
+        BlackBronze.addFlags(HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY, CAN_BE_UNMOLDED);
+        WroughtIron.addFlags(HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY);
+        BlackSteel.addFlags(HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY);
+        RedSteel.addFlags(HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY);
+        BlueSteel.addFlags(HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY);
+
+        /* Имеют маленькие куски руды TFC */
+        Bismuthinite.addFlags(HAS_SMALL_TFC_ORE);
+        Cassiterite.addFlags(HAS_SMALL_TFC_ORE);
+        Garnierite.addFlags(HAS_SMALL_TFC_ORE);
+        Hematite.addFlags(HAS_SMALL_TFC_ORE);
+        Limonite.addFlags(HAS_SMALL_TFC_ORE);
+        Magnetite.addFlags(HAS_SMALL_TFC_ORE);
+        Malachite.addFlags(HAS_SMALL_TFC_ORE);
+        Sphalerite.addFlags(HAS_SMALL_TFC_ORE);
+        Tetrahedrite.addFlags(HAS_SMALL_TFC_ORE);
+
+        /* Имеют маленькие чистые куски руды TFC */
+        Copper.addFlags(HAS_SMALL_NATIVE_TFC_ORE);
+        Gold.addFlags(HAS_SMALL_NATIVE_TFC_ORE);
+        Silver.addFlags(HAS_SMALL_NATIVE_TFC_ORE);
+
+        /* Другое */
 
         // Другое
         Bismuth.setProperty(PropertyKey.ORE, new OreProperty());
@@ -311,14 +350,14 @@ public class TFGMaterials {
             toolProperty.setDurability(toolProperty.getDurability() * 6);
         }
 
-        TagPrefix.block.setIgnored(Fluix, AEBlocks.FLUIX_BLOCK);
-        TagPrefix.dust.setIgnored(Fluix, AEItems.FLUIX_DUST);
-        TagPrefix.gem.setIgnored(Fluix, AEItems.FLUIX_CRYSTAL);
+        block.setIgnored(Fluix, AEBlocks.FLUIX_BLOCK);
+        dust.setIgnored(Fluix, AEItems.FLUIX_DUST);
+        gem.setIgnored(Fluix, AEItems.FLUIX_CRYSTAL);
 
-        TagPrefix.block.setIgnored(CertusQuartz, AEBlocks.QUARTZ_BLOCK);
-        TagPrefix.dust.setIgnored(CertusQuartz, AEItems.CERTUS_QUARTZ_DUST);
-        TagPrefix.gem.setIgnored(CertusQuartz, AEItems.CERTUS_QUARTZ_CRYSTAL);
+        block.setIgnored(CertusQuartz, AEBlocks.QUARTZ_BLOCK);
+        dust.setIgnored(CertusQuartz, AEItems.CERTUS_QUARTZ_DUST);
+        gem.setIgnored(CertusQuartz, AEItems.CERTUS_QUARTZ_CRYSTAL);
 
-        TagPrefix.dust.setIgnored(EnderPearl, AEItems.ENDER_DUST);
+        dust.setIgnored(EnderPearl, AEItems.ENDER_DUST);
     }
 }

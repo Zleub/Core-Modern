@@ -1,8 +1,9 @@
 package su.terrafirmagreg.core.compat.gtceu.properties;
 
+import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.IMaterialProperty;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.MaterialProperties;
-import net.minecraft.world.level.material.Fluid;
+import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
 
 import javax.annotation.Nullable;
 
@@ -13,7 +14,7 @@ public class TFCProperty implements IMaterialProperty<TFCProperty> {
     private int meltTemp;
 
     @Nullable
-    private Fluid customOutputFluid;
+    private Material outputMaterial;
 
     private int tier;
     private int percentOfMaterial;
@@ -22,15 +23,15 @@ public class TFCProperty implements IMaterialProperty<TFCProperty> {
         this(forgingTemp, weldingTemp, meltTemp, null, tier);
     }
 
-    public TFCProperty(int forgingTemp, int weldingTemp, int meltTemp, @Nullable Fluid customOutputFluid, int tier) {
-        this(forgingTemp, weldingTemp, meltTemp, customOutputFluid, tier, 100);
+    public TFCProperty(int forgingTemp, int weldingTemp, int meltTemp, @Nullable Material outputMaterial, int tier) {
+        this(forgingTemp, weldingTemp, meltTemp, outputMaterial, tier, 100);
     }
 
-    public TFCProperty(int forgingTemp, int weldingTemp, int meltTemp, @Nullable Fluid customOutputFluid, int tier, int percentOfMaterial) {
+    public TFCProperty(int forgingTemp, int weldingTemp, int meltTemp, @Nullable Material outputMaterial, int tier, int percentOfMaterial) {
         setForgingTemp(forgingTemp);
         setWeldingTemp(weldingTemp);
         setMeltTemp(meltTemp);
-        setFluidOutputName(customOutputFluid);
+        setFluidOutputName(outputMaterial);
         setTier(tier);
         setPercentOfMaterial(percentOfMaterial);
     }
@@ -61,12 +62,12 @@ public class TFCProperty implements IMaterialProperty<TFCProperty> {
     }
 
     @Nullable
-    public Fluid getCustomOutputFluid() {
-        return customOutputFluid;
+    public Material getOutputMaterial() {
+        return outputMaterial;
     }
 
-    public void setFluidOutputName(@Nullable Fluid customOutputFluid) {
-        this.customOutputFluid = customOutputFluid;
+    public void setFluidOutputName(@Nullable Material outputMaterial) {
+        this.outputMaterial = outputMaterial;
     }
 
     public int getTier() {
@@ -90,6 +91,6 @@ public class TFCProperty implements IMaterialProperty<TFCProperty> {
 
     @Override
     public void verifyProperty(MaterialProperties materialProperties) {
-        // materialProperties.ensureSet(PropertyKey.INGOT, true);
+
     }
 }
