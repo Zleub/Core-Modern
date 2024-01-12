@@ -42,8 +42,6 @@ public class TFGTagPrefixes {
     public static final TagPrefix oreChalk;
 
     /* Tool Heads */
-    public static final TagPrefix toolHeadMiningHammer;
-
     public static final TagPrefix toolHeadSword;
 
     public static final TagPrefix toolHeadPickaxe;
@@ -63,6 +61,8 @@ public class TFGTagPrefixes {
     public static final TagPrefix toolHeadSaw;
 
     public static final TagPrefix toolHeadKnife;
+
+    public static final TagPrefix toolHeadMiningHammer;
 
     public static final TagPrefix toolHeadButcheryKnife;
 
