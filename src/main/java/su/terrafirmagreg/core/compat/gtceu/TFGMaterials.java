@@ -12,6 +12,7 @@ import com.gregtechceu.gtceu.api.fluids.store.FluidStorageKey;
 import com.gregtechceu.gtceu.api.item.tool.GTToolType;
 import com.gregtechceu.gtceu.api.registry.GTRegistries;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
+import net.dries007.tfc.common.items.TFCItems;
 import net.dries007.tfc.util.Metal;
 import su.terrafirmagreg.core.compat.gtceu.properties.TFCProperty;
 
@@ -134,45 +135,54 @@ public class TFGMaterials {
 
     public static Material Unknown = new Material.Builder("unknown")
             .ingot()
+            .fluid()
             .color(0x2F2B27)
             .buildAndRegister();
 
     public static Material PigIron = new Material.Builder("pig_iron")
             .ingot()
+            .fluid()
             .color(0x6A595C)
             .buildAndRegister();
 
     public static Material HighCarbonSteel = new Material.Builder("high_carbon_steel")
             .ingot()
+            .fluid()
             .color(0x5F5F5F)
             .buildAndRegister();
     public static Material HighCarbonBlackSteel = new Material.Builder("high_carbon_black_steel")
             .ingot()
+            .fluid()
             .color(0x111111)
             .buildAndRegister();
 
     public static Material HighCarbonRedSteel = new Material.Builder("high_carbon_red_steel")
             .ingot()
+            .fluid()
             .color(0x700503)
             .buildAndRegister();
 
     public static Material HighCarbonBlueSteel = new Material.Builder("high_carbon_blue_steel")
             .ingot()
+            .fluid()
             .color(0x2D5596)
             .buildAndRegister();
 
     public static Material WeakSteel = new Material.Builder("weak_steel")
             .ingot()
+            .fluid()
             .color(0x111111)
             .buildAndRegister();
 
     public static Material WeakRedSteel = new Material.Builder("weak_red_steel")
             .ingot()
+            .fluid()
             .color(0x700503)
             .buildAndRegister();
 
     public static Material WeakBlueSteel = new Material.Builder("weak_blue_steel")
             .ingot()
+            .fluid()
             .color(0x2D5596)
             .buildAndRegister();
 
@@ -230,7 +240,7 @@ public class TFGMaterials {
         // .setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty()); // Limonite
 
         /* Игнорирование для некоторых металлов */
-        var list = Arrays.asList( PigIron, HighCarbonSteel, HighCarbonBlackSteel, HighCarbonRedSteel, HighCarbonBlueSteel, WeakSteel, WeakBlueSteel, WeakRedSteel);
+        var list = Arrays.asList( PigIron, HighCarbonSteel, HighCarbonBlackSteel, HighCarbonRedSteel, HighCarbonBlueSteel, WeakSteel, WeakBlueSteel, WeakRedSteel );
 
         for (var item : list) {
             nugget.setIgnored(item);
@@ -238,6 +248,18 @@ public class TFGMaterials {
             dustSmall.setIgnored(item);
             dust.setIgnored(item);
         }
+
+        ingot.setIgnored(PigIron, () -> TFCItems.METAL_ITEMS.get(Metal.Default.PIG_IRON).get(Metal.ItemType.INGOT).get());
+        ingot.setIgnored(HighCarbonSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.HIGH_CARBON_STEEL).get(Metal.ItemType.INGOT).get());
+        ingot.setIgnored(HighCarbonBlackSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.HIGH_CARBON_BLACK_STEEL).get(Metal.ItemType.INGOT).get());
+        ingot.setIgnored(HighCarbonRedSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.HIGH_CARBON_RED_STEEL).get(Metal.ItemType.INGOT).get());
+        ingot.setIgnored(HighCarbonBlueSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.HIGH_CARBON_BLUE_STEEL).get(Metal.ItemType.INGOT).get());
+        ingot.setIgnored(WeakSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.WEAK_STEEL).get(Metal.ItemType.INGOT).get());
+        ingot.setIgnored(WeakBlueSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.WEAK_BLUE_STEEL).get(Metal.ItemType.INGOT).get());
+        ingot.setIgnored(WeakRedSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.WEAK_RED_STEEL).get(Metal.ItemType.INGOT).get());
+        ingot.setIgnored(Unknown, () -> TFCItems.METAL_ITEMS.get(Metal.Default.UNKNOWN).get(Metal.ItemType.INGOT).get());
+
+        /* Другое */
 
         // Имеют инструменты TFC
         Copper.addFlags(HAS_TFC_TOOL);
@@ -248,11 +270,6 @@ public class TFGMaterials {
         BlackSteel.addFlags(HAS_TFC_TOOL);
         RedSteel.addFlags(HAS_TFC_TOOL);
         BlueSteel.addFlags(HAS_TFC_TOOL);
-
-        //nugget.setIgnored(Pizda);
-        //dust.setIgnored(Pizda);
-        //dustSmall.setIgnored(Pizda);
-        //dustTiny.setIgnored(Pizda);
 
         // Другое
         Bismuth.setProperty(PropertyKey.ORE, new OreProperty());
@@ -304,7 +321,4 @@ public class TFGMaterials {
 
         TagPrefix.dust.setIgnored(EnderPearl, AEItems.ENDER_DUST);
     }
-
-
-
 }
