@@ -349,7 +349,7 @@ public class TFGTagPrefixes {
                 .generateItem(true)
                 .generationCondition(withoutPolymerAndWood);
 
-        toolHeadButcheryKnife = new TagPrefix("knifeButcheryHead")
+        toolHeadButcheryKnife = new TagPrefix("butcheryKnifeHead")
                 .defaultTagPath(FORGE, "butchery_knife_heads/%s")
                 .unformattedTagPath(FORGE, "butchery_knife_heads")
                 .itemTable(() -> GTItems.MATERIAL_ITEMS)
