@@ -2,6 +2,7 @@ package su.terrafirmagreg.core.compat.gtceu.properties;
 
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.IMaterialProperty;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.MaterialProperties;
+import net.minecraft.world.level.material.Fluid;
 
 import javax.annotation.Nullable;
 
@@ -12,33 +13,28 @@ public class TFCProperty implements IMaterialProperty<TFCProperty> {
     private int meltTemp;
 
     @Nullable
-    private String fluidInputName;
-
-    @Nullable
-    private String fluidOutputName;
+    private Fluid customOutputFluid;
 
     private int tier;
     private int percentOfMaterial;
 
-    public TFCProperty() {
-        setForgingTemp(0);
-        setWeldingTemp(0);
-        setMeltTemp(0);
-        setFluidInputName(null);
-        setFluidOutputName(null);
-        setTier(0);
-        setPercentOfMaterial(0);
+    public TFCProperty(int forgingTemp, int weldingTemp, int meltTemp, int tier) {
+        this(forgingTemp, weldingTemp, meltTemp, null, tier);
     }
 
-    public TFCProperty(int forgingTemp, int weldingTemp, int meltTemp, @Nullable String fluidInputName, @Nullable String fluidOutputName, int tier, int percentOfMaterial) {
+    public TFCProperty(int forgingTemp, int weldingTemp, int meltTemp, @Nullable Fluid customOutputFluid, int tier) {
+        this(forgingTemp, weldingTemp, meltTemp, customOutputFluid, tier, 100);
+    }
+
+    public TFCProperty(int forgingTemp, int weldingTemp, int meltTemp, @Nullable Fluid customOutputFluid, int tier, int percentOfMaterial) {
         setForgingTemp(forgingTemp);
         setWeldingTemp(weldingTemp);
         setMeltTemp(meltTemp);
-        setFluidInputName(fluidInputName);
-        setFluidOutputName(fluidOutputName);
+        setFluidOutputName(customOutputFluid);
         setTier(tier);
         setPercentOfMaterial(percentOfMaterial);
     }
+
 
     public int getForgingTemp() {
         return forgingTemp;
@@ -64,20 +60,13 @@ public class TFCProperty implements IMaterialProperty<TFCProperty> {
         this.meltTemp = Math.max(meltTemp, 0);
     }
 
-    public String getInputFluidName() {
-        return fluidInputName;
+    @Nullable
+    public Fluid getCustomOutputFluid() {
+        return customOutputFluid;
     }
 
-    public void setFluidInputName(@Nullable String fluidInputName) {
-        this.fluidInputName = fluidInputName;
-    }
-
-    public String getOutputFluidName() {
-        return fluidOutputName;
-    }
-
-    public void setFluidOutputName(@Nullable String fluidOutputName) {
-        this.fluidOutputName = fluidOutputName;
+    public void setFluidOutputName(@Nullable Fluid customOutputFluid) {
+        this.customOutputFluid = customOutputFluid;
     }
 
     public int getTier() {
