@@ -38,7 +38,7 @@ public class MaterialRecipeHandlerMixin {
     @Redirect(method = "processIngot", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/builder/GTRecipeBuilder;outputItems(Lcom/gregtechceu/gtceu/api/data/tag/TagPrefix;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;I)Lcom/gregtechceu/gtceu/data/recipe/builder/GTRecipeBuilder;", ordinal = 1), remap = false)
     private static GTRecipeBuilder asdfasdf(GTRecipeBuilder instance, TagPrefix orePrefix, Material material, int count) {
         if (!ChemicalHelper.get(TagPrefix.nugget, material).isEmpty()) {
-            instance.outputItems(TagPrefix.ingot, material);
+            instance.outputItems(TagPrefix.nugget, material, 9);
         }
         return instance;
     }

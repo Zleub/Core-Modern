@@ -5,17 +5,24 @@ import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.gregtechceu.gtceu.api.data.chemical.material.MarkerMaterial;
 import com.gregtechceu.gtceu.api.data.chemical.material.MarkerMaterials;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
+import com.gregtechceu.gtceu.api.data.chemical.material.properties.DustProperty;
+import com.gregtechceu.gtceu.api.data.chemical.material.properties.IngotProperty;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
+import com.gregtechceu.gtceu.api.data.chemical.material.stack.MaterialStack;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.api.registry.GTRegistries;
+import com.gregtechceu.gtceu.common.data.GTFluids;
 import com.gregtechceu.gtceu.common.data.GTItems;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
 import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
+import com.gregtechceu.gtceu.data.recipe.misc.RecyclingRecipes;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.Item;
+import su.terrafirmagreg.core.compat.gtceu.TFGPropertyKeys;
 import su.terrafirmagreg.core.compat.gtceu.TFGTagPrefixes;
 
+import java.util.ArrayList;
 import java.util.function.Consumer;
 
 import static com.gregtechceu.gtceu.api.GTValues.*;
@@ -34,6 +41,8 @@ public class TFGRecipes {
         stoneTypeDustsDecomposition(consumer);
         extruderShapeHeads(consumer);
         toolHeadRecycling(consumer);
+
+        TFGTagPrefixes.ingotDouble.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processDoubleIngot(tagPrefix, material, consumer));
 
         FLUID_SOLIDFICATION_RECIPES.recipeBuilder("latex_heating").duration(480).EUt(VA[LV])
                 .inputItems(dust, Sulfur)
@@ -309,6 +318,26 @@ public class TFGRecipes {
                 "shape_extruder_spade_head",
                 SHAPE_EXTRUDER_MACE_HEAD.asStack(),
                 "S  ", " xf", "   ", 'S', SHAPE_EMPTY.asStack());
+    }
+
+    public static void processDoubleIngot(TagPrefix thingPrefix, Material material, Consumer<FinishedRecipe> provider) {
+        ALLOY_SMELTER_RECIPES.recipeBuilder("weld_" + material + "_ingots")
+                .duration(12).EUt(32)
+                .inputItems(TagPrefix.ingot, material, 2)
+                .outputItems(thingPrefix,  material)
+                .save(provider);
+
+        EXTRACTOR_RECIPES.recipeBuilder("double_" + material + "_ingot")
+                .EUt(VA[ULV]).duration((int) material.getMass())
+                .inputItems(thingPrefix, material)
+                .outputFluids(material.getFluid(288))
+                .save(provider);
+
+        MACERATOR_RECIPES.recipeBuilder("double_" + material + "_ingot_to_dust")
+                .EUt(VA[ULV]).duration((int) material.getMass())
+                .inputItems(thingPrefix, material)
+                .outputItems(dust, material, 2)
+                .save(provider);
     }
 
     private static void processHead(TagPrefix tagPrefix, Material material, ItemEntry<Item> extruderShape, Consumer<FinishedRecipe> consumer) {

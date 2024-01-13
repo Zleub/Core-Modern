@@ -45,6 +45,7 @@
   "material.gneiss": "Gneiss",
   "material.chalk": "Chalk",
 
+  "tagprefix.double_ingot": "%s Double Ingot",
   "tagprefix.poor_raw": "Poor Raw %s Ore",
   "tagprefix.raw": "Normal Raw %s",
   "tagprefix.rich_raw": "Rich Raw %s Ore",
