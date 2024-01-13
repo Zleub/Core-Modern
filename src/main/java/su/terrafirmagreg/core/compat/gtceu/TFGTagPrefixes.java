@@ -427,7 +427,7 @@ public class TFGTagPrefixes {
                 .defaultTagPath(FORGE, "mace_heads/%s")
                 .unformattedTagPath(FORGE, "mace_heads")
                 .itemTable(() -> GTItems.MATERIAL_ITEMS)
-                .materialAmount(GTValues.M)
+                .materialAmount(GTValues.M * 2)
                 .maxStackSize(16)
                 .materialIconType(TFGMaterialIconType.toolHeadMace)
                 .unificationEnabled(true)

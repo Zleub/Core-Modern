@@ -198,25 +198,25 @@ public class TFGRecipes {
         for (var material : GTRegistries.MATERIALS.values()) {
             if (material.hasProperty(PropertyKey.TOOL) && !material.hasProperty(PropertyKey.POLYMER) && material != Wood) {
 
-                processHead(TFGTagPrefixes.toolHeadAxe, material, SHAPE_EXTRUDER_AXE_HEAD,  consumer);
-                processHead(TFGTagPrefixes.toolHeadHoe, material, SHAPE_EXTRUDER_HOE_HEAD,  consumer);
-                processHead(TFGTagPrefixes.toolHeadShovel, material, SHAPE_EXTRUDER_SHOVEL_HEAD,  consumer);
-                processHead(TFGTagPrefixes.toolHeadKnife, material, SHAPE_EXTRUDER_KNIFE_HEAD,  consumer);
+                processHead(TFGTagPrefixes.toolHeadAxe, material, SHAPE_EXTRUDER_AXE_HEAD, consumer);
+                processHead(TFGTagPrefixes.toolHeadHoe, material, SHAPE_EXTRUDER_HOE_HEAD, consumer);
+                processHead(TFGTagPrefixes.toolHeadShovel, material, SHAPE_EXTRUDER_SHOVEL_HEAD,consumer);
+                processHead(TFGTagPrefixes.toolHeadKnife, material, SHAPE_EXTRUDER_KNIFE_HEAD, consumer);
 
                 if (material != Stone) {
                     processHead(TFGTagPrefixes.toolHeadMiningHammer, material, SHAPE_EXTRUDER_MINING_HAMMER_HEAD, consumer);
-                    processHead(TFGTagPrefixes.toolHeadSword, material, SHAPE_EXTRUDER_SWORD_HEAD,  consumer);
-                    processHead(TFGTagPrefixes.toolHeadPickaxe, material, SHAPE_EXTRUDER_PICKAXE_HEAD,  consumer);
-                    processHead(TFGTagPrefixes.toolHeadScythe, material, SHAPE_EXTRUDER_SCYTHE_HEAD,  consumer);
-                    processHead(TFGTagPrefixes.toolHeadFile, material, SHAPE_EXTRUDER_FILE_HEAD,  consumer);
-                    processHead(TFGTagPrefixes.toolHeadHammer, material, SHAPE_EXTRUDER_HAMMER_HEAD,  consumer);
-                    processHead(TFGTagPrefixes.toolHeadSaw, material, SHAPE_EXTRUDER_SAW_HEAD,  consumer);
-                    processHead(TFGTagPrefixes.toolHeadButcheryKnife, material, SHAPE_EXTRUDER_BUTCHERY_KNIFE_HEAD,  consumer);
-                    processHead(TFGTagPrefixes.toolHeadSpade, material, SHAPE_EXTRUDER_BUTCHERY_KNIFE_HEAD,  consumer);
-                    processHead(TFGTagPrefixes.toolHeadPropick, material, SHAPE_EXTRUDER_BUTCHERY_KNIFE_HEAD,  consumer);
-                    processHead(TFGTagPrefixes.toolHeadJavelin, material, SHAPE_EXTRUDER_BUTCHERY_KNIFE_HEAD,  consumer);
-                    processHead(TFGTagPrefixes.toolHeadChisel, material, SHAPE_EXTRUDER_BUTCHERY_KNIFE_HEAD,  consumer);
-                    processHead(TFGTagPrefixes.toolHeadMace, material, SHAPE_EXTRUDER_BUTCHERY_KNIFE_HEAD, consumer);
+                    processHead(TFGTagPrefixes.toolHeadSword, material, SHAPE_EXTRUDER_SWORD_HEAD, consumer);
+                    processHead(TFGTagPrefixes.toolHeadPickaxe, material, SHAPE_EXTRUDER_PICKAXE_HEAD, consumer);
+                    processHead(TFGTagPrefixes.toolHeadScythe, material, SHAPE_EXTRUDER_SCYTHE_HEAD, consumer);
+                    processHead(TFGTagPrefixes.toolHeadFile, material, SHAPE_EXTRUDER_FILE_HEAD, consumer);
+                    processHead(TFGTagPrefixes.toolHeadHammer, material, SHAPE_EXTRUDER_HAMMER_HEAD, consumer);
+                    processHead(TFGTagPrefixes.toolHeadSaw, material, SHAPE_EXTRUDER_SAW_HEAD, consumer);
+                    processHead(TFGTagPrefixes.toolHeadButcheryKnife, material, SHAPE_EXTRUDER_BUTCHERY_KNIFE_HEAD, consumer);
+                    processHead(TFGTagPrefixes.toolHeadSpade, material, SHAPE_EXTRUDER_SPADE_HEAD, consumer);
+                    processHead(TFGTagPrefixes.toolHeadPropick, material, SHAPE_EXTRUDER_PROPICK_HEAD, consumer);
+                    processHead(TFGTagPrefixes.toolHeadJavelin, material, SHAPE_EXTRUDER_JAVELIN_HEAD, consumer);
+                    processHead(TFGTagPrefixes.toolHeadChisel, material, SHAPE_EXTRUDER_CHISEL_HEAD, consumer);
+                    processHead(TFGTagPrefixes.toolHeadMace, material, SHAPE_EXTRUDER_MACE_HEAD, consumer);
                 }
 
             }
@@ -300,22 +300,22 @@ public class TFGRecipes {
                 "S  ", "f  ", "  h", 'S', SHAPE_EMPTY.asStack());
 
         VanillaRecipeHelper.addStrictShapedRecipe(consumer,
-                "shape_extruder_spade_head",
+                "shape_extruder_propick_head",
                 SHAPE_EXTRUDER_PROPICK_HEAD.asStack(),
                 "Sxf", "   ", "   ", 'S', SHAPE_EMPTY.asStack());
 
         VanillaRecipeHelper.addStrictShapedRecipe(consumer,
-                "shape_extruder_spade_head",
+                "shape_extruder_javelin_head",
                 SHAPE_EXTRUDER_JAVELIN_HEAD.asStack(),
                 "S x", "f  ", "   ", 'S', SHAPE_EMPTY.asStack());
 
         VanillaRecipeHelper.addStrictShapedRecipe(consumer,
-                "shape_extruder_spade_head",
+                "shape_extruder_chisel_head",
                 SHAPE_EXTRUDER_CHISEL_HEAD.asStack(),
                 "S  ", "xf ", "   ", 'S', SHAPE_EMPTY.asStack());
 
         VanillaRecipeHelper.addStrictShapedRecipe(consumer,
-                "shape_extruder_spade_head",
+                "shape_extruder_mace_head",
                 SHAPE_EXTRUDER_MACE_HEAD.asStack(),
                 "S  ", " xf", "   ", 'S', SHAPE_EMPTY.asStack());
     }
@@ -340,6 +340,8 @@ public class TFGRecipes {
                 .save(provider);
     }
 
+    private static int counter = 0;
+
     private static void processHead(TagPrefix tagPrefix, Material material, ItemEntry<Item> extruderShape, Consumer<FinishedRecipe> consumer) {
         var output = ChemicalHelper.get(tagPrefix, material);
         if (output.isEmpty()) return;
@@ -357,8 +359,9 @@ public class TFGRecipes {
             var lense = GTItems.GLASS_LENSES.get(lenseColor);
             if (lense == null) return;
 
-            LASER_ENGRAVER_RECIPES.recipeBuilder(lenseColor.getName() + "_mold_head_to_head_" + material.getName())
+            LASER_ENGRAVER_RECIPES.recipeBuilder(material.getName() + "_" + tagPrefix.name + "_head_from_lense_and_circuit")
                     .duration(12).EUt(32)
+                    .circuitMeta(counter++)
                     .notConsumable(lense)
                     .inputItems(TagPrefix.gem, material, (int) (tagPrefix.materialAmount() / GTValues.M))
                     .outputItems(output)
