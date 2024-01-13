@@ -317,6 +317,7 @@ public class TFGMaterials {
         Bronze.addFlags(GENERATE_DOUBLE_INGOTS, HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY, CAN_BE_UNMOLDED);
         BlackBronze.addFlags(GENERATE_DOUBLE_INGOTS, HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY, CAN_BE_UNMOLDED);
         WroughtIron.addFlags(GENERATE_DOUBLE_INGOTS, HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY);
+        Steel.addFlags(GENERATE_DOUBLE_INGOTS, HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY);
         BlackSteel.addFlags(GENERATE_DOUBLE_INGOTS, HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY);
         RedSteel.addFlags(GENERATE_DOUBLE_INGOTS, HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY);
         BlueSteel.addFlags(GENERATE_DOUBLE_INGOTS, HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY);
@@ -336,6 +337,10 @@ public class TFGMaterials {
         Copper.addFlags(HAS_SMALL_NATIVE_TFC_ORE);
         Gold.addFlags(HAS_SMALL_NATIVE_TFC_ORE);
         Silver.addFlags(HAS_SMALL_NATIVE_TFC_ORE);
+
+        /* Имеют двойные слитки */
+        RedAlloy.addFlags(GENERATE_DOUBLE_INGOTS);
+        TinAlloy.addFlags(GENERATE_DOUBLE_INGOTS);
 
         /* Другое */
 

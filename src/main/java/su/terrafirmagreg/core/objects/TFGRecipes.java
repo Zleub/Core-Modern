@@ -321,11 +321,11 @@ public class TFGRecipes {
     }
 
     public static void processDoubleIngot(TagPrefix thingPrefix, Material material, Consumer<FinishedRecipe> provider) {
-        ALLOY_SMELTER_RECIPES.recipeBuilder("weld_" + material + "_ingots")
-                .duration(12).EUt(32)
-                .inputItems(TagPrefix.ingot, material, 2)
-                .outputItems(thingPrefix,  material)
-                .save(provider);
+        //ALLOY_SMELTER_RECIPES.recipeBuilder("weld_" + material + "_ingots")
+        //        .duration(12).EUt(32)
+        //        .inputItems(TagPrefix.ingot, material, 2)
+        //        .outputItems(thingPrefix,  material)
+        //        .save(provider);
 
         EXTRACTOR_RECIPES.recipeBuilder("double_" + material + "_ingot")
                 .EUt(VA[ULV]).duration((int) material.getMass())
