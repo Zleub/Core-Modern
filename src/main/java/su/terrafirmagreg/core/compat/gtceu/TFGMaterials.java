@@ -290,8 +290,17 @@ public class TFGMaterials {
         TFGTagPrefixes.toolHeadChisel.setIgnored(RedSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.RED_STEEL).get(Metal.ItemType.CHISEL_HEAD).get());
         TFGTagPrefixes.toolHeadChisel.setIgnored(BlueSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLUE_STEEL).get(Metal.ItemType.CHISEL_HEAD).get());
 
-        /* Имеют двойные слитки */
+        TFGTagPrefixes.toolHeadMace.setIgnored(Copper, () -> TFCItems.METAL_ITEMS.get(Metal.Default.COPPER).get(Metal.ItemType.MACE_HEAD).get());
+        TFGTagPrefixes.toolHeadMace.setIgnored(BismuthBronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BISMUTH_BRONZE).get(Metal.ItemType.MACE_HEAD).get());
+        TFGTagPrefixes.toolHeadMace.setIgnored(Bronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BRONZE).get(Metal.ItemType.MACE_HEAD).get());
+        TFGTagPrefixes.toolHeadMace.setIgnored(BlackBronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLACK_BRONZE).get(Metal.ItemType.MACE_HEAD).get());
+        TFGTagPrefixes.toolHeadMace.setIgnored(WroughtIron, () -> TFCItems.METAL_ITEMS.get(Metal.Default.WROUGHT_IRON).get(Metal.ItemType.MACE_HEAD).get());
+        TFGTagPrefixes.toolHeadMace.setIgnored(Steel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.STEEL).get(Metal.ItemType.MACE_HEAD).get());
+        TFGTagPrefixes.toolHeadMace.setIgnored(BlackSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLACK_STEEL).get(Metal.ItemType.MACE_HEAD).get());
+        TFGTagPrefixes.toolHeadMace.setIgnored(RedSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.RED_STEEL).get(Metal.ItemType.MACE_HEAD).get());
+        TFGTagPrefixes.toolHeadMace.setIgnored(BlueSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLUE_STEEL).get(Metal.ItemType.MACE_HEAD).get());
 
+        /* Имеют двойные слитки */
         Gold.addFlags(GENERATE_DOUBLE_INGOTS);
         Bismuth.addFlags(GENERATE_DOUBLE_INGOTS);
         Brass.addFlags(GENERATE_DOUBLE_INGOTS);

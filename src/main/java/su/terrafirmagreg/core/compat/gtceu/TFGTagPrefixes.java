@@ -72,6 +72,7 @@ public class TFGTagPrefixes {
     public static final TagPrefix toolHeadJavelin;
 
     public static final TagPrefix toolHeadChisel;
+    public static final TagPrefix toolHeadMace;
 
     /* Other */
 
@@ -420,7 +421,18 @@ public class TFGTagPrefixes {
                 .materialIconType(TFGMaterialIconType.toolHeadChisel)
                 .unificationEnabled(true)
                 .generateItem(true)
-                .generationCondition(mat -> mat.hasFlag(TFGMaterialFlags.HAS_TFC_TOOL));;
+                .generationCondition(mat -> mat.hasFlag(TFGMaterialFlags.HAS_TFC_TOOL));
+
+        toolHeadMace = new TagPrefix("maceHead")
+                .defaultTagPath(FORGE, "mace_heads/%s")
+                .unformattedTagPath(FORGE, "mace_heads")
+                .itemTable(() -> GTItems.MATERIAL_ITEMS)
+                .materialAmount(GTValues.M)
+                .maxStackSize(16)
+                .materialIconType(TFGMaterialIconType.toolHeadMace)
+                .unificationEnabled(true)
+                .generateItem(true)
+                .generationCondition(mat -> mat.hasFlag(TFGMaterialFlags.HAS_TFC_TOOL));
 
         /* Other */
 
