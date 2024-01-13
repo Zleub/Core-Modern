@@ -4,11 +4,9 @@ import appeng.core.definitions.AEBlocks;
 import appeng.core.definitions.AEItems;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlag;
-import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.*;
 import com.gregtechceu.gtceu.api.item.tool.GTToolType;
 import com.gregtechceu.gtceu.api.registry.GTRegistries;
-import com.gregtechceu.gtceu.common.data.GTElements;
 import net.dries007.tfc.common.items.TFCItems;
 import net.dries007.tfc.util.Metal;
 import su.terrafirmagreg.core.compat.gtceu.properties.TFCProperty;
@@ -242,7 +240,7 @@ public class TFGMaterials {
         Limonite.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(921, 1228, 1535, Iron, 3, 90));
 
         /* Игнорирование для некоторых металлов */
-        var list = Arrays.asList(PigIron, HighCarbonSteel, HighCarbonBlackSteel, HighCarbonRedSteel, HighCarbonBlueSteel, WeakSteel, WeakBlueSteel, WeakRedSteel);
+        var list = Arrays.asList(PigIron, HighCarbonSteel, HighCarbonBlackSteel, HighCarbonRedSteel, HighCarbonBlueSteel, WeakSteel, WeakBlueSteel, WeakRedSteel, Unknown);
 
         for (var item : list) {
             nugget.setIgnored(item);
@@ -262,16 +260,37 @@ public class TFGMaterials {
         ingot.setIgnored(WeakRedSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.WEAK_RED_STEEL).get(Metal.ItemType.INGOT).get());
         ingot.setIgnored(Unknown, () -> TFCItems.METAL_ITEMS.get(Metal.Default.UNKNOWN).get(Metal.ItemType.INGOT).get());
 
+        TFGTagPrefixes.toolHeadPropick.setIgnored(Copper, () -> TFCItems.METAL_ITEMS.get(Metal.Default.COPPER).get(Metal.ItemType.PROPICK_HEAD).get());
+        TFGTagPrefixes.toolHeadPropick.setIgnored(BismuthBronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BISMUTH_BRONZE).get(Metal.ItemType.PROPICK_HEAD).get());
+        TFGTagPrefixes.toolHeadPropick.setIgnored(Bronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BRONZE).get(Metal.ItemType.PROPICK_HEAD).get());
+        TFGTagPrefixes.toolHeadPropick.setIgnored(BlackBronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLACK_BRONZE).get(Metal.ItemType.PROPICK_HEAD).get());
+        TFGTagPrefixes.toolHeadPropick.setIgnored(WroughtIron, () -> TFCItems.METAL_ITEMS.get(Metal.Default.WROUGHT_IRON).get(Metal.ItemType.PROPICK_HEAD).get());
+        TFGTagPrefixes.toolHeadPropick.setIgnored(Steel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.STEEL).get(Metal.ItemType.PROPICK_HEAD).get());
+        TFGTagPrefixes.toolHeadPropick.setIgnored(BlackSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLACK_STEEL).get(Metal.ItemType.PROPICK_HEAD).get());
+        TFGTagPrefixes.toolHeadPropick.setIgnored(RedSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.RED_STEEL).get(Metal.ItemType.PROPICK_HEAD).get());
+        TFGTagPrefixes.toolHeadPropick.setIgnored(BlueSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLUE_STEEL).get(Metal.ItemType.PROPICK_HEAD).get());
+
+        TFGTagPrefixes.toolHeadJavelin.setIgnored(Copper, () -> TFCItems.METAL_ITEMS.get(Metal.Default.COPPER).get(Metal.ItemType.JAVELIN_HEAD).get());
+        TFGTagPrefixes.toolHeadJavelin.setIgnored(BismuthBronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BISMUTH_BRONZE).get(Metal.ItemType.JAVELIN_HEAD).get());
+        TFGTagPrefixes.toolHeadJavelin.setIgnored(Bronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BRONZE).get(Metal.ItemType.JAVELIN_HEAD).get());
+        TFGTagPrefixes.toolHeadJavelin.setIgnored(BlackBronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLACK_BRONZE).get(Metal.ItemType.JAVELIN_HEAD).get());
+        TFGTagPrefixes.toolHeadJavelin.setIgnored(WroughtIron, () -> TFCItems.METAL_ITEMS.get(Metal.Default.WROUGHT_IRON).get(Metal.ItemType.JAVELIN_HEAD).get());
+        TFGTagPrefixes.toolHeadJavelin.setIgnored(Steel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.STEEL).get(Metal.ItemType.JAVELIN_HEAD).get());
+        TFGTagPrefixes.toolHeadJavelin.setIgnored(BlackSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLACK_STEEL).get(Metal.ItemType.JAVELIN_HEAD).get());
+        TFGTagPrefixes.toolHeadJavelin.setIgnored(RedSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.RED_STEEL).get(Metal.ItemType.JAVELIN_HEAD).get());
+        TFGTagPrefixes.toolHeadJavelin.setIgnored(BlueSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLUE_STEEL).get(Metal.ItemType.JAVELIN_HEAD).get());
+
+        TFGTagPrefixes.toolHeadChisel.setIgnored(Copper, () -> TFCItems.METAL_ITEMS.get(Metal.Default.COPPER).get(Metal.ItemType.CHISEL_HEAD).get());
+        TFGTagPrefixes.toolHeadChisel.setIgnored(BismuthBronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BISMUTH_BRONZE).get(Metal.ItemType.CHISEL_HEAD).get());
+        TFGTagPrefixes.toolHeadChisel.setIgnored(Bronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BRONZE).get(Metal.ItemType.CHISEL_HEAD).get());
+        TFGTagPrefixes.toolHeadChisel.setIgnored(BlackBronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLACK_BRONZE).get(Metal.ItemType.CHISEL_HEAD).get());
+        TFGTagPrefixes.toolHeadChisel.setIgnored(WroughtIron, () -> TFCItems.METAL_ITEMS.get(Metal.Default.WROUGHT_IRON).get(Metal.ItemType.CHISEL_HEAD).get());
+        TFGTagPrefixes.toolHeadChisel.setIgnored(Steel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.STEEL).get(Metal.ItemType.CHISEL_HEAD).get());
+        TFGTagPrefixes.toolHeadChisel.setIgnored(BlackSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLACK_STEEL).get(Metal.ItemType.CHISEL_HEAD).get());
+        TFGTagPrefixes.toolHeadChisel.setIgnored(RedSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.RED_STEEL).get(Metal.ItemType.CHISEL_HEAD).get());
+        TFGTagPrefixes.toolHeadChisel.setIgnored(BlueSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLUE_STEEL).get(Metal.ItemType.CHISEL_HEAD).get());
+
         /* Имеют двойные слитки */
-        Copper.addFlags(GENERATE_DOUBLE_INGOTS);
-        BismuthBronze.addFlags(GENERATE_DOUBLE_INGOTS);
-        Bronze.addFlags(GENERATE_DOUBLE_INGOTS);
-        BlackBronze.addFlags(GENERATE_DOUBLE_INGOTS);
-        WroughtIron.addFlags(GENERATE_DOUBLE_INGOTS);
-        Steel.addFlags(GENERATE_DOUBLE_INGOTS);
-        BlackSteel.addFlags(GENERATE_DOUBLE_INGOTS);
-        BlueSteel.addFlags(GENERATE_DOUBLE_INGOTS);
-        RedSteel.addFlags(GENERATE_DOUBLE_INGOTS);
 
         Gold.addFlags(GENERATE_DOUBLE_INGOTS);
         Bismuth.addFlags(GENERATE_DOUBLE_INGOTS);
@@ -283,15 +302,15 @@ public class TFGMaterials {
         Zinc.addFlags(GENERATE_DOUBLE_INGOTS);
         SterlingSilver.addFlags(GENERATE_DOUBLE_INGOTS);
 
-        /* Имеют инструменты и броню TFC */
-        Copper.addFlags(HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY, CAN_BE_UNMOLDED);
-        BismuthBronze.addFlags(HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY, CAN_BE_UNMOLDED);
-        Bronze.addFlags(HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY, CAN_BE_UNMOLDED);
-        BlackBronze.addFlags(HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY, CAN_BE_UNMOLDED);
-        WroughtIron.addFlags(HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY);
-        BlackSteel.addFlags(HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY);
-        RedSteel.addFlags(HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY);
-        BlueSteel.addFlags(HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY);
+        /* Имеют инструменты, броню TFC, двойные слитки */
+        Copper.addFlags(GENERATE_DOUBLE_INGOTS, HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY, CAN_BE_UNMOLDED);
+        BismuthBronze.addFlags(GENERATE_DOUBLE_INGOTS, HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY, CAN_BE_UNMOLDED);
+        Bronze.addFlags(GENERATE_DOUBLE_INGOTS, HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY, CAN_BE_UNMOLDED);
+        BlackBronze.addFlags(GENERATE_DOUBLE_INGOTS, HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY, CAN_BE_UNMOLDED);
+        WroughtIron.addFlags(GENERATE_DOUBLE_INGOTS, HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY);
+        BlackSteel.addFlags(GENERATE_DOUBLE_INGOTS, HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY);
+        RedSteel.addFlags(GENERATE_DOUBLE_INGOTS, HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY);
+        BlueSteel.addFlags(GENERATE_DOUBLE_INGOTS, HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY);
 
         /* Имеют маленькие куски руды TFC */
         Bismuthinite.addFlags(HAS_SMALL_TFC_ORE);
