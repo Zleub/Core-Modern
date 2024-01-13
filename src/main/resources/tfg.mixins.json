@@ -16,6 +16,7 @@
     "common.gtceu.GTRecipeTypesMixin",
     "common.gtceu.GTToolTypeMixin",
     "common.gtceu.HoeGroundBehaviorMixin",
+    "common.gtceu.MaterialPropertiesMixin",
     "common.gtceu.MaterialRecipeHandlerMixin",
     "common.gtceu.OreRecipeHandlerMixin",
     "common.gtceu.PartsRecipeHandlerMixin",

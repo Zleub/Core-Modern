@@ -55,7 +55,7 @@ public class OreRecipeHandlerMixin {
             poorIngotStack = ChemicalHelper.get(gemChipped, smeltingMaterial);
         } else {
             ingotStack = ChemicalHelper.get(dust, smeltingMaterial);
-            poorIngotStack = ChemicalHelper.get(dustSmall, smeltingMaterial, 5);
+            poorIngotStack = ChemicalHelper.get(dustTiny, smeltingMaterial, 5);
         }
         ingotStack.setCount(ingotStack.getCount() * property.getOreMultiplier());
         poorIngotStack.setCount(poorIngotStack.getCount() * property.getOreMultiplier());

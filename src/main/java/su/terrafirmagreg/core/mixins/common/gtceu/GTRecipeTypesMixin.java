@@ -17,10 +17,17 @@ public class GTRecipeTypesMixin {
     @Final
     public static GTRecipeType CUTTER_RECIPES;
 
+    @Shadow
+    @Final
+    public static GTRecipeType LASER_ENGRAVER_RECIPES;
+
     @Inject(method = "init", at = @At(value = "TAIL"), remap = false)
     private static void init(CallbackInfo ci) {
         CUTTER_RECIPES.setMaxIOSize(2, 2, 1, 0);
         CUTTER_RECIPES.setSlotOverlay(false, false, true, GuiTextures.CIRCUIT_OVERLAY);
+
+        LASER_ENGRAVER_RECIPES.setMaxIOSize(3, 1, 0, 0);
+        LASER_ENGRAVER_RECIPES.setSlotOverlay(false, false, true, GuiTextures.CIRCUIT_OVERLAY);
     }
 
 }

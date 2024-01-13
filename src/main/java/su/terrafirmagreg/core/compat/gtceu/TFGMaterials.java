@@ -4,34 +4,340 @@ import appeng.core.definitions.AEBlocks;
 import appeng.core.definitions.AEItems;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlag;
-import com.gregtechceu.gtceu.api.data.chemical.material.properties.OreProperty;
-import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
-import com.gregtechceu.gtceu.api.data.chemical.material.properties.ToolProperty;
-import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
+import com.gregtechceu.gtceu.api.data.chemical.material.properties.*;
 import com.gregtechceu.gtceu.api.item.tool.GTToolType;
 import com.gregtechceu.gtceu.api.registry.GTRegistries;
-import com.gregtechceu.gtceu.common.data.GTMaterials;
+import net.dries007.tfc.common.items.TFCItems;
 import net.dries007.tfc.util.Metal;
+import su.terrafirmagreg.core.compat.gtceu.properties.TFCProperty;
+
+import java.util.Arrays;
 
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.*;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet.CERTUS;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet.ROUGH;
+import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
-import static su.terrafirmagreg.core.compat.gtceu.TFGMaterialFlags.HAS_TFC_TOOL;
+import static su.terrafirmagreg.core.compat.gtceu.TFGMaterialFlags.*;
 
 public class TFGMaterials {
 
-    public static void init()
-    {
-        // Имеют инструменты TFC
-        Copper.addFlags(HAS_TFC_TOOL);
-        BismuthBronze.addFlags(HAS_TFC_TOOL);
-        Bronze.addFlags(HAS_TFC_TOOL);
-        BlackBronze.addFlags(HAS_TFC_TOOL);
-        WroughtIron.addFlags(HAS_TFC_TOOL);
-        BlackSteel.addFlags(HAS_TFC_TOOL);
-        RedSteel.addFlags(HAS_TFC_TOOL);
-        BlueSteel.addFlags(HAS_TFC_TOOL);
+    /* Кастомные материалы */
+
+    public static final Material Latex = new Material.Builder("latex")
+            .fluid()
+            .color(0xFBB982)
+            .buildAndRegister();
+
+    public static final Material Fluix = new Material.Builder("fluix")
+            .fluid()
+            .gem(1)
+            .color(0xD2D2E6).iconSet(CERTUS)
+            .flags(GENERATE_PLATE, NO_SMELTING, CRYSTALLIZABLE, DISABLE_DECOMPOSITION, FORCE_GENERATE_BLOCK)
+            .components(Silicon, 1, Oxygen, 2)
+            .color(0x57448d)
+            .buildAndRegister();
+
+    /* Материалы типов камня */
+
+    public static final Material Gabbro = new Material.Builder("gabbro")
+            .dust(2)
+            .color(0x7F8081).secondaryColor(0x898989).iconSet(ROUGH)
+            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
+            .buildAndRegister();
+
+    public static final Material Shale = new Material.Builder("shale")
+            .dust(2)
+            .color(0x686567).secondaryColor(0x898989).iconSet(ROUGH)
+            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
+            .buildAndRegister();
+
+    public static final Material Claystone = new Material.Builder("claystone")
+            .dust(2)
+            .color(0xAF9377).secondaryColor(0x898989).iconSet(ROUGH)
+            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
+            .buildAndRegister();
+    public static final Material Limestone = new Material.Builder("limestone")
+            .dust(2)
+            .color(0xA09885).secondaryColor(0x898989).iconSet(ROUGH)
+            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
+            .buildAndRegister();
+
+    public static final Material Conglomerate = new Material.Builder("conglomerate")
+            .dust(2)
+            .color(0xA3977F).secondaryColor(0x898989).iconSet(ROUGH)
+            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
+            .buildAndRegister();
+
+    public static final Material Dolomite = new Material.Builder("dolomite")
+            .dust(2)
+            .color(0x515155).secondaryColor(0x898989).iconSet(ROUGH)
+            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
+            .buildAndRegister();
+
+    public static final Material Chert = new Material.Builder("chert")
+            .dust(2)
+            .color(0x7A6756).secondaryColor(0x898989).iconSet(ROUGH)
+            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
+            .buildAndRegister();
+
+    public static final Material Chalk = new Material.Builder("chalk")
+            .dust(2)
+            .color(0xA4A39F).secondaryColor(0x898989).iconSet(ROUGH)
+            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
+            .buildAndRegister();
+
+    public static final Material Rhyolite = new Material.Builder("rhyolite")
+            .dust(2)
+            .color(0x726D69).secondaryColor(0x898989).iconSet(ROUGH)
+            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
+            .buildAndRegister();
+
+    public static final Material Dacite = new Material.Builder("dacite")
+            .dust(2)
+            .color(0x979797).secondaryColor(0x898989).iconSet(ROUGH)
+            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
+            .buildAndRegister();
+
+    public static final Material Slate = new Material.Builder("slate")
+            .dust(2)
+            .color(0x989287).secondaryColor(0x898989).iconSet(ROUGH)
+            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
+            .buildAndRegister();
+
+    public static final Material Phyllite = new Material.Builder("phyllite")
+            .dust(2)
+            .color(0x706B61).secondaryColor(0x898989).iconSet(ROUGH)
+            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
+            .buildAndRegister();
+
+    public static final Material Schist = new Material.Builder("schist")
+            .dust(2)
+            .color(0x6E735C).secondaryColor(0x898989).iconSet(ROUGH)
+            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
+            .buildAndRegister();
+
+    public static final Material Gneiss = new Material.Builder("gneiss")
+            .dust(2)
+            .color(0x6A6D60).secondaryColor(0x898989).iconSet(ROUGH)
+            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
+            .buildAndRegister();
+
+    /* Материалы металлов TFC */
+
+    /* TFC Metals */
+
+    public static Material Unknown = new Material.Builder("unknown")
+            .ingot()
+            .fluid()
+            .color(0x2F2B27)
+            .buildAndRegister();
+
+    public static Material PigIron = new Material.Builder("pig_iron")
+            .ingot()
+            .fluid()
+            .color(0x6A595C)
+            .buildAndRegister();
+
+    public static Material HighCarbonSteel = new Material.Builder("high_carbon_steel")
+            .ingot()
+            .fluid()
+            .color(0x5F5F5F)
+            .buildAndRegister();
+    public static Material HighCarbonBlackSteel = new Material.Builder("high_carbon_black_steel")
+            .ingot()
+            .fluid()
+            .color(0x111111)
+            .buildAndRegister();
+
+    public static Material HighCarbonRedSteel = new Material.Builder("high_carbon_red_steel")
+            .ingot()
+            .fluid()
+            .color(0x700503)
+            .buildAndRegister();
+
+    public static Material HighCarbonBlueSteel = new Material.Builder("high_carbon_blue_steel")
+            .ingot()
+            .fluid()
+            .color(0x2D5596)
+            .buildAndRegister();
+
+    public static Material WeakSteel = new Material.Builder("weak_steel")
+            .ingot()
+            .fluid()
+            .color(0x111111)
+            .buildAndRegister();
+
+    public static Material WeakRedSteel = new Material.Builder("weak_red_steel")
+            .ingot()
+            .fluid()
+            .color(0x700503)
+            .buildAndRegister();
+
+    public static Material WeakBlueSteel = new Material.Builder("weak_blue_steel")
+            .ingot()
+            .fluid()
+            .color(0x2D5596)
+            .buildAndRegister();
+
+    /* Dead */
+
+    public static Material Limonite = new Material.Builder("limonite").buildAndRegister();
+
+    public static Material Bismuthinite = new Material.Builder("bismuthinite").buildAndRegister();
+
+    public static void init() {
+        /* TFC Проперти для материалов */
+        Copper.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(648, 864, 1080, 1));
+        BismuthBronze.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(591, 788, 985, 2));
+        Bronze.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(570, 760, 950, 2));
+        BlackBronze.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(642, 856, 1070, 2));
+        WroughtIron.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(921, 1228, 1535, Iron, 3));
+        Steel.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(924, 1232, 1540, 4));
+        BlackSteel.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(891, 1188, 1485, 5));
+        BlueSteel.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(924, 1232, 1540, 6));
+        RedSteel.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(924, 1232, 1540, 6));
+
+        PigIron.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(921, 1228, 1535, 3));
+        HighCarbonSteel.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(924, 1540, 1232, 3));
+        HighCarbonBlackSteel.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(924, 1540, 1232, 5));
+        HighCarbonRedSteel.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(924, 1540, 1232, 5));
+        HighCarbonBlueSteel.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(924, 1540, 1232, 5));
+        WeakSteel.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(924, 1540, 1232, 4));
+        WeakBlueSteel.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(924, 1540, 1232, 5));
+        WeakRedSteel.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(924, 1540, 1232, 5));
+        Unknown.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(240, 320, 400, 1));
+
+        Gold.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(636, 848, 1060, 1));
+        Bismuth.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(162, 216, 270, 1));
+        Brass.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(558, 744, 930, 2));
+        Nickel.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(872, 1162, 1453, 1));
+        RoseGold.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(576, 768, 960, 1));
+        Silver.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(577, 769, 961, 1));
+        Tin.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(138, 184, 230, 1));
+        Zinc.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(252, 336, 420, 1));
+        SterlingSilver.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(570, 760, 950, 1));
+        Iron.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(921, 1228, 1535, 3));
+
+        Hematite.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(921, 1228, 1535, Iron, 3, 90));
+        YellowLimonite.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(921, 1228, 1535, Iron, 3, 90));
+        Magnetite.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(921, 1228, 1535, Iron, 3, 90));
+        Pyrite.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(921, 1228, 1535, Iron, 3, 90));
+        Goethite.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(921, 1228, 1535, Iron, 3, 85));
+        Malachite.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(138, 184, 1080, Copper, 1, 90));
+        Tetrahedrite.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(138, 184, 1080, Copper, 1, 90));
+        Chalcopyrite.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(138, 184, 1080, Copper, 1, 90));
+        Cassiterite.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(648, 864, 230, Tin, 1, 200));
+        CassiteriteSand.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(138, 184, 230, Tin, 1, 150));
+        Sphalerite.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(138, 184, 420, Zinc, 1, 90));
+        Garnierite.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(138, 184, 1453, Nickel, 1, 90));
+
+        Redstone.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(240, 320, 460, 1));
+        RedAlloy.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(570, 650, 740, 2));
+        TinAlloy.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(1000, 1100, 1250, 3));
+
+        Bismuthinite.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(162, 216, 270, Bismuth, 1));
+        Limonite.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(921, 1228, 1535, Iron, 3, 90));
+
+        /* Игнорирование для некоторых металлов */
+        var list = Arrays.asList(PigIron, HighCarbonSteel, HighCarbonBlackSteel, HighCarbonRedSteel, HighCarbonBlueSteel, WeakSteel, WeakBlueSteel, WeakRedSteel, Unknown);
+
+        for (var item : list) {
+            nugget.setIgnored(item);
+            dustTiny.setIgnored(item);
+            dustSmall.setIgnored(item);
+            dust.setIgnored(item);
+            block.setIgnored(item);
+        }
+
+        ingot.setIgnored(PigIron, () -> TFCItems.METAL_ITEMS.get(Metal.Default.PIG_IRON).get(Metal.ItemType.INGOT).get());
+        ingot.setIgnored(HighCarbonSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.HIGH_CARBON_STEEL).get(Metal.ItemType.INGOT).get());
+        ingot.setIgnored(HighCarbonBlackSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.HIGH_CARBON_BLACK_STEEL).get(Metal.ItemType.INGOT).get());
+        ingot.setIgnored(HighCarbonRedSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.HIGH_CARBON_RED_STEEL).get(Metal.ItemType.INGOT).get());
+        ingot.setIgnored(HighCarbonBlueSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.HIGH_CARBON_BLUE_STEEL).get(Metal.ItemType.INGOT).get());
+        ingot.setIgnored(WeakSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.WEAK_STEEL).get(Metal.ItemType.INGOT).get());
+        ingot.setIgnored(WeakBlueSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.WEAK_BLUE_STEEL).get(Metal.ItemType.INGOT).get());
+        ingot.setIgnored(WeakRedSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.WEAK_RED_STEEL).get(Metal.ItemType.INGOT).get());
+        ingot.setIgnored(Unknown, () -> TFCItems.METAL_ITEMS.get(Metal.Default.UNKNOWN).get(Metal.ItemType.INGOT).get());
+
+        TFGTagPrefixes.toolHeadPropick.setIgnored(Copper, () -> TFCItems.METAL_ITEMS.get(Metal.Default.COPPER).get(Metal.ItemType.PROPICK_HEAD).get());
+        TFGTagPrefixes.toolHeadPropick.setIgnored(BismuthBronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BISMUTH_BRONZE).get(Metal.ItemType.PROPICK_HEAD).get());
+        TFGTagPrefixes.toolHeadPropick.setIgnored(Bronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BRONZE).get(Metal.ItemType.PROPICK_HEAD).get());
+        TFGTagPrefixes.toolHeadPropick.setIgnored(BlackBronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLACK_BRONZE).get(Metal.ItemType.PROPICK_HEAD).get());
+        TFGTagPrefixes.toolHeadPropick.setIgnored(WroughtIron, () -> TFCItems.METAL_ITEMS.get(Metal.Default.WROUGHT_IRON).get(Metal.ItemType.PROPICK_HEAD).get());
+        TFGTagPrefixes.toolHeadPropick.setIgnored(Steel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.STEEL).get(Metal.ItemType.PROPICK_HEAD).get());
+        TFGTagPrefixes.toolHeadPropick.setIgnored(BlackSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLACK_STEEL).get(Metal.ItemType.PROPICK_HEAD).get());
+        TFGTagPrefixes.toolHeadPropick.setIgnored(RedSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.RED_STEEL).get(Metal.ItemType.PROPICK_HEAD).get());
+        TFGTagPrefixes.toolHeadPropick.setIgnored(BlueSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLUE_STEEL).get(Metal.ItemType.PROPICK_HEAD).get());
+
+        TFGTagPrefixes.toolHeadJavelin.setIgnored(Copper, () -> TFCItems.METAL_ITEMS.get(Metal.Default.COPPER).get(Metal.ItemType.JAVELIN_HEAD).get());
+        TFGTagPrefixes.toolHeadJavelin.setIgnored(BismuthBronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BISMUTH_BRONZE).get(Metal.ItemType.JAVELIN_HEAD).get());
+        TFGTagPrefixes.toolHeadJavelin.setIgnored(Bronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BRONZE).get(Metal.ItemType.JAVELIN_HEAD).get());
+        TFGTagPrefixes.toolHeadJavelin.setIgnored(BlackBronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLACK_BRONZE).get(Metal.ItemType.JAVELIN_HEAD).get());
+        TFGTagPrefixes.toolHeadJavelin.setIgnored(WroughtIron, () -> TFCItems.METAL_ITEMS.get(Metal.Default.WROUGHT_IRON).get(Metal.ItemType.JAVELIN_HEAD).get());
+        TFGTagPrefixes.toolHeadJavelin.setIgnored(Steel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.STEEL).get(Metal.ItemType.JAVELIN_HEAD).get());
+        TFGTagPrefixes.toolHeadJavelin.setIgnored(BlackSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLACK_STEEL).get(Metal.ItemType.JAVELIN_HEAD).get());
+        TFGTagPrefixes.toolHeadJavelin.setIgnored(RedSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.RED_STEEL).get(Metal.ItemType.JAVELIN_HEAD).get());
+        TFGTagPrefixes.toolHeadJavelin.setIgnored(BlueSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLUE_STEEL).get(Metal.ItemType.JAVELIN_HEAD).get());
+
+        TFGTagPrefixes.toolHeadChisel.setIgnored(Copper, () -> TFCItems.METAL_ITEMS.get(Metal.Default.COPPER).get(Metal.ItemType.CHISEL_HEAD).get());
+        TFGTagPrefixes.toolHeadChisel.setIgnored(BismuthBronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BISMUTH_BRONZE).get(Metal.ItemType.CHISEL_HEAD).get());
+        TFGTagPrefixes.toolHeadChisel.setIgnored(Bronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BRONZE).get(Metal.ItemType.CHISEL_HEAD).get());
+        TFGTagPrefixes.toolHeadChisel.setIgnored(BlackBronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLACK_BRONZE).get(Metal.ItemType.CHISEL_HEAD).get());
+        TFGTagPrefixes.toolHeadChisel.setIgnored(WroughtIron, () -> TFCItems.METAL_ITEMS.get(Metal.Default.WROUGHT_IRON).get(Metal.ItemType.CHISEL_HEAD).get());
+        TFGTagPrefixes.toolHeadChisel.setIgnored(Steel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.STEEL).get(Metal.ItemType.CHISEL_HEAD).get());
+        TFGTagPrefixes.toolHeadChisel.setIgnored(BlackSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLACK_STEEL).get(Metal.ItemType.CHISEL_HEAD).get());
+        TFGTagPrefixes.toolHeadChisel.setIgnored(RedSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.RED_STEEL).get(Metal.ItemType.CHISEL_HEAD).get());
+        TFGTagPrefixes.toolHeadChisel.setIgnored(BlueSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLUE_STEEL).get(Metal.ItemType.CHISEL_HEAD).get());
+
+        TFGTagPrefixes.toolHeadMace.setIgnored(Copper, () -> TFCItems.METAL_ITEMS.get(Metal.Default.COPPER).get(Metal.ItemType.MACE_HEAD).get());
+        TFGTagPrefixes.toolHeadMace.setIgnored(BismuthBronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BISMUTH_BRONZE).get(Metal.ItemType.MACE_HEAD).get());
+        TFGTagPrefixes.toolHeadMace.setIgnored(Bronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BRONZE).get(Metal.ItemType.MACE_HEAD).get());
+        TFGTagPrefixes.toolHeadMace.setIgnored(BlackBronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLACK_BRONZE).get(Metal.ItemType.MACE_HEAD).get());
+        TFGTagPrefixes.toolHeadMace.setIgnored(WroughtIron, () -> TFCItems.METAL_ITEMS.get(Metal.Default.WROUGHT_IRON).get(Metal.ItemType.MACE_HEAD).get());
+        TFGTagPrefixes.toolHeadMace.setIgnored(Steel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.STEEL).get(Metal.ItemType.MACE_HEAD).get());
+        TFGTagPrefixes.toolHeadMace.setIgnored(BlackSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLACK_STEEL).get(Metal.ItemType.MACE_HEAD).get());
+        TFGTagPrefixes.toolHeadMace.setIgnored(RedSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.RED_STEEL).get(Metal.ItemType.MACE_HEAD).get());
+        TFGTagPrefixes.toolHeadMace.setIgnored(BlueSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLUE_STEEL).get(Metal.ItemType.MACE_HEAD).get());
+
+        /* Имеют двойные слитки */
+        Gold.addFlags(GENERATE_DOUBLE_INGOTS);
+        Bismuth.addFlags(GENERATE_DOUBLE_INGOTS);
+        Brass.addFlags(GENERATE_DOUBLE_INGOTS);
+        Nickel.addFlags(GENERATE_DOUBLE_INGOTS);
+        RoseGold.addFlags(GENERATE_DOUBLE_INGOTS);
+        Silver.addFlags(GENERATE_DOUBLE_INGOTS);
+        Tin.addFlags(GENERATE_DOUBLE_INGOTS);
+        Zinc.addFlags(GENERATE_DOUBLE_INGOTS);
+        SterlingSilver.addFlags(GENERATE_DOUBLE_INGOTS);
+
+        /* Имеют инструменты, броню TFC, двойные слитки */
+        Copper.addFlags(GENERATE_DOUBLE_INGOTS, HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY, CAN_BE_UNMOLDED);
+        BismuthBronze.addFlags(GENERATE_DOUBLE_INGOTS, HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY, CAN_BE_UNMOLDED);
+        Bronze.addFlags(GENERATE_DOUBLE_INGOTS, HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY, CAN_BE_UNMOLDED);
+        BlackBronze.addFlags(GENERATE_DOUBLE_INGOTS, HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY, CAN_BE_UNMOLDED);
+        WroughtIron.addFlags(GENERATE_DOUBLE_INGOTS, HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY);
+        BlackSteel.addFlags(GENERATE_DOUBLE_INGOTS, HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY);
+        RedSteel.addFlags(GENERATE_DOUBLE_INGOTS, HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY);
+        BlueSteel.addFlags(GENERATE_DOUBLE_INGOTS, HAS_TFC_TOOL, HAS_TFC_ARMOR, HAS_TFC_UTILITY);
+
+        /* Имеют маленькие куски руды TFC */
+        Bismuthinite.addFlags(HAS_SMALL_TFC_ORE);
+        Cassiterite.addFlags(HAS_SMALL_TFC_ORE);
+        Garnierite.addFlags(HAS_SMALL_TFC_ORE);
+        Hematite.addFlags(HAS_SMALL_TFC_ORE);
+        Limonite.addFlags(HAS_SMALL_TFC_ORE);
+        Magnetite.addFlags(HAS_SMALL_TFC_ORE);
+        Malachite.addFlags(HAS_SMALL_TFC_ORE);
+        Sphalerite.addFlags(HAS_SMALL_TFC_ORE);
+        Tetrahedrite.addFlags(HAS_SMALL_TFC_ORE);
+
+        /* Имеют маленькие чистые куски руды TFC */
+        Copper.addFlags(HAS_SMALL_NATIVE_TFC_ORE);
+        Gold.addFlags(HAS_SMALL_NATIVE_TFC_ORE);
+        Silver.addFlags(HAS_SMALL_NATIVE_TFC_ORE);
+
+        /* Другое */
 
         // Другое
         Bismuth.setProperty(PropertyKey.ORE, new OreProperty());
@@ -65,121 +371,21 @@ public class TFGMaterials {
         BlackBronze.setProperty(PropertyKey.TOOL, ToolProperty.Builder.of(1.4F, 2.0F, 228, 2).build());
         BlackSteel.setProperty(PropertyKey.TOOL, ToolProperty.Builder.of(3.0F, 7.0F, 1000, 3).build());
 
-        for (var material : GTRegistries.MATERIALS.values())
-        {
+        for (var material : GTRegistries.MATERIALS.values()) {
             var toolProperty = material.getProperty(PropertyKey.TOOL);
             if (toolProperty == null) continue;
 
             toolProperty.setDurability(toolProperty.getDurability() * 6);
         }
 
-        TagPrefix.block.setIgnored(Fluix, AEBlocks.FLUIX_BLOCK);
-        TagPrefix.dust.setIgnored(Fluix, AEItems.FLUIX_DUST);
-        TagPrefix.gem.setIgnored(Fluix, AEItems.FLUIX_CRYSTAL);
+        block.setIgnored(Fluix, AEBlocks.FLUIX_BLOCK);
+        dust.setIgnored(Fluix, AEItems.FLUIX_DUST);
+        gem.setIgnored(Fluix, AEItems.FLUIX_CRYSTAL);
 
-        TagPrefix.block.setIgnored(CertusQuartz, AEBlocks.QUARTZ_BLOCK);
-        TagPrefix.dust.setIgnored(CertusQuartz, AEItems.CERTUS_QUARTZ_DUST);
-        TagPrefix.gem.setIgnored(CertusQuartz, AEItems.CERTUS_QUARTZ_CRYSTAL);
+        block.setIgnored(CertusQuartz, AEBlocks.QUARTZ_BLOCK);
+        dust.setIgnored(CertusQuartz, AEItems.CERTUS_QUARTZ_DUST);
+        gem.setIgnored(CertusQuartz, AEItems.CERTUS_QUARTZ_CRYSTAL);
 
-        TagPrefix.dust.setIgnored(EnderPearl, AEItems.ENDER_DUST);
+        dust.setIgnored(EnderPearl, AEItems.ENDER_DUST);
     }
-
-    public static Material Latex = new Material.Builder("latex")
-            .fluid()
-            .color(0xFBB982)
-            .buildAndRegister();
-
-    public static Material Fluix = new Material.Builder("fluix")
-            .fluid()
-            .gem(1)
-            .color(0xD2D2E6).iconSet(CERTUS)
-            .flags(GENERATE_PLATE, NO_SMELTING, CRYSTALLIZABLE, DISABLE_DECOMPOSITION, FORCE_GENERATE_BLOCK)
-            .components(Silicon, 1, Oxygen, 2)
-            .color(0x57448d)
-            .buildAndRegister();
-
-    /* Stone Type Materials */
-    public static Material Gabbro = new Material.Builder("gabbro")
-            .dust(2)
-            .color(0x7F8081).secondaryColor(0x898989).iconSet(ROUGH)
-            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
-            .buildAndRegister();
-
-    public static Material Shale = new Material.Builder("shale")
-            .dust(2)
-            .color(0x686567).secondaryColor(0x898989).iconSet(ROUGH)
-            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
-            .buildAndRegister();
-
-    public static Material Claystone = new Material.Builder("claystone")
-            .dust(2)
-            .color(0xAF9377).secondaryColor(0x898989).iconSet(ROUGH)
-            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
-            .buildAndRegister();
-    public static Material Limestone = new Material.Builder("limestone")
-            .dust(2)
-            .color(0xA09885).secondaryColor(0x898989).iconSet(ROUGH)
-            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
-            .buildAndRegister();
-
-    public static Material Conglomerate = new Material.Builder("conglomerate")
-            .dust(2)
-            .color(0xA3977F).secondaryColor(0x898989).iconSet(ROUGH)
-            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
-            .buildAndRegister();
-
-    public static Material Dolomite = new Material.Builder("dolomite")
-            .dust(2)
-            .color(0x515155).secondaryColor(0x898989).iconSet(ROUGH)
-            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
-            .buildAndRegister();
-
-    public static Material Chert = new Material.Builder("chert")
-            .dust(2)
-            .color(0x7A6756).secondaryColor(0x898989).iconSet(ROUGH)
-            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
-            .buildAndRegister();
-
-    public static Material Chalk = new Material.Builder("chalk")
-            .dust(2)
-            .color(0xA4A39F).secondaryColor(0x898989).iconSet(ROUGH)
-            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
-            .buildAndRegister();
-
-    public static Material Rhyolite = new Material.Builder("rhyolite")
-            .dust(2)
-            .color(0x726D69).secondaryColor(0x898989).iconSet(ROUGH)
-            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
-            .buildAndRegister();
-
-    public static Material Dacite = new Material.Builder("dacite")
-            .dust(2)
-            .color(0x979797).secondaryColor(0x898989).iconSet(ROUGH)
-            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
-            .buildAndRegister();
-
-    public static Material Slate = new Material.Builder("slate")
-            .dust(2)
-            .color(0x989287).secondaryColor(0x898989).iconSet(ROUGH)
-            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
-            .buildAndRegister();
-
-    public static Material Phyllite = new Material.Builder("phyllite")
-            .dust(2)
-            .color(0x706B61).secondaryColor(0x898989).iconSet(ROUGH)
-            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
-            .buildAndRegister();
-
-    public static Material Schist = new Material.Builder("schist")
-            .dust(2)
-            .color(0x6E735C).secondaryColor(0x898989).iconSet(ROUGH)
-            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
-            .buildAndRegister();
-
-    public static Material Gneiss = new Material.Builder("gneiss")
-            .dust(2)
-            .color(0x6A6D60).secondaryColor(0x898989).iconSet(ROUGH)
-            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
-            .buildAndRegister();
-
 }

@@ -10,4 +10,8 @@ public record TFGMaterialIconType() {
     public static final MaterialIconType toolHeadKnife = new MaterialIconType("toolHeadKnife");
     public static final MaterialIconType toolHeadButcheryKnife = new MaterialIconType("toolHeadButcheryKnife");
     public static final MaterialIconType toolHeadSpade = new MaterialIconType("toolHeadSpade");
+    public static final MaterialIconType toolHeadPropick = new MaterialIconType("toolHeadPropick");
+    public static final MaterialIconType toolHeadJavelin = new MaterialIconType("toolHeadJavelin");
+    public static final MaterialIconType toolHeadChisel = new MaterialIconType("toolHeadChisel");
+    public static final MaterialIconType toolHeadMace = new MaterialIconType("toolHeadMace");
 }

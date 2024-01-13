@@ -12,8 +12,7 @@ import net.dries007.tfc.common.blocks.rock.Rock;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Blocks;
 
-import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.Conditions.hasOreProperty;
-import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.Conditions.hasToolProperty;
+import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.Conditions.*;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.LoaderType.FORGE;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.oreTagPrefix;
 
@@ -42,8 +41,6 @@ public class TFGTagPrefixes {
     public static final TagPrefix oreChalk;
 
     /* Tool Heads */
-    public static final TagPrefix toolHeadMiningHammer;
-
     public static final TagPrefix toolHeadSword;
 
     public static final TagPrefix toolHeadPickaxe;
@@ -64,11 +61,22 @@ public class TFGTagPrefixes {
 
     public static final TagPrefix toolHeadKnife;
 
+    public static final TagPrefix toolHeadMiningHammer;
+
     public static final TagPrefix toolHeadButcheryKnife;
 
     public static final TagPrefix toolHeadSpade;
 
+    public static final TagPrefix toolHeadPropick;
+
+    public static final TagPrefix toolHeadJavelin;
+
+    public static final TagPrefix toolHeadChisel;
+    public static final TagPrefix toolHeadMace;
+
     /* Other */
+
+    public static final TagPrefix ingotDouble;
 
     public static final TagPrefix poorRawOre;
 
@@ -349,7 +357,7 @@ public class TFGTagPrefixes {
                 .generateItem(true)
                 .generationCondition(withoutPolymerAndWood);
 
-        toolHeadButcheryKnife = new TagPrefix("knifeButcheryHead")
+        toolHeadButcheryKnife = new TagPrefix("butcheryKnifeHead")
                 .defaultTagPath(FORGE, "butchery_knife_heads/%s")
                 .unformattedTagPath(FORGE, "butchery_knife_heads")
                 .itemTable(() -> GTItems.MATERIAL_ITEMS)
@@ -381,6 +389,61 @@ public class TFGTagPrefixes {
                 .unificationEnabled(true)
                 .generateItem(true)
                 .generationCondition(withoutPolymerAndWoodStone);
+
+        toolHeadPropick = new TagPrefix("propickHead")
+                .defaultTagPath(FORGE, "propick_heads/%s")
+                .unformattedTagPath(FORGE, "propick_heads")
+                .itemTable(() -> GTItems.MATERIAL_ITEMS)
+                .materialAmount(GTValues.M)
+                .maxStackSize(16)
+                .materialIconType(TFGMaterialIconType.toolHeadPropick)
+                .unificationEnabled(true)
+                .generateItem(true)
+                .generationCondition(mat -> mat.hasFlag(TFGMaterialFlags.HAS_TFC_TOOL));
+
+        toolHeadJavelin = new TagPrefix("javelinHead")
+                .defaultTagPath(FORGE, "javelin_heads/%s")
+                .unformattedTagPath(FORGE, "javelin_heads")
+                .itemTable(() -> GTItems.MATERIAL_ITEMS)
+                .materialAmount(GTValues.M)
+                .maxStackSize(16)
+                .materialIconType(TFGMaterialIconType.toolHeadJavelin)
+                .unificationEnabled(true)
+                .generateItem(true)
+                .generationCondition(mat -> mat.hasFlag(TFGMaterialFlags.HAS_TFC_TOOL));
+
+        toolHeadChisel = new TagPrefix("chiselHead")
+                .defaultTagPath(FORGE, "chisel_heads/%s")
+                .unformattedTagPath(FORGE, "chisel_heads")
+                .itemTable(() -> GTItems.MATERIAL_ITEMS)
+                .materialAmount(GTValues.M)
+                .maxStackSize(16)
+                .materialIconType(TFGMaterialIconType.toolHeadChisel)
+                .unificationEnabled(true)
+                .generateItem(true)
+                .generationCondition(mat -> mat.hasFlag(TFGMaterialFlags.HAS_TFC_TOOL));
+
+        toolHeadMace = new TagPrefix("maceHead")
+                .defaultTagPath(FORGE, "mace_heads/%s")
+                .unformattedTagPath(FORGE, "mace_heads")
+                .itemTable(() -> GTItems.MATERIAL_ITEMS)
+                .materialAmount(GTValues.M * 2)
+                .maxStackSize(16)
+                .materialIconType(TFGMaterialIconType.toolHeadMace)
+                .unificationEnabled(true)
+                .generateItem(true)
+                .generationCondition(mat -> mat.hasFlag(TFGMaterialFlags.HAS_TFC_TOOL));
+
+        /* Other */
+
+        ingotDouble = new TagPrefix("doubleIngot")
+                .defaultTagPath(FORGE, "double_ingots/%s")
+                .unformattedTagPath(FORGE, "double_ingots")
+                .materialAmount(GTValues.M)
+                .materialIconType(MaterialIconType.ingotDouble)
+                .unificationEnabled(true)
+                .generateItem(true)
+                .generationCondition(mat -> mat.hasFlag(TFGMaterialFlags.GENERATE_DOUBLE_INGOTS));
 
         /* Other */
         poorRawOre = new TagPrefix("poor_raw", true)
