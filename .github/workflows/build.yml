@@ -4,6 +4,7 @@ run-name: "Build #${{ github.run_number }}"
 on:
   push:
 
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,7 +19,7 @@ jobs:
       - name: Set the version
         id: set_version
         run: |
-          DEV=${{ steps.get_version.outputs.version }}
+          DEV=0.3.0
           sed -i -e "s/0.0.0/${DEV}/g" gradle.properties
 
       - name: Set up JDK 17
