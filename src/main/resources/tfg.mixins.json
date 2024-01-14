@@ -22,6 +22,7 @@
     "common.gtceu.PartsRecipeHandlerMixin",
     "common.gtceu.TagPrefixMixin",
     "common.gtceu.ToolRecipeHandlerMixin",
+    "common.minecraft.RepairItemRecipeMixin",
     "common.minecraft.ServerAdvancementManagerMixin",
     "common.minecraft.UseOnContextInvoker",
     "common.tfc.CharcoalForgeBlockMixin",
