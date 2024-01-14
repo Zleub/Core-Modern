@@ -363,18 +363,17 @@ public class TFGMaterials {
         DamascusSteel.addFlags(GENERATE_BOLT_SCREW);
         Duranium.addFlags(GENERATE_BOLT_SCREW);
 
-        Stone.setProperty(PropertyKey.TOOL, ToolProperty.Builder.of(1.0F, 1.0F, 8, 1, new GTToolType[]{
+        Stone.setProperty(PropertyKey.TOOL, ToolProperty.Builder.of(1.2F, 1.0F, 8, 1, new GTToolType[]{
                 GTToolType.AXE,
                 GTToolType.HARD_HAMMER,
                 GTToolType.HOE,
                 GTToolType.KNIFE,
                 GTToolType.SHOVEL
         }).build());
-        Copper.setProperty(PropertyKey.TOOL, ToolProperty.Builder.of(1.0F, 1.0F, 128, 2).build());
-        BismuthBronze.setProperty(PropertyKey.TOOL, ToolProperty.Builder.of(1.2F, 2.0F, 178, 2).build());
-        Bronze.getProperty(PropertyKey.TOOL).setHarvestSpeed(1.3F);
-        BlackBronze.setProperty(PropertyKey.TOOL, ToolProperty.Builder.of(1.4F, 2.0F, 228, 2).build());
-        BlackSteel.setProperty(PropertyKey.TOOL, ToolProperty.Builder.of(3.0F, 7.0F, 1000, 3).build());
+        Copper.setProperty(PropertyKey.TOOL, ToolProperty.Builder.of(2.0F, 1.5F, 132, 2).build());
+        BismuthBronze.setProperty(PropertyKey.TOOL, ToolProperty.Builder.of(2.5F, 2.0F, 178, 2).build());
+        BlackBronze.setProperty(PropertyKey.TOOL, ToolProperty.Builder.of(3.3F, 2.0F, 204, 2).build());
+        BlackSteel.setProperty(PropertyKey.TOOL, ToolProperty.Builder.of(6.5F, 4.5F, 1228, 3).build());
 
         for (var material : GTRegistries.MATERIALS.values()) {
             var toolProperty = material.getProperty(PropertyKey.TOOL);
