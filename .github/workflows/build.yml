@@ -19,7 +19,11 @@ jobs:
       - name: Set the version
         id: set_version
         run: |
-          DEV=0.3.0
+          if [[ ${{ startsWith(github.ref, 'refs/tags/') }} == true ]]; then
+            "DEV=${{ steps.get_version.outputs.version }}"
+          else
+            "DEV=build.${{ github.run_number }}" >>
+          fi
           sed -i -e "s/0.0.0/${DEV}/g" gradle.properties
 
       - name: Set up JDK 17
