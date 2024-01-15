@@ -33,7 +33,7 @@ public class TerraFirmaGreg {
 
     private static void init(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
-            TFCAmbientalCompat.register();
+            // TFCAmbientalCompat.register();
             CreateCompat.register();
         });
     }
