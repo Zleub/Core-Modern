@@ -4,10 +4,10 @@ import com.gregtechceu.gtceu.api.item.tool.GTToolType;
 import com.gregtechceu.gtceu.api.item.tool.ToolDefinitionBuilder;
 import com.gregtechceu.gtceu.common.item.tool.behavior.HarvestIceBehavior;
 import com.gregtechceu.gtceu.common.item.tool.behavior.HoeGroundBehavior;
-import com.gregtechceu.gtceu.common.item.tool.behavior.LogStripBehavior;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
+import su.terrafirmagreg.core.compat.gtceu.behaviors.CanoeCreatorBehavior;
 
 import java.util.function.UnaryOperator;
 
@@ -23,7 +23,7 @@ public class GTToolTypeMixin {
     private static GTToolType.Builder onCreateToolStatsForSaw(GTToolType.Builder instance, UnaryOperator<ToolDefinitionBuilder> builder) {
         return instance.toolStats(b -> b.crafting().damagePerCraftingAction(2)
                 .attackDamage(-1.0F).attackSpeed(-2.6F)
-                .behaviors(HarvestIceBehavior.INSTANCE, LogStripBehavior.INSTANCE));
+                .behaviors(HarvestIceBehavior.INSTANCE, CanoeCreatorBehavior.INSTANCE));
     }
 
 }

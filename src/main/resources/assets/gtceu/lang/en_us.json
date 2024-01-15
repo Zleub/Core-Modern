@@ -79,5 +79,7 @@
   "tagprefix.phyllite": "Phyllite %s Ore",
   "tagprefix.schist": "Schist %s Ore",
   "tagprefix.gneiss": "Gneiss %s Ore",
-  "tagprefix.marble": "Marble %s Ore"
+  "tagprefix.marble": "Marble %s Ore",
+
+  "item.gtceu.tool.behavior.canoe_creator": "§5Boater: §fCan create canoes"
 }
