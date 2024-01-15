@@ -20,8 +20,8 @@ jobs:
       - name: Set the version
         id: set_version
         run: |
-          DEV=${{ steps.get_version.outputs.version }}
-          sed -i -e "s/0.0.0-indev/${DEV}/g" gradle.properties
+          DEV=0.3.0
+          sed -i -e "s/0.0.0/${DEV}/g" gradle.properties
 
       - name: Set up JDK 17
         uses: actions/setup-java@v4.0.0
@@ -52,6 +52,17 @@ jobs:
         with:
           arguments: build
 
+      - name: Rename
+        id: rename
+        run: |
+          mv -vf build/libs/TerraFirmaGreg-Core-1.20.x-${{ steps.get_version.outputs.version }}-all.jar build/libs/TerraFirmaGreg-Core-1.20.x-${{ steps.get_version.outputs.version }}.jar
+
+      - name: Upload jar
+        uses: actions/upload-artifact@v4.0.0
+        with:
+          path: build/libs/TerraFirmaGreg-Core-1.20.x-${{ steps.get_version.outputs.version }}.jar
+          retention-days: 5
+
       - name: Release
         uses: Kir-Antipov/mc-publish@v3.3
         with:
@@ -67,9 +78,7 @@ jobs:
             gregtechceu-modern(required)
             terrafirmacraft(required)
 
-          files: |
-            build/libs/!(*-@(dev|sources|javadoc)).jar
-            build/libs/*-@(dev|sources|javadoc).jar
+          files: build/libs/TerraFirmaGreg-Core-1.20.x-${{ steps.get_version.outputs.version }}.jar
 
           name: TerraFirmaGreg-Core-1.20.x-${{ steps.get_version.outputs.version }}
           version: ${{ steps.get_version.outputs.version }}
