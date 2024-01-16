@@ -7,7 +7,6 @@
   "mixins": [
     "common.create.BasinBlockEntityMixin",
     "common.create.BasinCategoryMixin",
-    "common.firmaciv.BlockEventHandlerMixin",
     "common.firmaciv.WoodenBoatFrameBlockMixin",
     "common.flywheel.AnimatedBlazeBurnerMixin",
     "common.gtceu.ElementMaterialsMixin",
