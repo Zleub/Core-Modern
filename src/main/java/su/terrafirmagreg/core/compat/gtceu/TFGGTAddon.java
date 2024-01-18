@@ -32,7 +32,7 @@ public class TFGGTAddon implements IGTAddon {
 
     @Override
     public void registerFluidVeins() {
-        TFGTagPrefixes.init();
+        TFGFluidVeins.register();
     }
 
     @Override

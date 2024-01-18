@@ -31,7 +31,6 @@ import static su.terrafirmagreg.core.objects.TFGItems.*;
 public class TFGRecipes {
 
     public static void init(Consumer<FinishedRecipe> consumer) {
-        /*
         stoneTypeDustsDecomposition(consumer);
         extruderShapeHeads(consumer);
         toolHeadRecycling(consumer);
@@ -42,7 +41,7 @@ public class TFGRecipes {
                 .inputItems(dust, Sulfur)
                 .inputFluids(Latex.getFluid(1000))
                 .outputItems(GTItems.STICKY_RESIN)
-                .save(consumer);*/
+                .save(consumer);
     }
 
     private static void stoneTypeDustsDecomposition(Consumer<FinishedRecipe> consumer)
@@ -323,13 +322,13 @@ public class TFGRecipes {
         //        .outputItems(thingPrefix,  material)
         //        .save(provider);
 
-        EXTRACTOR_RECIPES.recipeBuilder("double_" + material + "_ingot")
+        EXTRACTOR_RECIPES.recipeBuilder("double_" + material.getUnlocalizedName() + "_ingot")
                 .EUt(VA[ULV]).duration((int) material.getMass())
                 .inputItems(thingPrefix, material)
                 .outputFluids(material.getFluid(288))
                 .save(provider);
 
-        MACERATOR_RECIPES.recipeBuilder("double_" + material + "_ingot_to_dust")
+        MACERATOR_RECIPES.recipeBuilder("double_" + material.getUnlocalizedName() + "_ingot_to_dust")
                 .EUt(VA[ULV]).duration((int) material.getMass())
                 .inputItems(thingPrefix, material)
                 .outputItems(dust, material, 2)
@@ -341,7 +340,7 @@ public class TFGRecipes {
         if (output.isEmpty()) return;
 
         if (material.hasProperty(PropertyKey.INGOT)) {
-            EXTRUDER_RECIPES.recipeBuilder(tagPrefix.name + "_mold_head_to_head_" + material.getName())
+            EXTRUDER_RECIPES.recipeBuilder(tagPrefix.name + "_mold_head_to_head_" + material.getUnlocalizedName())
                     .duration(12).EUt(32)
                     .notConsumable(extruderShape)
                     .inputItems(TagPrefix.ingot, material, (int) (tagPrefix.materialAmount() / GTValues.M))
@@ -353,7 +352,7 @@ public class TFGRecipes {
             var lense = GTItems.GLASS_LENSES.get(lenseColor);
             if (lense == null) return;
 
-            LASER_ENGRAVER_RECIPES.recipeBuilder(material.getName() + "_" + tagPrefix.name + "_head_from_lense_and_circuit")
+            LASER_ENGRAVER_RECIPES.recipeBuilder(material.getUnlocalizedName() + "_" + tagPrefix.name + "_head_from_lense_and_circuit")
                     .duration(12).EUt(32)
                     .circuitMeta(counter)
                     .notConsumable(lense)
