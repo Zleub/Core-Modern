@@ -1,14 +1,20 @@
 package su.terrafirmagreg.core.objects;
 
+import appeng.core.definitions.AEBlocks;
+import appeng.core.definitions.AEItems;
 import com.gregtechceu.gtceu.api.GTValues;
+import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.gregtechceu.gtceu.api.data.chemical.material.stack.ItemMaterialInfo;
 import com.gregtechceu.gtceu.api.data.chemical.material.stack.MaterialStack;
+import com.gregtechceu.gtceu.api.data.chemical.material.stack.UnificationEntry;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
 import com.gregtechceu.gtceu.common.registry.GTRegistration;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import net.minecraft.world.item.Item;
 import su.terrafirmagreg.core.TerraFirmaGreg;
+import su.terrafirmagreg.core.compat.gtceu.TFGMaterials;
 
+import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTItems.materialInfo;
 
 public class TFGItems {

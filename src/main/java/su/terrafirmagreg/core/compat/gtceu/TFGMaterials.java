@@ -5,11 +5,14 @@ import appeng.core.definitions.AEItems;
 import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.GTValues;
+import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlag;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.OreProperty;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.ToolProperty;
+import com.gregtechceu.gtceu.api.data.chemical.material.stack.UnificationEntry;
+import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.api.item.tool.GTToolType;
 import net.dries007.tfc.common.blocks.rock.Rock;
 import net.dries007.tfc.common.items.TFCItems;
@@ -348,15 +351,15 @@ public class TFGMaterials {
             toolProperty.setDurability(toolProperty.getDurability() * 6);
         }
 
-        block.setIgnored(Fluix, AEBlocks.FLUIX_BLOCK);
-        dust.setIgnored(Fluix, AEItems.FLUIX_DUST);
-        gem.setIgnored(Fluix, AEItems.FLUIX_CRYSTAL);
+        block.setIgnored(Fluix, () -> AEBlocks.FLUIX_BLOCK);
+        dust.setIgnored(Fluix, () -> AEItems.FLUIX_DUST);
+        gem.setIgnored(Fluix, () -> AEItems.FLUIX_CRYSTAL);
 
-        block.setIgnored(CertusQuartz, AEBlocks.QUARTZ_BLOCK);
-        dust.setIgnored(CertusQuartz, AEItems.CERTUS_QUARTZ_DUST);
-        gem.setIgnored(CertusQuartz, AEItems.CERTUS_QUARTZ_CRYSTAL);
+        block.setIgnored(CertusQuartz, () -> AEBlocks.QUARTZ_BLOCK);
+        dust.setIgnored(CertusQuartz,() -> AEItems.CERTUS_QUARTZ_DUST);
+        gem.setIgnored(CertusQuartz, () -> AEItems.CERTUS_QUARTZ_CRYSTAL);
 
-        dust.setIgnored(EnderPearl, AEItems.ENDER_DUST);
+        dust.setIgnored(EnderPearl, () -> AEItems.ENDER_DUST);
 
         block.modifyMaterialAmount(TFGMaterials.Fluix, GTValues.M * 4);
     }
