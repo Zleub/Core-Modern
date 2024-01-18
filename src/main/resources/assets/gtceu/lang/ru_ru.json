@@ -80,5 +80,112 @@
   "tagprefix.gneiss": "Gneiss %s Ore",
   "tagprefix.marble": "Marble %s Ore",
 
-  "item.gtceu.tool.behavior.canoe_creator": "§5Boater: §fCan Create Canoes"
+  "item.gtceu.tool.behavior.canoe_creator": "§5Boater: §fCan Create Canoes",
+
+  "collapsable_entry.ores": "Ores",
+  "collapsable_entry.rich_raw_materials": "Rich Raw Materials",
+  "collapsable_entry.raw_materials": "Raw Materials",
+  "collapsable_entry.poor_raw_materials": "Poor Raw Materials",
+  "collapsable_entry.crushed_ores": "Crushed Ores",
+  "collapsable_entry.purified_ores": "Purified Ores",
+  "collapsable_entry.refined_ores": "Refined Ores",
+
+  "collapsable_entry.nuggets": "Nuggets",
+
+  "collapsable_entry.tiny_dusts": "Tiny Dusts",
+  "collapsable_entry.small_dusts": "Small Dusts",
+  "collapsable_entry.dusts": "Dusts",
+  "collapsable_entry.pure_dusts": "Pure Dusts",
+  "collapsable_entry.impure_dusts": "Impure Dusts",
+
+  "collapsable_entry.ingots": "Ingots",
+  "collapsable_entry.hot_ingots": "Hot Ingots",
+  "collapsable_entry.double_ingots": "Double Ingots",
+
+  "collapsable_entry.plates": "Plates",
+  "collapsable_entry.double_plates": "Double Plates",
+  "collapsable_entry.dense_plates": "Dense Plates",
+
+  "collapsable_entry.gears": "Gears",
+  "collapsable_entry.small_gears": "Small Gears",
+
+  "collapsable_entry.rods": "Rods",
+  "collapsable_entry.rods.long": "Long Rods",
+
+  "collapsable_entry.springs": "Springs",
+  "collapsable_entry.small_springs": "Small Springs",
+
+  "collapsable_entry.exquisite_gems": "Exquisite Gems",
+  "collapsable_entry.flawless_gems": "Flawless Gems",
+  "collapsable_entry.gems": "Gems",
+  "collapsable_entry.flawed_gems": "Flawed Gems",
+  "collapsable_entry.chipped_gems": "Chipped Gems",
+
+  "collapsable_entry.frames": "Frames",
+  "collapsable_entry.storage_blocks": "Storage Blocks",
+
+  "collapsable_entry.sword_heads": "Sword Heads",
+  "collapsable_entry.pickaxe_heads": "Pickaxe Heads",
+  "collapsable_entry.axe_heads": "Axe Heads",
+  "collapsable_entry.shovel_heads": "Shovel Heads",
+  "collapsable_entry.hoe_heads": "Hoe Heads",
+  "collapsable_entry.saw_heads": "Saw Heads",
+  "collapsable_entry.scythe_heads": "Scythe Heads",
+  "collapsable_entry.hammer_heads": "Hammer Heads",
+  "collapsable_entry.knife_heads": "Knife Heads",
+  "collapsable_entry.file_heads": "File Heads",
+  "collapsable_entry.butchery_knife_heads": "Butchery Knifes",
+  "collapsable_entry.mining_hammer_heads": "Mining Hammer Heads",
+  "collapsable_entry.spade_heads": "Spade Heads",
+  "collapsable_entry.mace_heads": "Mace Heads",
+  "collapsable_entry.propick_heads": "Propick Heads",
+  "collapsable_entry.chisel_heads": "Chisel Heads",
+  "collapsable_entry.javelin_heads": "Javelin Heads",
+
+  "collapsable_entry.drill_heads": "Drill Heads",
+  "collapsable_entry.chainsaw_heads": "Chainsaw Heads",
+  "collapsable_entry.buzz_saw_heads": "Buzz Saw Heads",
+
+  "collapsable_entry.screwdriver_tips": "Screwdriver Tips",
+  "collapsable_entry.wrench_tips": "Wrench Tips",
+
+  "collapsable_entry.turbine_blades": "Turbine Blades",
+  "collapsable_entry.lenses": "Lenses",
+  "collapsable_entry.rounds": "Rounds",
+  "collapsable_entry.rings": "Rings",
+  "collapsable_entry.bolts": "Bolts",
+  "collapsable_entry.screws": "Screws",
+  "collapsable_entry.foils": "Foils",
+  "collapsable_entry.rotors": "Rotors",
+  "collapsable_entry.fine_wires": "Fine Wires",
+
+  "collapsable_entry.single_wires": "Single Wires",
+  "collapsable_entry.double_wires": "Double Wires",
+  "collapsable_entry.quadruple_wires": "Quadruple Wires",
+  "collapsable_entry.octal_wires": "Octal Wires",
+  "collapsable_entry.hex_wires": "Hex Wires",
+
+  "collapsable_entry.single_cables": "Single Cables",
+  "collapsable_entry.double_cables": "Double Cables",
+  "collapsable_entry.quadruple_cables": "Quadruple Cables",
+  "collapsable_entry.octal_cables": "Octal Cables",
+  "collapsable_entry.hex_cables": "Hex Cables",
+
+  "collapsable_entry.tiny_fluid_pipes": "Tiny Fluid Pipes",
+  "collapsable_entry.small_fluid_pipes": "Small FLuid Pipes",
+  "collapsable_entry.normal_fluid_pipes": "Normal Fluid Pipes",
+  "collapsable_entry.large_fluid_pipes": "Large Fluid Pipes",
+  "collapsable_entry.huge_fluid_pipes": "Huge Fluid Pipes",
+  "collapsable_entry.quadruple_fluid_pipes": "Quadruple Fluid Pipes",
+  "collapsable_entry.nonuple_fluid_pipes": "Nonuple Fluid Pipes",
+
+  "collapsable_entry.small_item_pipes": "Small Item Pipes",
+  "collapsable_entry.normal_item_pipes": "Normal Item Pipes",
+  "collapsable_entry.large_item_pipes": "Large Item Pipes",
+  "collapsable_entry.huge_item_pipes": "Huge Item Pipes",
+
+  "collapsable_entry.small_restrictive_pipes": "Small Restrictive Pipes",
+  "collapsable_entry.normal_restrictive_pipes": "Normal Restrictive Pipes",
+  "collapsable_entry.large_restrictive_pipes": "Large Restrictive Pipes",
+  "collapsable_entry.huge_restrictive_pipes": "Huge Restrictive Pipes"
 }
