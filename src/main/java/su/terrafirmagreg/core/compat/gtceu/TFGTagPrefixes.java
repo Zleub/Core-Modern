@@ -106,6 +106,9 @@ public class TFGTagPrefixes {
         TagPrefix.ORES.remove(TagPrefix.oreDiorite);
         TagPrefix.ORES.remove(TagPrefix.oreGranite);
 
+        // Другое
+        TagPrefix.PREFIXES.remove("rawOreBlock");
+
         /* Stone Types */
 
         oreGabbro = registerOreTagPrefix(Rock.GABBRO);
@@ -334,6 +337,7 @@ public class TFGTagPrefixes {
 
         /* Other */
         poorRawOre = new TagPrefix("poor_raw", true)
+                .idPattern("poor_raw_%s")
                 .defaultTagPath("poor_raw_materials/%s")
                 .unformattedTagPath("poor_raw_materials")
                 .materialIconType(TFGMaterialIconType.poorRawOre)
@@ -342,6 +346,7 @@ public class TFGTagPrefixes {
                 .generationCondition(hasOreProperty);
 
         richRawOre = new TagPrefix("rich_raw", true)
+                .idPattern("rich_raw_%s")
                 .defaultTagPath("rich_raw_materials/%s")
                 .unformattedTagPath("rich_raw_materials")
                 .materialIconType(TFGMaterialIconType.richRawOre)
