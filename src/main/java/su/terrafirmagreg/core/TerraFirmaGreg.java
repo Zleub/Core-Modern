@@ -1,16 +1,11 @@
 package su.terrafirmagreg.core;
 
-import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.data.chemical.material.event.MaterialEvent;
-import com.gregtechceu.gtceu.api.data.chemical.material.event.MaterialRegistryEvent;
 import com.gregtechceu.gtceu.api.data.chemical.material.event.PostMaterialEvent;
-import com.gregtechceu.gtceu.api.data.chemical.material.registry.MaterialRegistry;
-import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 import com.mojang.logging.LogUtils;
 import dev.toma.configuration.Configuration;
 import dev.toma.configuration.config.format.ConfigFormats;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;

@@ -46,9 +46,8 @@
   "material.gtceu.chalk": "Chalk",
 
   "tagprefix.double_ingot": "%s Double Ingot",
-  "tagprefix.poor_raw": "Poor Raw %s Ore",
-  "tagprefix.raw": "Normal Raw %s",
-  "tagprefix.rich_raw": "Rich Raw %s Ore",
+  "tagprefix.poor_raw": "Poor Raw %s",
+  "tagprefix.rich_raw": "Rich Raw %s",
 
   "tagprefix.sword_head": "%s Sword Head",
   "tagprefix.pickaxe_head": "%s Pickaxe Head",
