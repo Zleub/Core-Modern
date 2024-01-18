@@ -12,12 +12,6 @@ import su.terrafirmagreg.core.compat.gtceu.TFGTagPrefixes;
 public class TFGKubeJSPlugin extends KubeJSPlugin {
 
     @Override
-    public void registerClasses(ScriptType type, ClassFilter filter) {
-        super.registerClasses(type, filter);
-        filter.deny("su.terrafirmagreg.core");
-    }
-
-    @Override
     public void registerBindings(BindingsEvent event) {
         super.registerBindings(event);
         event.add("TFGMaterials", TFGMaterials.class);

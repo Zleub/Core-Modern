@@ -18,7 +18,6 @@ import su.terrafirmagreg.core.objects.TFGTags;
 import java.util.function.Consumer;
 
 import static com.gregtechceu.gtceu.data.recipe.generated.ToolRecipeHandler.addToolRecipe;
-import static su.terrafirmagreg.core.objects.TFGTags.AllWoodenSticks;
 
 @Mixin(value = ToolRecipeHandler.class, remap = false)
 public class ToolRecipeHandlerMixin {
@@ -37,7 +36,7 @@ public class ToolRecipeHandlerMixin {
         addToolRecipe(provider, material, GTToolType.MORTAR, false,
                 " I ", "SIS", "SSS",
                 'I', new UnificationEntry(material.hasProperty(PropertyKey.GEM) ? TagPrefix.gem : TagPrefix.ingot, material),
-                'S', TFGTags.AllRockRawBlocks);
+                'S', TFGTags.Items.RawRockBlocks);
     }
 
     /**
@@ -150,6 +149,6 @@ public class ToolRecipeHandlerMixin {
 
     @Unique
     private static void tfg$addToolRecipe(Consumer<FinishedRecipe> provider, Material material, GTToolType toolType, TagPrefix tagPrefix) {
-        addToolRecipe(provider, material, toolType, false, "H", "S", 'H', new UnificationEntry(tagPrefix, material), 'S', AllWoodenSticks);
+        addToolRecipe(provider, material, toolType, false, "H", "S", 'H', new UnificationEntry(tagPrefix, material), 'S', TFGTags.Items.RawRockBlocks);
     }
 }

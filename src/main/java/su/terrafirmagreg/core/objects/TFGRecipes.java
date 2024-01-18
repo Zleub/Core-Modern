@@ -1,28 +1,21 @@
 package su.terrafirmagreg.core.objects;
 
+import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
-import com.gregtechceu.gtceu.api.data.chemical.material.MarkerMaterial;
 import com.gregtechceu.gtceu.api.data.chemical.material.MarkerMaterials;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
-import com.gregtechceu.gtceu.api.data.chemical.material.properties.DustProperty;
-import com.gregtechceu.gtceu.api.data.chemical.material.properties.IngotProperty;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
-import com.gregtechceu.gtceu.api.data.chemical.material.stack.MaterialStack;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.api.registry.GTRegistries;
-import com.gregtechceu.gtceu.common.data.GTFluids;
 import com.gregtechceu.gtceu.common.data.GTItems;
-import com.gregtechceu.gtceu.common.data.GTMaterials;
 import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
-import com.gregtechceu.gtceu.data.recipe.misc.RecyclingRecipes;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.Item;
 import su.terrafirmagreg.core.compat.gtceu.TFGPropertyKeys;
 import su.terrafirmagreg.core.compat.gtceu.TFGTagPrefixes;
 
-import java.util.ArrayList;
 import java.util.function.Consumer;
 
 import static com.gregtechceu.gtceu.api.GTValues.*;
@@ -195,7 +188,7 @@ public class TFGRecipes {
     }
 
     private static void extruderShapeHeads(Consumer<FinishedRecipe> consumer) {
-        for (var material : GTRegistries.MATERIALS.values()) {
+        for (var material : GTCEuAPI.materialManager.getRegisteredMaterials()) {
             if (material.hasProperty(PropertyKey.TOOL) && !material.hasProperty(PropertyKey.POLYMER) && material != Wood) {
 
                 int counter = 0;
@@ -329,13 +322,13 @@ public class TFGRecipes {
         //        .outputItems(thingPrefix,  material)
         //        .save(provider);
 
-        EXTRACTOR_RECIPES.recipeBuilder("double_" + material + "_ingot")
+        EXTRACTOR_RECIPES.recipeBuilder("double_" + material.getUnlocalizedName() + "_ingot")
                 .EUt(VA[ULV]).duration((int) material.getMass())
                 .inputItems(thingPrefix, material)
                 .outputFluids(material.getFluid(288))
                 .save(provider);
 
-        MACERATOR_RECIPES.recipeBuilder("double_" + material + "_ingot_to_dust")
+        MACERATOR_RECIPES.recipeBuilder("double_" + material.getUnlocalizedName() + "_ingot_to_dust")
                 .EUt(VA[ULV]).duration((int) material.getMass())
                 .inputItems(thingPrefix, material)
                 .outputItems(dust, material, 2)
@@ -347,7 +340,7 @@ public class TFGRecipes {
         if (output.isEmpty()) return;
 
         if (material.hasProperty(PropertyKey.INGOT)) {
-            EXTRUDER_RECIPES.recipeBuilder(tagPrefix.name + "_mold_head_to_head_" + material.getName())
+            EXTRUDER_RECIPES.recipeBuilder(tagPrefix.name + "_mold_head_to_head_" + material.getUnlocalizedName())
                     .duration(12).EUt(32)
                     .notConsumable(extruderShape)
                     .inputItems(TagPrefix.ingot, material, (int) (tagPrefix.materialAmount() / GTValues.M))
@@ -359,7 +352,7 @@ public class TFGRecipes {
             var lense = GTItems.GLASS_LENSES.get(lenseColor);
             if (lense == null) return;
 
-            LASER_ENGRAVER_RECIPES.recipeBuilder(material.getName() + "_" + tagPrefix.name + "_head_from_lense_and_circuit")
+            LASER_ENGRAVER_RECIPES.recipeBuilder(material.getUnlocalizedName() + "_" + tagPrefix.name + "_head_from_lense_and_circuit")
                     .duration(12).EUt(32)
                     .circuitMeta(counter)
                     .notConsumable(lense)

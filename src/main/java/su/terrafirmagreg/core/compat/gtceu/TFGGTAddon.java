@@ -1,17 +1,24 @@
 package su.terrafirmagreg.core.compat.gtceu;
 
+import com.gregtechceu.gtceu.api.addon.GTAddon;
 import com.gregtechceu.gtceu.api.addon.IGTAddon;
+import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 import net.minecraft.data.recipes.FinishedRecipe;
 import su.terrafirmagreg.core.TerraFirmaGreg;
 import su.terrafirmagreg.core.objects.TFGRecipes;
-import com.gregtechceu.gtceu.api.addon.GTAddon;
 
 import java.util.function.Consumer;
 
 @GTAddon
 public class TFGGTAddon implements IGTAddon {
+
     @Override
     public void initializeAddon() {}
+
+    @Override
+    public GTRegistrate getRegistrate() {
+        return null;
+    }
 
     @Override
     public String addonModId() {
@@ -24,12 +31,12 @@ public class TFGGTAddon implements IGTAddon {
     }
 
     @Override
-    public void addRecipes(Consumer<FinishedRecipe> provider) {
-        TFGRecipes.init(provider);
+    public void registerFluidVeins() {
+        TFGFluidVeins.register();
     }
 
     @Override
-    public void registerMaterials() {
-        TFGMaterials.init();
+    public void addRecipes(Consumer<FinishedRecipe> provider) {
+        TFGRecipes.init(provider);
     }
 }

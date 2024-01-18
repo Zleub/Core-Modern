@@ -1,5 +1,6 @@
 package su.terrafirmagreg.core.compat.gtceu;
 
+import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconType;
@@ -7,13 +8,17 @@ import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.common.data.GTItems;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
+import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.common.blocks.TFCBlocks;
 import net.dries007.tfc.common.blocks.rock.Rock;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.MapColor;
+import su.terrafirmagreg.core.TerraFirmaGreg;
 
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.Conditions.*;
-import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.LoaderType.FORGE;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.oreTagPrefix;
 
 public class TFGTagPrefixes {
@@ -101,298 +106,183 @@ public class TFGTagPrefixes {
         TagPrefix.ORES.remove(TagPrefix.oreDiorite);
         TagPrefix.ORES.remove(TagPrefix.oreGranite);
 
+        // Другое
+        TagPrefix.PREFIXES.remove("rawOreBlock");
+
         /* Stone Types */
-        oreGabbro = oreTagPrefix("gabbro")
-                .materialIconType(MaterialIconType.ore)
-                .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .unificationEnabled(true)
-                .generationCondition(hasOreProperty)
-                .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.GABBRO).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
 
-        oreShale = oreTagPrefix("shale")
-                .materialIconType(MaterialIconType.ore)
-                .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .unificationEnabled(true)
-                .generationCondition(hasOreProperty)
-                .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.SHALE).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
-
-        oreClaystone = oreTagPrefix("claystone")
-                .materialIconType(MaterialIconType.ore)
-                .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .unificationEnabled(true)
-                .generationCondition(hasOreProperty)
-                .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.CLAYSTONE).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
-
-        oreLimestone = oreTagPrefix("limestone")
-                .materialIconType(MaterialIconType.ore)
-                .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .unificationEnabled(true)
-                .generationCondition(hasOreProperty)
-                .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.LIMESTONE).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
-
-        oreConglomerate = oreTagPrefix("conglomerate")
-                .materialIconType(MaterialIconType.ore)
-                .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .unificationEnabled(true)
-                .generationCondition(hasOreProperty)
-                .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.CONGLOMERATE).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
-
-        oreDolomite = oreTagPrefix("dolomite")
-                .materialIconType(MaterialIconType.ore)
-                .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .unificationEnabled(true)
-                .generationCondition(hasOreProperty)
-                .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.DOLOMITE).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
-
-        oreChert = oreTagPrefix("chert")
-                .materialIconType(MaterialIconType.ore)
-                .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .unificationEnabled(true)
-                .generationCondition(hasOreProperty)
-                .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.CHERT).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
-
-        oreRhyolite = oreTagPrefix("rhyolite")
-                .materialIconType(MaterialIconType.ore)
-                .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .unificationEnabled(true)
-                .generationCondition(hasOreProperty)
-                .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.RHYOLITE).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
-
-        oreDacite = oreTagPrefix("dacite")
-                .materialIconType(MaterialIconType.ore)
-                .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .unificationEnabled(true)
-                .generationCondition(hasOreProperty)
-                .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.DACITE).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
-
-        oreQuartzite = oreTagPrefix("quartzite")
-                .materialIconType(MaterialIconType.ore)
-                .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .unificationEnabled(true)
-                .generationCondition(hasOreProperty)
-                .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.QUARTZITE).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
-
-        oreSlate = oreTagPrefix("slate")
-                .materialIconType(MaterialIconType.ore)
-                .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .unificationEnabled(true)
-                .generationCondition(hasOreProperty)
-                .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.SLATE).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
-
-        orePhyllite = oreTagPrefix("phyllite")
-                .materialIconType(MaterialIconType.ore)
-                .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .unificationEnabled(true)
-                .generationCondition(hasOreProperty)
-                .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.PHYLLITE).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
-
-        oreSchist = oreTagPrefix("schist")
-                .materialIconType(MaterialIconType.ore)
-                .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .unificationEnabled(true)
-                .generationCondition(hasOreProperty)
-                .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.SCHIST).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
-
-        oreGneiss = oreTagPrefix("gneiss")
-                .materialIconType(MaterialIconType.ore)
-                .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .unificationEnabled(true)
-                .generationCondition(hasOreProperty)
-                .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.GNEISS).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
-
-        oreMarble = oreTagPrefix("marble")
-                .materialIconType(MaterialIconType.ore)
-                .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .unificationEnabled(true)
-                .generationCondition(hasOreProperty)
-                .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.MARBLE).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
-
-        oreBasalt = oreTagPrefix("basalt")
-                .materialIconType(MaterialIconType.ore)
-                .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .unificationEnabled(true)
-                .generationCondition(hasOreProperty)
-                .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.BASALT).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
-
-        oreDiorite = oreTagPrefix("diorite")
-                .materialIconType(MaterialIconType.ore)
-                .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .unificationEnabled(true)
-                .generationCondition(hasOreProperty)
-                .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.DIORITE).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
-
-        oreAndesite = oreTagPrefix("andesite")
-                .materialIconType(MaterialIconType.ore)
-                .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .unificationEnabled(true)
-                .generationCondition(hasOreProperty)
-                .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.ANDESITE).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
-
-        oreGranite = oreTagPrefix("granite")
-                .materialIconType(MaterialIconType.ore)
-                .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .unificationEnabled(true)
-                .generationCondition(hasOreProperty)
-                .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.GRANITE).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
-
-        oreChalk = oreTagPrefix("chalk")
-                .materialIconType(MaterialIconType.ore)
-                .miningToolTag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .unificationEnabled(true)
-                .generationCondition(hasOreProperty)
-                .registerOre(() -> TFCBlocks.ROCK_BLOCKS.get(Rock.CHALK).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState());
+        oreGabbro = registerOreTagPrefix(Rock.GABBRO);
+        oreShale = registerOreTagPrefix(Rock.SHALE);
+        oreClaystone = registerOreTagPrefix(Rock.CLAYSTONE);
+        oreLimestone = registerOreTagPrefix(Rock.LIMESTONE);
+        oreConglomerate = registerOreTagPrefix(Rock.CONGLOMERATE);
+        oreDolomite = registerOreTagPrefix(Rock.DOLOMITE);
+        oreChert = registerOreTagPrefix(Rock.CHERT);
+        oreRhyolite = registerOreTagPrefix(Rock.RHYOLITE);
+        oreDacite = registerOreTagPrefix(Rock.DACITE);
+        oreQuartzite = registerOreTagPrefix(Rock.QUARTZITE);
+        oreSlate = registerOreTagPrefix(Rock.SLATE);
+        orePhyllite = registerOreTagPrefix(Rock.PHYLLITE);
+        oreSchist = registerOreTagPrefix(Rock.SCHIST);
+        oreGneiss = registerOreTagPrefix(Rock.GNEISS);
+        oreMarble = registerOreTagPrefix(Rock.MARBLE);
+        oreBasalt = registerOreTagPrefix(Rock.BASALT);
+        oreDiorite = registerOreTagPrefix(Rock.DIORITE);
+        oreAndesite = registerOreTagPrefix(Rock.ANDESITE);
+        oreGranite = registerOreTagPrefix(Rock.GRANITE);
+        oreChalk = registerOreTagPrefix(Rock.CHALK);
 
         /* Tool Heads */
 
-        var withoutPolymerAndWood = (hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE) && !mat.hasProperty(PropertyKey.POLYMER) && mat != GTMaterials.Wood));
-        var withoutPolymerAndWoodStone = (hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE) && !mat.hasProperty(PropertyKey.POLYMER) && mat != GTMaterials.Wood && mat != GTMaterials.Stone));
+        var defaultToolHeadPredicate = (hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE) && !mat.hasProperty(PropertyKey.POLYMER) && mat != GTMaterials.Wood));
+        var defaultToolPredicateAndStone = (hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE) && !mat.hasProperty(PropertyKey.POLYMER) && mat != GTMaterials.Wood && mat != GTMaterials.Stone));
 
         toolHeadSword = new TagPrefix("swordHead")
-                .defaultTagPath(FORGE, "sword_heads/%s")
-                .unformattedTagPath(FORGE, "sword_heads")
                 .itemTable(() -> GTItems.MATERIAL_ITEMS)
+                .defaultTagPath("sword_heads/%s")
+                .unformattedTagPath("sword_heads")
                 .materialAmount(GTValues.M * 2)
                 .maxStackSize(16)
                 .materialIconType(MaterialIconType.toolHeadSword)
                 .unificationEnabled(true)
                 .generateItem(true)
-                .generationCondition(withoutPolymerAndWoodStone);
+                .generationCondition(defaultToolPredicateAndStone);
 
         toolHeadPickaxe = new TagPrefix("pickaxeHead")
-                .defaultTagPath(FORGE, "pickaxe_heads/%s")
-                .unformattedTagPath(FORGE, "pickaxe_heads")
+                .defaultTagPath("pickaxe_heads/%s")
+                .unformattedTagPath("pickaxe_heads")
                 .itemTable(() -> GTItems.MATERIAL_ITEMS)
                 .materialAmount(GTValues.M)
                 .maxStackSize(16)
                 .materialIconType(MaterialIconType.toolHeadPickaxe)
                 .unificationEnabled(true)
                 .generateItem(true)
-                .generationCondition(withoutPolymerAndWoodStone);
+                .generationCondition(defaultToolPredicateAndStone);
 
         toolHeadShovel = new TagPrefix("shovelHead")
-                .defaultTagPath(FORGE, "shovel_heads/%s")
-                .unformattedTagPath(FORGE, "shovel_heads")
+                .defaultTagPath("shovel_heads/%s")
+                .unformattedTagPath("shovel_heads")
                 .itemTable(() -> GTItems.MATERIAL_ITEMS)
                 .materialAmount(GTValues.M)
                 .maxStackSize(16)
                 .materialIconType(MaterialIconType.toolHeadShovel)
                 .unificationEnabled(true)
                 .generateItem(true)
-                .generationCondition(withoutPolymerAndWood);
+                .generationCondition(defaultToolHeadPredicate);
 
         toolHeadAxe = new TagPrefix("axeHead")
-                .defaultTagPath(FORGE, "axe_heads/%s")
-                .unformattedTagPath(FORGE, "axe_heads")
+                .defaultTagPath("axe_heads/%s")
+                .unformattedTagPath("axe_heads")
                 .itemTable(() -> GTItems.MATERIAL_ITEMS)
                 .materialAmount(GTValues.M)
                 .maxStackSize(16)
                 .materialIconType(MaterialIconType.toolHeadAxe)
                 .unificationEnabled(true)
                 .generateItem(true)
-                .generationCondition(withoutPolymerAndWood);
+                .generationCondition(defaultToolHeadPredicate);
 
         toolHeadHoe = new TagPrefix("hoeHead")
-                .defaultTagPath(FORGE, "hoe_heads/%s")
-                .unformattedTagPath(FORGE, "hoe_heads")
+                .defaultTagPath("hoe_heads/%s")
+                .unformattedTagPath("hoe_heads")
                 .itemTable(() -> GTItems.MATERIAL_ITEMS)
                 .materialAmount(GTValues.M)
                 .maxStackSize(16)
                 .materialIconType(MaterialIconType.toolHeadHoe)
                 .unificationEnabled(true)
                 .generateItem(true)
-                .generationCondition(withoutPolymerAndWood);
+                .generationCondition(defaultToolHeadPredicate);
 
         toolHeadScythe = new TagPrefix("scytheHead")
-                .defaultTagPath(FORGE, "scythe_heads/%s")
-                .unformattedTagPath(FORGE, "scythe_heads")
+                .defaultTagPath("scythe_heads/%s")
+                .unformattedTagPath("scythe_heads")
                 .itemTable(() -> GTItems.MATERIAL_ITEMS)
                 .materialAmount(GTValues.M)
                 .maxStackSize(16)
                 .materialIconType(MaterialIconType.toolHeadScythe)
                 .unificationEnabled(true)
                 .generateItem(true)
-                .generationCondition(withoutPolymerAndWoodStone);
+                .generationCondition(defaultToolPredicateAndStone);
 
         toolHeadFile = new TagPrefix("fileHead")
-                .defaultTagPath(FORGE, "file_heads/%s")
-                .unformattedTagPath(FORGE, "file_heads")
+                .defaultTagPath("file_heads/%s")
+                .unformattedTagPath("file_heads")
                 .itemTable(() -> GTItems.MATERIAL_ITEMS)
                 .materialAmount(GTValues.M)
                 .maxStackSize(16)
                 .materialIconType(MaterialIconType.toolHeadFile)
                 .unificationEnabled(true)
                 .generateItem(true)
-                .generationCondition(withoutPolymerAndWoodStone);
+                .generationCondition(defaultToolPredicateAndStone);
 
         toolHeadHammer = new TagPrefix("hammerHead")
-                .defaultTagPath(FORGE, "hammer_heads/%s")
-                .unformattedTagPath(FORGE, "hammer_heads")
+                .defaultTagPath("hammer_heads/%s")
+                .unformattedTagPath("hammer_heads")
                 .itemTable(() -> GTItems.MATERIAL_ITEMS)
                 .materialAmount(GTValues.M)
                 .maxStackSize(16)
                 .materialIconType(MaterialIconType.toolHeadHammer)
                 .unificationEnabled(true)
                 .generateItem(true)
-                .generationCondition(withoutPolymerAndWood);
+                .generationCondition(defaultToolHeadPredicate);
 
         toolHeadSaw = new TagPrefix("sawHead")
-                .defaultTagPath(FORGE, "saw_heads/%s")
-                .unformattedTagPath(FORGE, "saw_heads")
+                .defaultTagPath("saw_heads/%s")
+                .unformattedTagPath("saw_heads")
                 .itemTable(() -> GTItems.MATERIAL_ITEMS)
                 .materialAmount(GTValues.M)
                 .maxStackSize(16)
                 .materialIconType(MaterialIconType.toolHeadSaw)
                 .unificationEnabled(true)
                 .generateItem(true)
-                .generationCondition(withoutPolymerAndWoodStone);
+                .generationCondition(defaultToolPredicateAndStone);
 
         toolHeadKnife = new TagPrefix("knifeHead")
-                .defaultTagPath(FORGE, "knife_heads/%s")
-                .unformattedTagPath(FORGE, "knife_heads")
+                .defaultTagPath("knife_heads/%s")
+                .unformattedTagPath("knife_heads")
                 .itemTable(() -> GTItems.MATERIAL_ITEMS)
                 .materialAmount(GTValues.M)
                 .maxStackSize(16)
                 .materialIconType(TFGMaterialIconType.toolHeadKnife)
                 .unificationEnabled(true)
                 .generateItem(true)
-                .generationCondition(withoutPolymerAndWood);
+                .generationCondition(defaultToolHeadPredicate);
 
         toolHeadButcheryKnife = new TagPrefix("butcheryKnifeHead")
-                .defaultTagPath(FORGE, "butchery_knife_heads/%s")
-                .unformattedTagPath(FORGE, "butchery_knife_heads")
+                .defaultTagPath("butchery_knife_heads/%s")
+                .unformattedTagPath("butchery_knife_heads")
                 .itemTable(() -> GTItems.MATERIAL_ITEMS)
                 .materialAmount(GTValues.M * 2)
                 .maxStackSize(16)
                 .materialIconType(TFGMaterialIconType.toolHeadButcheryKnife)
                 .unificationEnabled(true)
                 .generateItem(true)
-                .generationCondition(withoutPolymerAndWoodStone);
+                .generationCondition(defaultToolPredicateAndStone);
 
         toolHeadMiningHammer = new TagPrefix("miningHammerHead")
-                .defaultTagPath(FORGE, "mining_hammer_heads/%s")
-                .unformattedTagPath(FORGE, "mining_hammer_heads")
+                .defaultTagPath("mining_hammer_heads/%s")
+                .unformattedTagPath("mining_hammer_heads")
                 .itemTable(() -> GTItems.MATERIAL_ITEMS)
                 .materialAmount(GTValues.M * 2)
                 .maxStackSize(16)
                 .materialIconType(TFGMaterialIconType.toolHeadMiningHammer)
                 .unificationEnabled(true)
                 .generateItem(true)
-                .generationCondition(withoutPolymerAndWoodStone);
+                .generationCondition(defaultToolPredicateAndStone);
 
         toolHeadSpade = new TagPrefix("spadeHead")
-                .defaultTagPath(FORGE, "spade_heads/%s")
-                .unformattedTagPath(FORGE, "spade_heads")
+                .defaultTagPath("spade_heads/%s")
+                .unformattedTagPath("spade_heads")
                 .itemTable(() -> GTItems.MATERIAL_ITEMS)
                 .materialAmount(GTValues.M * 2)
                 .maxStackSize(16)
                 .materialIconType(TFGMaterialIconType.toolHeadSpade)
                 .unificationEnabled(true)
                 .generateItem(true)
-                .generationCondition(withoutPolymerAndWoodStone);
+                .generationCondition(defaultToolPredicateAndStone);
 
         toolHeadPropick = new TagPrefix("propickHead")
-                .defaultTagPath(FORGE, "propick_heads/%s")
-                .unformattedTagPath(FORGE, "propick_heads")
+                .defaultTagPath("propick_heads/%s")
+                .unformattedTagPath("propick_heads")
                 .itemTable(() -> GTItems.MATERIAL_ITEMS)
                 .materialAmount(GTValues.M)
                 .maxStackSize(16)
@@ -402,8 +292,8 @@ public class TFGTagPrefixes {
                 .generationCondition(mat -> mat.hasFlag(TFGMaterialFlags.HAS_TFC_TOOL));
 
         toolHeadJavelin = new TagPrefix("javelinHead")
-                .defaultTagPath(FORGE, "javelin_heads/%s")
-                .unformattedTagPath(FORGE, "javelin_heads")
+                .defaultTagPath("javelin_heads/%s")
+                .unformattedTagPath("javelin_heads")
                 .itemTable(() -> GTItems.MATERIAL_ITEMS)
                 .materialAmount(GTValues.M)
                 .maxStackSize(16)
@@ -413,8 +303,8 @@ public class TFGTagPrefixes {
                 .generationCondition(mat -> mat.hasFlag(TFGMaterialFlags.HAS_TFC_TOOL));
 
         toolHeadChisel = new TagPrefix("chiselHead")
-                .defaultTagPath(FORGE, "chisel_heads/%s")
-                .unformattedTagPath(FORGE, "chisel_heads")
+                .defaultTagPath("chisel_heads/%s")
+                .unformattedTagPath("chisel_heads")
                 .itemTable(() -> GTItems.MATERIAL_ITEMS)
                 .materialAmount(GTValues.M)
                 .maxStackSize(16)
@@ -424,8 +314,8 @@ public class TFGTagPrefixes {
                 .generationCondition(mat -> mat.hasFlag(TFGMaterialFlags.HAS_TFC_TOOL));
 
         toolHeadMace = new TagPrefix("maceHead")
-                .defaultTagPath(FORGE, "mace_heads/%s")
-                .unformattedTagPath(FORGE, "mace_heads")
+                .defaultTagPath("mace_heads/%s")
+                .unformattedTagPath("mace_heads")
                 .itemTable(() -> GTItems.MATERIAL_ITEMS)
                 .materialAmount(GTValues.M * 2)
                 .maxStackSize(16)
@@ -437,8 +327,8 @@ public class TFGTagPrefixes {
         /* Other */
 
         ingotDouble = new TagPrefix("doubleIngot")
-                .defaultTagPath(FORGE, "double_ingots/%s")
-                .unformattedTagPath(FORGE, "double_ingots")
+                .defaultTagPath("double_ingots/%s")
+                .unformattedTagPath("double_ingots")
                 .materialAmount(GTValues.M)
                 .materialIconType(MaterialIconType.ingotDouble)
                 .unificationEnabled(true)
@@ -447,16 +337,18 @@ public class TFGTagPrefixes {
 
         /* Other */
         poorRawOre = new TagPrefix("poor_raw", true)
-                .defaultTagPath(FORGE, "poor_raw_materials/%s")
-                .unformattedTagPath(FORGE, "poor_raw_materials")
+                .idPattern("poor_raw_%s")
+                .defaultTagPath("poor_raw_materials/%s")
+                .unformattedTagPath("poor_raw_materials")
                 .materialIconType(TFGMaterialIconType.poorRawOre)
                 .unificationEnabled(true)
                 .generateItem(true)
                 .generationCondition(hasOreProperty);
 
         richRawOre = new TagPrefix("rich_raw", true)
-                .defaultTagPath(FORGE, "rich_raw_materials/%s")
-                .unformattedTagPath(FORGE, "rich_raw_materials")
+                .idPattern("rich_raw_%s")
+                .defaultTagPath("rich_raw_materials/%s")
+                .unformattedTagPath("rich_raw_materials")
                 .materialIconType(TFGMaterialIconType.richRawOre)
                 .unificationEnabled(true)
                 .generateItem(true)
@@ -464,90 +356,95 @@ public class TFGTagPrefixes {
 
         /* Tag Fixes */
 
-        TagPrefix.plate.defaultTagPath(FORGE, "sheets/%s");
-        TagPrefix.plateDouble.defaultTagPath(FORGE, "double_sheets/%s");
+        TagPrefix.plate.defaultTagPath("sheets/%s");
+        TagPrefix.plateDouble.defaultTagPath("double_sheets/%s");
 
-        TagPrefix.rawOre.unformattedTagPath(FORGE, "raw_materials");
+        TagPrefix.frameGt.unformattedTagPath("frames");
 
-        TagPrefix.block.unformattedTagPath(FORGE, "material_blocks");
-        TagPrefix.rawOreBlock.unformattedTagPath(FORGE, "raw_blocks");
-        TagPrefix.frameGt.unformattedTagPath(FORGE, "frame_blocks");
+        TagPrefix.wireGtSingle.defaultTagPath("single_wires//%s");
+        TagPrefix.wireGtSingle.unformattedTagPath("single_wires");
+        TagPrefix.wireGtDouble.defaultTagPath("double_wires/%s");
+        TagPrefix.wireGtDouble.unformattedTagPath("double_wires");
+        TagPrefix.wireGtQuadruple.defaultTagPath("quadruple_wires/%s");
+        TagPrefix.wireGtQuadruple.unformattedTagPath("quadruple_wires");
+        TagPrefix.wireGtOctal.defaultTagPath("octal_wires/%s");
+        TagPrefix.wireGtOctal.unformattedTagPath("octal_wires");
+        TagPrefix.wireGtHex.defaultTagPath("hex_wires/%s");
+        TagPrefix.wireGtHex.unformattedTagPath("hex_wires");
 
-        TagPrefix.wireGtSingle.defaultTagPath(FORGE, "wires/single/%s");
-        TagPrefix.wireGtSingle.unformattedTagPath(FORGE, "wires/single");
-        TagPrefix.wireGtDouble.defaultTagPath(FORGE, "wires/double/%s");
-        TagPrefix.wireGtDouble.unformattedTagPath(FORGE, "wires/double");
-        TagPrefix.wireGtQuadruple.defaultTagPath(FORGE, "wires/quadruple/%s");
-        TagPrefix.wireGtQuadruple.unformattedTagPath(FORGE, "wires/quadruple");
-        TagPrefix.wireGtOctal.defaultTagPath(FORGE, "wires/octal/%s");
-        TagPrefix.wireGtOctal.unformattedTagPath(FORGE, "wires/octal");
-        TagPrefix.wireGtHex.defaultTagPath(FORGE, "wires/hex/%s");
-        TagPrefix.wireGtHex.unformattedTagPath(FORGE, "wires/hex");
+        TagPrefix.cableGtSingle.defaultTagPath("single_cables/%s");
+        TagPrefix.cableGtSingle.unformattedTagPath("single_cables");
+        TagPrefix.cableGtDouble.defaultTagPath("double_cables/%s");
+        TagPrefix.cableGtDouble.unformattedTagPath("double_cables");
+        TagPrefix.cableGtQuadruple.defaultTagPath("quadruple_cables/%s");
+        TagPrefix.cableGtQuadruple.unformattedTagPath("quadruple_cables");
+        TagPrefix.cableGtOctal.defaultTagPath("octal_cables/%s");
+        TagPrefix.cableGtOctal.unformattedTagPath("octal_cables");
+        TagPrefix.cableGtHex.defaultTagPath("hex_cables/%s");
+        TagPrefix.cableGtHex.unformattedTagPath("hex_cables");
 
-        TagPrefix.cableGtSingle.defaultTagPath(FORGE, "cables/single/%s");
-        TagPrefix.cableGtSingle.unformattedTagPath(FORGE, "cables/single");
-        TagPrefix.cableGtDouble.defaultTagPath(FORGE, "cables/double/%s");
-        TagPrefix.cableGtDouble.unformattedTagPath(FORGE, "cables/double");
-        TagPrefix.cableGtQuadruple.defaultTagPath(FORGE, "cables/double/%s");
-        TagPrefix.cableGtQuadruple.unformattedTagPath(FORGE, "cables/quadruple");
-        TagPrefix.cableGtOctal.defaultTagPath(FORGE, "cables/double/%s");
-        TagPrefix.cableGtOctal.unformattedTagPath(FORGE, "cables/octal");
-        TagPrefix.cableGtHex.defaultTagPath(FORGE, "cables/double/%s");
-        TagPrefix.cableGtHex.unformattedTagPath(FORGE, "cables/hex");
+        TagPrefix.pipeTinyFluid.defaultTagPath("tiny_fluid_pipes//%s");
+        TagPrefix.pipeTinyFluid.unformattedTagPath("tiny_fluid_pipes");
+        TagPrefix.pipeSmallFluid.defaultTagPath("small_fluid_pipes/%s");
+        TagPrefix.pipeSmallFluid.unformattedTagPath("small_fluid_pipes");
+        TagPrefix.pipeNormalFluid.defaultTagPath("normal_fluid_pipes/%s");
+        TagPrefix.pipeNormalFluid.unformattedTagPath("normal_fluid_pipes");
+        TagPrefix.pipeLargeFluid.defaultTagPath("large_fluid_pipes/%s");
+        TagPrefix.pipeLargeFluid.unformattedTagPath("large_fluid_pipes");
+        TagPrefix.pipeHugeFluid.defaultTagPath("huge_fluid_pipes/%s");
+        TagPrefix.pipeHugeFluid.unformattedTagPath("huge_fluid_pipes");
+        TagPrefix.pipeQuadrupleFluid.defaultTagPath("quadruple_fluid_pipes/%s");
+        TagPrefix.pipeQuadrupleFluid.unformattedTagPath("quadruple_fluid_pipes");
+        TagPrefix.pipeNonupleFluid.defaultTagPath("nonuple_fluid_pipes/%s");
+        TagPrefix.pipeNonupleFluid.unformattedTagPath("nonuple_fluid_pipes");
 
-        TagPrefix.pipeTinyFluid.defaultTagPath(FORGE, "fluid_pipes/tiny/%s");
-        TagPrefix.pipeTinyFluid.unformattedTagPath(FORGE, "fluid_pipes/tiny");
-        TagPrefix.pipeSmallFluid.defaultTagPath(FORGE, "fluid_pipes/small/%s");
-        TagPrefix.pipeSmallFluid.unformattedTagPath(FORGE, "fluid_pipes/small");
-        TagPrefix.pipeNormalFluid.defaultTagPath(FORGE, "fluid_pipes/normal/%s");
-        TagPrefix.pipeNormalFluid.unformattedTagPath(FORGE, "fluid_pipes/normal");
-        TagPrefix.pipeLargeFluid.defaultTagPath(FORGE, "fluid_pipes/large/%s");
-        TagPrefix.pipeLargeFluid.unformattedTagPath(FORGE, "fluid_pipes/large");
-        TagPrefix.pipeHugeFluid.defaultTagPath(FORGE, "fluid_pipes/huge/%s");
-        TagPrefix.pipeHugeFluid.unformattedTagPath(FORGE, "fluid_pipes/huge");
-        TagPrefix.pipeQuadrupleFluid.defaultTagPath(FORGE, "fluid_pipes/quadruple/%s");
-        TagPrefix.pipeQuadrupleFluid.unformattedTagPath(FORGE, "fluid_pipes/quadruple");
-        TagPrefix.pipeNonupleFluid.defaultTagPath(FORGE, "fluid_pipes/nonuple/%s");
-        TagPrefix.pipeNonupleFluid.unformattedTagPath(FORGE, "fluid_pipes/nonuple");
+        TagPrefix.pipeSmallItem.defaultTagPath("small_item_pipes/%s");
+        TagPrefix.pipeSmallItem.unformattedTagPath("small_item_pipes");
+        TagPrefix.pipeNormalItem.defaultTagPath("normal_item_pipes/%s");
+        TagPrefix.pipeNormalItem.unformattedTagPath("normal_item_pipes");
+        TagPrefix.pipeLargeItem.defaultTagPath("large_item_pipes/%s");
+        TagPrefix.pipeLargeItem.unformattedTagPath("large_item_pipes");
+        TagPrefix.pipeHugeItem.defaultTagPath("huge_item_pipes/%s");
+        TagPrefix.pipeHugeItem.unformattedTagPath("huge_item_pipes");
 
-        TagPrefix.pipeSmallItem.defaultTagPath(FORGE, "item_pipes/small/%s");
-        TagPrefix.pipeSmallItem.unformattedTagPath(FORGE, "item_pipes/small");
-        TagPrefix.pipeNormalItem.defaultTagPath(FORGE, "item_pipes/normal/%s");
-        TagPrefix.pipeNormalItem.unformattedTagPath(FORGE, "item_pipes/normal");
-        TagPrefix.pipeLargeItem.defaultTagPath(FORGE, "item_pipes/large/%s");
-        TagPrefix.pipeLargeItem.unformattedTagPath(FORGE, "item_pipes/large");
-        TagPrefix.pipeHugeItem.defaultTagPath(FORGE, "item_pipes/huge/%s");
-        TagPrefix.pipeHugeItem.unformattedTagPath(FORGE, "item_pipes/huge");
+        TagPrefix.pipeSmallRestrictive.defaultTagPath("small_restrictive_pipes/%s");
+        TagPrefix.pipeSmallRestrictive.unformattedTagPath("small_restrictive_pipes");
+        TagPrefix.pipeNormalRestrictive.defaultTagPath("normal_restrictive_pipes/%s");
+        TagPrefix.pipeNormalRestrictive.unformattedTagPath("normal_restrictive_pipes");
+        TagPrefix.pipeLargeRestrictive.defaultTagPath("large_restrictive_pipes/%s");
+        TagPrefix.pipeLargeRestrictive.unformattedTagPath("large_restrictive_pipes");
+        TagPrefix.pipeHugeRestrictive.defaultTagPath("huge_restrictive_pipes/%s");
+        TagPrefix.pipeHugeRestrictive.unformattedTagPath("huge_restrictive_pipes");
 
-        TagPrefix.pipeSmallRestrictive.defaultTagPath(FORGE, "restrictive_pipes/small/%s");
-        TagPrefix.pipeSmallRestrictive.unformattedTagPath(FORGE, "restrictive_pipes/small");
-        TagPrefix.pipeNormalRestrictive.defaultTagPath(FORGE, "restrictive_pipes/normal/%s");
-        TagPrefix.pipeNormalRestrictive.unformattedTagPath(FORGE, "restrictive_pipes/normal");
-        TagPrefix.pipeLargeRestrictive.defaultTagPath(FORGE, "restrictive_pipes/large/%s");
-        TagPrefix.pipeLargeRestrictive.unformattedTagPath(FORGE, "restrictive_pipes/large");
-        TagPrefix.pipeHugeRestrictive.defaultTagPath(FORGE, "restrictive_pipes/huge/%s");
-        TagPrefix.pipeHugeRestrictive.unformattedTagPath(FORGE, "restrictive_pipes/huge");
+        TagPrefix.toolHeadDrill.defaultTagPath("drill_heads/%s");
+        TagPrefix.toolHeadDrill.unformattedTagPath("drill_heads");
 
-        TagPrefix.toolHeadDrill.defaultTagPath(FORGE, "drill_heads/%s");
-        TagPrefix.toolHeadDrill.unformattedTagPath(FORGE, "drill_heads");
+        TagPrefix.toolHeadChainsaw.defaultTagPath("chainsaw_heads/%s");
+        TagPrefix.toolHeadChainsaw.unformattedTagPath("chainsaw_heads");
 
-        TagPrefix.toolHeadChainsaw.defaultTagPath(FORGE, "chainsaw_heads/%s");
-        TagPrefix.toolHeadChainsaw.unformattedTagPath(FORGE, "chainsaw_heads");
+        TagPrefix.toolHeadBuzzSaw.defaultTagPath("buzz_saw_heads/%s");
+        TagPrefix.toolHeadBuzzSaw.unformattedTagPath("buzz_saw_heads");
 
-        TagPrefix.toolHeadBuzzSaw.defaultTagPath(FORGE, "buzz_saw_heads/%s");
-        TagPrefix.toolHeadBuzzSaw.unformattedTagPath(FORGE, "buzz_saw_heads");
+        TagPrefix.toolHeadWrench.defaultTagPath("wrench_tips/%s");
+        TagPrefix.toolHeadWrench.unformattedTagPath("wrench_tips");
 
-        TagPrefix.toolHeadWrench.defaultTagPath(FORGE, "wrench_tips/%s");
-        TagPrefix.toolHeadWrench.unformattedTagPath(FORGE, "wrench_tips");
+        TagPrefix.toolHeadScrewdriver.defaultTagPath("screwdriver_tips/%s");
+        TagPrefix.toolHeadScrewdriver.unformattedTagPath("screwdriver_tips");
 
-        TagPrefix.toolHeadScrewdriver.defaultTagPath(FORGE, "screwdriver_tips/%s");
-        TagPrefix.toolHeadScrewdriver.unformattedTagPath(FORGE, "screwdriver_tips");
-
-        TagPrefix.turbineBlade.defaultTagPath(FORGE, "turbine_blades/%s");
-        TagPrefix.turbineBlade.unformattedTagPath(FORGE, "turbine_blades");
+        TagPrefix.turbineBlade.defaultTagPath("turbine_blades/%s");
+        TagPrefix.turbineBlade.unformattedTagPath("turbine_blades");
     }
 
-    public static void init() {
+    public static void init() {}
+
+    private static TagPrefix registerOreTagPrefix(Rock rockType) {
+        return oreTagPrefix(rockType.getSerializedName(), BlockTags.MINEABLE_WITH_PICKAXE)
+                .registerOre(
+                        () -> TFCBlocks.ROCK_BLOCKS.get(rockType).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState(),
+                        () -> GTCEuAPI.materialManager.getMaterial(rockType.getSerializedName()),
+                        BlockBehaviour.Properties.of().mapColor(MapColor.STONE).requiresCorrectToolForDrops().strength(3.0F, 3.0F),
+                        new ResourceLocation(TerraFirmaCraft.MOD_ID, "block/rock/raw/" + rockType.getSerializedName())
+                );
     }
 
 }
