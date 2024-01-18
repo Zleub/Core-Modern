@@ -7,6 +7,9 @@ import me.shedaniel.rei.api.client.registry.screen.ExclusionZones;
 import me.shedaniel.rei.api.common.util.EntryIngredients;
 import me.shedaniel.rei.forge.REIPluginClient;
 import net.dries007.tfc.client.screen.CalendarScreen;
+import net.dries007.tfc.client.screen.ClimateScreen;
+import net.dries007.tfc.client.screen.NutritionScreen;
+import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -21,7 +24,10 @@ public class TFGREIClientPlugin implements REIClientPlugin {
 
     @Override
     public void registerExclusionZones(ExclusionZones zones) {
+        zones.register(InventoryScreen.class, screen -> List.of(new Rectangle(screen.getGuiLeft() + screen.getXSize() + 2, screen.getGuiTop(), 20, 120)));
         zones.register(CalendarScreen.class, screen -> List.of(new Rectangle(screen.getGuiLeft() + screen.getXSize() + 2, screen.getGuiTop(), 20, 120)));
+        zones.register(NutritionScreen.class, screen -> List.of(new Rectangle(screen.getGuiLeft() + screen.getXSize() + 2, screen.getGuiTop(), 20, 120)));
+        zones.register(ClimateScreen.class, screen -> List.of(new Rectangle(screen.getGuiLeft() + screen.getXSize() + 2, screen.getGuiTop(), 20, 120)));
     }
 
     @Override
