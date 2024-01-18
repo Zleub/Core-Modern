@@ -1,28 +1,21 @@
 package su.terrafirmagreg.core.objects;
 
+import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
-import com.gregtechceu.gtceu.api.data.chemical.material.MarkerMaterial;
 import com.gregtechceu.gtceu.api.data.chemical.material.MarkerMaterials;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
-import com.gregtechceu.gtceu.api.data.chemical.material.properties.DustProperty;
-import com.gregtechceu.gtceu.api.data.chemical.material.properties.IngotProperty;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
-import com.gregtechceu.gtceu.api.data.chemical.material.stack.MaterialStack;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.api.registry.GTRegistries;
-import com.gregtechceu.gtceu.common.data.GTFluids;
 import com.gregtechceu.gtceu.common.data.GTItems;
-import com.gregtechceu.gtceu.common.data.GTMaterials;
 import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
-import com.gregtechceu.gtceu.data.recipe.misc.RecyclingRecipes;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.Item;
 import su.terrafirmagreg.core.compat.gtceu.TFGPropertyKeys;
 import su.terrafirmagreg.core.compat.gtceu.TFGTagPrefixes;
 
-import java.util.ArrayList;
 import java.util.function.Consumer;
 
 import static com.gregtechceu.gtceu.api.GTValues.*;
@@ -38,6 +31,7 @@ import static su.terrafirmagreg.core.objects.TFGItems.*;
 public class TFGRecipes {
 
     public static void init(Consumer<FinishedRecipe> consumer) {
+        /*
         stoneTypeDustsDecomposition(consumer);
         extruderShapeHeads(consumer);
         toolHeadRecycling(consumer);
@@ -48,7 +42,7 @@ public class TFGRecipes {
                 .inputItems(dust, Sulfur)
                 .inputFluids(Latex.getFluid(1000))
                 .outputItems(GTItems.STICKY_RESIN)
-                .save(consumer);
+                .save(consumer);*/
     }
 
     private static void stoneTypeDustsDecomposition(Consumer<FinishedRecipe> consumer)
@@ -195,7 +189,7 @@ public class TFGRecipes {
     }
 
     private static void extruderShapeHeads(Consumer<FinishedRecipe> consumer) {
-        for (var material : GTRegistries.MATERIALS.values()) {
+        for (var material : GTCEuAPI.materialManager.getRegisteredMaterials()) {
             if (material.hasProperty(PropertyKey.TOOL) && !material.hasProperty(PropertyKey.POLYMER) && material != Wood) {
 
                 int counter = 0;

@@ -2,13 +2,19 @@ package su.terrafirmagreg.core.compat.gtceu;
 
 import appeng.core.definitions.AEBlocks;
 import appeng.core.definitions.AEItems;
+import com.gregtechceu.gtceu.GTCEu;
+import com.gregtechceu.gtceu.api.GTCEuAPI;
+import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlag;
-import com.gregtechceu.gtceu.api.data.chemical.material.properties.*;
+import com.gregtechceu.gtceu.api.data.chemical.material.properties.OreProperty;
+import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
+import com.gregtechceu.gtceu.api.data.chemical.material.properties.ToolProperty;
 import com.gregtechceu.gtceu.api.item.tool.GTToolType;
-import com.gregtechceu.gtceu.api.registry.GTRegistries;
+import net.dries007.tfc.common.blocks.rock.Rock;
 import net.dries007.tfc.common.items.TFCItems;
 import net.dries007.tfc.util.Metal;
+import su.terrafirmagreg.core.TerraFirmaGreg;
 import su.terrafirmagreg.core.compat.gtceu.properties.TFCProperty;
 
 import java.util.Arrays;
@@ -22,171 +28,131 @@ import static su.terrafirmagreg.core.compat.gtceu.TFGMaterialFlags.*;
 
 public class TFGMaterials {
 
-    /* Кастомные материалы */
+    public static Material Latex;
+    public static Material Fluix;
 
-    public static final Material Latex = new Material.Builder("latex")
-            .fluid()
-            .color(0xFBB982)
-            .buildAndRegister();
+    public static Material Gabbro;
+    public static Material Shale;
+    public static Material Claystone;
+    public static Material Limestone;
+    public static Material Conglomerate;
+    public static Material Dolomite;
+    public static Material Chert;
+    public static Material Chalk;
+    public static Material Rhyolite;
+    public static Material Dacite;
+    public static Material Slate;
+    public static Material Phyllite;
+    public static Material Schist;
+    public static Material Gneiss;
 
-    public static final Material Fluix = new Material.Builder("fluix")
-            .fluid()
-            .gem(1)
-            .color(0xD2D2E6).iconSet(CERTUS)
-            .flags(GENERATE_PLATE, NO_SMELTING, CRYSTALLIZABLE, DISABLE_DECOMPOSITION, FORCE_GENERATE_BLOCK)
-            .components(Silicon, 1, Oxygen, 2)
-            .color(0x57448d)
-            .buildAndRegister();
+    public static Material Unknown;
+    public static Material PigIron;
+    public static Material HighCarbonSteel;
+    public static Material HighCarbonBlackSteel;
+    public static Material HighCarbonRedSteel;
+    public static Material HighCarbonBlueSteel;
+    public static Material WeakSteel;
+    public static Material WeakRedSteel;
+    public static Material WeakBlueSteel;
 
-    /* Материалы типов камня */
-
-    public static final Material Gabbro = new Material.Builder("gabbro")
-            .dust(2)
-            .color(0x7F8081).secondaryColor(0x898989).iconSet(ROUGH)
-            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
-            .buildAndRegister();
-
-    public static final Material Shale = new Material.Builder("shale")
-            .dust(2)
-            .color(0x686567).secondaryColor(0x898989).iconSet(ROUGH)
-            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
-            .buildAndRegister();
-
-    public static final Material Claystone = new Material.Builder("claystone")
-            .dust(2)
-            .color(0xAF9377).secondaryColor(0x898989).iconSet(ROUGH)
-            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
-            .buildAndRegister();
-    public static final Material Limestone = new Material.Builder("limestone")
-            .dust(2)
-            .color(0xA09885).secondaryColor(0x898989).iconSet(ROUGH)
-            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
-            .buildAndRegister();
-
-    public static final Material Conglomerate = new Material.Builder("conglomerate")
-            .dust(2)
-            .color(0xA3977F).secondaryColor(0x898989).iconSet(ROUGH)
-            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
-            .buildAndRegister();
-
-    public static final Material Dolomite = new Material.Builder("dolomite")
-            .dust(2)
-            .color(0x515155).secondaryColor(0x898989).iconSet(ROUGH)
-            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
-            .buildAndRegister();
-
-    public static final Material Chert = new Material.Builder("chert")
-            .dust(2)
-            .color(0x7A6756).secondaryColor(0x898989).iconSet(ROUGH)
-            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
-            .buildAndRegister();
-
-    public static final Material Chalk = new Material.Builder("chalk")
-            .dust(2)
-            .color(0xA4A39F).secondaryColor(0x898989).iconSet(ROUGH)
-            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
-            .buildAndRegister();
-
-    public static final Material Rhyolite = new Material.Builder("rhyolite")
-            .dust(2)
-            .color(0x726D69).secondaryColor(0x898989).iconSet(ROUGH)
-            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
-            .buildAndRegister();
-
-    public static final Material Dacite = new Material.Builder("dacite")
-            .dust(2)
-            .color(0x979797).secondaryColor(0x898989).iconSet(ROUGH)
-            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
-            .buildAndRegister();
-
-    public static final Material Slate = new Material.Builder("slate")
-            .dust(2)
-            .color(0x989287).secondaryColor(0x898989).iconSet(ROUGH)
-            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
-            .buildAndRegister();
-
-    public static final Material Phyllite = new Material.Builder("phyllite")
-            .dust(2)
-            .color(0x706B61).secondaryColor(0x898989).iconSet(ROUGH)
-            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
-            .buildAndRegister();
-
-    public static final Material Schist = new Material.Builder("schist")
-            .dust(2)
-            .color(0x6E735C).secondaryColor(0x898989).iconSet(ROUGH)
-            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
-            .buildAndRegister();
-
-    public static final Material Gneiss = new Material.Builder("gneiss")
-            .dust(2)
-            .color(0x6A6D60).secondaryColor(0x898989).iconSet(ROUGH)
-            .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
-            .buildAndRegister();
-
-    /* Материалы металлов TFC */
-
-    /* TFC Metals */
-
-    public static Material Unknown = new Material.Builder("unknown")
-            .ingot()
-            .fluid()
-            .color(0x2F2B27)
-            .buildAndRegister();
-
-    public static Material PigIron = new Material.Builder("pig_iron")
-            .ingot()
-            .fluid()
-            .color(0x6A595C)
-            .buildAndRegister();
-
-    public static Material HighCarbonSteel = new Material.Builder("high_carbon_steel")
-            .ingot()
-            .fluid()
-            .color(0x5F5F5F)
-            .buildAndRegister();
-    public static Material HighCarbonBlackSteel = new Material.Builder("high_carbon_black_steel")
-            .ingot()
-            .fluid()
-            .color(0x111111)
-            .buildAndRegister();
-
-    public static Material HighCarbonRedSteel = new Material.Builder("high_carbon_red_steel")
-            .ingot()
-            .fluid()
-            .color(0x700503)
-            .buildAndRegister();
-
-    public static Material HighCarbonBlueSteel = new Material.Builder("high_carbon_blue_steel")
-            .ingot()
-            .fluid()
-            .color(0x2D5596)
-            .buildAndRegister();
-
-    public static Material WeakSteel = new Material.Builder("weak_steel")
-            .ingot()
-            .fluid()
-            .color(0x111111)
-            .buildAndRegister();
-
-    public static Material WeakRedSteel = new Material.Builder("weak_red_steel")
-            .ingot()
-            .fluid()
-            .color(0x700503)
-            .buildAndRegister();
-
-    public static Material WeakBlueSteel = new Material.Builder("weak_blue_steel")
-            .ingot()
-            .fluid()
-            .color(0x2D5596)
-            .buildAndRegister();
-
-    /* Dead */
-
-    public static Material Limonite = new Material.Builder("limonite").buildAndRegister();
-
-    public static Material Bismuthinite = new Material.Builder("bismuthinite").buildAndRegister();
+    public static Material Limonite;
+    public static Material Bismuthinite;
 
     public static void init() {
+
+        /* Specific Materials */
+
+        Latex = new Material.Builder(GTCEu.id("latex"))
+                .fluid()
+                .color(0xFBB982)
+                .buildAndRegister();
+
+        Fluix = new Material.Builder(GTCEu.id("fluix"))
+                .fluid()
+                .gem(1)
+                .color(0xD2D2E6).iconSet(CERTUS)
+                .flags(GENERATE_PLATE, NO_SMELTING, CRYSTALLIZABLE, DISABLE_DECOMPOSITION, FORCE_GENERATE_BLOCK)
+                .components(Silicon, 1, Oxygen, 2)
+                .color(0x57448d)
+                .buildAndRegister();
+
+        /* TFC Stone Types Materials */
+
+        Gabbro = registerOreMaterial(Rock.GABBRO, 0x7F8081);
+        Shale = registerOreMaterial(Rock.SHALE, 0x686567);
+        Claystone = registerOreMaterial(Rock.CLAYSTONE, 0xAF9377);
+        Limestone = registerOreMaterial(Rock.LIMESTONE, 0xA09885);
+        Conglomerate = registerOreMaterial(Rock.CONGLOMERATE, 0xA3977F);
+        Dolomite = registerOreMaterial(Rock.DOLOMITE, 0x515155);
+        Chert = registerOreMaterial(Rock.CHERT, 0x7A6756);
+        Chalk = registerOreMaterial(Rock.CHALK, 0xA4A39F);
+        Rhyolite = registerOreMaterial(Rock.RHYOLITE, 0x726D69);
+        Dacite = registerOreMaterial(Rock.DACITE, 0x979797);
+        Slate = registerOreMaterial(Rock.SLATE, 0x989287);
+        Phyllite = registerOreMaterial(Rock.PHYLLITE, 0x706B61);
+        Schist = registerOreMaterial(Rock.SCHIST, 0x6E735C);
+        Gneiss = registerOreMaterial(Rock.GNEISS, 0x6A6D60);
+
+        Unknown = new Material.Builder(GTCEu.id("unknown"))
+                .ingot()
+                .fluid()
+                .color(0x2F2B27)
+                .buildAndRegister();
+
+        PigIron = new Material.Builder(GTCEu.id("pig_iron"))
+                .ingot()
+                .fluid()
+                .color(0x6A595C)
+                .buildAndRegister();
+
+        HighCarbonSteel = new Material.Builder(GTCEu.id("high_carbon_steel"))
+                .ingot()
+                .fluid()
+                .color(0x5F5F5F)
+                .buildAndRegister();
+        HighCarbonBlackSteel = new Material.Builder(GTCEu.id("high_carbon_black_steel"))
+                .ingot()
+                .fluid()
+                .color(0x111111)
+                .buildAndRegister();
+
+        HighCarbonRedSteel = new Material.Builder(GTCEu.id("high_carbon_red_steel"))
+                .ingot()
+                .fluid()
+                .color(0x700503)
+                .buildAndRegister();
+
+        HighCarbonBlueSteel = new Material.Builder(GTCEu.id("high_carbon_blue_steel"))
+                .ingot()
+                .fluid()
+                .color(0x2D5596)
+                .buildAndRegister();
+
+        WeakSteel = new Material.Builder(GTCEu.id("weak_steel"))
+                .ingot()
+                .fluid()
+                .color(0x111111)
+                .buildAndRegister();
+
+        WeakRedSteel = new Material.Builder(GTCEu.id("weak_red_steel"))
+                .ingot()
+                .fluid()
+                .color(0x700503)
+                .buildAndRegister();
+
+        WeakBlueSteel = new Material.Builder(GTCEu.id("weak_blue_steel"))
+                .ingot()
+                .fluid()
+                .color(0x2D5596)
+                .buildAndRegister();
+
+        /* Dead */
+        Limonite = new Material.Builder(GTCEu.id("limonite")).buildAndRegister();
+        Bismuthinite = new Material.Builder(GTCEu.id("bismuthinite")).buildAndRegister();
+    }
+
+    public static void postInit() {
         /* TFC Проперти для материалов */
         Copper.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(648, 864, 1080, 1));
         BismuthBronze.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(591, 788, 985, 2));
@@ -375,7 +341,7 @@ public class TFGMaterials {
         BlackBronze.setProperty(PropertyKey.TOOL, ToolProperty.Builder.of(3.3F, 2.0F, 204, 2).build());
         BlackSteel.setProperty(PropertyKey.TOOL, ToolProperty.Builder.of(6.5F, 4.5F, 1228, 3).build());
 
-        for (var material : GTRegistries.MATERIALS.values()) {
+        for (var material : GTCEuAPI.materialManager.getRegisteredMaterials()) {
             var toolProperty = material.getProperty(PropertyKey.TOOL);
             if (toolProperty == null) continue;
 
@@ -391,5 +357,17 @@ public class TFGMaterials {
         gem.setIgnored(CertusQuartz, AEItems.CERTUS_QUARTZ_CRYSTAL);
 
         dust.setIgnored(EnderPearl, AEItems.ENDER_DUST);
+
+        block.modifyMaterialAmount(TFGMaterials.Fluix, GTValues.M * 4);
     }
+
+    private static Material registerOreMaterial(Rock rockType, int color) {
+        return new Material.Builder(GTCEu.id(rockType.getSerializedName()))
+                .dust()
+                .color(color).iconSet(ROUGH)
+                .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
+                .buildAndRegister();
+    }
+
+
 }
