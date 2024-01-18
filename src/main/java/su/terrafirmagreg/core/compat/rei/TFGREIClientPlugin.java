@@ -9,11 +9,8 @@ import me.shedaniel.rei.forge.REIPluginClient;
 import net.dries007.tfc.client.screen.CalendarScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.ItemLike;
-import net.minecraftforge.registries.ForgeRegistries;
 import su.terrafirmagreg.core.TerraFirmaGreg;
 import su.terrafirmagreg.core.objects.TFGTags;
 
@@ -24,7 +21,7 @@ public class TFGREIClientPlugin implements REIClientPlugin {
 
     @Override
     public void registerExclusionZones(ExclusionZones zones) {
-        zones.register(CalendarScreen.class, screen -> List.of(new Rectangle(screen.getGuiLeft() + screen.getXSize() + 2, screen.getGuiTop(), 20, 125)));
+        zones.register(CalendarScreen.class, screen -> List.of(new Rectangle(screen.getGuiLeft() + screen.getXSize() + 2, screen.getGuiTop(), 20, 120)));
     }
 
     @Override
@@ -135,6 +132,8 @@ public class TFGREIClientPlugin implements REIClientPlugin {
         registerCollapsibleEntryForItemTag(registry, TFGTags.Items.NormalRestrictivePipes);
         registerCollapsibleEntryForItemTag(registry, TFGTags.Items.LargeRestrictivePipes);
         registerCollapsibleEntryForItemTag(registry, TFGTags.Items.HugeRestrictivePipes);
+
+        // TODO: Добавить больше
     }
 
     private static void registerCollapsibleEntryForItemTag(CollapsibleEntryRegistry registry, TagKey<Item> tagKey) {
