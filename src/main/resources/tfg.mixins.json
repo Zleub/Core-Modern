@@ -25,10 +25,7 @@
     "common.minecraft.ServerAdvancementManagerMixin",
     "common.minecraft.UseOnContextInvoker",
     "common.tfc.CharcoalForgeBlockMixin",
-    "common.tfc.ConnectedGrassBlockMixin",
-    "common.tfc.CrucibleBlockMixin",
-    "common.tfc.DirtBlockMixin",
-    "common.tfc.TFCChunkGeneratorMixin"
+    "common.tfc.CrucibleBlockMixin"
   ],
   "client": [
     "client.ftb.ClientTeamManagerImplMixin",
