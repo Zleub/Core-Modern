@@ -168,13 +168,13 @@ public class TFGMaterials {
         RedSteel.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(924, 1232, 1540, 6));
 
         PigIron.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(921, 1228, 1535, 3));
-        HighCarbonSteel.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(924, 1540, 1232, 3));
-        HighCarbonBlackSteel.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(924, 1540, 1232, 5));
-        HighCarbonRedSteel.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(924, 1540, 1232, 5));
-        HighCarbonBlueSteel.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(924, 1540, 1232, 5));
-        WeakSteel.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(924, 1540, 1232, 4));
-        WeakBlueSteel.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(924, 1540, 1232, 5));
-        WeakRedSteel.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(924, 1540, 1232, 5));
+        HighCarbonSteel.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(924, 1232, 1540, 3));
+        HighCarbonBlackSteel.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(924, 1232, 1540, 5));
+        HighCarbonRedSteel.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(924, 1232, 1540, 5));
+        HighCarbonBlueSteel.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(924, 1232, 1540, 5));
+        WeakSteel.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(924, 1232, 1540, 4));
+        WeakBlueSteel.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(924, 1232, 1540, 5));
+        WeakRedSteel.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(924, 1232, 1540, 5));
         Unknown.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(240, 320, 400, 1));
 
         Gold.setProperty(TFGPropertyKeys.TFC_PROPERTY, new TFCProperty(636, 848, 1060, 1));
