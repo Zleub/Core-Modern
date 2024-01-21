@@ -16,9 +16,9 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
-import su.terrafirmagreg.core.TerraFirmaGreg;
 
-import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.Conditions.*;
+import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.Conditions.hasOreProperty;
+import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.Conditions.hasToolProperty;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.oreTagPrefix;
 
 public class TFGTagPrefixes {
@@ -361,7 +361,7 @@ public class TFGTagPrefixes {
 
         TagPrefix.frameGt.unformattedTagPath("frames");
 
-        TagPrefix.wireGtSingle.defaultTagPath("single_wires//%s");
+        TagPrefix.wireGtSingle.defaultTagPath("single_wires/%s");
         TagPrefix.wireGtSingle.unformattedTagPath("single_wires");
         TagPrefix.wireGtDouble.defaultTagPath("double_wires/%s");
         TagPrefix.wireGtDouble.unformattedTagPath("double_wires");
@@ -383,7 +383,7 @@ public class TFGTagPrefixes {
         TagPrefix.cableGtHex.defaultTagPath("hex_cables/%s");
         TagPrefix.cableGtHex.unformattedTagPath("hex_cables");
 
-        TagPrefix.pipeTinyFluid.defaultTagPath("tiny_fluid_pipes//%s");
+        TagPrefix.pipeTinyFluid.defaultTagPath("tiny_fluid_pipes/%s");
         TagPrefix.pipeTinyFluid.unformattedTagPath("tiny_fluid_pipes");
         TagPrefix.pipeSmallFluid.defaultTagPath("small_fluid_pipes/%s");
         TagPrefix.pipeSmallFluid.unformattedTagPath("small_fluid_pipes");

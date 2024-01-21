@@ -18,7 +18,7 @@ import top.seraphjack.simplelogin.client.SetPasswordScreen;
 public class SetPasswordScreenMixin extends Screen {
 
     @Unique
-    private MultiLineTextWidget terraFirmaGreg_1_20_x$textField;
+    private MultiLineTextWidget tfg$textField;
 
     private SetPasswordScreenMixin(Component pTitle) {
         super(pTitle);
@@ -26,7 +26,7 @@ public class SetPasswordScreenMixin extends Screen {
 
     @Inject(method = "init", at = @At(value = "TAIL"))
     private void onInit(CallbackInfo ci) {
-        this.terraFirmaGreg_1_20_x$textField = new MultiLineTextWidget(
+        this.tfg$textField = new MultiLineTextWidget(
                 this.width / 2 - 200,
                 this.height / 3,
                 Component.translatable("tfg.simplelogin.description"), this.font).setMaxWidth(400).setCentered(true).setMaxRows(5);
@@ -34,7 +34,7 @@ public class SetPasswordScreenMixin extends Screen {
 
     @Inject(method = "render", at = @At(value = "TAIL"))
     private void onRender(GuiGraphics gui, int mouseX, int mouseY, float partialTicks, CallbackInfo ci) {
-        this.terraFirmaGreg_1_20_x$textField.render(gui, mouseX, mouseY, partialTicks);
+        this.tfg$textField.render(gui, mouseX, mouseY, partialTicks);
     }
 
 }
