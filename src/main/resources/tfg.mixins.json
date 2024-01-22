@@ -20,7 +20,7 @@
     "common.gtceu.MaterialRecipeHandlerMixin",
     "common.gtceu.OreRecipeHandlerMixin",
     "common.gtceu.PartsRecipeHandlerMixin",
-    "common.gtceu.RecipeRemovalMixin",
+    "common.gtceu.SecondDegreeMixin",
     "common.gtceu.ToolRecipeHandlerMixin",
     "common.minecraft.ServerAdvancementManagerMixin",
     "common.minecraft.UseOnContextInvoker",
