@@ -2,6 +2,7 @@ package su.terrafirmagreg.core.compat.gtceu;
 
 import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.GTValues;
+import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconType;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
@@ -17,11 +18,15 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 
-import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.Conditions.hasOreProperty;
-import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.Conditions.hasToolProperty;
+import java.util.function.Predicate;
+
+import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.Conditions.*;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.oreTagPrefix;
 
 public class TFGTagPrefixes {
+
+    public static final Predicate<Material> defaultToolHeadPredicate = (hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE) && !mat.hasProperty(PropertyKey.POLYMER) && mat != GTMaterials.Wood));
+    public static final Predicate<Material> defaultToolPredicateAndStone = (hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE) && !mat.hasProperty(PropertyKey.POLYMER) && mat != GTMaterials.Wood && mat != GTMaterials.Stone));
 
     /* Stone Types */
     public static final TagPrefix oreGabbro;
@@ -133,9 +138,6 @@ public class TFGTagPrefixes {
         oreChalk = registerOreTagPrefix(Rock.CHALK);
 
         /* Tool Heads */
-
-        var defaultToolHeadPredicate = (hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE) && !mat.hasProperty(PropertyKey.POLYMER) && mat != GTMaterials.Wood));
-        var defaultToolPredicateAndStone = (hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE) && !mat.hasProperty(PropertyKey.POLYMER) && mat != GTMaterials.Wood && mat != GTMaterials.Stone));
 
         toolHeadSword = new TagPrefix("swordHead")
                 .itemTable(() -> GTItems.MATERIAL_ITEMS)
@@ -355,6 +357,11 @@ public class TFGTagPrefixes {
                 .generationCondition(hasOreProperty);
 
         /* Tag Fixes */
+        TagPrefix.toolHeadBuzzSaw.generationCondition(hasNoCraftingToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE) && !mat.hasProperty(PropertyKey.POLYMER) && mat != GTMaterials.Stone && mat != GTMaterials.Wood));
+        TagPrefix.toolHeadScrewdriver.generationCondition(hasNoCraftingToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_LONG_ROD) && !mat.hasProperty(PropertyKey.POLYMER) && mat != GTMaterials.Stone && mat != GTMaterials.Wood));
+        TagPrefix.toolHeadDrill.generationCondition(hasToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE) && !mat.hasProperty(PropertyKey.POLYMER) && mat != GTMaterials.Stone && mat != GTMaterials.Wood));
+        TagPrefix.toolHeadChainsaw.generationCondition(hasNoCraftingToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE) && !mat.hasProperty(PropertyKey.POLYMER) && mat != GTMaterials.Stone && mat != GTMaterials.Wood));
+        TagPrefix.toolHeadWrench.generationCondition(hasNoCraftingToolProperty.and(mat -> mat.hasFlag(MaterialFlags.GENERATE_PLATE) && !mat.hasProperty(PropertyKey.POLYMER) && mat != GTMaterials.Stone && mat != GTMaterials.Wood));
 
         TagPrefix.plate.defaultTagPath("sheets/%s");
         TagPrefix.plateDouble.defaultTagPath("double_sheets/%s");
