@@ -35,7 +35,7 @@ public class MinimapWriterMixin {
         if (pState.getBlock() instanceof IGrassBlock)
             return TFCColors.getGrassColor(pPos, pTintIndex);
 
-        return instance.getColor(pState, biomeBlendCalculator, pPos, 0);
+        return instance.getColor(pState, biomeBlendCalculator, pPos, pTintIndex);
     }
 
 

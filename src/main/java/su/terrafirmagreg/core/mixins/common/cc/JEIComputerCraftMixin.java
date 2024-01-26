@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class JEIComputerCraftMixin {
 
     @Inject(method = "registerItemSubtypes", at = @At("HEAD"), remap = false, cancellable = true)
-    private void  $RegisterItemSubtypes(ISubtypeRegistration subtypeRegistry, CallbackInfo ci) {
+    private void $RegisterItemSubtypes(ISubtypeRegistration subtypeRegistry, CallbackInfo ci) {
         ci.cancel();
     }
 

@@ -9,7 +9,6 @@
     "common.cc.ModRegistryMixin",
     "common.create.BasinBlockEntityMixin",
     "common.create.BasinCategoryMixin",
-    "common.firmaciv.WoodenBoatFrameBlockMixin",
     "common.flywheel.AnimatedBlazeBurnerMixin",
     "common.gtceu.materials.ElementMaterialsMixin",
     "common.gtceu.materials.FirstDegreeMixin",
