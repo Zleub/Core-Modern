@@ -1,34 +1,22 @@
-package su.terrafirmagreg.core.mixins.common.gtceu;
+package su.terrafirmagreg.core.mixins.common.gtceu.recipes;
 
-import com.gregtechceu.gtceu.api.GTValues;
-import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
-import com.gregtechceu.gtceu.api.data.chemical.material.properties.ToolProperty;
 import com.gregtechceu.gtceu.api.data.chemical.material.stack.UnificationEntry;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.api.item.tool.GTToolType;
-import com.gregtechceu.gtceu.common.data.GTMaterials;
-import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
-import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
 import com.gregtechceu.gtceu.data.recipe.generated.ToolRecipeHandler;
-import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import su.terrafirmagreg.core.compat.gtceu.TFGMaterialFlags;
 import su.terrafirmagreg.core.compat.gtceu.TFGTagPrefixes;
 import su.terrafirmagreg.core.objects.TFGTags;
 
 import java.util.function.Consumer;
 
-import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.*;
-import static com.gregtechceu.gtceu.data.recipe.generated.ToolRecipeHandler.addElectricToolRecipe;
 import static com.gregtechceu.gtceu.data.recipe.generated.ToolRecipeHandler.addToolRecipe;
 
 @Mixin(value = ToolRecipeHandler.class, remap = false)
@@ -162,107 +150,5 @@ public class ToolRecipeHandlerMixin {
     @Unique
     private static void tfg$addToolRecipe(Consumer<FinishedRecipe> provider, Material material, GTToolType toolType, TagPrefix tagPrefix) {
         addToolRecipe(provider, material, toolType, false, "H", "S", 'H', new UnificationEntry(tagPrefix, material), 'S', TFGTags.Items.WoodenSticks);
-    }
-
-
-    /**
-     * Доп проверка для рецепта оголовья бура
-     * */
-    @Inject(method = "processElectricTool", at = @At(value = "HEAD"), cancellable = true, remap = false)
-    private static void onProcessElectricTool(TagPrefix prefix, Material material, ToolProperty property, Consumer<FinishedRecipe> provider, CallbackInfo ci) {
-        final int voltageMultiplier = material.getBlastTemperature() > 2800 ? GTValues.VA[GTValues.LV] : GTValues.VA[GTValues.ULV];
-        TagPrefix toolPrefix;
-        ItemStack toolStack;
-
-        if (material.hasFlag(GENERATE_PLATE)) {
-            final UnificationEntry plate = new UnificationEntry(TagPrefix.plate, material);
-            final UnificationEntry steelPlate = new UnificationEntry(TagPrefix.plate, GTMaterials.Steel);
-            final UnificationEntry steelRing = new UnificationEntry(TagPrefix.ring, GTMaterials.Steel);
-
-            // drill
-            toolPrefix = TagPrefix.toolHeadDrill;
-            toolStack = ChemicalHelper.get(toolPrefix, material);
-
-            if (!toolStack.isEmpty()) {
-                VanillaRecipeHelper.addShapedRecipe(provider, String.format("drill_head_%s", material.getName()),
-                        toolStack,
-                        "XSX", "XSX", "ShS",
-                        'X', plate,
-                        'S', steelPlate);
-
-                addElectricToolRecipe(toolPrefix, material, new GTToolType[]{GTToolType.DRILL_LV, GTToolType.DRILL_MV, GTToolType.DRILL_HV, GTToolType.DRILL_EV, GTToolType.DRILL_IV}, provider);
-            }
-
-
-            // chainsaw
-            toolPrefix = TagPrefix.toolHeadChainsaw;
-            toolStack = ChemicalHelper.get(toolPrefix, material);
-
-            if (!toolStack.isEmpty()) {
-                VanillaRecipeHelper.addShapedRecipe(provider, String.format("chainsaw_head_%s", material.getName()),
-                        toolStack,
-                        "SRS", "XhX", "SRS",
-                        'X', plate,
-                        'S', steelPlate,
-                        'R', steelRing);
-
-                addElectricToolRecipe(toolPrefix, material, new GTToolType[]{GTToolType.CHAINSAW_LV}, provider);
-            }
-
-            // wrench
-            toolPrefix = TagPrefix.toolHeadWrench;
-            toolStack = ChemicalHelper.get(toolPrefix, material);
-
-            if (!toolStack.isEmpty()) {
-                VanillaRecipeHelper.addShapedRecipe(provider, String.format("wrench_head_%s", material.getName()),
-                        ChemicalHelper.get(toolPrefix, material),
-                        "hXW", "XRX", "WXd",
-                        'X', plate,
-                        'R', steelRing,
-                        'W', new UnificationEntry(TagPrefix.screw, GTMaterials.Steel));
-
-                addElectricToolRecipe(toolPrefix, material, new GTToolType[]{GTToolType.WRENCH_LV, GTToolType.WRENCH_HV, GTToolType.WRENCH_IV}, provider);
-            }
-
-            // buzzsaw
-            toolPrefix = TagPrefix.toolHeadBuzzSaw;
-            toolStack = ChemicalHelper.get(toolPrefix, material);
-
-            if (!toolStack.isEmpty()) {
-                VanillaRecipeHelper.addShapedRecipe(provider, String.format("buzzsaw_blade_%s", material.getName()),
-                        ChemicalHelper.get(toolPrefix, material),
-                        "sXh", "X X", "fXx",
-                        'X', plate);
-
-                addElectricToolRecipe(toolPrefix, material, new GTToolType[]{GTToolType.BUZZSAW}, provider);
-
-                if (material.hasFlag(GENERATE_GEAR)) {
-                    GTRecipeTypes.LATHE_RECIPES.recipeBuilder("buzzsaw_gear_" + material.getName())
-                            .inputItems(TagPrefix.gear, material)
-                            .outputItems(toolPrefix, material)
-                            .duration((int) material.getMass() * 4)
-                            .EUt(8L * voltageMultiplier)
-                            .save(provider);
-                }
-            }
-
-        }
-
-        // screwdriver
-        if (material.hasFlag(GENERATE_LONG_ROD)) {
-            toolPrefix = TagPrefix.toolHeadScrewdriver;
-            toolStack = ChemicalHelper.get(toolPrefix, material);
-
-            if (!toolStack.isEmpty()) {
-                addElectricToolRecipe(toolPrefix, material, new GTToolType[]{GTToolType.SCREWDRIVER_LV}, provider);
-
-                VanillaRecipeHelper.addShapedRecipe(provider, String.format("screwdriver_tip_%s", material.getName()),
-                        ChemicalHelper.get(toolPrefix, material),
-                        "fR", " h",
-                        'R', new UnificationEntry(TagPrefix.rodLong, material));
-            }
-        }
-
-        ci.cancel();
     }
 }

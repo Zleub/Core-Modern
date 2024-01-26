@@ -1,4 +1,4 @@
-package su.terrafirmagreg.core.mixins.common.gtceu;
+package su.terrafirmagreg.core.mixins.common.gtceu.recipes;
 
 import com.gregtechceu.gtceu.data.recipe.generated.PartsRecipeHandler;
 import net.minecraft.data.recipes.FinishedRecipe;

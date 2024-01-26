@@ -1,4 +1,4 @@
-package su.terrafirmagreg.core.mixins.common.gtceu;
+package su.terrafirmagreg.core.mixins.common.gtceu.recipes;
 
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;

@@ -1,4 +1,4 @@
-package su.terrafirmagreg.core.mixins.common.gtceu;
+package su.terrafirmagreg.core.mixins.common.gtceu.materials;
 
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.MaterialProperties;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
