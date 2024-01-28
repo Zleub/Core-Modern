@@ -162,6 +162,7 @@ dependencies {
 
     implementation fg.deobf("curse.maven:ftb-teams-404468:4623116") { transitive = false }
     implementation fg.deobf("curse.maven:ftb-library-404465:4864329") { transitive = false }
+    implementation fg.deobf("curse.maven:ftb-xmod-compat-889915:4932157") { transitive = false }
 
     compileOnly fg.deobf("vazkii.patchouli:Patchouli:${patcouli_version}:api")
     runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patcouli_version}")
