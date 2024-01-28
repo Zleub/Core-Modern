@@ -119,6 +119,8 @@ public final class TFGTags {
         public static final TagKey<Item> LargeRestrictivePipes = createItemTag("forge:large_restrictive_pipes");
         public static final TagKey<Item> HugeRestrictivePipes = createItemTag("forge:huge_restrictive_pipes");
 
+        public static final TagKey<Item> CopperBolt = createItemTag("forge:bolts/copper");
+
         private static TagKey<Item> createItemTag(String path) {
             return TagKey.create(ForgeRegistries.ITEMS.getRegistryKey(), new ResourceLocation(path));
         }
