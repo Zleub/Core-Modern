@@ -9,6 +9,7 @@
     "common.cc.ModRegistryMixin",
     "common.create.BasinBlockEntityMixin",
     "common.create.BasinCategoryMixin",
+    "common.firmaciv.AngledWoodenBoatFrameBlockMixin",
     "common.firmaciv.WoodenBoatFrameBlockMixin",
     "common.flywheel.AnimatedBlazeBurnerMixin",
     "common.ftbxmodcompat.FTBXModCompatMixin",
