@@ -9,8 +9,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(value = FTBXModCompat.class, remap = false)
 public class FTBXModCompatMixin {
 
-    // Нахуя тут все это?
-    // Потому что этот мод сканирует все квесты на наличие ревордов из-за этого в EMI лютые зависоны.
+    // TODO: Возможно стоит удалить позже
 
     @Inject(method = "detectLoadedMods", at = @At(value = "INVOKE", target = "Ldev/architectury/platform/Platform;isModLoaded(Ljava/lang/String;)Z", ordinal = 8), remap = false)
     private static void loadedJEIFalse(CallbackInfo ci) {}
