@@ -31,9 +31,7 @@
   ],
   "client": [
     "client.ftb.ClientTeamManagerImplMixin",
-    "client.sl.SetPasswordScreenMixin",
-    "client.xaero.BlockTintProviderMixin",
-    "client.xaero.MinimapWriterMixin"
+    "client.sl.SetPasswordScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1
