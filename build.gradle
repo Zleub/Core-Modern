@@ -170,7 +170,7 @@ dependencies {
     implementation fg.deobf("curse.maven:tfc-302973:${tfc_version}")
     implementation fg.deobf("curse.maven:tfcambiental-940350:${tfcambiental_version}")
 
-    implementation fg.deobf("curse.maven:cc-tweaked-282001:5005529")
+    implementation fg.deobf("curse.maven:cc-tweaked-282001:5005529") { transitive = false }
 
     implementation fg.deobf("curse.maven:ae2-223794:${ae2_version}") { transitive = false }
 

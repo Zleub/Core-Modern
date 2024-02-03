@@ -361,7 +361,7 @@ public class TFGMaterials {
 
         dust.setIgnored(EnderPearl, () -> AEItems.ENDER_DUST);
 
-        block.modifyMaterialAmount(TFGMaterials.Fluix, GTValues.M * 4);
+        block.modifyMaterialAmount(TFGMaterials.Fluix, 4);
     }
 
     private static Material registerOreMaterial(Rock rockType, int color) {

@@ -16,6 +16,8 @@
     "common.gtceu.GTItemsMixin",
     "common.gtceu.GTRecipeTypesMixin",
     "common.gtceu.GTToolTypeMixin",
+    "common.gtceu.HoeBehaviorMixin",
+    "common.gtceu.ToolHelperMixin",
     "common.gtceu.materials.ElementMaterialsMixin",
     "common.gtceu.materials.FirstDegreeMixin",
     "common.gtceu.materials.MaterialPropertiesMixin",
