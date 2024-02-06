@@ -6,17 +6,20 @@ import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.OreProperty;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
+import com.gregtechceu.gtceu.config.ConfigHolder;
 import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
 import com.gregtechceu.gtceu.data.recipe.builder.GTRecipeBuilder;
 import com.gregtechceu.gtceu.data.recipe.generated.OreRecipeHandler;
 import com.gregtechceu.gtceu.utils.GTUtil;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.ItemStack;
+import org.apache.logging.log4j.util.TriConsumer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import su.terrafirmagreg.core.compat.gtceu.TFGTagPrefixes;
 
@@ -25,6 +28,7 @@ import java.util.function.Consumer;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.FORGE_HAMMER_RECIPES;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.MACERATOR_RECIPES;
+import static com.gregtechceu.gtceu.data.recipe.generated.OreRecipeHandler.processOreForgeHammer;
 
 @Mixin(value = OreRecipeHandler.class, remap = false)
 public class OreRecipeHandlerMixin {
@@ -39,6 +43,21 @@ public class OreRecipeHandlerMixin {
         TFGTagPrefixes.poorRawOre.executeHandler(PropertyKey.ORE, ((tagPrefix, material, property) -> tfgcore$processPoorRawOre(tagPrefix, material, property, provider)));
         TFGTagPrefixes.richRawOre.executeHandler(PropertyKey.ORE, ((tagPrefix, material, property) -> tfgcore$processRichRawOre(tagPrefix, material, property, provider)));
     }
+
+    /**
+     * Ниже отключенный метод переносим в обычный вызов.
+     * */
+    @Redirect(method = "init", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/api/data/tag/TagPrefix;executeHandler(Lcom/gregtechceu/gtceu/api/data/chemical/material/properties/PropertyKey;Lorg/apache/logging/log4j/util/TriConsumer;)V", ordinal = 0), remap = false)
+    private static void onExecuteHandlerProcessOre(TagPrefix instance, PropertyKey tPropertyKey, TriConsumer<TagPrefix, Material, ?> propertyKey, Consumer<FinishedRecipe> provider) {
+        ore.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> processOreForgeHammer(tagPrefix, material, property, provider));
+    }
+
+    /**
+     * Отключаем хардлоченый рецепт для TagPrefix.ore, не знаю зачем это учудили разрабы.
+     * */
+    @Redirect(method = "init", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/api/data/tag/TagPrefix;executeHandler(Lcom/gregtechceu/gtceu/api/data/chemical/material/properties/PropertyKey;Lorg/apache/logging/log4j/util/TriConsumer;)V", ordinal = 1), remap = false)
+    private static void onExecuteHandlerProcessOreForgeHammer(TagPrefix instance, PropertyKey tPropertyKey, TriConsumer<TagPrefix, Material, ?> propertyKey, Consumer<FinishedRecipe> provider) {}
+
 
     @Unique
     private static void tfgcore$processPoorRawOre(TagPrefix orePrefix, Material material, OreProperty property, Consumer<FinishedRecipe> provider) {
