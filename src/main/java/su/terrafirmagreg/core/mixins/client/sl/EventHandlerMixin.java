@@ -1,5 +1,7 @@
 package su.terrafirmagreg.core.mixins.client.sl;
 
+import net.minecraft.client.gui.screens.ConnectScreen;
+import net.minecraft.client.gui.screens.ReceivingLevelScreen;
 import net.minecraft.client.gui.screens.multiplayer.JoinMultiplayerScreen;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -16,7 +18,7 @@ public class EventHandlerMixin {
 
 	@Inject(method = "onGuiOpen", at = @At(value = "INVOKE", target = "Ltop/seraphjack/simplelogin/client/PasswordHolder;initialized()Z"), remap = false, cancellable = true)
 	private static void onGuiOpen(ScreenEvent.Opening event, CallbackInfo ci) {
-		if (!(event.getScreen() instanceof JoinMultiplayerScreen)) {
+		if (!(event.getScreen() instanceof JoinMultiplayerScreen || event.getScreen() instanceof ConnectScreen)) {
 			ci.cancel();
 		}
 	}
