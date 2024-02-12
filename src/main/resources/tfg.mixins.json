@@ -32,7 +32,6 @@
   ],
   "client": [
     "client.ftb.ClientTeamManagerImplMixin",
-    "client.sl.EventHandlerMixin",
     "client.sl.SetPasswordScreenMixin"
   ],
   "injectors": {
