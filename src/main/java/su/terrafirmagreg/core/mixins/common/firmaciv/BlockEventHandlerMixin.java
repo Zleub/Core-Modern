@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class BlockEventHandlerMixin {
 
     @Inject(method = "registerToolModificationEvents", at = @At(value = "HEAD"), remap = false, cancellable = true)
-    private static void dead(BlockEvent.BlockToolModificationEvent event, CallbackInfo ci)
+    private static void onRegisterToolModificationEvents(BlockEvent.BlockToolModificationEvent event, CallbackInfo ci)
     {
         if (event.getPlayer() == null) ci.cancel();
     }

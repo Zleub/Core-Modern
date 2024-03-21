@@ -14,7 +14,7 @@ public class DepotBehaviorMixin {
     @Shadow TransportedItemStack heldItem;
 
     @Inject(method = "tick()V", at = @At(value = "FIELD", target = "Lcom/simibubi/create/content/logistics/depot/DepotBehaviour;heldItem:Lcom/simibubi/create/content/kinetics/belt/transport/TransportedItemStack;", ordinal = 12), cancellable = true, remap = false)
-    public void test(CallbackInfo ci) {
+    public void onTick(CallbackInfo ci) {
         if (heldItem == null) ci.cancel();
     }
 
