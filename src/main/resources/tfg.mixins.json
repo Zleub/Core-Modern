@@ -14,6 +14,7 @@
     "common.firmaciv.BlockEventHandlerMixin",
     "common.firmaciv.WoodenBoatFrameBlockMixin",
     "common.flywheel.AnimatedBlazeBurnerMixin",
+    "common.gtceu.FisherMachineMixin",
     "common.gtceu.GTItemsMixin",
     "common.gtceu.GTRecipeTypesMixin",
     "common.gtceu.GTToolTypeMixin",
