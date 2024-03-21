@@ -1,5 +1,6 @@
 package su.terrafirmagreg.core.mixins.client.sl;
 
+/*
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.MultiLineTextWidget;
 import net.minecraft.client.gui.screens.Screen;
@@ -38,3 +39,4 @@ public class SetPasswordScreenMixin extends Screen {
     }
 
 }
+*/
