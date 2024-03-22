@@ -33,7 +33,9 @@
     "common.tfc.CharcoalForgeBlockMixin",
     "common.tfc.CrucibleBlockMixin"
   ],
-  "client": [],
+  "client": [
+    "client.ftb.ClientTeamManagerImplMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   }

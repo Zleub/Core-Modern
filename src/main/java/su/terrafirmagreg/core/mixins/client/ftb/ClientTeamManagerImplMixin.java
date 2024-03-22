@@ -1,6 +1,5 @@
 package su.terrafirmagreg.core.mixins.client.ftb;
 
-/*
 import com.mojang.util.UUIDTypeAdapter;
 import dev.ftb.mods.ftbteams.FTBTeams;
 import dev.ftb.mods.ftbteams.api.client.ClientTeamManager;
@@ -52,4 +51,3 @@ public abstract class ClientTeamManagerImplMixin implements ClientTeamManager {
     }
 
 }
-*/
