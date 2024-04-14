@@ -71,7 +71,7 @@ dependencies {
     // FirmaCiv
     modImplementation("maven.modrinth:firmacivilization:0.2.5-alpha-1.20.1") { transitive = false }
 
-    // ComputerCraft
+    // ComputerCraft (FIX THIS)
     modCompileOnly("cc.tweaked:cc-tweaked-${libs.versions.minecraft.get()}-core-api:1.110.2") { transitive = false }
     modCompileOnly("cc.tweaked:cc-tweaked-${libs.versions.minecraft.get()}-forge-api:1.110.2") { transitive = false }
     modImplementation("cc.tweaked:cc-tweaked-${libs.versions.minecraft.get()}-forge:1.110.2") { transitive = false }
