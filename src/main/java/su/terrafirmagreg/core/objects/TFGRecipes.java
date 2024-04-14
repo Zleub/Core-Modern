@@ -3,11 +3,9 @@ package su.terrafirmagreg.core.objects;
 import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
-import com.gregtechceu.gtceu.api.data.chemical.material.MarkerMaterials;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
-import com.gregtechceu.gtceu.api.registry.GTRegistries;
 import com.gregtechceu.gtceu.common.data.GTItems;
 import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
 import com.tterrag.registrate.util.entry.ItemEntry;
@@ -15,7 +13,7 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.Item;
 import su.terrafirmagreg.core.TerraFirmaGreg;
 import su.terrafirmagreg.core.compat.gtceu.TFGPropertyKeys;
-import su.terrafirmagreg.core.compat.gtceu.TFGTagPrefixes;
+import su.terrafirmagreg.core.compat.gtceu.TFGTagPrefix;
 
 import java.util.function.Consumer;
 
@@ -26,7 +24,7 @@ import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;
 import static com.gregtechceu.gtceu.data.recipe.generated.RecyclingRecipeHandler.processCrushing;
 import static su.terrafirmagreg.core.compat.gtceu.TFGMaterials.*;
-import static su.terrafirmagreg.core.compat.gtceu.TFGTagPrefixes.*;
+import static su.terrafirmagreg.core.compat.gtceu.TFGTagPrefix.*;
 import static su.terrafirmagreg.core.objects.TFGItems.*;
 
 public final class TFGRecipes {
@@ -315,7 +313,7 @@ public final class TFGRecipes {
     }
 
     private static void registerRandomRecipes(Consumer<FinishedRecipe> provider) {
-        TFGTagPrefixes.ingotDouble.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processDoubleIngots(tagPrefix, material, provider));
+        TFGTagPrefix.ingotDouble.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processDoubleIngots(tagPrefix, material, provider));
 
         FLUID_SOLIDFICATION_RECIPES.recipeBuilder(TerraFirmaGreg.id("latex_heating")).duration(480).EUt(VA[LV])
                 .inputItems(dust, Sulfur)

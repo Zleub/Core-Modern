@@ -27,8 +27,8 @@ import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.FORGE_HAMMER_RECIPES;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.MACERATOR_RECIPES;
 import static com.gregtechceu.gtceu.data.recipe.generated.OreRecipeHandler.*;
-import static su.terrafirmagreg.core.compat.gtceu.TFGTagPrefixes.poorRawOre;
-import static su.terrafirmagreg.core.compat.gtceu.TFGTagPrefixes.richRawOre;
+import static su.terrafirmagreg.core.compat.gtceu.TFGTagPrefix.poorRawOre;
+import static su.terrafirmagreg.core.compat.gtceu.TFGTagPrefix.richRawOre;
 
 @Mixin(value = OreRecipeHandler.class, remap = false)
 public abstract class OreRecipeHandlerMixin {

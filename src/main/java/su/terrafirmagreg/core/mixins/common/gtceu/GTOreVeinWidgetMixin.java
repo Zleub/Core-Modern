@@ -19,7 +19,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import su.terrafirmagreg.core.compat.gtceu.TFGTagPrefixes;
+import su.terrafirmagreg.core.compat.gtceu.TFGTagPrefix;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,9 +76,9 @@ public abstract class GTOreVeinWidgetMixin extends WidgetGroup {
             if (el.getKey().right().isPresent()) {
                 var oreList = new ArrayList<ItemStack>();
 
-                oreList.add(ChemicalHelper.get(TFGTagPrefixes.poorRawOre, el.getKey().right().get()));
+                oreList.add(ChemicalHelper.get(TFGTagPrefix.poorRawOre, el.getKey().right().get()));
                 oreList.add(ChemicalHelper.get(TagPrefix.rawOre, el.getKey().right().get()));
-                oreList.add(ChemicalHelper.get(TFGTagPrefixes.richRawOre, el.getKey().right().get()));
+                oreList.add(ChemicalHelper.get(TFGTagPrefix.richRawOre, el.getKey().right().get()));
 
                 list.add(oreList);
             }

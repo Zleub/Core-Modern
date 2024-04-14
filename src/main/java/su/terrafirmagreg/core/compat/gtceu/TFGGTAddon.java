@@ -30,7 +30,7 @@ public class TFGGTAddon implements IGTAddon {
 
     @Override
     public void registerTagPrefixes() {
-        TFGTagPrefixes.init();
+        TFGTagPrefix.init();
     }
 
     @Override
