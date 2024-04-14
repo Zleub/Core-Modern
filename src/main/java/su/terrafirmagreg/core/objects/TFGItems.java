@@ -1,7 +1,5 @@
 package su.terrafirmagreg.core.objects;
 
-import appeng.core.definitions.AEBlocks;
-import appeng.core.definitions.AEItems;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.material.stack.ItemMaterialInfo;
 import com.gregtechceu.gtceu.api.data.chemical.material.stack.MaterialStack;
