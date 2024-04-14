@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(targets = "net.minecraft.client.gui.screens.worldselection.CreateWorldScreen$WorldTab")
-public class CreateWorldScreenMixin {
+public abstract class CreateWorldScreenMixin {
 
     /**
      * Убираем из списка все типы мира кроме TFC.

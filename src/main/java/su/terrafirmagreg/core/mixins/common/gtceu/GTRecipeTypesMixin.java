@@ -21,6 +21,10 @@ public abstract class GTRecipeTypesMixin {
     @Final
     public static GTRecipeType LASER_ENGRAVER_RECIPES;
 
+    @Shadow
+    @Final
+    public static GTRecipeType CHEMICAL_RECIPES;
+
     /**
      * Нужно для того, чтобы настроить доп. рецепты.
      * Расширяет кол-во слотов в некоторых машинах.
@@ -32,6 +36,9 @@ public abstract class GTRecipeTypesMixin {
 
         LASER_ENGRAVER_RECIPES.setMaxIOSize(3, 1, 0, 0);
         LASER_ENGRAVER_RECIPES.setSlotOverlay(false, false, true, GuiTextures.CIRCUIT_OVERLAY);
+
+        CHEMICAL_RECIPES.setMaxIOSize(3, 2, 3, 2);
+        CHEMICAL_RECIPES.setSlotOverlay(false, false, true, GuiTextures.CIRCUIT_OVERLAY);
     }
 
 }
