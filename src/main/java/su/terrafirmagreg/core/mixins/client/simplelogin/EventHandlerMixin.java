@@ -1,4 +1,4 @@
-package su.terrafirmagreg.core.mixins.client.sl;
+package su.terrafirmagreg.core.mixins.client.simplelogin;
 
 /*
 import net.minecraft.client.gui.screens.ConnectScreen;

@@ -12,13 +12,15 @@ import su.terrafirmagreg.core.compat.gtceu.behaviors.CanoeCreatorBehavior;
 import java.util.function.UnaryOperator;
 
 @Mixin(value = GTToolType.class, remap = false)
-public class GTToolTypeMixin {
+public abstract class GTToolTypeMixin {
 
-    @Redirect(method = "<clinit>", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/api/item/tool/GTToolType$Builder;toolStats(Ljava/util/function/UnaryOperator;)Lcom/gregtechceu/gtceu/api/item/tool/GTToolType$Builder;", ordinal = 8), remap = false)
-    private static GTToolType.Builder onCreateToolStatsForSaw(GTToolType.Builder instance, UnaryOperator<ToolDefinitionBuilder> builder) {
+    /**
+     * Устанавливает новое поведение для пилы, чтобы та могла создавать лодки каное из FirmaCiv.
+     * */
+    @Redirect(method = "<clinit>", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/api/item/tool/GTToolType$Builder;toolStats(Ljava/util/function/UnaryOperator;)Lcom/gregtechceu/gtceu/api/item/tool/GTToolType$Builder;", ordinal = 3), remap = false)
+    private static GTToolType.Builder tfg$clinit(GTToolType.Builder instance, UnaryOperator<ToolDefinitionBuilder> builder) {
         return instance.toolStats(b -> b.crafting().damagePerCraftingAction(2)
                 .attackDamage(-1.0F).attackSpeed(-2.6F)
                 .behaviors(HarvestIceBehavior.INSTANCE, CanoeCreatorBehavior.INSTANCE));
     }
-
 }

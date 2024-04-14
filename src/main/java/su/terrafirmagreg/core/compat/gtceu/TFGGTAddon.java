@@ -5,6 +5,7 @@ import com.gregtechceu.gtceu.api.addon.IGTAddon;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 import net.minecraft.data.recipes.FinishedRecipe;
 import su.terrafirmagreg.core.TerraFirmaGreg;
+import su.terrafirmagreg.core.objects.TFGItems;
 import su.terrafirmagreg.core.objects.TFGRecipes;
 
 import java.util.function.Consumer;
@@ -13,7 +14,9 @@ import java.util.function.Consumer;
 public class TFGGTAddon implements IGTAddon {
 
     @Override
-    public void initializeAddon() {}
+    public void initializeAddon() {
+        TFGItems.init();
+    }
 
     @Override
     public GTRegistrate getRegistrate() {
@@ -28,6 +31,16 @@ public class TFGGTAddon implements IGTAddon {
     @Override
     public void registerTagPrefixes() {
         TFGTagPrefixes.init();
+    }
+
+    @Override
+    public void registerWorldgenLayers() {
+        TFGWorldGenLayers.init();
+    }
+
+    @Override
+    public void registerOreVeins() {
+        TFGOreVeins.register();
     }
 
     @Override

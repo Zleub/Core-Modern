@@ -15,19 +15,29 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 import java.util.function.Consumer;
 
 @Mixin(value = MaterialRecipeHandler.class, remap = false)
-public class MaterialRecipeHandlerMixin {
+public abstract class MaterialRecipeHandlerMixin {
 
     /**
-     * Генерация рецептов 2x ingot -> 1x plate
+     * Отключение генерации рецептов: 2 слитка + молот = пластина (верстак).
      * */
     @Redirect(method = "processIngot", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/VanillaRecipeHelper;addShapedRecipe(Ljava/util/function/Consumer;Ljava/lang/String;Lnet/minecraft/world/item/ItemStack;[Ljava/lang/Object;)V", ordinal = 2), remap = false)
-    private static void onPlateRecipeGeneration(Consumer<FinishedRecipe> provider, String regName, ItemStack result, Object[] recipe) {}
+    private static void tfg$processIngot1(Consumer<FinishedRecipe> provider, String regName, ItemStack result, Object[] recipe) {}
 
     /**
-     * Генерация рецептов 9 слитков -> Блок
+     * Отключение генерации рецептов: 9 слитков -> блок. (Компрессор)
      */
     @Redirect(method = "processIngot", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/builder/GTRecipeBuilder;save(Ljava/util/function/Consumer;)V", ordinal = 5), remap = false)
-    private static void onPlateRecipeGeneration(GTRecipeBuilder instance, Consumer<FinishedRecipe> consumer) {}
+    private static void tfg$processIngot2(GTRecipeBuilder instance, Consumer<FinishedRecipe> consumer) {}
+
+    /**
+     * Отключение рецепта генерации nugget'ов из слитков, если nugget'а нет.
+     */
+    @Redirect(method = "processIngot", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/builder/GTRecipeBuilder;save(Ljava/util/function/Consumer;)V", ordinal = 3), remap = false)
+    private static void tfg$processIngot3(GTRecipeBuilder instance, Consumer<FinishedRecipe> consumer, TagPrefix ingotPrefix, Material material, IngotProperty property) {
+        if (!ChemicalHelper.get(TagPrefix.nugget, material).isEmpty()) {
+            instance.save(consumer);
+        }
+    }
 
     /**
      * В GT при добавлении предмета в output или input сразу проверяется empty ли он,
@@ -36,20 +46,10 @@ public class MaterialRecipeHandlerMixin {
      * собственно это мы тут и делаем.
      */
     @Redirect(method = "processIngot", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/builder/GTRecipeBuilder;outputItems(Lcom/gregtechceu/gtceu/api/data/tag/TagPrefix;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;I)Lcom/gregtechceu/gtceu/data/recipe/builder/GTRecipeBuilder;", ordinal = 1), remap = false)
-    private static GTRecipeBuilder asdfasdf(GTRecipeBuilder instance, TagPrefix orePrefix, Material material, int count) {
+    private static GTRecipeBuilder tfg$processIngot4(GTRecipeBuilder instance, TagPrefix orePrefix, Material material, int count) {
         if (!ChemicalHelper.get(TagPrefix.nugget, material).isEmpty()) {
             instance.outputItems(TagPrefix.nugget, material, 9);
         }
         return instance;
-    }
-
-    /**
-     * Отключение рецепта генерации nugget'ов из слитков, если nugget'а нет.
-     */
-    @Redirect(method = "processIngot", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/builder/GTRecipeBuilder;save(Ljava/util/function/Consumer;)V", ordinal = 3), remap = false)
-    private static void onNuggetRecipeGeneration(GTRecipeBuilder instance, Consumer<FinishedRecipe> consumer, TagPrefix ingotPrefix, Material material, IngotProperty property) {
-        if (!ChemicalHelper.get(TagPrefix.nugget, material).isEmpty()) {
-            instance.save(consumer);
-        }
     }
 }

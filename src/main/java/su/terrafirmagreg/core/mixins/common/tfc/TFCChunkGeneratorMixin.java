@@ -13,14 +13,16 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(value = TFCChunkGenerator.class)
-public class TFCChunkGeneratorMixin {
+public abstract class TFCChunkGeneratorMixin {
 
-    // @Unique
-    // private final OrePlacer orePlacer = new OrePlacer();
+    @Unique
+    private final OrePlacer tfg$orePlacer = new OrePlacer();
 
-    @Inject(method = "applyBiomeDecoration", at = @At("TAIL"))
-    private void gtceu$applyBiomeDecoration(WorldGenLevel level, ChunkAccess chunk, StructureManager structureManager, CallbackInfo ci) {
-        // orePlacer.placeOres(level, (ChunkGenerator) ((Object) this), chunk);
+    /**
+     * Для того, чтобы генератор руд грега работал в мире TFC.
+     * */
+    @Inject(method = "applyBiomeDecoration", at = @At("TAIL"), remap = true)
+    private void tfg$applyBiomeDecoration(WorldGenLevel level, ChunkAccess chunk, StructureManager structureManager, CallbackInfo ci) {
+        tfg$orePlacer.placeOres(level, (ChunkGenerator) ((Object) this), chunk);
     }
-
 }

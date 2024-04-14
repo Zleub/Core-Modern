@@ -10,20 +10,20 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(value = JEIComputerCraft.class, remap = false)
-public class JEIComputerCraftMixin {
+public abstract class JEIComputerCraftMixin {
 
     @Inject(method = "registerItemSubtypes", at = @At("HEAD"), remap = false, cancellable = true)
-    private void $RegisterItemSubtypes(ISubtypeRegistration subtypeRegistry, CallbackInfo ci) {
+    private void tfg$RegisterItemSubtypes(ISubtypeRegistration subtypeRegistry, CallbackInfo ci) {
         ci.cancel();
     }
 
     @Inject(method = "registerAdvanced", at = @At("HEAD"), remap = false, cancellable = true)
-    public void $registerAdvanced(IAdvancedRegistration registry, CallbackInfo ci) {
+    public void tfg$registerAdvanced(IAdvancedRegistration registry, CallbackInfo ci) {
         ci.cancel();
     }
 
     @Inject(method = "onRuntimeAvailable", at = @At("HEAD"), remap = false, cancellable = true)
-    public void $onRuntimeAvailable(IJeiRuntime runtime, CallbackInfo ci) {
+    public void tfg$onRuntimeAvailable(IJeiRuntime runtime, CallbackInfo ci) {
         ci.cancel();
     }
 

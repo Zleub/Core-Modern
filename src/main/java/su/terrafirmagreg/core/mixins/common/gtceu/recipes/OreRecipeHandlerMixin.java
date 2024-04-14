@@ -5,6 +5,7 @@ import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.OreProperty;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
+import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.config.ConfigHolder;
 import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
 import com.gregtechceu.gtceu.data.recipe.builder.GTRecipeBuilder;
@@ -17,6 +18,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.function.Consumer;
@@ -29,26 +31,30 @@ import static su.terrafirmagreg.core.compat.gtceu.TFGTagPrefixes.poorRawOre;
 import static su.terrafirmagreg.core.compat.gtceu.TFGTagPrefixes.richRawOre;
 
 @Mixin(value = OreRecipeHandler.class, remap = false)
-public class OreRecipeHandlerMixin {
+public abstract class OreRecipeHandlerMixin {
 
     @Shadow
     private static boolean doesMaterialUseNormalFurnace(Material material) {
         throw new AssertionError();
     }
 
+    /**
+     * Перезаписываем весь метод, потому что в декомпилированном виде там просто жесть,
+     * поэтому проще будет полностью его заменить, нужен для установки генераторов рецептов
+     * для некоторых руд и фикса краша из-за переработки несуществующих обычных руд GTCEu.
+     * */
     @Inject(method = "init", at = @At(value = "HEAD"), remap = false, cancellable = true)
-    private static void onInit(Consumer<FinishedRecipe> provider, CallbackInfo ci) {
-
-        for (TagPrefix ore : ORES.keySet()) {
-            if (ConfigHolder.INSTANCE.worldgen.allUniqueStoneTypes || ORES.get(ore).shouldDropAsItem()) {
-                ore.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> processOre(tagPrefix, material, property, provider));
-                ore.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> processOreForgeHammer(tagPrefix, material, property, provider));
+    private static void tfg$init(Consumer<FinishedRecipe> provider, CallbackInfo ci) {
+        for (TagPrefix orePrefix : ORES.keySet()) {
+            if (ConfigHolder.INSTANCE.worldgen.allUniqueStoneTypes || ORES.get(orePrefix).shouldDropAsItem()) {
+                orePrefix.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> processOre(tagPrefix, material, property, provider));
+                orePrefix.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> processOreForgeHammer(tagPrefix, material, property, provider));
             }
         }
 
-        poorRawOre.executeHandler(PropertyKey.ORE, ((tagPrefix, material, property) -> tfgcore$processPoorRawOre(tagPrefix, material, property, provider)));
-        rawOre.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> tfgcore$processRawOre(tagPrefix, material, property, provider));
-        richRawOre.executeHandler(PropertyKey.ORE, ((tagPrefix, material, property) -> tfgcore$processRichRawOre(tagPrefix, material, property, provider)));
+        poorRawOre.executeHandler(PropertyKey.ORE, ((tagPrefix, material, property) -> tfg$processPoorRawOre(tagPrefix, material, property, provider)));
+        rawOre.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> tfg$processRawOre(tagPrefix, material, property, provider));
+        richRawOre.executeHandler(PropertyKey.ORE, ((tagPrefix, material, property) -> tfg$processRichRawOre(tagPrefix, material, property, provider)));
 
         crushed.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> processCrushedOre(tagPrefix, material, property, provider));
         crushedPurified.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> processCrushedPurified(tagPrefix, material, property, provider));
@@ -59,25 +65,35 @@ public class OreRecipeHandlerMixin {
         ci.cancel();
     }
 
+    /**
+     * Исправление бага GTCEu.
+     * Если засунуть в for использование этого метода,
+     * то будет куча дубликатов рецептов из-за неверной работы .inputItems(TagPrefix, Material).
+     * */
+    @Redirect(method = "processOreForgeHammer", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/api/recipe/GTRecipeType;recipeBuilder(Ljava/lang/String;[Ljava/lang/Object;)Lcom/gregtechceu/gtceu/data/recipe/builder/GTRecipeBuilder;"), remap = false)
+    private static GTRecipeBuilder tfg$processOreForgeHammer(GTRecipeType instance, String id, Object[] append, TagPrefix orePrefix, Material material) {
+        return instance.recipeBuilder(id)
+                .inputItems(ChemicalHelper.get(orePrefix, material))
+                .duration(10).EUt(16);
+    }
+
+    /**
+     * Метод переработки бедных кусков, в основном скопирован с processRawOre, но с некоторыми изменениями.
+     * */
     @Unique
-    private static void tfgcore$processPoorRawOre(TagPrefix orePrefix, Material material, OreProperty property, Consumer<FinishedRecipe> provider) {
+    private static void tfg$processPoorRawOre(TagPrefix orePrefix, Material material, OreProperty property, Consumer<FinishedRecipe> provider) {
         ItemStack crushedStack = ChemicalHelper.get(crushed, material);
         ItemStack ingotStack;
-        ItemStack poorIngotStack;
         Material smeltingMaterial = property.getDirectSmeltResult() == null ? material : property.getDirectSmeltResult();
         int amountOfCrushedOre = property.getOreMultiplier();
         if (smeltingMaterial.hasProperty(PropertyKey.INGOT)) {
-            ingotStack = ChemicalHelper.get(ingot, smeltingMaterial);
-            poorIngotStack = ChemicalHelper.get(nugget, smeltingMaterial, 5);
+            ingotStack = ChemicalHelper.get(nugget, smeltingMaterial, 5);
         } else if (smeltingMaterial.hasProperty(PropertyKey.GEM)) {
-            ingotStack = ChemicalHelper.get(gem, smeltingMaterial);
-            poorIngotStack = ChemicalHelper.get(gemChipped, smeltingMaterial);
+            ingotStack = ChemicalHelper.get(gemChipped, smeltingMaterial);
         } else {
-            ingotStack = ChemicalHelper.get(dust, smeltingMaterial);
-            poorIngotStack = ChemicalHelper.get(dustTiny, smeltingMaterial, 5);
+            ingotStack = ChemicalHelper.get(dustTiny, smeltingMaterial, 5);
         }
         ingotStack.setCount(ingotStack.getCount() * property.getOreMultiplier());
-        poorIngotStack.setCount(poorIngotStack.getCount() * property.getOreMultiplier());
         crushedStack.setCount(crushedStack.getCount() * property.getOreMultiplier());
 
         if (!crushedStack.isEmpty()) {
@@ -93,7 +109,6 @@ public class OreRecipeHandlerMixin {
 
             MACERATOR_RECIPES.recipeBuilder("macerate_" + orePrefix.name + "_" + material.getName() + "_ore_to_crushed_ore")
                     .inputItems(orePrefix, material)
-                    .chancedOutput(crushedStack, 7500, 950)
                     .chancedOutput(crushedStack, 5000, 750)
                     .chancedOutput(crushedStack, 2500, 500)
                     .chancedOutput(crushedStack, 1250, 250)
@@ -107,12 +122,15 @@ public class OreRecipeHandlerMixin {
             float xp = Math.round(((1 + property.getOreMultiplier() * 0.33f) / 3) * 10f) / 10f;
 
             VanillaRecipeHelper.addSmeltingRecipe(provider, "smelt_" + orePrefix.name + "_" + material.getName() + "_ore_to_ingot",
-                    ChemicalHelper.getTag(orePrefix, material), poorIngotStack, xp);
+                    ChemicalHelper.getTag(orePrefix, material), ingotStack, xp);
         }
     }
 
+    /**
+     * Метод переработки обычных кусков, в основном скопирован с processRawOre, но с некоторыми изменениями.
+     * */
     @Unique
-    private static void tfgcore$processRawOre(TagPrefix orePrefix, Material material, OreProperty property, Consumer<FinishedRecipe> provider) {
+    private static void tfg$processRawOre(TagPrefix orePrefix, Material material, OreProperty property, Consumer<FinishedRecipe> provider) {
         ItemStack crushedStack = ChemicalHelper.get(crushed, material);
         ItemStack ingotStack;
         Material smeltingMaterial = property.getDirectSmeltResult() == null ? material : property.getDirectSmeltResult();
@@ -152,15 +170,17 @@ public class OreRecipeHandlerMixin {
         //do not try to add smelting recipes for materials which require blast furnace
         if (!ingotStack.isEmpty() && doesMaterialUseNormalFurnace(smeltingMaterial) && !orePrefix.isIgnored(material)) {
             float xp = Math.round(((1 + property.getOreMultiplier() * 0.33f) / 3) * 10f) / 10f;
+
             VanillaRecipeHelper.addSmeltingRecipe(provider, "smelt_" + orePrefix.name + "_" + material.getName() + "_ore_to_ingot",
-                    ChemicalHelper.getTag(orePrefix, material), ingotStack, xp);
-            VanillaRecipeHelper.addBlastingRecipe(provider, "smelt_" + orePrefix.name + "_" + material.getName() + "_ore_to_ingot",
                     ChemicalHelper.getTag(orePrefix, material), ingotStack, xp);
         }
     }
 
+    /**
+     * Метод переработки богатых кусков, в основном скопирован с processRawOre, но с некоторыми изменениями.
+     * */
     @Unique
-    private static void tfgcore$processRichRawOre(TagPrefix orePrefix, Material material, OreProperty property, Consumer<FinishedRecipe> provider) {
+    private static void tfg$processRichRawOre(TagPrefix orePrefix, Material material, OreProperty property, Consumer<FinishedRecipe> provider) {
         ItemStack crushedStack = ChemicalHelper.get(crushed, material);
         ItemStack ingotStack;
         Material smeltingMaterial = property.getDirectSmeltResult() == null ? material : property.getDirectSmeltResult();
@@ -197,7 +217,7 @@ public class OreRecipeHandlerMixin {
                     .save(provider);
         }
 
-        //do not try to add smelting recipes for materials which require blast furnace
+        // do not try to add smelting recipes for materials which require blast furnace
         if (!ingotStack.isEmpty() && doesMaterialUseNormalFurnace(smeltingMaterial) && !orePrefix.isIgnored(material)) {
             float xp = Math.round(((1 + property.getOreMultiplier() * 0.33f) / 3) * 10f) / 10f;
 

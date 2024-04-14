@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(value = GTRecipeTypes.class, remap = false)
-public class GTRecipeTypesMixin {
+public abstract class GTRecipeTypesMixin {
 
     @Shadow
     @Final
@@ -21,8 +21,12 @@ public class GTRecipeTypesMixin {
     @Final
     public static GTRecipeType LASER_ENGRAVER_RECIPES;
 
+    /**
+     * Нужно для того, чтобы настроить доп. рецепты.
+     * Расширяет кол-во слотов в некоторых машинах.
+     * */
     @Inject(method = "init", at = @At(value = "TAIL"), remap = false)
-    private static void init(CallbackInfo ci) {
+    private static void tfg$init(CallbackInfo ci) {
         CUTTER_RECIPES.setMaxIOSize(2, 2, 1, 0);
         CUTTER_RECIPES.setSlotOverlay(false, false, true, GuiTextures.CIRCUIT_OVERLAY);
 

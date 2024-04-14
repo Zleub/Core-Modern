@@ -8,13 +8,13 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(value = SecondDegreeMaterials.class, remap = false)
-public class SecondDegreeMixin {
+public abstract class SecondDegreeMixin {
 
     /**
      * Отключение инстурментов из кремения GTCEu.
      * */
     @Redirect(method = "register", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/api/data/chemical/material/Material$Builder;toolStats(Lcom/gregtechceu/gtceu/api/data/chemical/material/properties/ToolProperty;)Lcom/gregtechceu/gtceu/api/data/chemical/material/Material$Builder;", ordinal = 5), remap = false)
-    private static Material.Builder disableSterlingSilverTools(Material.Builder instance, ToolProperty toolProperty) {
+    private static Material.Builder tfg$register(Material.Builder instance, ToolProperty toolProperty) {
         return instance;
     }
 

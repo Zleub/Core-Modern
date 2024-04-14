@@ -9,12 +9,10 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 import java.util.function.Supplier;
 
 @Mixin(targets = "dan200.computercraft.shared.ModRegistry$CreativeTabs", remap = false)
-public class ModRegistryMixin {
+public abstract class ModRegistryMixin {
 
     @Redirect(method = "<clinit>", at = @At(value = "INVOKE", target = "Ldan200/computercraft/shared/platform/RegistrationHelper;register(Ljava/lang/String;Ljava/util/function/Supplier;)Ldan200/computercraft/shared/platform/RegistryEntry;"), remap = false)
-    private static RegistryEntry dead(RegistrationHelper instance, String s, Supplier uSupplier) {
+    private static RegistryEntry tfg$clinit(RegistrationHelper instance, String s, Supplier uSupplier) {
         return null;
     }
-
-
 }

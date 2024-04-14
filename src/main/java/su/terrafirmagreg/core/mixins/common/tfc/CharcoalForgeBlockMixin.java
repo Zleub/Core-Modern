@@ -16,10 +16,10 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(value = CharcoalForgeBlock.class)
-public class CharcoalForgeBlockMixin {
+public abstract class CharcoalForgeBlockMixin {
 
     @Inject(method = "use", at = @At("HEAD"), cancellable = true)
-    public void use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit, CallbackInfoReturnable<InteractionResult> cir) {
+    public void tfg$use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit, CallbackInfoReturnable<InteractionResult> cir) {
         ItemStack heldItem = player.getItemInHand(hand);
         if (!heldItem.isEmpty() && heldItem.getItem() instanceof ArmItem) {
             cir.setReturnValue(InteractionResult.FAIL);

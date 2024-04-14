@@ -8,13 +8,13 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(value = FirstDegreeMaterials.class, remap = false)
-public class FirstDegreeMixin {
+public abstract class FirstDegreeMixin {
 
     /**
      * Отключение инстурментов из серебра стерлинга GTCEu.
      * */
     @Redirect(method = "register", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/api/data/chemical/material/Material$Builder;toolStats(Lcom/gregtechceu/gtceu/api/data/chemical/material/properties/ToolProperty;)Lcom/gregtechceu/gtceu/api/data/chemical/material/Material$Builder;", ordinal = 3), remap = false)
-    private static Material.Builder disableSterlingSilverTools(Material.Builder instance, ToolProperty toolProperty) {
+    private static Material.Builder tfg$register1(Material.Builder instance, ToolProperty toolProperty) {
         return instance;
     }
 
@@ -22,7 +22,7 @@ public class FirstDegreeMixin {
      * Отключение инстурментов из розового золота GTCEu.
      * */
     @Redirect(method = "register", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/api/data/chemical/material/Material$Builder;toolStats(Lcom/gregtechceu/gtceu/api/data/chemical/material/properties/ToolProperty;)Lcom/gregtechceu/gtceu/api/data/chemical/material/Material$Builder;", ordinal = 4), remap = false)
-    private static Material.Builder disableRoseGoldTools(Material.Builder instance, ToolProperty toolProperty) {
+    private static Material.Builder tfg$register2(Material.Builder instance, ToolProperty toolProperty) {
         return instance;
     }
 }

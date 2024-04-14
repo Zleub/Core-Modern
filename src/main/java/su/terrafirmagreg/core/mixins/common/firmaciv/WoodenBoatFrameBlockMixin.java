@@ -16,14 +16,14 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 public abstract class WoodenBoatFrameBlockMixin {
 
     @Redirect(method = "use", at = @At(value = "INVOKE", target = "Lnet/minecraftforge/items/ItemHandlerHelper;giveItemToPlayer(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/item/ItemStack;)V", ordinal = 1), remap = false)
-    private void onGiveCopperBoltToPlayer(Player player, ItemStack stack)
+    private void tfg$use(Player player, ItemStack stack)
     {
         var copperBoltStack = ChemicalHelper.get(TagPrefix.bolt, GTMaterials.Copper);
         if (!copperBoltStack.isEmpty()) ItemHandlerHelper.giveItemToPlayer(player, copperBoltStack);
     }
 
     @Redirect(method = "use", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;is(Lnet/minecraft/world/item/Item;)Z", ordinal = 1))
-    private boolean onCheckIsItemBolt(ItemStack instance, Item item)
+    private boolean tfg$use(ItemStack instance, Item item)
     {
         var copperBoltStack = ChemicalHelper.get(TagPrefix.bolt, GTMaterials.Copper);
         return !copperBoltStack.isEmpty() && instance.is(copperBoltStack.getItem());

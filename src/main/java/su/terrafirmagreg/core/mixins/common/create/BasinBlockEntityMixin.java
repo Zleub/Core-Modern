@@ -10,10 +10,10 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(value = BasinBlockEntity.class, remap = false)
-public class BasinBlockEntityMixin {
+public abstract class BasinBlockEntityMixin {
 
     @Inject(method = "getHeatLevelOf", at = @At("HEAD"), cancellable = true)
-    private static void getHeatLevelOf(BlockState state, CallbackInfoReturnable<BlazeBurnerBlock.HeatLevel> cir) {
+    private static void tfg$getHeatLevelOf(BlockState state, CallbackInfoReturnable<BlazeBurnerBlock.HeatLevel> cir) {
         if (state.getBlock() instanceof CharcoalForgeBlock) {
             int heat = state.getValue(CharcoalForgeBlock.HEAT);
             if (heat >= 7) {

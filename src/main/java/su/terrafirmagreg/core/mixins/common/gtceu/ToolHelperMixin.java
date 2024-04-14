@@ -13,13 +13,13 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(value = ToolHelper.class, remap = false)
-public class ToolHelperMixin {
+public abstract class ToolHelperMixin {
 
     /**
-     * Исправляет баг при ломании AOE инстрами кучи угля..
+     * Исправляет баг при ломании AOE инстрами кучи угля.
      * */
     @Redirect(method = "removeBlockRoutine", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/Block;destroy(Lnet/minecraft/world/level/LevelAccessor;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)V"), remap = true)
-    private static void onDestroy(Block instance, LevelAccessor pLevel, BlockPos pPos, BlockState pState, BlockState state, Level world, ServerPlayer player, BlockPos pos, boolean playSound) {
+    private static void tfg$removeBlockRoutine(Block instance, LevelAccessor pLevel, BlockPos pPos, BlockState pState, BlockState state, Level world, ServerPlayer player, BlockPos pos, boolean playSound) {
         if (instance instanceof CharcoalPileBlock charcoalPileBlock) {
             charcoalPileBlock.onDestroyedByPlayer(state, world, pPos, player, true, state.getFluidState());
         }

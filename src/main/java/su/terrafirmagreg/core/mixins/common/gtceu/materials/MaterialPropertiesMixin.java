@@ -13,9 +13,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Mixin(value = MaterialProperties.class, remap = false)
-public class MaterialPropertiesMixin {
+public abstract class MaterialPropertiesMixin {
 
     @Shadow @Final @Mutable
     private static Set<PropertyKey<?>> baseTypes = new HashSet<>(Arrays.asList(PropertyKey.FLUID, PropertyKey.DUST, PropertyKey.INGOT, PropertyKey.GEM, PropertyKey.EMPTY, TFGPropertyKeys.TFC_PROPERTY));
-
 }

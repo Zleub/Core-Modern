@@ -15,9 +15,11 @@
     "common.flywheel.AnimatedBlazeBurnerMixin",
     "common.gtceu.FisherMachineMixin",
     "common.gtceu.GTItemsMixin",
+    "common.gtceu.GTOreVeinWidgetMixin",
     "common.gtceu.GTRecipeTypesMixin",
     "common.gtceu.GTToolTypeMixin",
     "common.gtceu.HoeBehaviorMixin",
+    "common.gtceu.SurfaceRockBlockMixin",
     "common.gtceu.ToolHelperMixin",
     "common.gtceu.materials.ElementMaterialsMixin",
     "common.gtceu.materials.FirstDegreeMixin",
@@ -30,10 +32,14 @@
     "common.minecraft.ServerAdvancementManagerMixin",
     "common.minecraft.UseOnContextInvoker",
     "common.tfc.CharcoalForgeBlockMixin",
-    "common.tfc.CrucibleBlockMixin"
+    "common.tfc.CrucibleBlockMixin",
+    "common.tfc.TFCChunkGeneratorMixin"
   ],
   "client": [
-    "client.ftb.ClientTeamManagerImplMixin"
+    "client.ftb.ClientTeamManagerImplMixin",
+    "client.gtceu.SurfaceRockRendererAccessor",
+    "client.gtceu.SurfaceRockRendererMixin",
+    "client.minecraft.CreateWorldScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1

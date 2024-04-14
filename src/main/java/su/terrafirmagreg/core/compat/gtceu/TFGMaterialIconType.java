@@ -2,7 +2,7 @@ package su.terrafirmagreg.core.compat.gtceu;
 
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconType;
 
-public record TFGMaterialIconType() {
+public class TFGMaterialIconType {
     public static final MaterialIconType poorRawOre = new MaterialIconType("poorRawOre");
     public static final MaterialIconType richRawOre = new MaterialIconType("richRawOre");
 

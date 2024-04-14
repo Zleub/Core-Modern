@@ -129,6 +129,8 @@ public final class TFGTags {
     }
 
     public static final class Blocks {
+        public static final TagKey<Block> RawRockBlocks = createBlockTag("tfc:rock/raw");
+
         private static TagKey<Block> createBlockTag(String path) {
             return TagKey.create(ForgeRegistries.BLOCKS.getRegistryKey(), new ResourceLocation(path));
         }

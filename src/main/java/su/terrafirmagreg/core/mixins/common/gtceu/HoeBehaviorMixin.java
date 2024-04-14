@@ -9,14 +9,13 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(value = HoeGroundBehavior.class, remap = false)
-public class HoeBehaviorMixin {
+public abstract class HoeBehaviorMixin {
 
     /**
-     * Удобная механика вспахивания грядки под водой,
-     * по дефолту ее нет в игре, но я решил добавить.
+     * Удобная механика вспахивания грядки под водой.
      */
     @Redirect(method = "isBlockTillable", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/state/BlockState;isAir()Z"), remap = true)
-    private boolean onIsAir(BlockState instance) {
+    private boolean tfg$isBlockTillable(BlockState instance) {
         return instance.getBlock() == TFCBlocks.SALT_WATER.get() || instance.getBlock() == Blocks.WATER || instance.isAir();
     }
 

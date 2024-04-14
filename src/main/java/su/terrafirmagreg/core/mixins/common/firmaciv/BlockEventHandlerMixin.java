@@ -8,11 +8,10 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(value = BlockEventHandler.class, remap = false)
-public class BlockEventHandlerMixin {
+public abstract class BlockEventHandlerMixin {
 
     @Inject(method = "registerToolModificationEvents", at = @At(value = "HEAD"), remap = false, cancellable = true)
-    private static void onRegisterToolModificationEvents(BlockEvent.BlockToolModificationEvent event, CallbackInfo ci)
-    {
+    private static void tfg$registerToolModificationEvents(BlockEvent.BlockToolModificationEvent event, CallbackInfo ci) {
         if (event.getPlayer() == null) ci.cancel();
     }
 
