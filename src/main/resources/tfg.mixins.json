@@ -3,7 +3,6 @@
   "minVersion": "0.8",
   "package": "su.terrafirmagreg.core.mixins",
   "compatibilityLevel": "JAVA_17",
-  "refmap": "tfg.refmap.json",
   "mixins": [
     "common.cc.JEIComputerCraftMixin",
     "common.cc.ModRegistryMixin",
