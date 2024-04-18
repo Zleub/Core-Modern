@@ -1,14 +1,13 @@
 package su.terrafirmagreg.core;
 
 import com.mojang.logging.LogUtils;
-import dev.toma.configuration.Configuration;
-import dev.toma.configuration.config.format.ConfigFormats;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.loading.FMLEnvironment;
 import org.slf4j.Logger;
-import su.terrafirmagreg.core.config.TFGConfig;
 
 @Mod(TerraFirmaGreg.MOD_ID)
 public final class TerraFirmaGreg {
@@ -17,7 +16,7 @@ public final class TerraFirmaGreg {
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public TerraFirmaGreg() {
-        TFGConfig.init();
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, TFGConfig.SPEC);
 
         CommonEventHandler.init();
         if (FMLEnvironment.dist == Dist.CLIENT) ClientEventHandler.init();
