@@ -8,6 +8,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.loading.FMLEnvironment;
 import org.slf4j.Logger;
+import su.terrafirmagreg.core.config.TFGConfig;
 
 @Mod(TerraFirmaGreg.MOD_ID)
 public final class TerraFirmaGreg {
@@ -15,9 +16,9 @@ public final class TerraFirmaGreg {
     public static final String MOD_ID = "tfg";
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    public static final TFGConfig CONFIG = Configuration.registerConfig(TFGConfig.class, ConfigFormats.json()).getConfigInstance();;
-
     public TerraFirmaGreg() {
+        TFGConfig.init();
+
         CommonEventHandler.init();
         if (FMLEnvironment.dist == Dist.CLIENT) ClientEventHandler.init();
     }
