@@ -4,7 +4,7 @@ import dev.toma.configuration.config.Config;
 import dev.toma.configuration.config.Configurable;
 
 @Config(id = TerraFirmaGreg.MOD_ID)
-public class TFGConfig {
+public final class TFGConfig {
 
     @Configurable
     @Configurable.Synchronized
