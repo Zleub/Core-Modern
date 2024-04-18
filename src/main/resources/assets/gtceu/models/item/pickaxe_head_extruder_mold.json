@@ -1,6 +1,6 @@
 {
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "gtceu:item/pickaxe_head_extruder_mold"
-  }
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "gtceu:item/pickaxe_head_extruder_mold"
+    }
 }
