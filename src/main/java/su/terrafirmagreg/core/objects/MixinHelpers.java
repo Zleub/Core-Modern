@@ -69,11 +69,27 @@ public class MixinHelpers {
     public static void renderTexturedVertex(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, float x, float y, float z, float u, float v, float normalX, float normalY, float normalZ, int color1, int color2)
     {
         buffer.vertex(poseStack.last().pose(), x, y, z)
-                .color(FastColor.ARGB32.multiply(color1, color2))
+                .color(increaseBrightness(FastColor.ARGB32.multiply(color1, color2), 90))
                 .uv(u, v)
                 .uv2(packedLight)
                 .overlayCoords(packedOverlay)
                 .normal(poseStack.last().normal(), normalX, normalY, normalZ)
                 .endVertex();
+    }
+
+    public static int increaseBrightness(int argbValue, int increment) {
+        // Получаем составляющие ARGB значения
+        int alpha = (argbValue >> 24) & 0xFF;
+        int red = (argbValue >> 16) & 0xFF;
+        int green = (argbValue >> 8) & 0xFF;
+        int blue = argbValue & 0xFF;
+
+        // Увеличиваем яркость для каждой компоненты цвета
+        red = Math.min(255, red + increment);
+        green = Math.min(255, green + increment);
+        blue = Math.min(255, blue + increment);
+
+        // Собираем новое ARGB значение
+        return (alpha << 24) | (0xFF000000 | (red << 16) | (green << 8) | blue);
     }
 }
