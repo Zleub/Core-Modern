@@ -74,7 +74,7 @@ dependencies {
     // ComputerCraft (FIX THIS)
     modCompileOnly("cc.tweaked:cc-tweaked-${libs.versions.minecraft.get()}-core-api:1.110.2") { transitive = false }
     modCompileOnly("cc.tweaked:cc-tweaked-${libs.versions.minecraft.get()}-forge-api:1.110.2") { transitive = false }
-    modImplementation("cc.tweaked:cc-tweaked-${libs.versions.minecraft.get()}-forge:1.110.2") { transitive = false }
+    modCompileOnly("cc.tweaked:cc-tweaked-${libs.versions.minecraft.get()}-forge:1.110.2") { transitive = false }
 
     // FTB
     modImplementation("curse.maven:ftb-teams-404468:4623116") { transitive = false }

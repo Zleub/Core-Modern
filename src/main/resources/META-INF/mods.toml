@@ -37,7 +37,7 @@ side = "BOTH"
 modId = "tfc"
 mandatory = true
 versionRange = "3.2.0"
-ordering = "NONE"
+ordering = "AFTER"
 side = "BOTH"
 
 #[[dependencies.${mod_id}]]
@@ -47,12 +47,12 @@ side = "BOTH"
 #ordering = "NONE"
 #side = "BOTH"
 
-#[[dependencies.${mod_id}]]
-#modId = "firmalife"
-#mandatory = true
-#versionRange = "2.1.0"
-#ordering = "NONE"
-#side = "BOTH"
+[[dependencies.${mod_id}]]
+modId = "firmalife"
+mandatory = true
+versionRange = "2.1.0"
+ordering = "AFTER"
+side = "BOTH"
 
 [[dependencies.${mod_id}]]
 modId = "create"

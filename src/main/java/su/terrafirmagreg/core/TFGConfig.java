@@ -9,7 +9,7 @@ public class TFGConfig {
     @Configurable
     @Configurable.Synchronized
     @Configurable.Comment("List of modids, which advancements has been excluded from game.")
-    public String[] modIds = new String[] { "minecraft", "tfc", "create", "gtceu" };
+    public String[] modIds = new String[] { "minecraft", "data/tfc", "create", "gtceu" };
 
     @Configurable
     @Configurable.Synchronized
