@@ -32,8 +32,8 @@
         "common.minecraft.UseOnContextInvoker",
         "common.tfc.CharcoalForgeBlockMixin",
         "common.tfc.CrucibleBlockMixin",
-        "common.tfc.IngotPileBlockEntityEntryAccessor",
         "common.tfc.IngotPileBlockEntityAccessor",
+        "common.tfc.IngotPileBlockEntityEntryAccessor",
         "common.tfc.TFCChunkGeneratorMixin"
     ],
     "client": [
@@ -41,7 +41,9 @@
         "client.gtceu.SurfaceRockRendererAccessor",
         "client.gtceu.SurfaceRockRendererMixin",
         "client.minecraft.CreateWorldScreenMixin",
-        "client.tfc.IngotPileBlockModelMixin"
+        "client.tfc.DoubleIngotPileBlockModelMixin",
+        "client.tfc.IngotPileBlockModelMixin",
+        "client.tfc.SheetPileBlockModelMixin"
     ],
     "injectors": {
         "defaultRequire": 1

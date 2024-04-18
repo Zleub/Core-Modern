@@ -1,0 +1,79 @@
+package su.terrafirmagreg.core.objects;
+
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.dries007.tfc.client.RenderHelpers;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.util.FastColor;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.phys.AABB;
+import su.terrafirmagreg.core.mixins.common.tfc.IngotPileBlockEntityEntryAccessor;
+
+import java.awt.*;
+import java.util.List;
+
+public class MixinHelpers {
+
+    /**
+     * Метод получает стак из списка стаков с доп проверками.
+     * */
+    public static ItemStack getStackByIndex(List<?> entries, int index) {
+        try
+        {
+            return  ((IngotPileBlockEntityEntryAccessor) (Object) entries.get(index)).getStack();
+        }
+        catch (IndexOutOfBoundsException e)
+        {
+            return ItemStack.EMPTY;
+        }
+    }
+
+    public static void renderTexturedCuboid(PoseStack poseStack, VertexConsumer buffer, TextureAtlasSprite sprite, int packedLight, int packedOverlay, AABB bounds, int color1, int color2)
+    {
+        renderTexturedCuboid(poseStack, buffer, sprite, packedLight, packedOverlay, (float) bounds.minX, (float) bounds.minY, (float) bounds.minZ, (float) bounds.maxX, (float) bounds.maxY, (float) bounds.maxZ, color1, color2);
+    }
+
+    public static void renderTexturedCuboid(PoseStack poseStack, VertexConsumer buffer, TextureAtlasSprite sprite, int packedLight, int packedOverlay, float minX, float minY, float minZ, float maxX, float maxY, float maxZ, int color1, int color2)
+    {
+        renderTexturedCuboid(poseStack, buffer, sprite, packedLight, packedOverlay, minX, minY, minZ, maxX, maxY, maxZ, 16f * (maxX - minX), 16f * (maxY - minY), 16f * (maxZ - minZ), color1, color2);
+    }
+
+    /**
+     * Просто скопированный метод из RenderHelper.java (TFC) + добавленный аргумент для цвета.
+     * */
+    public static void renderTexturedCuboid(PoseStack poseStack, VertexConsumer buffer, TextureAtlasSprite sprite, int packedLight, int packedOverlay, float minX, float minY, float minZ, float maxX, float maxY, float maxZ, float xPixels, float yPixels, float zPixels, int color1, int color2)
+    {
+        renderTexturedQuads(poseStack, buffer, sprite, packedLight, packedOverlay, RenderHelpers.getXVertices(minX, minY, minZ, maxX, maxY, maxZ), zPixels, yPixels, 1, 0, 0, color1, color2);
+        renderTexturedQuads(poseStack, buffer, sprite, packedLight, packedOverlay, RenderHelpers.getYVertices(minX, minY, minZ, maxX, maxY, maxZ), zPixels, xPixels, 0, 1, 0, color1, color2);
+        renderTexturedQuads(poseStack, buffer, sprite, packedLight, packedOverlay, RenderHelpers.getZVertices(minX, minY, minZ, maxX, maxY, maxZ), xPixels, yPixels, 0, 0, 1, color1, color2);
+    }
+
+    /**
+     * Просто скопированный метод из RenderHelper.java (TFC) + добавленный аргумент для цвета.
+     * */
+    public static void renderTexturedTrapezoidalCuboid(PoseStack poseStack, VertexConsumer buffer, TextureAtlasSprite sprite, int packedLight, int packedOverlay, float pMinX, float pMaxX, float pMinZ, float pMaxZ, float qMinX, float qMaxX, float qMinZ, float qMaxZ, float minY, float maxY, float xPixels, float yPixels, float zPixels, boolean invertNormal, int color1, int color2)
+    {
+        renderTexturedQuads(poseStack, buffer, sprite, packedLight, packedOverlay, RenderHelpers.getTrapezoidalCuboidXVertices(pMinX, pMaxX, pMinZ, pMaxZ, qMinX, qMaxX, qMinZ, qMaxZ, minY, maxY), zPixels, yPixels, invertNormal ? 0 : 1, 0, invertNormal ? 1 : 0, color1, color2);
+        renderTexturedQuads(poseStack, buffer, sprite, packedLight, packedOverlay, RenderHelpers.getTrapezoidalCuboidYVertices(pMinX, pMaxX, pMinZ, pMaxZ, qMinX, qMaxX, qMinZ, qMaxZ, minY, maxY), zPixels, xPixels, 0, 1, 0, color1, color2);
+        renderTexturedQuads(poseStack, buffer, sprite, packedLight, packedOverlay, RenderHelpers.getTrapezoidalCuboidZVertices(pMinX, pMaxX, pMinZ, pMaxZ, qMinX, qMaxX, qMinZ, qMaxZ, minY, maxY), xPixels, yPixels, invertNormal ? 1 : 0, 0, invertNormal ? 0 : 1, color1, color2);
+    }
+
+    public static void renderTexturedQuads(PoseStack poseStack, VertexConsumer buffer, TextureAtlasSprite sprite, int packedLight, int packedOverlay, float[][] vertices, float uSize, float vSize, float normalX, float normalY, float normalZ, int color1, int color2)
+    {
+        for (float[] v : vertices)
+        {
+            renderTexturedVertex(poseStack, buffer, packedLight, packedOverlay, v[0], v[1], v[2], sprite.getU(v[3] * uSize), sprite.getV(v[4] * vSize), v[5] * normalX, v[5] * normalY, v[5] * normalZ, color1, color2);
+        }
+    }
+
+    public static void renderTexturedVertex(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, float x, float y, float z, float u, float v, float normalX, float normalY, float normalZ, int color1, int color2)
+    {
+        buffer.vertex(poseStack.last().pose(), x, y, z)
+                .color(FastColor.ARGB32.multiply(color1, color2))
+                .uv(u, v)
+                .uv2(packedLight)
+                .overlayCoords(packedOverlay)
+                .normal(poseStack.last().normal(), normalX, normalY, normalZ)
+                .endVertex();
+    }
+}
