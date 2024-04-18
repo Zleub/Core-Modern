@@ -1,46 +1,46 @@
 {
-  "type": "minecraft:empty",
-  "pools": [
-    {
-      "name": "loot_pool",
-      "rolls": 1,
-      "entries": [
+    "type": "minecraft:empty",
+    "pools": [
         {
-          "type": "minecraft:alternatives",
-          "children": [
-            {
-              "type": "minecraft:item",
-              "name": "tfc:ore/small_cassiterite",
-              "conditions": [
+            "name": "loot_pool",
+            "rolls": 1,
+            "entries": [
                 {
-                  "condition": "minecraft:random_chance",
-                  "chance": 0.55
+                    "type": "minecraft:alternatives",
+                    "children": [
+                        {
+                            "type": "minecraft:item",
+                            "name": "tfc:ore/small_cassiterite",
+                            "conditions": [
+                                {
+                                    "condition": "minecraft:random_chance",
+                                    "chance": 0.55
+                                }
+                            ]
+                        },
+                        {
+                            "type": "minecraft:item",
+                            "name": "tfc:rock/loose/granite",
+                            "conditions": [
+                                {
+                                    "condition": "minecraft:random_chance",
+                                    "chance": 0.5
+                                }
+                            ]
+                        },
+                        {
+                            "type": "minecraft:item",
+                            "name": "gtceu:topaz_gem",
+                            "conditions": [
+                                {
+                                    "condition": "minecraft:random_chance",
+                                    "chance": 0.04
+                                }
+                            ]
+                        }
+                    ]
                 }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "tfc:rock/loose/granite",
-              "conditions": [
-                {
-                  "condition": "minecraft:random_chance",
-                  "chance": 0.5
-                }
-              ]
-            },
-            {
-              "type": "minecraft:item",
-              "name": "gtceu:topaz_gem",
-              "conditions": [
-                {
-                  "condition": "minecraft:random_chance",
-                  "chance": 0.04
-                }
-              ]
-            }
-          ]
+            ]
         }
-      ]
-    }
-  ]
+    ]
 }
