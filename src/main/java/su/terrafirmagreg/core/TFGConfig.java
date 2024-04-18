@@ -21,8 +21,7 @@ public final class TFGConfig {
     public static boolean enableCreateCompat;
     public static boolean enableTFCAmbientalCompat;
 
-    public static void onLoad(final ModConfigEvent event)
-    {
+    public static void onLoad(final ModConfigEvent event) {
         enableCreateCompat = ENABLE_CREATE_COMPAT.get();
         enableTFCAmbientalCompat = ENABLE_TFC_AMBIENTAL_COMPAT.get();
     }
