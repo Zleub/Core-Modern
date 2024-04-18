@@ -25,7 +25,7 @@ import java.util.function.Function;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
-@Mixin(IngotPileBlockModel.class)
+@Mixin(value = IngotPileBlockModel.class, remap = false)
 @OnlyIn(Dist.CLIENT)
 public abstract class IngotPileBlockModelMixin implements SimpleStaticBlockEntityModel<IngotPileBlockModel, IngotPileBlockEntity> {
 
