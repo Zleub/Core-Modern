@@ -20,7 +20,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.spongepowered.asm.mixin.Mixin;
 import su.terrafirmagreg.core.ClientEventHandler;
-import su.terrafirmagreg.core.objects.MixinHelpers;
+import su.terrafirmagreg.core.objects.TFGHelpers;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.function.Function;
@@ -55,7 +55,7 @@ public abstract class SheetPileBlockModelMixin implements SimpleStaticBlockEntit
 
                 sprite = textureAtlas.apply(ClientEventHandler.TFCMetalBlockTexturePattern);
 
-                MixinHelpers.renderTexturedCuboid(poseStack, buffer, sprite, packedLight, packedOverlay, SheetPileBlock.getShapeForSingleFace(direction).bounds(), primaryColor, secondaryColor);
+                TFGHelpers.renderTexturedCuboid(poseStack, buffer, sprite, packedLight, packedOverlay, SheetPileBlock.getShapeForSingleFace(direction).bounds(), primaryColor, secondaryColor);
             }
         }
 

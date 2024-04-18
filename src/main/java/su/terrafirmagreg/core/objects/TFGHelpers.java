@@ -9,15 +9,14 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.AABB;
 import su.terrafirmagreg.core.mixins.common.tfc.IngotPileBlockEntityEntryAccessor;
 
-import java.awt.*;
 import java.util.List;
 
-public class MixinHelpers {
+public class TFGHelpers {
 
     /**
      * Метод получает стак из списка стаков с доп проверками.
      * */
-    public static ItemStack getStackByIndex(List<?> entries, int index) {
+    public static ItemStack getStackFromIngotPileTileEntityByIndex(List<?> entries, int index) {
         try
         {
             return  ((IngotPileBlockEntityEntryAccessor) (Object) entries.get(index)).getStack();
@@ -28,11 +27,17 @@ public class MixinHelpers {
         }
     }
 
+    /**
+     * Просто скопированный метод из RenderHelper.java (TFC) + добавленный аргумент для цвета.
+     * */
     public static void renderTexturedCuboid(PoseStack poseStack, VertexConsumer buffer, TextureAtlasSprite sprite, int packedLight, int packedOverlay, AABB bounds, int color1, int color2)
     {
         renderTexturedCuboid(poseStack, buffer, sprite, packedLight, packedOverlay, (float) bounds.minX, (float) bounds.minY, (float) bounds.minZ, (float) bounds.maxX, (float) bounds.maxY, (float) bounds.maxZ, color1, color2);
     }
 
+    /**
+     * Просто скопированный метод из RenderHelper.java (TFC) + добавленный аргумент для цвета.
+     * */
     public static void renderTexturedCuboid(PoseStack poseStack, VertexConsumer buffer, TextureAtlasSprite sprite, int packedLight, int packedOverlay, float minX, float minY, float minZ, float maxX, float maxY, float maxZ, int color1, int color2)
     {
         renderTexturedCuboid(poseStack, buffer, sprite, packedLight, packedOverlay, minX, minY, minZ, maxX, maxY, maxZ, 16f * (maxX - minX), 16f * (maxY - minY), 16f * (maxZ - minZ), color1, color2);
@@ -58,6 +63,9 @@ public class MixinHelpers {
         renderTexturedQuads(poseStack, buffer, sprite, packedLight, packedOverlay, RenderHelpers.getTrapezoidalCuboidZVertices(pMinX, pMaxX, pMinZ, pMaxZ, qMinX, qMaxX, qMinZ, qMaxZ, minY, maxY), xPixels, yPixels, invertNormal ? 1 : 0, 0, invertNormal ? 0 : 1, color1, color2);
     }
 
+    /**
+     * Просто скопированный метод из RenderHelper.java (TFC) + добавленный аргумент для цвета.
+     * */
     public static void renderTexturedQuads(PoseStack poseStack, VertexConsumer buffer, TextureAtlasSprite sprite, int packedLight, int packedOverlay, float[][] vertices, float uSize, float vSize, float normalX, float normalY, float normalZ, int color1, int color2)
     {
         for (float[] v : vertices)
@@ -66,6 +74,9 @@ public class MixinHelpers {
         }
     }
 
+    /**
+     * Просто скопированный метод из RenderHelper.java (TFC) + добавленный аргумент для цвета.
+     * */
     public static void renderTexturedVertex(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, float x, float y, float z, float u, float v, float normalX, float normalY, float normalZ, int color1, int color2)
     {
         buffer.vertex(poseStack.last().pose(), x, y, z)
@@ -77,6 +88,9 @@ public class MixinHelpers {
                 .endVertex();
     }
 
+    /**
+     * Увеличивает яркость у передаваемого цвета ARGB.
+     * */
     public static int increaseBrightness(int argbValue, int increment) {
         // Получаем составляющие ARGB значения
         int alpha = (argbValue >> 24) & 0xFF;

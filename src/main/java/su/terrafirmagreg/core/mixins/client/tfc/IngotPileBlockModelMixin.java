@@ -18,7 +18,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import org.spongepowered.asm.mixin.Mixin;
 import su.terrafirmagreg.core.ClientEventHandler;
 import su.terrafirmagreg.core.mixins.common.tfc.IngotPileBlockEntityAccessor;
-import su.terrafirmagreg.core.objects.MixinHelpers;
+import su.terrafirmagreg.core.objects.TFGHelpers;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.function.Function;
@@ -43,7 +43,7 @@ public abstract class IngotPileBlockModelMixin implements SimpleStaticBlockEntit
         TextureAtlasSprite sprite = null;
         for (int i = 0; i < ingots; i++)
         {
-            final var stack = MixinHelpers.getStackByIndex(pileEntries, i);
+            final var stack = TFGHelpers.getStackFromIngotPileTileEntityByIndex(pileEntries, i);
             final var material = ChemicalHelper.getMaterial(stack);
             final int primaryColor = material == null ? 0 : material.material().getMaterialARGB(0);
             final int secondaryColor = material == null ? 0 : material.material().getMaterialARGB(1);
@@ -75,7 +75,7 @@ public abstract class IngotPileBlockModelMixin implements SimpleStaticBlockEntit
             final float maxY = scale * (minY + 4);
             final float maxZ = scale * (minZ + 15);
 
-            MixinHelpers.renderTexturedTrapezoidalCuboid(poseStack, buffer, sprite, packedLight, packedOverlay, minX, maxX, minZ, maxZ, minX + scale, maxX - scale, minZ + scale, maxZ - scale, minY, maxY, 7, 4, 15, oddLayer, primaryColor, secondaryColor);
+            TFGHelpers.renderTexturedTrapezoidalCuboid(poseStack, buffer, sprite, packedLight, packedOverlay, minX, maxX, minZ, maxZ, minX + scale, maxX - scale, minZ + scale, maxZ - scale, minY, maxY, 7, 4, 15, oddLayer, primaryColor, secondaryColor);
 
             poseStack.popPose();
         }
