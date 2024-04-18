@@ -1,6 +1,5 @@
 package su.terrafirmagreg.core.config;
 
-import net.dries007.tfc.config.CommonConfig;
 import net.dries007.tfc.config.ConfigBuilder;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.fml.ModLoadingContext;

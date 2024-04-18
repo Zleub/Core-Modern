@@ -17,6 +17,6 @@ public final class TFGCommonConfig
                 .define("createCompat", true);
 
         enableTFCAmbientalCompat = builder.comment("Should be tfc ambiental compat enabled?")
-                .define("tfcAmbiental", true);
+                .define("tfcAmbientalCompat", true);
     }
 }
