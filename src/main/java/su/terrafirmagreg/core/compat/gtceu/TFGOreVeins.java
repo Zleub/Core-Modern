@@ -1,6 +1,6 @@
 package su.terrafirmagreg.core.compat.gtceu;
 
-public class TFGOreVeins {
+public final class TFGOreVeins {
 
     public static void register() {}
 

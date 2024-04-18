@@ -8,7 +8,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import su.terrafirmagreg.core.TerraFirmaGreg;
 import su.terrafirmagreg.core.objects.TFGTags;
 
-public class TFGWorldGenLayers {
+public final class TFGWorldGenLayers {
 
     public static final RuleTest EARTH_ORE_REPLACEABLES = new TagMatchTest(TFGTags.Blocks.RawRockBlocks);
 

@@ -14,7 +14,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class CanoeCreatorBehavior implements IToolBehavior {
+public final class CanoeCreatorBehavior implements IToolBehavior {
 
     public static final CanoeCreatorBehavior INSTANCE = create();
 

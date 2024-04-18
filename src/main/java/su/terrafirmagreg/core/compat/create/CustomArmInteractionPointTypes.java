@@ -16,7 +16,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Function;
 
-public class CustomArmInteractionPointTypes {
+public final class CustomArmInteractionPointTypes {
 
     public static final CrucibleType CRUCIBLE = register("crucible", CrucibleType::new);
     public static final CharcoalForgeType CHARCOAL_FORGE = register("charcoal_forge", CharcoalForgeType::new);

@@ -7,7 +7,7 @@ import su.terrafirmagreg.core.compat.gtceu.TFGMaterials;
 import su.terrafirmagreg.core.compat.gtceu.TFGPropertyKeys;
 import su.terrafirmagreg.core.compat.gtceu.TFGTagPrefix;
 
-public class TFGKubeJSPlugin extends KubeJSPlugin {
+public final class TFGKubeJSPlugin extends KubeJSPlugin {
 
     @Override
     public void registerBindings(BindingsEvent event) {

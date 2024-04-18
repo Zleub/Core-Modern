@@ -20,7 +20,7 @@ import net.minecraft.world.level.material.MapColor;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.Conditions.*;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.oreTagPrefix;
 
-public class TFGTagPrefix {
+public final class TFGTagPrefix {
 
     /* Stone Types */
     public static final TagPrefix oreGabbro;

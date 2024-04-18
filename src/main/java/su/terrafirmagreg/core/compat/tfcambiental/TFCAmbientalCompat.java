@@ -18,7 +18,7 @@ import net.minecraft.world.level.material.Fluids;
 import java.util.Arrays;
 import java.util.Optional;
 
-public class TFCAmbientalCompat {
+public final class TFCAmbientalCompat {
 
     public static void register() {
         /* Блоки магмы */

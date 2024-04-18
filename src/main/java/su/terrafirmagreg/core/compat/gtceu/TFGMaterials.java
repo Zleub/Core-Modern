@@ -24,7 +24,7 @@ import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static su.terrafirmagreg.core.compat.gtceu.TFGMaterialFlags.*;
 
-public class TFGMaterials {
+public final class TFGMaterials {
 
     public static Material Latex;
     public static Material Fluix;

@@ -11,7 +11,7 @@ import su.terrafirmagreg.core.objects.TFGRecipes;
 import java.util.function.Consumer;
 
 @GTAddon
-public class TFGGTAddon implements IGTAddon {
+public final class TFGGTAddon implements IGTAddon {
 
     @Override
     public void initializeAddon() {

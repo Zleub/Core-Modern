@@ -6,7 +6,7 @@ import com.gregtechceu.gtceu.api.data.chemical.material.properties.MaterialPrope
 
 import javax.annotation.Nullable;
 
-public class TFCProperty implements IMaterialProperty<TFCProperty> {
+public final class TFCProperty implements IMaterialProperty<TFCProperty> {
 
     private int forgingTemp;
     private int weldingTemp;

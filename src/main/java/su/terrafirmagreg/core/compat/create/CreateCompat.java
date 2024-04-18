@@ -7,7 +7,7 @@ import net.minecraft.resources.ResourceLocation;
 
 import static su.terrafirmagreg.core.TerraFirmaGreg.MOD_ID;
 
-public class CreateCompat {
+public final class CreateCompat {
 
     public static void register() {
         registerPotatoGunAmmo();

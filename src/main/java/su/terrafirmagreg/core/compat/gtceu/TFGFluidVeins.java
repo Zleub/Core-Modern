@@ -7,7 +7,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Set;
 
-public class TFGFluidVeins {
+public final class TFGFluidVeins {
 
     public static final BedrockFluidDefinition SALT_WATER = BedrockFluidDefinition.builder(new ResourceLocation("tfg", "tfc_salt_water_deposit"))
             .fluid(() -> ForgeRegistries.FLUIDS.getValue(new ResourceLocation("tfc", "salt_water")))
