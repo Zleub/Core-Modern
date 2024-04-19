@@ -46,44 +46,27 @@ public final class TFGTagPrefix {
 
     /* Tool Heads */
     public static final TagPrefix toolHeadSword;
-
     public static final TagPrefix toolHeadPickaxe;
-
     public static final TagPrefix toolHeadShovel;
-
     public static final TagPrefix toolHeadAxe;
-
     public static final TagPrefix toolHeadHoe;
-
     public static final TagPrefix toolHeadScythe;
-
     public static final TagPrefix toolHeadFile;
-
     public static final TagPrefix toolHeadHammer;
-
     public static final TagPrefix toolHeadSaw;
-
     public static final TagPrefix toolHeadKnife;
-
     public static final TagPrefix toolHeadMiningHammer;
-
     public static final TagPrefix toolHeadButcheryKnife;
-
     public static final TagPrefix toolHeadSpade;
-
     public static final TagPrefix toolHeadPropick;
-
     public static final TagPrefix toolHeadJavelin;
-
     public static final TagPrefix toolHeadChisel;
     public static final TagPrefix toolHeadMace;
 
     /* Other */
-
     public static final TagPrefix ingotDouble;
 
     public static final TagPrefix poorRawOre;
-
     public static final TagPrefix richRawOre;
 
 
