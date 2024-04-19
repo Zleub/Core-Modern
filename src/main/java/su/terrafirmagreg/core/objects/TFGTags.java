@@ -138,7 +138,7 @@ public final class TFGTags {
     }
 
     public static final class Biomes {
-        public static final TagKey<Biome> IsTFCOverworld = createBiomeTag("is_tfc_overworld");
+        public static final TagKey<Biome> IsTFCOverworld = createBiomeTag("tfc:is_tfc_overworld");
 
         private static TagKey<Biome> createBiomeTag(String path) {
             return TagKey.create(ForgeRegistries.BIOMES.getRegistryKey(), new ResourceLocation(path));

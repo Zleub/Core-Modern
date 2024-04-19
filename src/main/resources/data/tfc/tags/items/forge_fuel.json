@@ -1,0 +1,10 @@
+{
+    "replace": true,
+    "values": [
+        "minecraft:coal",
+        "gtceu:coke_gem",
+        "gtceu:rich_raw_coal",
+        "gtceu:raw_coal",
+        "gtceu:poor_raw_coal"
+    ]
+}
