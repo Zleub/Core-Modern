@@ -55,6 +55,13 @@ ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies.${mod_id}]]
+modId = "firmaciv"
+mandatory = true
+versionRange = "[0.2.2-alpha,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.${mod_id}]]
 modId = "create"
 mandatory = false
 versionRange = "0.5.1.f"
