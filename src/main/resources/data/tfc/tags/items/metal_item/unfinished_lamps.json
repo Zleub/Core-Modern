@@ -1,0 +1,14 @@
+{
+    "replace": false,
+    "values": [
+        "tfc:metal/unfinished_lamp/bismuth_bronze",
+        "tfc:metal/unfinished_lamp/black_bronze",
+        "tfc:metal/unfinished_lamp/bronze",
+        "tfc:metal/unfinished_lamp/copper",
+        "tfc:metal/unfinished_lamp/wrought_iron",
+        "tfc:metal/unfinished_lamp/steel",
+        "tfc:metal/unfinished_lamp/black_steel",
+        "tfc:metal/unfinished_lamp/blue_steel",
+        "tfc:metal/unfinished_lamp/red_steel"
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "replace": false,
+    "values": [
+        "#tfc:rock/slabs",
+        "#tfc:rock/stairs",
+        "#tfc:rock/walls",
+
+        "#forge:ores"
+    ]
+}
