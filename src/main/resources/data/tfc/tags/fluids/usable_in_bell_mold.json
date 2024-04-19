@@ -1,0 +1,8 @@
+{
+    "replace": true,
+    "values": [
+        "gtceu:bronze",
+        "gtceu:gold",
+        "gtceu:brass"
+    ]
+}
