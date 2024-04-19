@@ -1,6 +1,6 @@
 {
     "tier": 1,
-    "fluid": "tfc:metal/tin",
+    "fluid": "gtceu:tin",
     "melt_temperature": 230,
     "specific_heat_capacity": 0.02143,
     "ingots": {
@@ -10,6 +10,6 @@
         "tag": "forge:double_ingots/tin"
     },
     "sheets": {
-        "tag": "forge:sheets/tin"
+        "tag": "forge:plates/tin"
     }
 }

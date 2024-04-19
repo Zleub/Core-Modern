@@ -1,6 +1,6 @@
 {
     "tier": 1,
-    "fluid": "tfc:metal/sterling_silver",
+    "fluid": "gtceu:sterling_silver",
     "melt_temperature": 950,
     "specific_heat_capacity": 0.00857,
     "ingots": {
@@ -10,6 +10,6 @@
         "tag": "forge:double_ingots/sterling_silver"
     },
     "sheets": {
-        "tag": "forge:sheets/sterling_silver"
+        "tag": "forge:plates/sterling_silver"
     }
 }

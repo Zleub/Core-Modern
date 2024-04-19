@@ -1,6 +1,6 @@
 {
     "tier": 1,
-    "fluid": "tfc:metal/copper",
+    "fluid": "gtceu:copper",
     "melt_temperature": 1080,
     "specific_heat_capacity": 0.00857,
     "ingots": {
@@ -10,6 +10,6 @@
         "tag": "forge:double_ingots/copper"
     },
     "sheets": {
-        "tag": "forge:sheets/copper"
+        "tag": "forge:plates/copper"
     }
 }

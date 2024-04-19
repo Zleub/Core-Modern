@@ -1,6 +1,6 @@
 {
     "tier": 5,
-    "fluid": "tfc:metal/weak_red_steel",
+    "fluid": "gtceu:weak_red_steel",
     "melt_temperature": 1540,
     "specific_heat_capacity": 0.00857,
     "ingots": {

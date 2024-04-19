@@ -1,6 +1,6 @@
 {
     "tier": 1,
-    "fluid": "tfc:metal/gold",
+    "fluid": "gtceu:gold",
     "melt_temperature": 1060,
     "specific_heat_capacity": 0.005,
     "ingots": {
@@ -10,6 +10,6 @@
         "tag": "forge:double_ingots/gold"
     },
     "sheets": {
-        "tag": "forge:sheets/gold"
+        "tag": "forge:plates/gold"
     }
 }

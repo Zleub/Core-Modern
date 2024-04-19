@@ -1,10 +1,9 @@
 {
-  "__comment__": "This file was automatically created by mcresources",
-  "asset_name": "topaz_tfc",
-  "description": {
-    "color": "#c27a0e",
-    "translate": "trim_material.tfc.topaz"
-  },
-  "ingredient": "gtceu:topaz_gem",
-  "item_model_index": 0.7
+    "asset_name": "topaz_tfc",
+    "description": {
+        "color": "#c27a0e",
+        "translate": "trim_material.tfc.topaz"
+    },
+    "ingredient": "gtceu:topaz_gem",
+    "item_model_index": 0.7
 }

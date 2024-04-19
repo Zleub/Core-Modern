@@ -1,6 +1,6 @@
 {
     "tier": 1,
-    "fluid": "tfc:metal/silver",
+    "fluid": "gtceu:silver",
     "melt_temperature": 961,
     "specific_heat_capacity": 0.00625,
     "ingots": {
@@ -10,6 +10,6 @@
         "tag": "forge:double_ingots/silver"
     },
     "sheets": {
-        "tag": "forge:sheets/silver"
+        "tag": "forge:plates/silver"
     }
 }

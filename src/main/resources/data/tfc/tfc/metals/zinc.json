@@ -1,6 +1,6 @@
 {
     "tier": 1,
-    "fluid": "tfc:metal/zinc",
+    "fluid": "gtceu:zinc",
     "melt_temperature": 420,
     "specific_heat_capacity": 0.01429,
     "ingots": {
@@ -10,6 +10,6 @@
         "tag": "forge:double_ingots/zinc"
     },
     "sheets": {
-        "tag": "forge:sheets/zinc"
+        "tag": "forge:plates/zinc"
     }
 }

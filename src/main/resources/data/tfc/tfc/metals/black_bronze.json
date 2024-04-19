@@ -1,6 +1,6 @@
 {
     "tier": 2,
-    "fluid": "tfc:metal/black_bronze",
+    "fluid": "gtceu:black_bronze",
     "melt_temperature": 1070,
     "specific_heat_capacity": 0.00857,
     "ingots": {
@@ -10,6 +10,6 @@
         "tag": "forge:double_ingots/black_bronze"
     },
     "sheets": {
-        "tag": "forge:sheets/black_bronze"
+        "tag": "forge:plates/black_bronze"
     }
 }

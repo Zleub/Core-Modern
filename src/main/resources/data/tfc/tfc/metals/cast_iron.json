@@ -1,15 +1,15 @@
 {
     "tier": 1,
-    "fluid": "tfc:metal/cast_iron",
+    "fluid": "gtceu:iron",
     "melt_temperature": 1535,
     "specific_heat_capacity": 0.00857,
     "ingots": {
-        "tag": "forge:ingots/cast_iron"
+        "tag": "forge:ingots/iron"
     },
     "double_ingots": {
-        "tag": "forge:double_ingots/cast_iron"
+        "tag": "forge:double_ingots/iron"
     },
     "sheets": {
-        "tag": "forge:sheets/cast_iron"
+        "tag": "forge:plates/iron"
     }
 }
