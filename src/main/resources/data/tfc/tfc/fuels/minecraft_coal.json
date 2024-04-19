@@ -1,0 +1,10 @@
+{
+    "ingredient": [
+        {
+            "item": "minecraft:coal"
+        }
+    ],
+    "duration": 2200,
+    "temperature": 1415,
+    "purity": 1.0
+}

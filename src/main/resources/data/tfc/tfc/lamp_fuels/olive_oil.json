@@ -1,0 +1,8 @@
+{
+    "fluid": "gtceu:creosote",
+    "burn_rate": 1000,
+    "valid_lamps": {
+        "type": "tfc:tag",
+        "tag": "tfc:lamps"
+    }
+}
