@@ -1,6 +1,6 @@
 {
     "__comment__": "Исправление кривых рук разраба firmaCiv",
-    "replace": false,
+    "replace": true,
     "values": [
         "firmaciv:cannonball",
         "firmaciv:kayak",
