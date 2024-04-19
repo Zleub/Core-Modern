@@ -6,9 +6,6 @@
     "ingots": {
         "tag": "forge:ingots/iron"
     },
-    "double_ingots": {
-        "tag": "forge:double_ingots/iron"
-    },
     "sheets": {
         "tag": "forge:plates/iron"
     }
