@@ -2,9 +2,11 @@ package su.terrafirmagreg.core.compat.gtceu;
 
 import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.GTValues;
+import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconType;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
+import com.gregtechceu.gtceu.api.data.chemical.material.stack.MaterialStack;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.api.item.tool.GTToolType;
 import com.gregtechceu.gtceu.common.data.GTItems;
@@ -16,6 +18,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
+import su.terrafirmagreg.core.TerraFirmaGreg;
 import su.terrafirmagreg.core.compat.gtceu.materials.TFGMaterialFlags;
 import su.terrafirmagreg.core.compat.gtceu.materials.TFGMaterialIconType;
 
@@ -472,13 +475,24 @@ public final class TFGTagPrefix {
     public static void init() {}
 
     private static TagPrefix registerOreTagPrefix(Rock rockType) {
-        return oreTagPrefix(rockType.getSerializedName(), BlockTags.MINEABLE_WITH_PICKAXE)
-                .registerOre(
-                        () -> TFCBlocks.ROCK_BLOCKS.get(rockType).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState(),
-                        () -> GTCEuAPI.materialManager.getMaterial(rockType.getSerializedName()),
-                        BlockBehaviour.Properties.of().mapColor(MapColor.STONE).requiresCorrectToolForDrops().strength(3.0F, 3.0F),
-                        new ResourceLocation(TerraFirmaCraft.MOD_ID, "block/rock/raw/" + rockType.getSerializedName())
-                );
+        var material = GTCEuAPI.materialManager.getMaterial(TerraFirmaGreg.MOD_ID + ":" + rockType.getSerializedName());
+        if (material == null) {
+            material = GTCEuAPI.materialManager.getMaterial(rockType.getSerializedName());
+        }
+
+        if (material == null) throw new IllegalArgumentException("Bad material in ore generation for: " + rockType.getSerializedName());
+
+        final Material fMaterial = material;
+        var tag = oreTagPrefix(rockType.getSerializedName(), BlockTags.MINEABLE_WITH_PICKAXE)
+            .registerOre(
+                    () -> TFCBlocks.ROCK_BLOCKS.get(rockType).get(Rock.BlockType.RAW).orElse(Blocks.STONE).defaultBlockState(),
+                    () -> fMaterial,
+                    BlockBehaviour.Properties.of().mapColor(MapColor.STONE).requiresCorrectToolForDrops().strength(3.0F, 3.0F),
+                    new ResourceLocation(TerraFirmaCraft.MOD_ID, "block/rock/raw/" + rockType.getSerializedName())
+            );
+        tag.addSecondaryMaterial(new MaterialStack(material, GTValues.M));
+
+        return tag;
     }
 
 }
