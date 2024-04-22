@@ -1,6 +1,8 @@
 package su.terrafirmagreg.core;
 
+import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.data.chemical.material.event.MaterialEvent;
+import com.gregtechceu.gtceu.api.data.chemical.material.event.MaterialRegistryEvent;
 import com.gregtechceu.gtceu.api.data.chemical.material.event.PostMaterialEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -8,6 +10,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import su.terrafirmagreg.core.compat.create.CreateCompat;
 import su.terrafirmagreg.core.compat.gtceu.TFGMaterials;
 import su.terrafirmagreg.core.compat.tfcambiental.TFCAmbientalCompat;
+import su.terrafirmagreg.core.objects.TFGRegistries;
 
 public final class CommonEventHandler {
 
@@ -15,9 +18,14 @@ public final class CommonEventHandler {
         final IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
         bus.addListener(TFGConfig::onLoad);
-        bus.addListener(CommonEventHandler::onCommonSetup);
+        bus.addListener(CommonEventHandler::onRegisterMaterialRegistry);
         bus.addListener(CommonEventHandler::onRegisterMaterials);
         bus.addListener(CommonEventHandler::onPostRegisterMaterials);
+        bus.addListener(CommonEventHandler::onCommonSetup);
+    }
+
+    private static void onRegisterMaterialRegistry(MaterialRegistryEvent event) {
+        TFGRegistries.MATERIAL_REGISTRY = GTCEuAPI.materialManager.createRegistry(TerraFirmaGreg.MOD_ID);
     }
 
     private static void onRegisterMaterials(final MaterialEvent event) {
