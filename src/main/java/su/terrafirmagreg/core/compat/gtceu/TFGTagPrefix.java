@@ -16,6 +16,8 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
+import su.terrafirmagreg.core.compat.gtceu.materials.TFGMaterialFlags;
+import su.terrafirmagreg.core.compat.gtceu.materials.TFGMaterialIconType;
 
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.Conditions.*;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.oreTagPrefix;

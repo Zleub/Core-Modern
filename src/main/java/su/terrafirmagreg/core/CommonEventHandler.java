@@ -8,7 +8,8 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import su.terrafirmagreg.core.compat.create.CreateCompat;
-import su.terrafirmagreg.core.compat.gtceu.TFGMaterials;
+import su.terrafirmagreg.core.compat.gtceu.materials.TFGMaterialHandler;
+import su.terrafirmagreg.core.compat.gtceu.materials.TFGMaterials;
 import su.terrafirmagreg.core.compat.tfcambiental.TFCAmbientalCompat;
 import su.terrafirmagreg.core.objects.TFGRegistries;
 
@@ -29,11 +30,11 @@ public final class CommonEventHandler {
     }
 
     private static void onRegisterMaterials(final MaterialEvent event) {
-        TFGMaterials.init();
+        TFGMaterialHandler.init();
     }
 
     private static void onPostRegisterMaterials(final PostMaterialEvent event) {
-        TFGMaterials.postInit();
+        TFGMaterialHandler.postInit();
     }
 
     private static void onCommonSetup(final FMLCommonSetupEvent event) {

@@ -2,8 +2,8 @@ package su.terrafirmagreg.core.compat.kjs;
 
 import dev.latvian.mods.kubejs.KubeJSPlugin;
 import dev.latvian.mods.kubejs.script.BindingsEvent;
-import su.terrafirmagreg.core.compat.gtceu.TFGMaterialFlags;
-import su.terrafirmagreg.core.compat.gtceu.TFGMaterials;
+import su.terrafirmagreg.core.compat.gtceu.materials.TFGMaterialFlags;
+import su.terrafirmagreg.core.compat.gtceu.materials.TFGMaterials;
 import su.terrafirmagreg.core.compat.gtceu.TFGPropertyKeys;
 import su.terrafirmagreg.core.compat.gtceu.TFGTagPrefix;
 

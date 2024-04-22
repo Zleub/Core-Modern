@@ -1,4 +1,4 @@
-package su.terrafirmagreg.core.compat.gtceu;
+package su.terrafirmagreg.core.compat.gtceu.materials;
 
 import appeng.core.definitions.AEBlocks;
 import appeng.core.definitions.AEItems;
@@ -16,50 +16,25 @@ import net.dries007.tfc.common.blocks.rock.Rock;
 import net.dries007.tfc.common.items.TFCItems;
 import net.dries007.tfc.util.Metal;
 import net.minecraft.world.level.block.Blocks;
+import su.terrafirmagreg.core.compat.gtceu.TFGPropertyKeys;
 import su.terrafirmagreg.core.compat.gtceu.properties.TFCProperty;
 
 import java.util.Arrays;
 
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.*;
+import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.GENERATE_BOLT_SCREW;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet.CERTUS;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet.ROUGH;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
+import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.block;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
-import static su.terrafirmagreg.core.compat.gtceu.TFGMaterialFlags.*;
 import static su.terrafirmagreg.core.compat.gtceu.TFGTagPrefix.*;
+import static su.terrafirmagreg.core.compat.gtceu.TFGTagPrefix.bell;
+import static su.terrafirmagreg.core.compat.gtceu.materials.TFGMaterialFlags.*;
+import static su.terrafirmagreg.core.compat.gtceu.materials.TFGMaterialFlags.GENERATE_DOUBLE_INGOTS;
+import static su.terrafirmagreg.core.compat.gtceu.materials.TFGMaterials.*;
 
-public final class TFGMaterials {
-
-    public static Material Latex;
-    public static Material Fluix;
-
-    public static Material Gabbro;
-    public static Material Shale;
-    public static Material Claystone;
-    public static Material Limestone;
-    public static Material Conglomerate;
-    public static Material Dolomite;
-    public static Material Chert;
-    public static Material Chalk;
-    public static Material Rhyolite;
-    public static Material Dacite;
-    public static Material Slate;
-    public static Material Phyllite;
-    public static Material Schist;
-    public static Material Gneiss;
-
-    public static Material Unknown;
-    public static Material PigIron;
-    public static Material HighCarbonSteel;
-    public static Material HighCarbonBlackSteel;
-    public static Material HighCarbonRedSteel;
-    public static Material HighCarbonBlueSteel;
-    public static Material WeakSteel;
-    public static Material WeakRedSteel;
-    public static Material WeakBlueSteel;
-
-    public static Material Limonite;
-    public static Material Bismuthinite;
+public final class TFGMaterialHandler {
 
     public static void init() {
 
@@ -442,4 +417,5 @@ public final class TFGMaterials {
                 .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
                 .buildAndRegister();
     }
+
 }
