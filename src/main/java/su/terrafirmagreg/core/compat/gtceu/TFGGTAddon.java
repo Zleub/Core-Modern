@@ -7,6 +7,7 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import su.terrafirmagreg.core.TerraFirmaGreg;
 import su.terrafirmagreg.core.objects.TFGItems;
 import su.terrafirmagreg.core.objects.TFGRecipes;
+import su.terrafirmagreg.core.objects.TFGRegistries;
 
 import java.util.function.Consumer;
 
@@ -20,7 +21,7 @@ public final class TFGGTAddon implements IGTAddon {
 
     @Override
     public GTRegistrate getRegistrate() {
-        return null;
+        return TFGRegistries.REGISTRATE;
     }
 
     @Override

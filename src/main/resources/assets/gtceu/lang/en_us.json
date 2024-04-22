@@ -16,6 +16,17 @@
   "item.gtceu.propick_head_extruder_mold": "Extruder Mold (Propick Head)",
   "item.gtceu.javelin_head_extruder_mold": "Extruder Mold (Javelin Head)",
   "item.gtceu.chisel_head_extruder_mold": "Extruder Mold (Chisel Head)",
+  "item.gtceu.mace_head_extruder_mold": "Extruder Mold (Mace Head)",
+
+  "item.gtceu.earth_placeholder": "Earth",
+  "item.gtceu.moon_placeholder": "Moon",
+  "item.gtceu.mars_placeholder": "Mars",
+  "item.gtceu.venus_placeholder": "Venus",
+
+  "item.gtceu.lamp_casting_mold": "Casting Mold (Lamp)",
+  "item.gtceu.trapdoor_casting_mold": "Casting Mold (Trapdoor)",
+  "item.gtceu.chain_casting_mold": "Casting Mold (Chain)",
+  "item.gtceu.bell_casting_mold": "Casting Mold (Bell)",
 
   "material.gtceu.latex": "Latex (Raw Rubber)",
   "material.gtceu.fluix": "Fluix",
