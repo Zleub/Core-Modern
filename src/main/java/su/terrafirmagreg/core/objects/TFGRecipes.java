@@ -376,25 +376,25 @@ public final class TFGRecipes {
         ingot.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processIngot(tagPrefix, material, property, provider));
         ingotDouble.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processDoubleIngot(tagPrefix, material, property, provider));
         plate.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processPlate(tagPrefix, material, property, provider));
-        plateDouble.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processDoublePlate(tagPrefix, material, property, provider));
-        rod.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processRod(tagPrefix, material, property, provider));
-        rodLong.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processLongRod(tagPrefix, material, property, provider));
-        bolt.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processBolt(tagPrefix, material, property, provider));
-        screw.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processScrew(tagPrefix, material, property, provider));
-        ring.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processRing(tagPrefix, material, property, provider));
-        block.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processBlock(tagPrefix, material, property, provider));
-        nugget.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processNugget(tagPrefix, material, property, provider));
-        dustTiny.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processTinyDust(tagPrefix, material, property, provider));
-        dustSmall.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processSmallDust(tagPrefix, material, property, provider));
-        dust.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processDust(tagPrefix, material, property, provider));
-        dustImpure.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processImpureDust(tagPrefix, material, property, provider));
-        dustPure.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processPureDust(tagPrefix, material, property, provider));
-        poorRawOre.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processPoorRawOre(tagPrefix, material, property, provider));
-        rawOre.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processRawOre(tagPrefix, material, property, provider));
-        richRawOre.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processRichRawOre(tagPrefix, material, property, provider));
-        crushed.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processCrushedOre(tagPrefix, material, property, provider));
-        crushedPurified.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processCrushedPurifiedOre(tagPrefix, material, property, provider));
-        crushedRefined.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processCrushedRefinedOre(tagPrefix, material, property, provider));
+//        plateDouble.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processDoublePlate(tagPrefix, material, property, provider));
+//        rod.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processRod(tagPrefix, material, property, provider));
+//        rodLong.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processLongRod(tagPrefix, material, property, provider));
+//        bolt.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processBolt(tagPrefix, material, property, provider));
+//        screw.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processScrew(tagPrefix, material, property, provider));
+//        ring.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processRing(tagPrefix, material, property, provider));
+//        block.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processBlock(tagPrefix, material, property, provider));
+//        nugget.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processNugget(tagPrefix, material, property, provider));
+//        dustTiny.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processTinyDust(tagPrefix, material, property, provider));
+//        dustSmall.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processSmallDust(tagPrefix, material, property, provider));
+//        dust.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processDust(tagPrefix, material, property, provider));
+//        dustImpure.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processImpureDust(tagPrefix, material, property, provider));
+//        dustPure.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processPureDust(tagPrefix, material, property, provider));
+//        poorRawOre.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processPoorRawOre(tagPrefix, material, property, provider));
+//        rawOre.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processRawOre(tagPrefix, material, property, provider));
+//        richRawOre.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processRichRawOre(tagPrefix, material, property, provider));
+//        crushed.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processCrushedOre(tagPrefix, material, property, provider));
+//        crushedPurified.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processCrushedPurifiedOre(tagPrefix, material, property, provider));
+//        crushedRefined.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processCrushedRefinedOre(tagPrefix, material, property, provider));
 
         oreSmall.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> proccessSmallOre(tagPrefix, material, property, provider));
         oreSmallNative.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> proccessSmallNativeOre(tagPrefix, material, property, provider));
@@ -458,106 +458,106 @@ public final class TFGRecipes {
         }
     }
 
-    private static void processDoublePlate(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-        // var doublePlateStack = ChemicalHelper.get(prefix, material);
-        // var plateStack = ChemicalHelper.get(plate, material);
-        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-    }
-
-    private static void processRod(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-        // var ingotStack = ChemicalHelper.get(ingot, material);
-        // var rodStack = ChemicalHelper.get(prefix, material);
-        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-    }
-
-    private static void processLongRod(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-        // var rodStack = ChemicalHelper.get(rod, material);
-        // var longRodStack = ChemicalHelper.get(prefix, material);
-        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-    }
-
-    private static void processBolt(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-        // var boltStack = ChemicalHelper.get(prefix, material);
-        // var ingotStack = ChemicalHelper.get(ingot, material);
-        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-    }
-
-    private static void processScrew(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-        // var screwStack = ChemicalHelper.get(prefix, material);
-        // var ingotStack = ChemicalHelper.get(ingot, material);
-        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-    }
-
-    private static void processRing(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-        // var ringStack = ChemicalHelper.get(prefix, material);
-        // var ingotStack = ChemicalHelper.get(ingot, material);
-        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-    }
-
-    private static void processBlock(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-        // var blockStack = ChemicalHelper.get(prefix, material);
-        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-    }
-
-    private static void processTinyDust(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-        // var tinyDust = ChemicalHelper.get(prefix, material);
-        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-    }
-
-    private static void processSmallDust(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-        // var smallDust = ChemicalHelper.get(prefix, material);
-        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-    }
-
-    private static void processDust(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-        // var dust = ChemicalHelper.get(prefix, material);
-        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-    }
-
-    private static void processImpureDust(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-        // var impureDust = ChemicalHelper.get(prefix, material);
-        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-    }
-
-    private static void processPureDust(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-        // var pureDust = ChemicalHelper.get(prefix, material);
-        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-    }
-
-    private static void processPoorRawOre(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-        // var poorRawOre = ChemicalHelper.get(prefix, material);
-        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-    }
-
-    private static void processRawOre(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-        // var rawOre = ChemicalHelper.get(prefix, material);
-        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-    }
-
-    private static void processRichRawOre(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-        // var richRawOre = ChemicalHelper.get(prefix, material);
-        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-    }
-
-    private static void processCrushedOre(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-        // var crushedOre = ChemicalHelper.get(prefix, material);
-        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-    }
-
-    private static void processCrushedPurifiedOre(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-        // var crushedPurifiedOre = ChemicalHelper.get(prefix, material);
-        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-    }
-
-    private static void processCrushedRefinedOre(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-        // var crushedRefinedOre = ChemicalHelper.get(prefix, material);
-        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-    }
-
-    private static void processNugget(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-        // var nuggets = ChemicalHelper.get(prefix, material);
-        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-    }
+//    private static void processDoublePlate(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
+//        // var doublePlateStack = ChemicalHelper.get(prefix, material);
+//        // var plateStack = ChemicalHelper.get(plate, material);
+//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
+//    }
+//
+//    private static void processRod(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
+//        // var ingotStack = ChemicalHelper.get(ingot, material);
+//        // var rodStack = ChemicalHelper.get(prefix, material);
+//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
+//    }
+//
+//    private static void processLongRod(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
+//        // var rodStack = ChemicalHelper.get(rod, material);
+//        // var longRodStack = ChemicalHelper.get(prefix, material);
+//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
+//    }
+//
+//    private static void processBolt(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
+//        // var boltStack = ChemicalHelper.get(prefix, material);
+//        // var ingotStack = ChemicalHelper.get(ingot, material);
+//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
+//    }
+//
+//    private static void processScrew(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
+//        // var screwStack = ChemicalHelper.get(prefix, material);
+//        // var ingotStack = ChemicalHelper.get(ingot, material);
+//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
+//    }
+//
+//    private static void processRing(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
+//        // var ringStack = ChemicalHelper.get(prefix, material);
+//        // var ingotStack = ChemicalHelper.get(ingot, material);
+//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
+//    }
+//
+//    private static void processBlock(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
+//        // var blockStack = ChemicalHelper.get(prefix, material);
+//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
+//    }
+//
+//    private static void processTinyDust(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
+//        // var tinyDust = ChemicalHelper.get(prefix, material);
+//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
+//    }
+//
+//    private static void processSmallDust(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
+//        // var smallDust = ChemicalHelper.get(prefix, material);
+//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
+//    }
+//
+//    private static void processDust(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
+//        // var dust = ChemicalHelper.get(prefix, material);
+//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
+//    }
+//
+//    private static void processImpureDust(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
+//        // var impureDust = ChemicalHelper.get(prefix, material);
+//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
+//    }
+//
+//    private static void processPureDust(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
+//        // var pureDust = ChemicalHelper.get(prefix, material);
+//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
+//    }
+//
+//    private static void processPoorRawOre(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
+//        // var poorRawOre = ChemicalHelper.get(prefix, material);
+//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
+//    }
+//
+//    private static void processRawOre(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
+//        // var rawOre = ChemicalHelper.get(prefix, material);
+//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
+//    }
+//
+//    private static void processRichRawOre(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
+//        // var richRawOre = ChemicalHelper.get(prefix, material);
+//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
+//    }
+//
+//    private static void processCrushedOre(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
+//        // var crushedOre = ChemicalHelper.get(prefix, material);
+//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
+//    }
+//
+//    private static void processCrushedPurifiedOre(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
+//        // var crushedPurifiedOre = ChemicalHelper.get(prefix, material);
+//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
+//    }
+//
+//    private static void processCrushedRefinedOre(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
+//        // var crushedRefinedOre = ChemicalHelper.get(prefix, material);
+//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
+//    }
+//
+//    private static void processNugget(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
+//        // var nuggets = ChemicalHelper.get(prefix, material);
+//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
+//    }
 
     private static void proccessSmallOre(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
         var smallOre = ChemicalHelper.get(prefix, material);
