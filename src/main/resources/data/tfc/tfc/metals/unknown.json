@@ -1,9 +1,0 @@
-{
-    "tier": 0,
-    "fluid": "gtceu:unknown",
-    "melt_temperature": 400,
-    "specific_heat_capacity": 0.006,
-    "ingots": {
-        "tag": "forge:ingots/unknown"
-    }
-}
