@@ -10,9 +10,12 @@ import com.gregtechceu.gtceu.api.data.chemical.material.properties.OreProperty;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.ToolProperty;
 import com.gregtechceu.gtceu.api.item.tool.GTToolType;
+import net.dries007.tfc.common.blocks.TFCBlocks;
+import net.dries007.tfc.common.blocks.rock.Ore;
 import net.dries007.tfc.common.blocks.rock.Rock;
 import net.dries007.tfc.common.items.TFCItems;
 import net.dries007.tfc.util.Metal;
+import net.minecraft.world.level.block.Blocks;
 import su.terrafirmagreg.core.compat.gtceu.properties.TFCProperty;
 
 import java.util.Arrays;
@@ -23,6 +26,7 @@ import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIcon
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static su.terrafirmagreg.core.compat.gtceu.TFGMaterialFlags.*;
+import static su.terrafirmagreg.core.compat.gtceu.TFGTagPrefix.*;
 
 public final class TFGMaterials {
 
@@ -60,7 +64,6 @@ public final class TFGMaterials {
     public static void init() {
 
         /* Specific Materials */
-
         Latex = new Material.Builder(GTCEu.id("latex"))
                 .fluid()
                 .color(0xFBB982)
@@ -76,7 +79,6 @@ public final class TFGMaterials {
                 .buildAndRegister();
 
         /* TFC Stone Types Materials */
-
         Gabbro = registerOreMaterial(Rock.GABBRO, 0x7F8081);
         Shale = registerOreMaterial(Rock.SHALE, 0x686567);
         Claystone = registerOreMaterial(Rock.CLAYSTONE, 0xAF9377);
@@ -224,45 +226,118 @@ public final class TFGMaterials {
         ingot.setIgnored(WeakRedSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.WEAK_RED_STEEL).get(Metal.ItemType.INGOT).get());
         ingot.setIgnored(Unknown, () -> TFCItems.METAL_ITEMS.get(Metal.Default.UNKNOWN).get(Metal.ItemType.INGOT).get());
 
-        TFGTagPrefix.toolHeadPropick.setIgnored(Copper, () -> TFCItems.METAL_ITEMS.get(Metal.Default.COPPER).get(Metal.ItemType.PROPICK_HEAD).get());
-        TFGTagPrefix.toolHeadPropick.setIgnored(BismuthBronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BISMUTH_BRONZE).get(Metal.ItemType.PROPICK_HEAD).get());
-        TFGTagPrefix.toolHeadPropick.setIgnored(Bronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BRONZE).get(Metal.ItemType.PROPICK_HEAD).get());
-        TFGTagPrefix.toolHeadPropick.setIgnored(BlackBronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLACK_BRONZE).get(Metal.ItemType.PROPICK_HEAD).get());
-        TFGTagPrefix.toolHeadPropick.setIgnored(WroughtIron, () -> TFCItems.METAL_ITEMS.get(Metal.Default.WROUGHT_IRON).get(Metal.ItemType.PROPICK_HEAD).get());
-        TFGTagPrefix.toolHeadPropick.setIgnored(Steel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.STEEL).get(Metal.ItemType.PROPICK_HEAD).get());
-        TFGTagPrefix.toolHeadPropick.setIgnored(BlackSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLACK_STEEL).get(Metal.ItemType.PROPICK_HEAD).get());
-        TFGTagPrefix.toolHeadPropick.setIgnored(RedSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.RED_STEEL).get(Metal.ItemType.PROPICK_HEAD).get());
-        TFGTagPrefix.toolHeadPropick.setIgnored(BlueSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLUE_STEEL).get(Metal.ItemType.PROPICK_HEAD).get());
+        toolHeadPropick.setIgnored(Copper, () -> TFCItems.METAL_ITEMS.get(Metal.Default.COPPER).get(Metal.ItemType.PROPICK_HEAD).get());
+        toolHeadPropick.setIgnored(BismuthBronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BISMUTH_BRONZE).get(Metal.ItemType.PROPICK_HEAD).get());
+        toolHeadPropick.setIgnored(Bronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BRONZE).get(Metal.ItemType.PROPICK_HEAD).get());
+        toolHeadPropick.setIgnored(BlackBronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLACK_BRONZE).get(Metal.ItemType.PROPICK_HEAD).get());
+        toolHeadPropick.setIgnored(WroughtIron, () -> TFCItems.METAL_ITEMS.get(Metal.Default.WROUGHT_IRON).get(Metal.ItemType.PROPICK_HEAD).get());
+        toolHeadPropick.setIgnored(Steel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.STEEL).get(Metal.ItemType.PROPICK_HEAD).get());
+        toolHeadPropick.setIgnored(BlackSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLACK_STEEL).get(Metal.ItemType.PROPICK_HEAD).get());
+        toolHeadPropick.setIgnored(RedSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.RED_STEEL).get(Metal.ItemType.PROPICK_HEAD).get());
+        toolHeadPropick.setIgnored(BlueSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLUE_STEEL).get(Metal.ItemType.PROPICK_HEAD).get());
 
-        TFGTagPrefix.toolHeadJavelin.setIgnored(Copper, () -> TFCItems.METAL_ITEMS.get(Metal.Default.COPPER).get(Metal.ItemType.JAVELIN_HEAD).get());
-        TFGTagPrefix.toolHeadJavelin.setIgnored(BismuthBronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BISMUTH_BRONZE).get(Metal.ItemType.JAVELIN_HEAD).get());
-        TFGTagPrefix.toolHeadJavelin.setIgnored(Bronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BRONZE).get(Metal.ItemType.JAVELIN_HEAD).get());
-        TFGTagPrefix.toolHeadJavelin.setIgnored(BlackBronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLACK_BRONZE).get(Metal.ItemType.JAVELIN_HEAD).get());
-        TFGTagPrefix.toolHeadJavelin.setIgnored(WroughtIron, () -> TFCItems.METAL_ITEMS.get(Metal.Default.WROUGHT_IRON).get(Metal.ItemType.JAVELIN_HEAD).get());
-        TFGTagPrefix.toolHeadJavelin.setIgnored(Steel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.STEEL).get(Metal.ItemType.JAVELIN_HEAD).get());
-        TFGTagPrefix.toolHeadJavelin.setIgnored(BlackSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLACK_STEEL).get(Metal.ItemType.JAVELIN_HEAD).get());
-        TFGTagPrefix.toolHeadJavelin.setIgnored(RedSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.RED_STEEL).get(Metal.ItemType.JAVELIN_HEAD).get());
-        TFGTagPrefix.toolHeadJavelin.setIgnored(BlueSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLUE_STEEL).get(Metal.ItemType.JAVELIN_HEAD).get());
+        toolHeadJavelin.setIgnored(Copper, () -> TFCItems.METAL_ITEMS.get(Metal.Default.COPPER).get(Metal.ItemType.JAVELIN_HEAD).get());
+        toolHeadJavelin.setIgnored(BismuthBronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BISMUTH_BRONZE).get(Metal.ItemType.JAVELIN_HEAD).get());
+        toolHeadJavelin.setIgnored(Bronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BRONZE).get(Metal.ItemType.JAVELIN_HEAD).get());
+        toolHeadJavelin.setIgnored(BlackBronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLACK_BRONZE).get(Metal.ItemType.JAVELIN_HEAD).get());
+        toolHeadJavelin.setIgnored(WroughtIron, () -> TFCItems.METAL_ITEMS.get(Metal.Default.WROUGHT_IRON).get(Metal.ItemType.JAVELIN_HEAD).get());
+        toolHeadJavelin.setIgnored(Steel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.STEEL).get(Metal.ItemType.JAVELIN_HEAD).get());
+        toolHeadJavelin.setIgnored(BlackSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLACK_STEEL).get(Metal.ItemType.JAVELIN_HEAD).get());
+        toolHeadJavelin.setIgnored(RedSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.RED_STEEL).get(Metal.ItemType.JAVELIN_HEAD).get());
+        toolHeadJavelin.setIgnored(BlueSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLUE_STEEL).get(Metal.ItemType.JAVELIN_HEAD).get());
 
-        TFGTagPrefix.toolHeadChisel.setIgnored(Copper, () -> TFCItems.METAL_ITEMS.get(Metal.Default.COPPER).get(Metal.ItemType.CHISEL_HEAD).get());
-        TFGTagPrefix.toolHeadChisel.setIgnored(BismuthBronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BISMUTH_BRONZE).get(Metal.ItemType.CHISEL_HEAD).get());
-        TFGTagPrefix.toolHeadChisel.setIgnored(Bronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BRONZE).get(Metal.ItemType.CHISEL_HEAD).get());
-        TFGTagPrefix.toolHeadChisel.setIgnored(BlackBronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLACK_BRONZE).get(Metal.ItemType.CHISEL_HEAD).get());
-        TFGTagPrefix.toolHeadChisel.setIgnored(WroughtIron, () -> TFCItems.METAL_ITEMS.get(Metal.Default.WROUGHT_IRON).get(Metal.ItemType.CHISEL_HEAD).get());
-        TFGTagPrefix.toolHeadChisel.setIgnored(Steel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.STEEL).get(Metal.ItemType.CHISEL_HEAD).get());
-        TFGTagPrefix.toolHeadChisel.setIgnored(BlackSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLACK_STEEL).get(Metal.ItemType.CHISEL_HEAD).get());
-        TFGTagPrefix.toolHeadChisel.setIgnored(RedSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.RED_STEEL).get(Metal.ItemType.CHISEL_HEAD).get());
-        TFGTagPrefix.toolHeadChisel.setIgnored(BlueSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLUE_STEEL).get(Metal.ItemType.CHISEL_HEAD).get());
+        toolHeadChisel.setIgnored(Copper, () -> TFCItems.METAL_ITEMS.get(Metal.Default.COPPER).get(Metal.ItemType.CHISEL_HEAD).get());
+        toolHeadChisel.setIgnored(BismuthBronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BISMUTH_BRONZE).get(Metal.ItemType.CHISEL_HEAD).get());
+        toolHeadChisel.setIgnored(Bronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BRONZE).get(Metal.ItemType.CHISEL_HEAD).get());
+        toolHeadChisel.setIgnored(BlackBronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLACK_BRONZE).get(Metal.ItemType.CHISEL_HEAD).get());
+        toolHeadChisel.setIgnored(WroughtIron, () -> TFCItems.METAL_ITEMS.get(Metal.Default.WROUGHT_IRON).get(Metal.ItemType.CHISEL_HEAD).get());
+        toolHeadChisel.setIgnored(Steel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.STEEL).get(Metal.ItemType.CHISEL_HEAD).get());
+        toolHeadChisel.setIgnored(BlackSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLACK_STEEL).get(Metal.ItemType.CHISEL_HEAD).get());
+        toolHeadChisel.setIgnored(RedSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.RED_STEEL).get(Metal.ItemType.CHISEL_HEAD).get());
+        toolHeadChisel.setIgnored(BlueSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLUE_STEEL).get(Metal.ItemType.CHISEL_HEAD).get());
 
-        TFGTagPrefix.toolHeadMace.setIgnored(Copper, () -> TFCItems.METAL_ITEMS.get(Metal.Default.COPPER).get(Metal.ItemType.MACE_HEAD).get());
-        TFGTagPrefix.toolHeadMace.setIgnored(BismuthBronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BISMUTH_BRONZE).get(Metal.ItemType.MACE_HEAD).get());
-        TFGTagPrefix.toolHeadMace.setIgnored(Bronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BRONZE).get(Metal.ItemType.MACE_HEAD).get());
-        TFGTagPrefix.toolHeadMace.setIgnored(BlackBronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLACK_BRONZE).get(Metal.ItemType.MACE_HEAD).get());
-        TFGTagPrefix.toolHeadMace.setIgnored(WroughtIron, () -> TFCItems.METAL_ITEMS.get(Metal.Default.WROUGHT_IRON).get(Metal.ItemType.MACE_HEAD).get());
-        TFGTagPrefix.toolHeadMace.setIgnored(Steel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.STEEL).get(Metal.ItemType.MACE_HEAD).get());
-        TFGTagPrefix.toolHeadMace.setIgnored(BlackSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLACK_STEEL).get(Metal.ItemType.MACE_HEAD).get());
-        TFGTagPrefix.toolHeadMace.setIgnored(RedSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.RED_STEEL).get(Metal.ItemType.MACE_HEAD).get());
-        TFGTagPrefix.toolHeadMace.setIgnored(BlueSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLUE_STEEL).get(Metal.ItemType.MACE_HEAD).get());
+        toolHeadMace.setIgnored(Copper, () -> TFCItems.METAL_ITEMS.get(Metal.Default.COPPER).get(Metal.ItemType.MACE_HEAD).get());
+        toolHeadMace.setIgnored(BismuthBronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BISMUTH_BRONZE).get(Metal.ItemType.MACE_HEAD).get());
+        toolHeadMace.setIgnored(Bronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BRONZE).get(Metal.ItemType.MACE_HEAD).get());
+        toolHeadMace.setIgnored(BlackBronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLACK_BRONZE).get(Metal.ItemType.MACE_HEAD).get());
+        toolHeadMace.setIgnored(WroughtIron, () -> TFCItems.METAL_ITEMS.get(Metal.Default.WROUGHT_IRON).get(Metal.ItemType.MACE_HEAD).get());
+        toolHeadMace.setIgnored(Steel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.STEEL).get(Metal.ItemType.MACE_HEAD).get());
+        toolHeadMace.setIgnored(BlackSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLACK_STEEL).get(Metal.ItemType.MACE_HEAD).get());
+        toolHeadMace.setIgnored(RedSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.RED_STEEL).get(Metal.ItemType.MACE_HEAD).get());
+        toolHeadMace.setIgnored(BlueSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLUE_STEEL).get(Metal.ItemType.MACE_HEAD).get());
+
+        anvil.setIgnored(Copper, () -> TFCBlocks.METALS.get(Metal.Default.COPPER).get(Metal.BlockType.ANVIL).get());
+        anvil.setIgnored(BismuthBronze, () -> TFCBlocks.METALS.get(Metal.Default.BISMUTH_BRONZE).get(Metal.BlockType.ANVIL).get());
+        anvil.setIgnored(Bronze, () -> TFCBlocks.METALS.get(Metal.Default.BRONZE).get(Metal.BlockType.ANVIL).get());
+        anvil.setIgnored(BlackBronze, () -> TFCBlocks.METALS.get(Metal.Default.BLACK_BRONZE).get(Metal.BlockType.ANVIL).get());
+        anvil.setIgnored(WroughtIron, () -> TFCBlocks.METALS.get(Metal.Default.WROUGHT_IRON).get(Metal.BlockType.ANVIL).get());
+        anvil.setIgnored(Steel, () -> TFCBlocks.METALS.get(Metal.Default.STEEL).get(Metal.BlockType.ANVIL).get());
+        anvil.setIgnored(BlackSteel, () -> TFCBlocks.METALS.get(Metal.Default.BLACK_STEEL).get(Metal.BlockType.ANVIL).get());
+        anvil.setIgnored(RedSteel, () -> TFCBlocks.METALS.get(Metal.Default.RED_STEEL).get(Metal.BlockType.ANVIL).get());
+        anvil.setIgnored(BlueSteel, () -> TFCBlocks.METALS.get(Metal.Default.BLUE_STEEL).get(Metal.BlockType.ANVIL).get());
+
+        lamp.setIgnored(Copper, () -> TFCBlocks.METALS.get(Metal.Default.COPPER).get(Metal.BlockType.LAMP).get());
+        lamp.setIgnored(BismuthBronze, () -> TFCBlocks.METALS.get(Metal.Default.BISMUTH_BRONZE).get(Metal.BlockType.LAMP).get());
+        lamp.setIgnored(Bronze, () -> TFCBlocks.METALS.get(Metal.Default.BRONZE).get(Metal.BlockType.LAMP).get());
+        lamp.setIgnored(BlackBronze, () -> TFCBlocks.METALS.get(Metal.Default.BLACK_BRONZE).get(Metal.BlockType.LAMP).get());
+        lamp.setIgnored(WroughtIron, () -> TFCBlocks.METALS.get(Metal.Default.WROUGHT_IRON).get(Metal.BlockType.LAMP).get());
+        lamp.setIgnored(Steel, () -> TFCBlocks.METALS.get(Metal.Default.STEEL).get(Metal.BlockType.LAMP).get());
+        lamp.setIgnored(BlackSteel, () -> TFCBlocks.METALS.get(Metal.Default.BLACK_STEEL).get(Metal.BlockType.LAMP).get());
+        lamp.setIgnored(RedSteel, () -> TFCBlocks.METALS.get(Metal.Default.RED_STEEL).get(Metal.BlockType.LAMP).get());
+        lamp.setIgnored(BlueSteel, () -> TFCBlocks.METALS.get(Metal.Default.BLUE_STEEL).get(Metal.BlockType.LAMP).get());
+
+        lampUnfinished.setIgnored(Copper, () -> TFCItems.METAL_ITEMS.get(Metal.Default.COPPER).get(Metal.ItemType.UNFINISHED_LAMP).get());
+        lampUnfinished.setIgnored(BismuthBronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BISMUTH_BRONZE).get(Metal.ItemType.UNFINISHED_LAMP).get());
+        lampUnfinished.setIgnored(Bronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BRONZE).get(Metal.ItemType.UNFINISHED_LAMP).get());
+        lampUnfinished.setIgnored(BlackBronze, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLACK_BRONZE).get(Metal.ItemType.UNFINISHED_LAMP).get());
+        lampUnfinished.setIgnored(WroughtIron, () -> TFCItems.METAL_ITEMS.get(Metal.Default.WROUGHT_IRON).get(Metal.ItemType.UNFINISHED_LAMP).get());
+        lampUnfinished.setIgnored(Steel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.STEEL).get(Metal.ItemType.UNFINISHED_LAMP).get());
+        lampUnfinished.setIgnored(BlackSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLACK_STEEL).get(Metal.ItemType.UNFINISHED_LAMP).get());
+        lampUnfinished.setIgnored(RedSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.RED_STEEL).get(Metal.ItemType.UNFINISHED_LAMP).get());
+        lampUnfinished.setIgnored(BlueSteel, () -> TFCItems.METAL_ITEMS.get(Metal.Default.BLUE_STEEL).get(Metal.ItemType.UNFINISHED_LAMP).get());
+
+        trapdoor.setIgnored(Copper, () -> TFCBlocks.METALS.get(Metal.Default.COPPER).get(Metal.BlockType.TRAPDOOR).get());
+        trapdoor.setIgnored(BismuthBronze, () -> TFCBlocks.METALS.get(Metal.Default.BISMUTH_BRONZE).get(Metal.BlockType.TRAPDOOR).get());
+        trapdoor.setIgnored(Bronze, () -> TFCBlocks.METALS.get(Metal.Default.BRONZE).get(Metal.BlockType.TRAPDOOR).get());
+        trapdoor.setIgnored(BlackBronze, () -> TFCBlocks.METALS.get(Metal.Default.BLACK_BRONZE).get(Metal.BlockType.TRAPDOOR).get());
+        trapdoor.setIgnored(WroughtIron, () -> TFCBlocks.METALS.get(Metal.Default.WROUGHT_IRON).get(Metal.BlockType.TRAPDOOR).get());
+        trapdoor.setIgnored(Steel, () -> TFCBlocks.METALS.get(Metal.Default.STEEL).get(Metal.BlockType.TRAPDOOR).get());
+        trapdoor.setIgnored(BlackSteel, () -> TFCBlocks.METALS.get(Metal.Default.BLACK_STEEL).get(Metal.BlockType.TRAPDOOR).get());
+        trapdoor.setIgnored(RedSteel, () -> TFCBlocks.METALS.get(Metal.Default.RED_STEEL).get(Metal.BlockType.TRAPDOOR).get());
+        trapdoor.setIgnored(BlueSteel, () -> TFCBlocks.METALS.get(Metal.Default.BLUE_STEEL).get(Metal.BlockType.TRAPDOOR).get());
+
+        chain.setIgnored(Copper, () -> TFCBlocks.METALS.get(Metal.Default.COPPER).get(Metal.BlockType.CHAIN).get());
+        chain.setIgnored(BismuthBronze, () -> TFCBlocks.METALS.get(Metal.Default.BISMUTH_BRONZE).get(Metal.BlockType.CHAIN).get());
+        chain.setIgnored(Bronze, () -> TFCBlocks.METALS.get(Metal.Default.BRONZE).get(Metal.BlockType.CHAIN).get());
+        chain.setIgnored(BlackBronze, () -> TFCBlocks.METALS.get(Metal.Default.BLACK_BRONZE).get(Metal.BlockType.CHAIN).get());
+        chain.setIgnored(WroughtIron, () -> TFCBlocks.METALS.get(Metal.Default.WROUGHT_IRON).get(Metal.BlockType.CHAIN).get());
+        chain.setIgnored(Steel, () -> TFCBlocks.METALS.get(Metal.Default.STEEL).get(Metal.BlockType.CHAIN).get());
+        chain.setIgnored(BlackSteel, () -> TFCBlocks.METALS.get(Metal.Default.BLACK_STEEL).get(Metal.BlockType.CHAIN).get());
+        chain.setIgnored(RedSteel, () -> TFCBlocks.METALS.get(Metal.Default.RED_STEEL).get(Metal.BlockType.CHAIN).get());
+        chain.setIgnored(BlueSteel, () -> TFCBlocks.METALS.get(Metal.Default.BLUE_STEEL).get(Metal.BlockType.CHAIN).get());
+
+        oreSmall.setIgnored(Bismuthinite, () -> TFCBlocks.SMALL_ORES.get(Ore.BISMUTHINITE).get());
+        oreSmall.setIgnored(Cassiterite, () -> TFCBlocks.SMALL_ORES.get(Ore.CASSITERITE).get());
+        oreSmall.setIgnored(Garnierite, () -> TFCBlocks.SMALL_ORES.get(Ore.GARNIERITE).get());
+        oreSmall.setIgnored(Hematite, () -> TFCBlocks.SMALL_ORES.get(Ore.HEMATITE).get());
+        oreSmall.setIgnored(Limonite, () -> TFCBlocks.SMALL_ORES.get(Ore.LIMONITE).get());
+        oreSmall.setIgnored(Magnetite, () -> TFCBlocks.SMALL_ORES.get(Ore.MAGNETITE).get());
+        oreSmall.setIgnored(Malachite, () -> TFCBlocks.SMALL_ORES.get(Ore.MALACHITE).get());
+        oreSmall.setIgnored(Sphalerite, () -> TFCBlocks.SMALL_ORES.get(Ore.SPHALERITE).get());
+        oreSmall.setIgnored(Tetrahedrite, () -> TFCBlocks.SMALL_ORES.get(Ore.TETRAHEDRITE).get());
+
+        oreSmallNative.setIgnored(Copper, () -> TFCBlocks.SMALL_ORES.get(Ore.NATIVE_COPPER).get());
+        oreSmallNative.setIgnored(Gold, () -> TFCBlocks.SMALL_ORES.get(Ore.NATIVE_GOLD).get());
+        oreSmallNative.setIgnored(Silver, () -> TFCBlocks.SMALL_ORES.get(Ore.NATIVE_SILVER).get());
+
+        bell.setIgnored(Gold, () -> Blocks.BELL);
+        bell.setIgnored(Brass, () -> TFCBlocks.BRASS_BELL.get());
+        bell.setIgnored(Bronze, () -> TFCBlocks.BRONZE_BELL.get());
+
+        /* Имеют колоколы */
+        Gold.addFlags(GENERATE_BELL);
+        Brass.addFlags(GENERATE_BELL);
+        Bronze.addFlags(GENERATE_BELL);
 
         /* Имеют двойные слитки */
         Gold.addFlags(GENERATE_DOUBLE_INGOTS);
@@ -346,6 +421,7 @@ public final class TFGMaterials {
             toolProperty.setDurability(toolProperty.getDurability() * 6);
         }
 
+        /* AE 2 */
         block.setIgnored(Fluix, () -> AEBlocks.FLUIX_BLOCK);
         dust.setIgnored(Fluix, () -> AEItems.FLUIX_DUST);
         gem.setIgnored(Fluix, () -> AEItems.FLUIX_CRYSTAL);
@@ -366,6 +442,4 @@ public final class TFGMaterials {
                 .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)
                 .buildAndRegister();
     }
-
-
 }

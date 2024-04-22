@@ -69,6 +69,15 @@ public final class TFGTagPrefix {
     public static final TagPrefix poorRawOre;
     public static final TagPrefix richRawOre;
 
+    public static final TagPrefix oreSmall;
+    public static final TagPrefix oreSmallNative;
+
+    public static final TagPrefix anvil;
+    public static final TagPrefix lamp;
+    public static final TagPrefix lampUnfinished;
+    public static final TagPrefix trapdoor;
+    public static final TagPrefix chain;
+    public static final TagPrefix bell;
 
     static {
         // Делаем все в статическом конструкторе
@@ -115,7 +124,6 @@ public final class TFGTagPrefix {
         oreChalk = registerOreTagPrefix(Rock.CHALK);
 
         /* Tool Heads */
-
         toolHeadSword = new TagPrefix("swordHead")
                 .itemTable(() -> GTItems.MATERIAL_ITEMS)
                 .defaultTagPath("sword_heads/%s")
@@ -304,7 +312,6 @@ public final class TFGTagPrefix {
                 .generationCondition(mat -> mat.hasFlag(TFGMaterialFlags.HAS_TFC_TOOL));
 
         /* Other */
-
         ingotDouble = new TagPrefix("doubleIngot")
                 .defaultTagPath("double_ingots/%s")
                 .unformattedTagPath("double_ingots")
@@ -314,7 +321,6 @@ public final class TFGTagPrefix {
                 .generateItem(true)
                 .generationCondition(mat -> mat.hasFlag(TFGMaterialFlags.GENERATE_DOUBLE_INGOTS));
 
-        /* Other */
         poorRawOre = new TagPrefix("poor_raw", true)
                 .idPattern("poor_raw_%s")
                 .defaultTagPath("poor_raw_materials/%s")
@@ -332,6 +338,54 @@ public final class TFGTagPrefix {
                 .unificationEnabled(true)
                 .generateItem(true)
                 .generationCondition(hasOreProperty);
+
+        oreSmall = new TagPrefix("smallOre")
+                .materialAmount(GTValues.M / 4)
+                .unificationEnabled(true)
+                .generateItem(true)
+                .generationCondition(mat -> mat.hasFlag(TFGMaterialFlags.HAS_SMALL_TFC_ORE));
+
+        oreSmallNative = new TagPrefix("smallNativeOre")
+                .materialAmount(GTValues.M / 4)
+                .unificationEnabled(true)
+                .generateItem(true)
+                .generationCondition(mat -> mat.hasFlag(TFGMaterialFlags.HAS_SMALL_NATIVE_TFC_ORE));
+
+        anvil = new TagPrefix("anvil")
+                .materialAmount(GTValues.M * 14)
+                .unificationEnabled(true)
+                .generateItem(true)
+                .generationCondition(mat -> mat.hasFlag(TFGMaterialFlags.HAS_TFC_UTILITY));
+
+        lamp = new TagPrefix("lamp")
+                .materialAmount(GTValues.M)
+                .unificationEnabled(true)
+                .generateItem(true)
+                .generationCondition(mat -> mat.hasFlag(TFGMaterialFlags.HAS_TFC_UTILITY));
+
+        lampUnfinished = new TagPrefix("unfinishedLamp")
+                .materialAmount(GTValues.M)
+                .unificationEnabled(true)
+                .generateItem(true)
+                .generationCondition(mat -> mat.hasFlag(TFGMaterialFlags.HAS_TFC_UTILITY));
+
+        trapdoor = new TagPrefix("trapdoor")
+                .materialAmount(GTValues.M)
+                .unificationEnabled(true)
+                .generateItem(true)
+                .generationCondition(mat -> mat.hasFlag(TFGMaterialFlags.HAS_TFC_UTILITY));
+
+        chain = new TagPrefix("chain")
+                .materialAmount(GTValues.M)
+                .unificationEnabled(true)
+                .generateItem(true)
+                .generationCondition(mat -> mat.hasFlag(TFGMaterialFlags.HAS_TFC_UTILITY));
+
+        bell = new TagPrefix("bell")
+                .materialAmount(GTValues.M)
+                .unificationEnabled(true)
+                .generateItem(true)
+                .generationCondition(mat -> mat.hasFlag(TFGMaterialFlags.GENERATE_BELL));
 
         /* Tag Fixes */
         TagPrefix.plate.defaultTagPath("sheets/%s");

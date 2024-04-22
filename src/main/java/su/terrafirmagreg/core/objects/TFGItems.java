@@ -13,6 +13,7 @@ import static com.gregtechceu.gtceu.common.data.GTItems.materialInfo;
 public final class TFGItems {
 
     public static final ItemEntry<?>[] SHAPE_EXTRUDERS = new ItemEntry[17];
+    public static final ItemEntry<?>[] SHAPE_MOLDS = new ItemEntry[4];
 
     public static ItemEntry<Item> SHAPE_EXTRUDER_MINING_HAMMER_HEAD;
     public static ItemEntry<Item> SHAPE_EXTRUDER_SWORD_HEAD;
@@ -32,8 +33,20 @@ public final class TFGItems {
     public static ItemEntry<Item> SHAPE_EXTRUDER_CHISEL_HEAD;
     public static ItemEntry<Item> SHAPE_EXTRUDER_MACE_HEAD;
 
+    public static ItemEntry<Item> SHAPE_MOLD_UNFINISHED_LAMP;
+    public static ItemEntry<Item> SHAPE_MOLD_TRAPDOOR;
+    public static ItemEntry<Item> SHAPE_MOLD_CHAIN;
+    public static ItemEntry<Item> SHAPE_MOLD_BELL;
+
+    public static ItemEntry<Item> EarthPlaceholder;
+    public static ItemEntry<Item> MoonPlaceholder;
+    public static ItemEntry<Item> MarsPlaceholder;
+    public static ItemEntry<Item> VenusPlaceholder;
+
     public static void init() {
         registerExtruderMolds();
+        registerShapeModlds();
+        // registerPlanetItems();
     }
 
     private static void registerExtruderMolds() {
@@ -87,5 +100,26 @@ public final class TFGItems {
 
         SHAPE_EXTRUDERS[16] = SHAPE_EXTRUDER_MACE_HEAD = GTRegistration.REGISTRATE.item("mace_head_extruder_mold", Item::new)
                 .onRegister(materialInfo(new ItemMaterialInfo(new MaterialStack(GTMaterials.Steel, GTValues.M * 4)))).register();
+    }
+
+    private static void registerShapeModlds() {
+        SHAPE_MOLDS[0] = SHAPE_MOLD_UNFINISHED_LAMP = GTRegistration.REGISTRATE.item("lamp_casting_mold", Item::new)
+                .onRegister(materialInfo(new ItemMaterialInfo(new MaterialStack(GTMaterials.Steel, GTValues.M * 4)))).register();
+
+        SHAPE_MOLDS[1] = SHAPE_MOLD_TRAPDOOR = GTRegistration.REGISTRATE.item("trapdoor_casting_mold", Item::new)
+                .onRegister(materialInfo(new ItemMaterialInfo(new MaterialStack(GTMaterials.Steel, GTValues.M * 4)))).register();
+
+        SHAPE_MOLDS[2] = SHAPE_MOLD_CHAIN = GTRegistration.REGISTRATE.item("chain_casting_mold", Item::new)
+                .onRegister(materialInfo(new ItemMaterialInfo(new MaterialStack(GTMaterials.Steel, GTValues.M * 4)))).register();
+
+        SHAPE_MOLDS[3] = SHAPE_MOLD_BELL = GTRegistration.REGISTRATE.item("bell_casting_mold", Item::new)
+                .onRegister(materialInfo(new ItemMaterialInfo(new MaterialStack(GTMaterials.Steel, GTValues.M * 4)))).register();
+    }
+
+    private static void registerPlanetItems() {
+        EarthPlaceholder = GTRegistration.REGISTRATE.item("earth_placeholder", Item::new).register();
+        MoonPlaceholder = GTRegistration.REGISTRATE.item("moon_placeholder", Item::new).register();
+        MarsPlaceholder = GTRegistration.REGISTRATE.item("mars_placeholder", Item::new).register();
+        VenusPlaceholder = GTRegistration.REGISTRATE.item("venus_placeholder", Item::new).register();
     }
 }

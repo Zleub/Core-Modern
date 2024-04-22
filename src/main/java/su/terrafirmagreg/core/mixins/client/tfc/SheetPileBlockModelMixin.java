@@ -51,8 +51,6 @@ public abstract class SheetPileBlockModelMixin implements SimpleStaticBlockEntit
                 final int primaryColor = material == null ? 0 : material.material().getMaterialARGB(0);
                 final int secondaryColor = material == null ? 0 : material.material().getMaterialARGB(1);
 
-                System.out.println(primaryColor + " " + secondaryColor);
-
                 sprite = textureAtlas.apply(ClientEventHandler.TFCMetalBlockTexturePattern);
 
                 TFGHelpers.renderTexturedCuboid(poseStack, buffer, sprite, packedLight, packedOverlay, SheetPileBlock.getShapeForSingleFace(direction).bounds(), primaryColor, secondaryColor);
