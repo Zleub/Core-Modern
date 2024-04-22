@@ -792,7 +792,7 @@ public final class TFGRecipes {
         if (output.isEmpty()) return;
 
         if (material.hasProperty(PropertyKey.INGOT)) {
-            EXTRUDER_RECIPES.recipeBuilder(TerraFirmaGreg.id("extrude_" + material.getUnlocalizedName() + "_ingot_to_" + prefix.name + "_head"))
+            EXTRUDER_RECIPES.recipeBuilder(TerraFirmaGreg.id("extrude_" + material.getName() + "_ingot_to_" + prefix.name().toLowerCase() + "_head"))
                     .duration(12).EUt(32)
                     .notConsumable(extruderShape)
                     .inputItems(ingot, material, (int) (prefix.materialAmount() / GTValues.M))
@@ -800,7 +800,7 @@ public final class TFGRecipes {
                     .save(consumer);
         }
         else if (material.hasProperty(PropertyKey.GEM)) {
-            LASER_ENGRAVER_RECIPES.recipeBuilder(TerraFirmaGreg.id("engrave_" + material.getUnlocalizedName() + "_gem_to_" + prefix.name + "_head"))
+            LASER_ENGRAVER_RECIPES.recipeBuilder(TerraFirmaGreg.id("engrave_" + material.getName() + "_gem_to_" + prefix.name().toLowerCase()  + "_head"))
                     .duration(12).EUt(32)
                     .circuitMeta(circuitValue)
                     .notConsumable(ChemicalHelper.get(TagPrefix.lens, Glass))
