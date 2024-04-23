@@ -13,17 +13,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(value = GTRecipeTypes.class, remap = false)
 public abstract class GTRecipeTypesMixin {
 
-    @Shadow
-    @Final
-    public static GTRecipeType CUTTER_RECIPES;
-
-    @Shadow
-    @Final
-    public static GTRecipeType LASER_ENGRAVER_RECIPES;
-
-    @Shadow
-    @Final
-    public static GTRecipeType CHEMICAL_RECIPES;
+    @Shadow @Final public static GTRecipeType CUTTER_RECIPES;
+    @Shadow @Final public static GTRecipeType LASER_ENGRAVER_RECIPES;
+    @Shadow @Final public static GTRecipeType CHEMICAL_RECIPES;
 
     /**
      * Нужно для того, чтобы настроить доп. рецепты.
