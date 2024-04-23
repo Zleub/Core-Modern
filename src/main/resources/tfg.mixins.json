@@ -34,6 +34,7 @@
         "common.tfc.CrucibleBlockMixin",
         "common.tfc.IngotPileBlockEntityAccessor",
         "common.tfc.IngotPileBlockEntityEntryAccessor",
+        "common.tfc.IngotPileBlockMixin",
         "common.tfc.TFCChunkGeneratorMixin"
     ],
     "client": [

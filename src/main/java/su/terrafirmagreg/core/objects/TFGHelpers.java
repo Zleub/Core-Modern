@@ -1,5 +1,7 @@
 package su.terrafirmagreg.core.objects;
 
+import com.gregtechceu.gtceu.api.GTCEuAPI;
+import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.dries007.tfc.client.RenderHelpers;
@@ -7,11 +9,24 @@ import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.util.FastColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.AABB;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import su.terrafirmagreg.core.TerraFirmaGreg;
 import su.terrafirmagreg.core.mixins.common.tfc.IngotPileBlockEntityEntryAccessor;
 
 import java.util.List;
 
 public class TFGHelpers {
+
+    @Nullable
+    public static Material getMaterial(@NotNull String materialName) {
+        var material = GTCEuAPI.materialManager.getMaterial(materialName);
+        if (material == null) {
+            material = GTCEuAPI.materialManager.getMaterial(TerraFirmaGreg.MOD_ID + ":" + materialName);
+        }
+
+        return material;
+    }
 
     /**
      * Метод получает стак из списка стаков с доп проверками.
