@@ -25,6 +25,7 @@
         "common.gtceu.materials.FirstDegreeMixin",
         "common.gtceu.materials.MaterialPropertiesMixin",
         "common.gtceu.materials.SecondDegreeMixin",
+        "common.gtceu.recipes.MachineRecipeLoaderMixin",
         "common.gtceu.recipes.MaterialInfoLoaderMixin",
         "common.gtceu.recipes.MaterialRecipeHandlerMixin",
         "common.gtceu.recipes.MetaTileEntityLoaderMixin",
