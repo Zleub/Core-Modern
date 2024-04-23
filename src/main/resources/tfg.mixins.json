@@ -9,6 +9,7 @@
         "common.create.BasinBlockEntityMixin",
         "common.create.BasinCategoryMixin",
         "common.create.DepotBehaviorMixin",
+        "common.create.ProcessingRecipeMixin",
         "common.firmaciv.AngledWoodenBoatFrameBlockMixin",
         "common.firmaciv.BlockEventHandlerMixin",
         "common.firmaciv.WoodenBoatFrameBlockMixin",
