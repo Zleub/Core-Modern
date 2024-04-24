@@ -16,7 +16,7 @@ import su.terrafirmagreg.core.mixins.common.tfc.IngotPileBlockEntityEntryAccesso
 
 import java.util.List;
 
-public class TFGHelpers {
+public final class TFGHelpers {
 
     @Nullable
     public static Material getMaterial(@NotNull String materialName) {
