@@ -14,9 +14,12 @@ import net.dries007.tfc.common.blocks.TFCBlocks;
 import net.dries007.tfc.common.blocks.wood.Wood;
 import net.dries007.tfc.common.items.TFCItems;
 import net.dries007.tfc.util.Metal;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.WoodType;
+import net.minecraftforge.registries.RegistryObject;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -24,6 +27,9 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import su.terrafirmagreg.core.objects.GreenhouseWrapper;
 import su.terrafirmagreg.core.objects.TFGHelpers;
+import tfcastikorcarts.common.items.AstikorItems;
+
+import java.util.Map;
 
 import static com.gregtechceu.gtceu.api.GTValues.M;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
@@ -41,10 +47,19 @@ public abstract class MaterialInfoLoaderMixin {
                         blockType == net.dries007.tfc.common.blocks.wood.Wood.BlockType.WOOD ||
                         blockType == net.dries007.tfc.common.blocks.wood.Wood.BlockType.STRIPPED_WOOD) continue;
 
-                var stack = new ItemStack(TFCBlocks.WOODS.get(woodType).get(blockType).get());
-                if (!stack.isEmpty()) {
+                var block = TFCBlocks.WOODS.get(woodType).get(blockType);
+                if (block == null) continue;
+                var stack = new ItemStack(block.get());
+                if (stack.isEmpty()) continue;
+
+                if (blockType == net.dries007.tfc.common.blocks.wood.Wood.BlockType.TRAPPED_CHEST) {
+                    ChemicalHelper.registerMaterialInfo(stack.getItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M * 8), new MaterialStack(GTMaterials.Iron, M / 2)));
+                } else if (blockType == net.dries007.tfc.common.blocks.wood.Wood.BlockType.BOOKSHELF) {
+                    ChemicalHelper.registerMaterialInfo(stack.getItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Paper, M * 9), new MaterialStack(GTMaterials.Wood, M * 6)));
+                } else {
                     ChemicalHelper.registerMaterialInfo(stack.getItem(), new ItemMaterialInfo(new MaterialStack(Wood, M)));
                 }
+
             }
 
             ChemicalHelper.registerMaterialInfo(TFCItems.BOATS.get(woodType).get().asItem(), new ItemMaterialInfo(new MaterialStack(Wood, M)));
@@ -55,8 +70,10 @@ public abstract class MaterialInfoLoaderMixin {
                 var material = TFGHelpers.getMaterial(metalType.getSerializedName());
                 if (material == null) continue;
 
-                var stack = new ItemStack(TFCBlocks.CEILING_HANGING_SIGNS.get(woodType).get(metalType).get());
-                if (!stack.isEmpty()) continue;
+                var block = TFCBlocks.CEILING_HANGING_SIGNS.get(woodType).get(metalType);
+                if (block == null) continue;
+                var stack = new ItemStack(block.get());
+                if (stack.isEmpty()) continue;
 
                 ChemicalHelper.registerMaterialInfo(stack.getItem(), new ItemMaterialInfo(
                         new MaterialStack(Wood, M),
@@ -136,13 +153,31 @@ public abstract class MaterialInfoLoaderMixin {
         ChemicalHelper.registerMaterialInfo(FirmacivItems.CANNON.get().asItem(), new ItemMaterialInfo(new MaterialStack(Iron, M * 13)));
         ChemicalHelper.registerMaterialInfo(FirmacivItems.CANNON_BARREL.get().asItem(), new ItemMaterialInfo(new MaterialStack(Iron, M * 4)));
         ChemicalHelper.registerMaterialInfo(FirmacivItems.CANNONBALL.get().asItem(), new ItemMaterialInfo(new MaterialStack(Iron, M * 2)));
+
+        /* AstikoCarts */
+        for (var woodType : net.dries007.tfc.common.blocks.wood.Wood.values()) {
+            ChemicalHelper.registerMaterialInfo(AstikorItems.WHEEL_TFC.get(woodType).get(), new ItemMaterialInfo(new MaterialStack(Wood, M)));
+            ChemicalHelper.registerMaterialInfo(AstikorItems.SUPPLY_CART_TFC.get(woodType).get(), new ItemMaterialInfo(new MaterialStack(Wood, M)));
+            ChemicalHelper.registerMaterialInfo(AstikorItems.PLOW_TFC.get(woodType).get(), new ItemMaterialInfo(new MaterialStack(Wood, M)));
+            ChemicalHelper.registerMaterialInfo(AstikorItems.ANIMAL_CART_TFC.get(woodType).get(), new ItemMaterialInfo(new MaterialStack(Wood, M)));
+            ChemicalHelper.registerMaterialInfo(AstikorItems.POSTILION_TFC.get(woodType).get(), new ItemMaterialInfo(new MaterialStack(Wood, M)));
+        }
     }
 
     /**
      * Изменяет состав железной двери до 1 слитка железа.
      * */
     @Redirect(method = "init", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/api/data/chemical/ChemicalHelper;registerMaterialInfo(Lnet/minecraft/world/level/ItemLike;Lcom/gregtechceu/gtceu/api/data/chemical/material/stack/ItemMaterialInfo;)V", ordinal = 93), remap = false)
-    private static void tfg$init$IronDoor(ItemLike item, ItemMaterialInfo materialInfo) {
+    private static void tfg$init$IronDoor1(ItemLike item, ItemMaterialInfo materialInfo) {
+        ChemicalHelper.registerMaterialInfo(item, new ItemMaterialInfo(
+                new MaterialStack(Iron, M)));
+    }
+
+    /**
+     * Изменяет состав железной двери до 1 слитка железа.
+     * */
+    @Redirect(method = "init", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/api/data/chemical/ChemicalHelper;registerMaterialInfo(Lnet/minecraft/world/level/ItemLike;Lcom/gregtechceu/gtceu/api/data/chemical/material/stack/ItemMaterialInfo;)V", ordinal = 94), remap = false)
+    private static void tfg$init$IronDoor2(ItemLike item, ItemMaterialInfo materialInfo) {
         ChemicalHelper.registerMaterialInfo(item, new ItemMaterialInfo(
                 new MaterialStack(Iron, M)));
     }
