@@ -56,8 +56,8 @@ dependencies {
     modImplementation("maven.modrinth:curios:5.7.2+1.20.1")
 
     // TFC AstikoCarts
-    modImplementation("curse.maven:astikor-carts-redux-916493:4988266") { transitive = false }
-    modImplementation("curse.maven:astikor-carts-tfc-844019:5141430") { transitive = false } // 1.8.1.1
+    modCompileOnly("curse.maven:astikor-carts-redux-916493:4988266") { transitive = false }
+    modCompileOnly("curse.maven:astikor-carts-tfc-844019:5141430") { transitive = false } // 1.8.1.1
 
     // GTCEu
     modImplementation("maven.modrinth:gregtechceu-modern:mc1.20.1-1.2.0.a") { transitive = false }

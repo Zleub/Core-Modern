@@ -11,6 +11,7 @@ public final class TFGTags {
 
     public static final class Items {
 
+        public static final TagKey<Item> Tongs = createItemTag("tfchotornot:tongs");
         public static final TagKey<Item> Strings = createItemTag("forge:string");
         public static final TagKey<Item> WoodenSticks = createItemTag("forge:rods/wooden");
         public static final TagKey<Item> RawRockBlocks = createItemTag("tfc:rock/raw");
