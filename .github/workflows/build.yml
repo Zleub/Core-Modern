@@ -55,14 +55,12 @@ jobs:
           path: build/libs/TerraFirmaGreg-Core-1.20.1-${{ steps.get_version.outputs.version }}.jar
           retention-days: 5
 
-      - name: Check if tag exists
+      - uses: mukunku/tag-exists-action@latest
         id: check_tag
-        run: |
-          git fetch --tags
-          if git rev-parse --verify "refs/tags/${{ steps.get_version.outputs.version }}" >/dev/null 2>&1; then
-            echo "Tag ${{ steps.get_version.outputs.version }} already exists"
-            exit 0
-          fi
+        with:
+          tag: '${{ steps.get_version.outputs.version }}'
+      - run: exit 0
+        if: steps.check_tag.outputs.exists == 'true'
 
       - uses: marvinpinto/action-automatic-releases@latest
         with:
