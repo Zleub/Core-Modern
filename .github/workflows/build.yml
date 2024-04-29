@@ -45,7 +45,7 @@ jobs:
       - name: Get the version
         id: get_version
         run: |
-          MESSAGE=$(ls build/libs/* awk -F 'TerraFirmaGreg-Core-1.20.1-|.jar' '{print $2}')
+          MESSAGE=$(ls build/libs/* | grep sources.jar -v | grep shadow.jar -v | grep slim.jar -v | awk -F 'TerraFirmaGreg-Core-1.20.1-|.jar' '{print $2}')
           echo version=$MESSAGE >> $GITHUB_OUTPUT
 
       - name: Upload jar
@@ -62,39 +62,45 @@ jobs:
       - run: exit 0
         if: steps.check_tag.outputs.exists == 'true'
 
-      - uses: marvinpinto/action-automatic-releases@latest
+#      - uses: marvinpinto/action-automatic-releases@latest
+#        with:
+#          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+#          automatic_release_tag: "${{ steps.get_version.outputs.version }}"
+#          prerelease: false
+#          title: "Release  ${{ steps.get_version.outputs.version }}"
+#          files: build/libs/TerraFirmaGreg-Core-1.20.1-${{ steps.get_version.outputs.version }}.jar
+
+      - name: Release
+        uses: Kir-Antipov/mc-publish@v3.3.0
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "${{ steps.get_version.outputs.version }}"
-          prerelease: false
-          title: "Release  ${{ steps.get_version.outputs.version }}"
+          modrinth-id: lNttW2Xl
+          modrinth-token: ${{ secrets.MODRINTH_API_TOKEN }}
+          modrinth-dependencies: |
+            JaCEZUhg(required)
+            7tG215v7(required)
+
+          curseforge-id: 513402
+          curseforge-token: ${{ secrets.CF_API_TOKEN }}
+          curseforge-dependencies: |
+            gregtechceu-modern(required)
+            terrafirmacraft(required)
+
+          github-tag: ${{ steps.get_version.outputs.version }}
+          github-generate-changelog: true
+          github-draft: false
+          github-prerelease: false
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
           files: build/libs/TerraFirmaGreg-Core-1.20.1-${{ steps.get_version.outputs.version }}.jar
 
-#      - name: Release
-#        uses: Kir-Antipov/mc-publish@v3.3.0
-#        with:
-#          modrinth-id: lNttW2Xl
-#          modrinth-token: ${{ secrets.MODRINTH_API_TOKEN }}
-#          modrinth-dependencies: |
-#            JaCEZUhg(required)
-#            7tG215v7(required)
-#
-#          curseforge-id: 513402
-#          curseforge-token: ${{ secrets.CF_API_TOKEN }}
-#          curseforge-dependencies: |
-#            gregtechceu-modern(required)
-#            terrafirmacraft(required)
-#
-#          files: build/libs/TerraFirmaGreg-Core-1.20.1-${{ steps.get_version.outputs.version }}.jar
-#
-#          name: TerraFirmaGreg-Core-1.20.1-${{ steps.get_version.outputs.version }}
-#          version: ${{ steps.get_version.outputs.version }}
-#          version-type: release
-#
-#          loaders: forge
-#          game-versions: 1.20.1
-#          game-version-filter: none
-#          java: 17
-#          retry-attempts: 2
-#          retry-delay: 10000
-#          fail-mode: fail
+          name: TerraFirmaGreg-Core-1.20.1-${{ steps.get_version.outputs.version }}
+          version: ${{ steps.get_version.outputs.version }}
+          version-type: release
+
+          loaders: forge
+          game-versions: 1.20.1
+          game-version-filter: none
+          java: 17
+          retry-attempts: 2
+          retry-delay: 10000
+          fail-mode: fail
