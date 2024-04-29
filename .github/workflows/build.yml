@@ -7,8 +7,37 @@ on:
       - 'main'
 
 jobs:
+  info:
+    runs-on: ubuntu-latest
+    outputs:
+      project_name: ${{ steps.project-info.outputs.mod_name }}
+      project_version: ${{ steps.project-info.outputs.mod_version }}
+      mc_version: ${{ steps.project-info.outputs.mc_version }}
+      exists: ${{ steps.check_tag.outputs.exists }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.1
+
+      - uses: madhead/read-java-properties@latest
+        id: project-info
+        with:
+          file: gradle.properties
+          all: true
+
+      - uses: mukunku/tag-exists-action@v1.6.0
+        id: check_tag
+        with:
+          tag: ${{ steps.project-info.outputs.mod_version }}
+
+      - run: echo ${{ steps.project_info.outputs.mod_name }}
+      - run: echo ${{ steps.project_info.outputs.mod_version }}
+      - run: echo ${{ steps.project_info.outputs.mc_version }}
+
+
   build:
     runs-on: ubuntu-latest
+    if: needs.info.outputs.exists != 'true'
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4.1.1
@@ -42,33 +71,12 @@ jobs:
         with:
           arguments: build
 
-      - name: Get the version
-        id: get_version
-        run: |
-          MESSAGE=$(ls build/libs/* | grep sources.jar -v | grep shadow.jar -v | grep slim.jar -v | awk -F 'TerraFirmaGreg-Core-1.20.1-|.jar' '{print $2}')
-          echo version=$MESSAGE >> $GITHUB_OUTPUT
-
       - name: Upload jar
         id: upload_file
         uses: actions/upload-artifact@v4.0.0
         with:
-          path: build/libs/TerraFirmaGreg-Core-1.20.1-${{ steps.get_version.outputs.version }}.jar
+          path: build/libs/${{ needs.info.outputs.project_name }}-${{ needs.info.outputs.mc_version }}-${{ needs.info.outputs.project_version }}.jar
           retention-days: 5
-
-      - uses: mukunku/tag-exists-action@v1.6.0
-        id: check_tag
-        with:
-          tag: '${{ steps.get_version.outputs.version }}'
-      - run: exit 0
-        if: steps.check_tag.outputs.exists == 'true'
-
-#      - uses: marvinpinto/action-automatic-releases@latest
-#        with:
-#          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-#          automatic_release_tag: "${{ steps.get_version.outputs.version }}"
-#          prerelease: false
-#          title: "Release  ${{ steps.get_version.outputs.version }}"
-#          files: build/libs/TerraFirmaGreg-Core-1.20.1-${{ steps.get_version.outputs.version }}.jar
 
       - name: Release
         uses: Kir-Antipov/mc-publish@v3.3.0
@@ -91,14 +99,14 @@ jobs:
           github-prerelease: false
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-          files: build/libs/TerraFirmaGreg-Core-1.20.1-${{ steps.get_version.outputs.version }}.jar
+          files: build/libs/${{ needs.info.outputs.project_name }}-${{ needs.info.outputs.mc_version }}-${{ needs.info.outputs.project_version }}.jar
 
-          name: TerraFirmaGreg-Core-1.20.1-${{ steps.get_version.outputs.version }}
+          name: "${{ needs.info.outputs.project_name }}-${{ needs.info.outputs.mc_version }}-${{ needs.info.outputs.project_version }}"
           version: ${{ steps.get_version.outputs.version }}
           version-type: release
 
           loaders: forge
-          game-versions: 1.20.1
+          game-versions: ${{ needs.info.outputs.mc_version }}
           game-version-filter: none
           java: 17
           retry-attempts: 2

@@ -3,9 +3,11 @@ String getConfig(String key) {
 }
 
 def mod_id = getConfig("mod_id")
-def version = getConfig("version")
-def mod_license = getConfig("mod_license")
+def version = getConfig("mod_version")
 def mod_name = getConfig("mod_name")
+def mc_version = getConfig("mc_version")
+
+def mod_license = getConfig("mod_license")
 def mod_description = getConfig("mod_description")
 def mod_url = getConfig("mod_url")
 
@@ -16,7 +18,7 @@ processResources {
             "mod_id": mod_id,
             "forge_version": forge.versions.forgeShortVersion.get().split("\\.")[0], // only specify major version of forge
             "kjs_version": forge.versions.kubejs.get().split("\\.")[0], // only specify major version of kjs
-            "minecraft_version": libs.versions.minecraft.get(),
+            "minecraft_version": mc_version,
             "mod_license": mod_license,
             "mod_name": mod_name,
             "mod_description": mod_description,

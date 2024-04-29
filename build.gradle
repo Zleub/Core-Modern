@@ -15,7 +15,7 @@ apply plugin: "architectury-plugin"
 
 
 architectury {
-    minecraft = libs.versions.minecraft
+    minecraft = mc_version
 }
 
 tasks.register('remapSlimJar', RemapJarTask) {

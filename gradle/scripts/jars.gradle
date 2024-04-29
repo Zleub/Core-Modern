@@ -30,4 +30,4 @@ remapSlimJar {
 tasks.remapJar.dependsOn('remapSlimJar')
 
 
-archivesBaseName = "${project.mod_name}-${libs.versions.minecraft.get()}"
+archivesBaseName = "${project.mod_name}-${mc_version}"
