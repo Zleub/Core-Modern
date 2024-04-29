@@ -39,13 +39,6 @@ jobs:
           file: gradle.properties
           property: mc_version
 
-      - name: Use value
-        run: |
-          echo "mod_name: ${{ steps.mod_name.outputs.value }}"
-          echo "mod_version: ${{ steps.mod_version.outputs.value }}"
-          echo "mc_version: ${{ steps.mc_version.outputs.value }}"
-
-
       - name: Check if tag exists
         uses: mukunku/tag-exists-action@v1.6.0
         id: check_tag
