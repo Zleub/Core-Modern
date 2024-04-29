@@ -18,26 +18,32 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4.1.1
 
-      - name: Get property
+      - name: Get property mod_name
         id: mod_name
         uses: dschanoeh/get-property@v1
         with:
           file: gradle.properties
           property: mod_name
 
-      - name: Get property
+      - name: Get property mod_version
         id: mod_version
         uses: dschanoeh/get-property@v1
         with:
           file: gradle.properties
           property: mod_version
 
-      - name: Get property
+      - name: Get property mc_version
         id: mc_version
         uses: dschanoeh/get-property@v1
         with:
           file: gradle.properties
           property: mc_version
+
+      - name: Use value
+        run: |
+          echo "mod_name: ${{ steps.mod_name.outputs.value }}"
+          echo "mod_version: ${{ steps.mod_version.outputs.value }}"
+          echo "mc_version: ${{ steps.mc_version.outputs.value }}"
 
 
       - name: Check if tag exists
