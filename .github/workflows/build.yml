@@ -55,7 +55,7 @@ jobs:
           path: build/libs/TerraFirmaGreg-Core-1.20.1-${{ steps.get_version.outputs.version }}.jar
           retention-days: 5
 
-      - uses: mukunku/tag-exists-action@latest
+      - uses: mukunku/tag-exists-action@v1.6.0
         id: check_tag
         with:
           tag: '${{ steps.get_version.outputs.version }}'
