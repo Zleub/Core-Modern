@@ -10,31 +10,45 @@ jobs:
   info:
     runs-on: ubuntu-latest
     outputs:
-      project_name: ${{ steps.project-info.outputs.mod_name }}
-      project_version: ${{ steps.project-info.outputs.mod_version }}
-      mc_version: ${{ steps.project-info.outputs.mc_version }}
+      project_name: ${{ steps.mod_name.outputs.value }}
+      project_version: ${{ steps.mod_version.outputs.value }}
+      mc_version: ${{ steps.mc_version.outputs.value }}
       exists: ${{ steps.check_tag.outputs.exists }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4.1.1
 
-      - uses: madhead/read-java-properties@latest
-        id: project-info
+      - name: Get property
+        id: mod_name
+        uses: dschanoeh/get-property@v1
         with:
           file: gradle.properties
-          all: true
+          property: mod_name
 
-      - uses: mukunku/tag-exists-action@v1.6.0
+      - name: Get property
+        id: mod_version
+        uses: dschanoeh/get-property@v1
+        with:
+          file: gradle.properties
+          property: mod_version
+
+      - name: Get property
+        id: mc_version
+        uses: dschanoeh/get-property@v1
+        with:
+          file: gradle.properties
+          property: mc_version
+
+
+      - name: Check if tag exists
+        uses: mukunku/tag-exists-action@v1.6.0
         id: check_tag
         with:
-          tag: ${{ steps.project-info.outputs.mod_version }}
-
-      - run: echo ${{ steps.project_info.outputs.mod_name }}
-      - run: echo ${{ steps.project_info.outputs.mod_version }}
-      - run: echo ${{ steps.project_info.outputs.mc_version }}
+          tag: ${{ steps.mod_version.outputs.value }}
 
 
   build:
+    needs: info
     runs-on: ubuntu-latest
     if: needs.info.outputs.exists != 'true'
 
