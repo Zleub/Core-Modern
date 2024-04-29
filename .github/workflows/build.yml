@@ -48,6 +48,13 @@ jobs:
           MESSAGE=$(ls build/libs/* | grep sources.jar -v | grep shadow.jar -v | grep slim.jar -v | awk -F 'TerraFirmaGreg-Core-1.20.1-|.jar' '{print $2}')
           echo version=$MESSAGE >> $GITHUB_OUTPUT
 
+      - name: Upload jar
+        id: upload_file
+        uses: actions/upload-artifact@v4.0.0
+        with:
+          path: build/libs/TerraFirmaGreg-Core-1.20.1-${{ steps.get_version.outputs.version }}.jar
+          retention-days: 5
+
       - name: Check if tag exists
         id: check_tag
         run: |
@@ -57,18 +64,13 @@ jobs:
             exit 0
           fi
 
-      - name: Create tag
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT }}
-        run: |
-          git tag -a "${{ steps.get_version.outputs.version }}" -m "Release ${{ steps.get_version.outputs.version }}"
-          git push origin "${{ steps.get_version.outputs.version }}"
-
-      - name: Upload jar
-        uses: actions/upload-artifact@v4.0.0
+      - uses: marvinpinto/action-automatic-releases@latest
         with:
-          path: build/libs/TerraFirmaGreg-Core-1.20.1-${{ steps.get_version.outputs.version }}.jar
-          retention-days: 5
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "${{ steps.get_version.outputs.version }}"
+          prerelease: false
+          title: "Release  ${{ steps.get_version.outputs.version }}"
+          files: build/libs/TerraFirmaGreg-Core-1.20.1-${{ steps.get_version.outputs.version }}.jar
 
 #      - name: Release
 #        uses: Kir-Antipov/mc-publish@v3.3.0
