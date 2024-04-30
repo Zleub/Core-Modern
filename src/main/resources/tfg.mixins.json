@@ -15,7 +15,6 @@
         "common.firmaciv.WoodenBoatFrameBlockMixin",
         "common.flywheel.AnimatedBlazeBurnerMixin",
         "common.gtceu.FisherMachineMixin",
-        "common.gtceu.GTOreVeinWidgetMixin",
         "common.gtceu.GTRecipeTypesMixin",
         "common.gtceu.GTToolTypeMixin",
         "common.gtceu.HoeBehaviorMixin",
