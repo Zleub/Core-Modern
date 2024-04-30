@@ -18,6 +18,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import org.spongepowered.asm.mixin.Mixin;
 import su.terrafirmagreg.core.ClientEventHandler;
 import su.terrafirmagreg.core.mixins.common.tfc.IngotPileBlockEntityAccessor;
+import su.terrafirmagreg.core.objects.TFGClientHelpers;
 import su.terrafirmagreg.core.objects.TFGHelpers;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -75,7 +76,7 @@ public abstract class IngotPileBlockModelMixin implements SimpleStaticBlockEntit
             final float maxY = scale * (minY + 4);
             final float maxZ = scale * (minZ + 15);
 
-            TFGHelpers.renderTexturedTrapezoidalCuboid(poseStack, buffer, sprite, packedLight, packedOverlay, minX, maxX, minZ, maxZ, minX + scale, maxX - scale, minZ + scale, maxZ - scale, minY, maxY, 7, 4, 15, oddLayer, primaryColor, secondaryColor);
+            TFGClientHelpers.renderTexturedTrapezoidalCuboid(poseStack, buffer, sprite, packedLight, packedOverlay, minX, maxX, minZ, maxZ, minX + scale, maxX - scale, minZ + scale, maxZ - scale, minY, maxY, 7, 4, 15, oddLayer, primaryColor, secondaryColor);
 
             poseStack.popPose();
         }
