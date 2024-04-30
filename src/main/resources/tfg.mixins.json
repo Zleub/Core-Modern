@@ -33,6 +33,7 @@
         "common.gtceu.recipes.OreRecipeHandlerMixin",
         "common.gtceu.recipes.PartsRecipeHandlerMixin",
         "common.gtceu.recipes.ToolRecipeHandlerMixin",
+        "common.ldlib.EMIPluginMixin",
         "common.minecraft.ServerAdvancementManagerMixin",
         "common.minecraft.UseOnContextInvoker",
         "common.tfc.CharcoalForgeBlockMixin",
