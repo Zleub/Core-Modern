@@ -6,33 +6,39 @@ on:
     branches:
       - 'main'
 
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   info:
+    name: Project Info
     runs-on: ubuntu-latest
     outputs:
       project_name: ${{ steps.mod_name.outputs.value }}
       project_version: ${{ steps.mod_version.outputs.value }}
       mc_version: ${{ steps.mc_version.outputs.value }}
       exists: ${{ steps.check_tag.outputs.exists }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4.1.1
 
-      - name: Get property mod_name
+      - name: Get project name
         id: mod_name
         uses: dschanoeh/get-property@v1
         with:
           file: gradle.properties
           property: mod_name
 
-      - name: Get property mod_version
+      - name: Get project version
         id: mod_version
         uses: dschanoeh/get-property@v1
         with:
           file: gradle.properties
           property: mod_version
 
-      - name: Get property mc_version
+      - name: Get project mc_version
         id: mc_version
         uses: dschanoeh/get-property@v1
         with:
@@ -106,7 +112,7 @@ jobs:
             gregtechceu-modern(required)
             terrafirmacraft(required)
 
-          github-tag: ${{ steps.get_version.outputs.version }}
+          github-tag: ${{ needs.info.outputs.project_version }}
           github-generate-changelog: true
           github-draft: false
           github-prerelease: false
@@ -115,7 +121,7 @@ jobs:
           files: build/libs/${{ needs.info.outputs.project_name }}-${{ needs.info.outputs.mc_version }}-${{ needs.info.outputs.project_version }}.jar
 
           name: "${{ needs.info.outputs.project_name }}-${{ needs.info.outputs.mc_version }}-${{ needs.info.outputs.project_version }}"
-          version: ${{ steps.get_version.outputs.version }}
+          version: ${{ needs.info.outputs.project_version }}
           version-type: release
 
           loaders: forge
