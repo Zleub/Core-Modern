@@ -19,6 +19,7 @@
         "common.gtceu.GTToolTypeMixin",
         "common.gtceu.HoeBehaviorMixin",
         "common.gtceu.PrimitivePumpMachineMixin",
+        "common.gtceu.SteamBoilerMachineMixin",
         "common.gtceu.SurfaceRockBlockMixin",
         "common.gtceu.TagPrefixItemMixin",
         "common.gtceu.ToolHelperMixin",
