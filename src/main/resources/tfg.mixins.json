@@ -17,7 +17,7 @@
         "common.gtceu.FisherMachineMixin",
         "common.gtceu.GTRecipeTypesMixin",
         "common.gtceu.GTToolTypeMixin",
-        "common.gtceu.HoeBehaviorMixin",
+        "common.gtceu.HoeGroundBehaviorMixin",
         "common.gtceu.PrimitivePumpMachineMixin",
         "common.gtceu.SteamBoilerMachineMixin",
         "common.gtceu.SurfaceRockBlockMixin",
@@ -42,7 +42,8 @@
         "common.tfc.IngotPileBlockEntityAccessor",
         "common.tfc.IngotPileBlockEntityEntryAccessor",
         "common.tfc.IngotPileBlockMixin",
-        "common.tfc.TFCChunkGeneratorMixin"
+        "common.tfc.TFCChunkGeneratorMixin",
+        "common.tfcastikocarts.TFCPlowEntityMixin"
     ],
     "client": [
         "client.ftb.ClientTeamManagerImplMixin",
