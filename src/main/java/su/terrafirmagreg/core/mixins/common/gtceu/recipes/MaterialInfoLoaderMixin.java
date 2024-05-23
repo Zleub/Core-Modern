@@ -155,13 +155,13 @@ public abstract class MaterialInfoLoaderMixin {
         ChemicalHelper.registerMaterialInfo(FirmacivItems.CANNONBALL.get().asItem(), new ItemMaterialInfo(new MaterialStack(Iron, M * 2)));
 
         /* AstikoCarts */
-        for (var woodType : net.dries007.tfc.common.blocks.wood.Wood.values()) {
-            ChemicalHelper.registerMaterialInfo(AstikorItems.WHEEL_TFC.get(woodType).get(), new ItemMaterialInfo(new MaterialStack(Wood, M)));
-            ChemicalHelper.registerMaterialInfo(AstikorItems.SUPPLY_CART_TFC.get(woodType).get(), new ItemMaterialInfo(new MaterialStack(Wood, M)));
-            ChemicalHelper.registerMaterialInfo(AstikorItems.PLOW_TFC.get(woodType).get(), new ItemMaterialInfo(new MaterialStack(Wood, M)));
-            ChemicalHelper.registerMaterialInfo(AstikorItems.ANIMAL_CART_TFC.get(woodType).get(), new ItemMaterialInfo(new MaterialStack(Wood, M)));
-            ChemicalHelper.registerMaterialInfo(AstikorItems.POSTILION_TFC.get(woodType).get(), new ItemMaterialInfo(new MaterialStack(Wood, M)));
-        }
+//        for (var woodType : net.dries007.tfc.common.blocks.wood.Wood.values()) {
+//            ChemicalHelper.registerMaterialInfo(AstikorItems.WHEEL_TFC.get(woodType).get(), new ItemMaterialInfo(new MaterialStack(Wood, M)));
+//            ChemicalHelper.registerMaterialInfo(AstikorItems.SUPPLY_CART_TFC.get(woodType).get(), new ItemMaterialInfo(new MaterialStack(Wood, M)));
+//            ChemicalHelper.registerMaterialInfo(AstikorItems.PLOW_TFC.get(woodType).get(), new ItemMaterialInfo(new MaterialStack(Wood, M)));
+//            ChemicalHelper.registerMaterialInfo(AstikorItems.ANIMAL_CART_TFC.get(woodType).get(), new ItemMaterialInfo(new MaterialStack(Wood, M)));
+//            ChemicalHelper.registerMaterialInfo(AstikorItems.POSTILION_TFC.get(woodType).get(), new ItemMaterialInfo(new MaterialStack(Wood, M)));
+//        }
     }
 
     /**

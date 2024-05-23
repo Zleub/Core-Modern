@@ -47,20 +47,20 @@ public abstract class OreRecipeHandlerMixin {
     private static void tfg$init(Consumer<FinishedRecipe> provider, CallbackInfo ci) {
         for (TagPrefix orePrefix : ORES.keySet()) {
             if (ConfigHolder.INSTANCE.worldgen.allUniqueStoneTypes || ORES.get(orePrefix).shouldDropAsItem()) {
-                orePrefix.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> processOre(tagPrefix, material, property, provider));
-                orePrefix.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> processOreForgeHammer(tagPrefix, material, property, provider));
+                orePrefix.executeHandler(provider, PropertyKey.ORE, OreRecipeHandler::processOre);
+                orePrefix.executeHandler(provider, PropertyKey.ORE, OreRecipeHandler::processOreForgeHammer);
             }
         }
 
-        poorRawOre.executeHandler(PropertyKey.ORE, ((tagPrefix, material, property) -> tfg$processPoorRawOre(tagPrefix, material, property, provider)));
-        rawOre.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> tfg$processRawOre(tagPrefix, material, property, provider));
-        richRawOre.executeHandler(PropertyKey.ORE, ((tagPrefix, material, property) -> tfg$processRichRawOre(tagPrefix, material, property, provider)));
+        poorRawOre.executeHandler(provider, PropertyKey.ORE, OreRecipeHandlerMixin::tfg$processPoorRawOre);
+        rawOre.executeHandler(provider, PropertyKey.ORE, OreRecipeHandlerMixin::tfg$processRawOre);
+        richRawOre.executeHandler(provider, PropertyKey.ORE, OreRecipeHandlerMixin::tfg$processRichRawOre);
 
-        crushed.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> processCrushedOre(tagPrefix, material, property, provider));
-        crushedPurified.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> processCrushedPurified(tagPrefix, material, property, provider));
-        crushedRefined.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> processCrushedCentrifuged(tagPrefix, material, property, provider));
-        dustImpure.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> processDirtyDust(tagPrefix, material, property, provider));
-        dustPure.executeHandler(PropertyKey.ORE, (tagPrefix, material, property) -> processPureDust(tagPrefix, material, property, provider));
+        crushed.executeHandler(provider, PropertyKey.ORE, OreRecipeHandler::processCrushedOre);
+        crushedPurified.executeHandler(provider, PropertyKey.ORE, OreRecipeHandler::processCrushedPurified);
+        crushedRefined.executeHandler(provider, PropertyKey.ORE, OreRecipeHandler::processCrushedCentrifuged);
+        dustImpure.executeHandler(provider, PropertyKey.ORE, OreRecipeHandler::processDirtyDust);
+        dustPure.executeHandler(provider, PropertyKey.ORE, OreRecipeHandler::processPureDust);
 
         ci.cancel();
     }

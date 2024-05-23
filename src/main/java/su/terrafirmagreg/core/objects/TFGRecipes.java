@@ -13,6 +13,7 @@ import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.common.data.GTItems;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
 import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
+import com.gregtechceu.gtceu.data.recipe.generated.RecyclingRecipeHandler;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import net.dries007.tfc.common.items.TFCItems;
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -344,37 +345,37 @@ public final class TFGRecipes {
 
     private static void registerToolRecyclingRecipes(Consumer<FinishedRecipe> provider) {
         /* Оголовья добавленные нами */
-        toolHeadMiningHammer.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, provider));
-        toolHeadSword.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, provider));
-        toolHeadPickaxe.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, provider));
-        toolHeadShovel.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, provider));
-        toolHeadAxe.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, provider));
-        toolHeadHoe.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, provider));
-        toolHeadScythe.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, provider));
-        toolHeadFile.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, provider));
-        toolHeadHammer.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, provider));
-        toolHeadSaw.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, provider));
-        toolHeadKnife.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, provider));
-        toolHeadButcheryKnife.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, provider));
-        toolHeadSpade.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, provider));
-        toolHeadPropick.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, provider));
-        toolHeadJavelin.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, provider));
-        toolHeadChisel.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, provider));
-        toolHeadMace.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, provider));
+        toolHeadMiningHammer.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadSword.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadPickaxe.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadShovel.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadAxe.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadHoe.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadScythe.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadFile.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadHammer.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadSaw.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadKnife.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadButcheryKnife.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadSpade.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadPropick.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadJavelin.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadChisel.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadMace.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
         // TODO: Попробовать добавить энвилы и другую хуйню сюда
 
         /* Оголовья грега, которые почему-то не имеют декрафта */
-        toolHeadBuzzSaw.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, provider));
-        toolHeadScrewdriver.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, provider));
-        toolHeadDrill.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, provider));
-        toolHeadChainsaw.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, provider));
-        toolHeadWrench.executeHandler(PropertyKey.DUST, (tagPrefix, material, property) -> processCrushing(tagPrefix, material, property, provider));
+        toolHeadBuzzSaw.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadScrewdriver.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadDrill.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadChainsaw.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadWrench.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
     }
 
     private static void registerRandomRecipes(Consumer<FinishedRecipe> provider) {
 //        ingot.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processIngot(tagPrefix, material, property, provider));
-        ingotDouble.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processDoubleIngot(tagPrefix, material, property, provider));
-        plate.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processPlate(tagPrefix, material, property, provider));
+        ingotDouble.executeHandler(provider, TFGPropertyKeys.TFC_PROPERTY, TFGRecipes::processDoubleIngot);
+        plate.executeHandler(provider, TFGPropertyKeys.TFC_PROPERTY, TFGRecipes::processPlate);
 //        plateDouble.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processDoublePlate(tagPrefix, material, property, provider));
 //        rod.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processRod(tagPrefix, material, property, provider));
 //        rodLong.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processLongRod(tagPrefix, material, property, provider));
@@ -395,14 +396,14 @@ public final class TFGRecipes {
 //        crushedPurified.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processCrushedPurifiedOre(tagPrefix, material, property, provider));
 //        crushedRefined.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processCrushedRefinedOre(tagPrefix, material, property, provider));
 
-        oreSmall.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> proccessSmallOre(tagPrefix, material, property, provider));
-        oreSmallNative.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> proccessSmallNativeOre(tagPrefix, material, property, provider));
-        anvil.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> proccessAnvil(tagPrefix, material, property, provider));
-        lamp.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> proccessLamp(tagPrefix, material, property, provider));
-        lampUnfinished.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> proccessUnfinishedLamp(tagPrefix, material, property, provider));
-        trapdoor.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> proccessTrapdoor(tagPrefix, material, property, provider));
-        chain.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> proccessChain(tagPrefix, material, property, provider));
-        bell.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> proccessBell(tagPrefix, material, property, provider));
+        oreSmall.executeHandler(provider, TFGPropertyKeys.TFC_PROPERTY, TFGRecipes::proccessSmallOre);
+        oreSmallNative.executeHandler(provider, TFGPropertyKeys.TFC_PROPERTY, TFGRecipes::proccessSmallNativeOre);
+        anvil.executeHandler(provider, TFGPropertyKeys.TFC_PROPERTY, TFGRecipes::proccessAnvil);
+        lamp.executeHandler(provider, TFGPropertyKeys.TFC_PROPERTY, TFGRecipes::proccessLamp);
+        lampUnfinished.executeHandler(provider, TFGPropertyKeys.TFC_PROPERTY, TFGRecipes::proccessUnfinishedLamp);
+        trapdoor.executeHandler(provider, TFGPropertyKeys.TFC_PROPERTY, TFGRecipes::proccessTrapdoor);
+        chain.executeHandler(provider, TFGPropertyKeys.TFC_PROPERTY, TFGRecipes::proccessChain);
+        bell.executeHandler(provider, TFGPropertyKeys.TFC_PROPERTY, TFGRecipes::proccessBell);
 
         // Better way to get latex
         FLUID_SOLIDFICATION_RECIPES.recipeBuilder(TerraFirmaGreg.id("latex_heating"))

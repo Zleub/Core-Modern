@@ -20,6 +20,8 @@ public final class TerraFirmaGreg {
 
         CommonEventHandler.init();
         if (FMLEnvironment.dist == Dist.CLIENT) ClientEventHandler.init();
+
+        // ModList.get().isLoaded(modId)
     }
 
     public static ResourceLocation id(String name) {
