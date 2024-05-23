@@ -95,7 +95,7 @@ public final class TFGTagPrefix {
         TagPrefix.ORES.remove(TagPrefix.oreSand);
         TagPrefix.ORES.remove(TagPrefix.oreRedSand);
         TagPrefix.ORES.remove(TagPrefix.oreGravel);
-        TagPrefix.ORES.remove(TagPrefix.oreEndstone);
+        TagPrefix.ORES.remove(TagPrefix.oreEndstone); // TODO: Вернуть при добавлении энда
 
         TagPrefix.ORES.remove(TagPrefix.oreBasalt);
         TagPrefix.ORES.remove(TagPrefix.oreAndesite);

@@ -11,6 +11,7 @@ import su.terrafirmagreg.core.objects.TFGRegistries;
 
 import java.util.function.Consumer;
 
+@SuppressWarnings("unused")
 @GTAddon
 public final class TFGGTAddon implements IGTAddon {
 
