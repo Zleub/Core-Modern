@@ -40,6 +40,8 @@ import static su.terrafirmagreg.core.objects.TFGItems.SHAPE_MOLDS;
 public final class TFGRecipes {
 
     public static void init(Consumer<FinishedRecipe> provider) {
+        TFGData.init();
+
         registerTFCRockDecompositionRecipes(provider);
         registerExtruderMoldRecipes(provider);
         registerCastingMoldRecipes(provider);

@@ -16,7 +16,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.spongepowered.asm.mixin.Mixin;
-import su.terrafirmagreg.core.ClientEventHandler;
+import su.terrafirmagreg.core.TFGClientEventHandler;
 import su.terrafirmagreg.core.mixins.common.tfc.IngotPileBlockEntityAccessor;
 import su.terrafirmagreg.core.objects.TFGClientHelpers;
 import su.terrafirmagreg.core.objects.TFGHelpers;
@@ -49,7 +49,7 @@ public abstract class DoubleIngotPileBlockModelMixin implements SimpleStaticBloc
             final int primaryColor = material == null ? 0 : material.material().getMaterialARGB(0);
             final int secondaryColor = material == null ? 0 : material.material().getMaterialARGB(1);
 
-            sprite = textureAtlas.apply(ClientEventHandler.TFCMetalBlockTexturePattern);
+            sprite = textureAtlas.apply(TFGClientEventHandler.TFCMetalBlockTexturePattern);
 
             final int layer = (i + 6) / 6;
             final boolean oddLayer = (layer % 2) == 1;

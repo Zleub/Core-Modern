@@ -19,9 +19,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.spongepowered.asm.mixin.Mixin;
-import su.terrafirmagreg.core.ClientEventHandler;
+import su.terrafirmagreg.core.TFGClientEventHandler;
 import su.terrafirmagreg.core.objects.TFGClientHelpers;
-import su.terrafirmagreg.core.objects.TFGHelpers;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.function.Function;
@@ -52,7 +51,7 @@ public abstract class SheetPileBlockModelMixin implements SimpleStaticBlockEntit
                 final int primaryColor = material == null ? 0 : material.material().getMaterialARGB(0);
                 final int secondaryColor = material == null ? 0 : material.material().getMaterialARGB(1);
 
-                sprite = textureAtlas.apply(ClientEventHandler.TFCMetalBlockTexturePattern);
+                sprite = textureAtlas.apply(TFGClientEventHandler.TFCMetalBlockTexturePattern);
 
                 TFGClientHelpers.renderTexturedCuboid(poseStack, buffer, sprite, packedLight, packedOverlay, SheetPileBlock.getShapeForSingleFace(direction).bounds(), primaryColor, secondaryColor);
             }
