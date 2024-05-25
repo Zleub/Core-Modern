@@ -6,8 +6,9 @@ import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 import su.terrafirmagreg.core.TerraFirmaGreg;
+import su.terrafirmagreg.core.objects.data.TFGData;
 import su.terrafirmagreg.core.objects.TFGItems;
-import su.terrafirmagreg.core.objects.TFGRecipes;
+import su.terrafirmagreg.core.objects.data.TFGRecipes;
 import su.terrafirmagreg.core.objects.TFGRegistries;
 
 import java.util.function.Consumer;
@@ -38,12 +39,12 @@ public final class TFGGTAddon implements IGTAddon {
 
     @Override
     public void registerWorldgenLayers() {
-        TFGWorldGenLayers.init();
+//        TFGWorldGenLayers.init();
     }
 
     @Override
     public void registerOreVeins() {
-        TFGOreVeins.register();
+//        TFGOreVeins.register();
     }
 
     @Override
@@ -53,13 +54,12 @@ public final class TFGGTAddon implements IGTAddon {
 
     @Override
     public void addRecipes(Consumer<FinishedRecipe> provider) {
+        TFGData.init();
         TFGRecipes.init(provider);
     }
 
     @Override
     public void removeRecipes(Consumer<ResourceLocation> consumer) {
-        consumer.accept(new ResourceLocation("tfc:data/tfc/item_heats/blooms"));
+        TFGData.remove(consumer);
     }
-
-
 }
