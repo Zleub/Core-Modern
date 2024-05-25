@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import su.terrafirmagreg.core.objects.TFGTags;
+import su.terrafirmagreg.core.objects.data.TFGTags;
 
 @Mixin(value = TagPrefixItem.class, remap = false)
 public abstract class TagPrefixItemMixin {
