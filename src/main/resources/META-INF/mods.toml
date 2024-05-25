@@ -26,19 +26,19 @@ versionRange = "${minecraft_version}"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.${mod_id}]]
-modId = "gtceu"
-mandatory = true
-versionRange = "1.2.0.a"
-ordering = "NONE"
-side = "BOTH"
-
-[[dependencies.${mod_id}]]
-modId = "tfc"
-mandatory = true
-versionRange = "3.2.0"
-ordering = "AFTER"
-side = "BOTH"
+#[[dependencies.${mod_id}]]
+#modId = "gtceu"
+#mandatory = true
+#versionRange = "1.2.0.a"
+#ordering = "NONE"
+#side = "BOTH"
+#
+#[[dependencies.${mod_id}]]
+#modId = "tfc"
+#mandatory = true
+#versionRange = "3.2.0"
+#ordering = "AFTER"
+#side = "BOTH"
 
 #[[dependencies.${mod_id}]]
 #modId = "ae2"
@@ -47,46 +47,46 @@ side = "BOTH"
 #ordering = "NONE"
 #side = "BOTH"
 
-[[dependencies.${mod_id}]]
-modId = "firmalife"
-mandatory = true
-versionRange = "2.1.0"
-ordering = "AFTER"
-side = "BOTH"
-
-[[dependencies.${mod_id}]]
-modId = "firmaciv"
-mandatory = true
-versionRange = "[0.2.2-alpha,)"
-ordering = "AFTER"
-side = "BOTH"
-
-[[dependencies.${mod_id}]]
-modId = "create"
-mandatory = false
-versionRange = "0.5.1.f"
-ordering = "NONE"
-side = "BOTH"
-
-[[dependencies.${mod_id}]]
-modId = "tfcambiental"
-mandatory = true
-versionRange = "3.2.0"
-ordering = "NONE"
-side = "BOTH"
-
-[[dependencies.${mod_id}]]
-modId = "kubejs"
-mandatory = true
-versionRange = "2001.6.4-build.138+forge"
-ordering = "NONE"
-side = "BOTH"
-
-[[dependencies.${mod_id}]]
-modId = "ftbteams"
-mandatory = true
-versionRange = "[2001.1.4,)"
-ordering = "NONE"
-side = "BOTH"
+#[[dependencies.${mod_id}]]
+#modId = "firmalife"
+#mandatory = true
+#versionRange = "2.1.0"
+#ordering = "AFTER"
+#side = "BOTH"
+#
+#[[dependencies.${mod_id}]]
+#modId = "firmaciv"
+#mandatory = true
+#versionRange = "[0.2.2-alpha,)"
+#ordering = "AFTER"
+#side = "BOTH"
+#
+#[[dependencies.${mod_id}]]
+#modId = "create"
+#mandatory = false
+#versionRange = "0.5.1.f"
+#ordering = "NONE"
+#side = "BOTH"
+#
+#[[dependencies.${mod_id}]]
+#modId = "tfcambiental"
+#mandatory = true
+#versionRange = "3.2.0"
+#ordering = "NONE"
+#side = "BOTH"
+#
+#[[dependencies.${mod_id}]]
+#modId = "kubejs"
+#mandatory = true
+#versionRange = "2001.6.4-build.138+forge"
+#ordering = "NONE"
+#side = "BOTH"
+#
+#[[dependencies.${mod_id}]]
+#modId = "ftbteams"
+#mandatory = true
+#versionRange = "[2001.1.4,)"
+#ordering = "NONE"
+#side = "BOTH"
 
 
