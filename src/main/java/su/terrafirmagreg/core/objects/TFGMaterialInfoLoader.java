@@ -1,4 +1,4 @@
-package su.terrafirmagreg.core.compat.gtceu.data;
+package su.terrafirmagreg.core.objects;
 
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.gregtechceu.gtceu.api.data.chemical.material.stack.ItemMaterialInfo;

@@ -16,7 +16,7 @@ import java.util.function.Predicate;
 public abstract class SteamBoilerMachineMixin {
 
     @Redirect(method = "<init>", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/api/machine/trait/NotifiableFluidTank;setFilter(Ljava/util/function/Predicate;)Lcom/gregtechceu/gtceu/api/machine/trait/NotifiableFluidTank;"), remap = false)
-    private NotifiableFluidTank tfg$init(NotifiableFluidTank instance, Predicate<FluidStack> fluidStackPredicate) {
+    private NotifiableFluidTank tfg$init$notifiableFluidTank$setFilter(NotifiableFluidTank instance, Predicate<FluidStack> fluidStackPredicate) {
         return instance.setFilter(fluidStack -> ((TFCFluids.RIVER_WATER.get() == fluidStack.getFluid()) || (Fluids.WATER == fluidStack.getFluid())));
     }
 }

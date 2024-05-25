@@ -17,6 +17,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(value = CrucibleBlock.class)
 public abstract class CrucibleBlockMixin {
 
+    // TODO
+    /**
+     *
+     * */
     @Inject(method = "use", at = @At("HEAD"), cancellable = true)
     public void tfg$use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit, CallbackInfoReturnable<InteractionResult> cir) {
         var heldItem = player.getItemInHand(hand);

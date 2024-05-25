@@ -14,17 +14,20 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 @Mixin(value = HoeGroundBehavior.class, remap = false)
 public abstract class HoeGroundBehaviorMixin implements IToolBehavior {
 
+    // TODO: Вспомнить что это...
+    /**
+     *
+     * */
     @Redirect(method = "onItemUse", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/context/UseOnContext;getItemInHand()Lnet/minecraft/world/item/ItemStack;"), remap = true)
-    private ItemStack tfg$onItemUse(UseOnContext instance) {
-
+    private ItemStack tfg$onItemUse$toolHelper$damageItem(UseOnContext instance) {
         return instance.getItemInHand();
     }
 
     /**
-     * Удобная механика вспахивания грядки под водой.
+     * Позволяет вспахивать землю даже под водой.
      */
     @Redirect(method = "isBlockTillable", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/state/BlockState;isAir()Z"), remap = true)
-    private boolean tfg$isBlockTillable(BlockState instance) {
+    private boolean tfg$isBlockTillable$world$getBlockState(BlockState instance) {
         return instance.getBlock() == TFCBlocks.SALT_WATER.get() || instance.getBlock() == Blocks.WATER || instance.isAir();
     }
 

@@ -15,6 +15,11 @@ import java.util.Set;
 @Mixin(value = MaterialProperties.class, remap = false)
 public abstract class MaterialPropertiesMixin {
 
+    /**
+     * Добавляет наш вариант в список базовых проперти,
+     * позволяет добавить только TFC проперти для материала при создании.
+     * */
+    @SuppressWarnings("unused")
     @Shadow @Final @Mutable
     private static Set<PropertyKey<?>> baseTypes = new HashSet<>(Arrays.asList(PropertyKey.FLUID, PropertyKey.DUST, PropertyKey.INGOT, PropertyKey.GEM, PropertyKey.EMPTY, TFGPropertyKeys.TFC_PROPERTY));
 }

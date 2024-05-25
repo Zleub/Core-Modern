@@ -17,7 +17,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.spongepowered.asm.mixin.Mixin;
 import su.terrafirmagreg.core.TFGClientEventHandler;
-import su.terrafirmagreg.core.mixins.common.tfc.IngotPileBlockEntityAccessor;
+import su.terrafirmagreg.core.mixins.common.tfc.IIngotPileBlockEntityAccessor;
 import su.terrafirmagreg.core.objects.TFGClientHelpers;
 import su.terrafirmagreg.core.objects.TFGHelpers;
 
@@ -39,7 +39,7 @@ public abstract class DoubleIngotPileBlockModelMixin implements SimpleStaticBloc
         final int ingots = pile.getBlockState().getValue(DoubleIngotPileBlock.DOUBLE_COUNT);
         final Function<ResourceLocation, TextureAtlasSprite> textureAtlas = Minecraft.getInstance().getTextureAtlas(RenderHelpers.BLOCKS_ATLAS);
 
-        final var pileEntries = ((IngotPileBlockEntityAccessor) (Object) pile).getEntries();
+        final var pileEntries = ((IIngotPileBlockEntityAccessor) (Object) pile).getEntries();
 
         TextureAtlasSprite sprite = null;
         for (int i = 0; i < ingots; i++)

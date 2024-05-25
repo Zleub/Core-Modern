@@ -5,7 +5,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import su.terrafirmagreg.core.compat.gtceu.data.TFGMaterialInfoLoader;
+import su.terrafirmagreg.core.objects.TFGMaterialInfoLoader;
 
 @Mixin(value = MaterialInfoLoader.class, remap = false)
 public abstract class MaterialInfoLoaderMixin {
