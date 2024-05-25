@@ -17,10 +17,7 @@ import static com.gregtechceu.gtceu.api.GTValues.M;
 
 public final class TFGMaterialInfoLoader {
 
-    public static boolean isEnabled = false;
-
     public static void init() {
-        if (!isEnabled) return;
 
         /// ============================ GTM Hulls ============================ ///
 
@@ -220,8 +217,17 @@ public final class TFGMaterialInfoLoader {
         removeMaterialInfo(Blocks.CHEST);
         removeMaterialInfo(Blocks.TRAPPED_CHEST);
 
+        for (var wood : Wood.values()) {
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.CHEST).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M * 8)));
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.TRAPPED_CHEST).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M * 8), new MaterialStack(GTMaterials.Iron, M / 2)));
+        }
+
         // Верстаки
         removeMaterialInfo(Blocks.CRAFTING_TABLE);
+
+        for (var wood : Wood.values()) {
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.WORKBENCH).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M * 2)));
+        }
 
         /// ============================ Камень ============================ ///
 
@@ -230,9 +236,9 @@ public final class TFGMaterialInfoLoader {
         removeMaterialInfo(Blocks.SANDSTONE_STAIRS);
         removeMaterialInfo(Blocks.RED_SANDSTONE_STAIRS);
         removeMaterialInfo(Blocks.STONE_BRICK_STAIRS);
-        ChemicalHelper.registerMaterialInfo(Blocks.QUARTZ_STAIRS, new ItemMaterialInfo(new MaterialStack(GTMaterials.NetherQuartz, M * 4)));
-        ChemicalHelper.registerMaterialInfo(Blocks.BRICK_STAIRS, new ItemMaterialInfo(new MaterialStack(GTMaterials.Brick, M * 4)));
-        ChemicalHelper.registerMaterialInfo(Blocks.NETHER_BRICK_STAIRS, new ItemMaterialInfo(new MaterialStack(GTMaterials.Netherrack, M * 4)));
+//        ChemicalHelper.registerMaterialInfo(Blocks.QUARTZ_STAIRS, new ItemMaterialInfo(new MaterialStack(GTMaterials.NetherQuartz, M * 4)));
+//        ChemicalHelper.registerMaterialInfo(Blocks.BRICK_STAIRS, new ItemMaterialInfo(new MaterialStack(GTMaterials.Brick, M * 4)));
+//        ChemicalHelper.registerMaterialInfo(Blocks.NETHER_BRICK_STAIRS, new ItemMaterialInfo(new MaterialStack(GTMaterials.Netherrack, M * 4)));
 
         // Каменные полублоки
         removeMaterialInfo(Blocks.STONE_SLAB);
@@ -337,7 +343,8 @@ public final class TFGMaterialInfoLoader {
 
 
     private static void removeMaterialInfo(ItemLike itemLike) {
-        if (ChemicalHelper.ITEM_MATERIAL_INFO.remove(itemLike) == null) {
+        var a = ChemicalHelper.ITEM_MATERIAL_INFO.remove(itemLike);
+        if (a == null) {
             TerraFirmaGreg.LOGGER.warn("Не произведено удаление унификации: {}", itemLike.asItem());
         }
     }

@@ -10,6 +10,7 @@ import su.terrafirmagreg.core.objects.data.TFGData;
 import su.terrafirmagreg.core.objects.TFGItems;
 import su.terrafirmagreg.core.objects.data.TFGRecipes;
 import su.terrafirmagreg.core.objects.TFGRegistries;
+import su.terrafirmagreg.core.objects.data.TFGWoodRecipes;
 
 import java.util.function.Consumer;
 
@@ -55,6 +56,7 @@ public final class TFGGTAddon implements IGTAddon {
     @Override
     public void addRecipes(Consumer<FinishedRecipe> provider) {
         TFGData.init();
+        TFGWoodRecipes.init(provider);
         TFGRecipes.init(provider);
     }
 

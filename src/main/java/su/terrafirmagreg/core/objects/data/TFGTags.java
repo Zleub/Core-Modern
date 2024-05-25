@@ -125,7 +125,7 @@ public final class TFGTags {
 
         public static final TagKey<Item> CopperBolt = createItemTag("forge:bolts/copper");
 
-        private static TagKey<Item> createItemTag(String path) {
+        public static TagKey<Item> createItemTag(String path) {
             return TagKey.create(ForgeRegistries.ITEMS.getRegistryKey(), new ResourceLocation(path));
         }
     }
@@ -133,7 +133,7 @@ public final class TFGTags {
     public static final class Blocks {
         public static final TagKey<Block> RawRockBlocks = createBlockTag("tfc:rock/raw");
 
-        private static TagKey<Block> createBlockTag(String path) {
+        public static TagKey<Block> createBlockTag(String path) {
             return TagKey.create(ForgeRegistries.BLOCKS.getRegistryKey(), new ResourceLocation(path));
         }
     }
@@ -141,7 +141,7 @@ public final class TFGTags {
     public static final class Biomes {
         public static final TagKey<Biome> IsTFCOverworld = createBiomeTag("tfc:is_tfc_overworld");
 
-        private static TagKey<Biome> createBiomeTag(String path) {
+        public static TagKey<Biome> createBiomeTag(String path) {
             return TagKey.create(ForgeRegistries.BIOMES.getRegistryKey(), new ResourceLocation(path));
         }
     }
