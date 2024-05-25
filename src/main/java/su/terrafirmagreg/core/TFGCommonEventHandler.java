@@ -15,7 +15,7 @@ import su.terrafirmagreg.core.compat.create.CreateCompat;
 import su.terrafirmagreg.core.compat.gtceu.materials.TFGMaterialHandler;
 import su.terrafirmagreg.core.compat.tfcambiental.TFCAmbientalCompat;
 import su.terrafirmagreg.core.objects.TFGRegistries;
-import su.terrafirmagreg.core.objects.TFGDynamicDataPack;
+import su.terrafirmagreg.core.objects.data.TFGDynamicDataPack;
 
 public final class TFGCommonEventHandler {
 

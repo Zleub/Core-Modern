@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import su.terrafirmagreg.core.compat.gtceu.materials.TFGMaterialFlags;
 import su.terrafirmagreg.core.compat.gtceu.TFGTagPrefix;
-import su.terrafirmagreg.core.objects.TFGTags;
+import su.terrafirmagreg.core.objects.data.TFGTags;
 
 import java.util.function.Consumer;
 
