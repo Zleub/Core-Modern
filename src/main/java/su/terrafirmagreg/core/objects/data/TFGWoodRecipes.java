@@ -331,6 +331,10 @@ public final class TFGWoodRecipes {
     }
 
     public static void remove(Consumer<ResourceLocation> consumer) {
+        consumer.accept(new ResourceLocation("gtceu:shaped/stick_saw"));
+        consumer.accept(new ResourceLocation("minecraft:stick_from_bamboo_item"));
+        consumer.accept(new ResourceLocation("gtceu:shaped/stick_normal"));
+
         for (var woodType: Wood.values()) {
             consumer.accept(new ResourceLocation("tfc:crafting/wood/" + woodType.getSerializedName() + "_lumber_log"));
             consumer.accept(new ResourceLocation("tfc:crafting/wood/" + woodType.getSerializedName() + "_lumber_planks"));

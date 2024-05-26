@@ -8,6 +8,7 @@ import com.gregtechceu.gtceu.common.data.GTMaterials;
 import net.dries007.tfc.common.blocks.TFCBlocks;
 import net.dries007.tfc.common.blocks.wood.Wood;
 import net.dries007.tfc.common.items.TFCItems;
+import net.dries007.tfc.util.Metal;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
@@ -90,10 +91,6 @@ public final class TFGMaterialInfoLoader {
         removeMaterialInfo(Blocks.BAMBOO_PLANKS);
         removeMaterialInfo(Blocks.CHERRY_PLANKS);
 
-        for (var wood : Wood.values()) {
-            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.PLANKS).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
-        }
-
         // Ступени
         removeMaterialInfo(Blocks.OAK_STAIRS);
         removeMaterialInfo(Blocks.BIRCH_STAIRS);
@@ -107,10 +104,6 @@ public final class TFGMaterialInfoLoader {
         removeMaterialInfo(Blocks.BAMBOO_STAIRS);
         removeMaterialInfo(Blocks.BAMBOO_MOSAIC_STAIRS);
         removeMaterialInfo(Blocks.CHERRY_STAIRS);
-
-        for (var wood : Wood.values()) {
-            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.STAIRS).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, (3 * M) / 2)));
-        }
 
         // Полублоки
         removeMaterialInfo(Blocks.OAK_SLAB);
@@ -126,10 +119,6 @@ public final class TFGMaterialInfoLoader {
         removeMaterialInfo(Blocks.BAMBOO_MOSAIC_SLAB);
         removeMaterialInfo(Blocks.CHERRY_SLAB);
 
-        for (var wood : Wood.values()) {
-            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.SLAB).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M / 2)));
-        }
-
         // Заборы
         removeMaterialInfo(Blocks.OAK_FENCE);
         removeMaterialInfo(Blocks.BIRCH_FENCE);
@@ -142,10 +131,6 @@ public final class TFGMaterialInfoLoader {
         removeMaterialInfo(Blocks.WARPED_FENCE);
         removeMaterialInfo(Blocks.BAMBOO_FENCE);
         removeMaterialInfo(Blocks.CHERRY_FENCE);
-
-        for (var wood : Wood.values()) {
-            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.FENCE).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
-        }
 
         // Калитки
         removeMaterialInfo(Blocks.OAK_FENCE_GATE);
@@ -160,10 +145,6 @@ public final class TFGMaterialInfoLoader {
         removeMaterialInfo(Blocks.BAMBOO_FENCE_GATE);
         removeMaterialInfo(Blocks.CHERRY_FENCE_GATE);
 
-        for (var wood : Wood.values()) {
-            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.FENCE).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M * 3)));
-        }
-
         // Двери
         removeMaterialInfo(Items.ACACIA_DOOR);
         removeMaterialInfo(Items.BIRCH_DOOR);
@@ -176,10 +157,6 @@ public final class TFGMaterialInfoLoader {
         removeMaterialInfo(Items.WARPED_DOOR);
         removeMaterialInfo(Items.BAMBOO_DOOR);
         removeMaterialInfo(Items.CHERRY_DOOR);
-
-        for (var wood : Wood.values()) {
-            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.DOOR).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M * 2), new MaterialStack(GTMaterials.Iron, M / 9)));
-        }
 
         // Кнопки
         removeMaterialInfo(Blocks.OAK_BUTTON);
@@ -194,10 +171,6 @@ public final class TFGMaterialInfoLoader {
         removeMaterialInfo(Blocks.BAMBOO_BUTTON);
         removeMaterialInfo(Blocks.CHERRY_BUTTON);
 
-        for (var wood : Wood.values()) {
-            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.BUTTON).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M / 9)));
-        }
-
         // Лодки
         removeMaterialInfo(Items.OAK_BOAT);
         removeMaterialInfo(Items.BIRCH_BOAT);
@@ -209,24 +182,75 @@ public final class TFGMaterialInfoLoader {
         removeMaterialInfo(Items.BAMBOO_RAFT);
         removeMaterialInfo(Items.CHERRY_BOAT);
 
-        for (var wood : Wood.values()) {
-            ChemicalHelper.registerMaterialInfo(TFCItems.BOATS.get(wood).get(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M * 5)));
-        }
-
         // Сундуки
         removeMaterialInfo(Blocks.CHEST);
         removeMaterialInfo(Blocks.TRAPPED_CHEST);
 
-        for (var wood : Wood.values()) {
-            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.CHEST).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M * 8)));
-            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.TRAPPED_CHEST).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M * 8), new MaterialStack(GTMaterials.Iron, M / 2)));
-        }
-
         // Верстаки
         removeMaterialInfo(Blocks.CRAFTING_TABLE);
 
+        // Добавления для всех типов TFC
         for (var wood : Wood.values()) {
+
+            // Узкий путь - ? (SteamAndRails)
+            // Обычный путь - ? (SteamAndRails)
+            // Широкий путь - ? (SteamAndRails)
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.PLANKS).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
+            // Leaves - ?
+            // Saplings - ?
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.BOOKSHELF).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, (M / 4) * 3)));
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.DOOR).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M * 2), new MaterialStack(GTMaterials.Iron, M / 9)));
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.TRAPDOOR).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.FENCE).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.LOG_FENCE).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.FENCE_GATE).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.BUTTON).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.PRESSURE_PLATE).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.SLAB).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.STAIRS).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.TOOL_RACK).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.TWIG).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
+            // Fallen Leaves - ?
             ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.WORKBENCH).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M * 2)));
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.CHEST).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M * 8)));
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.TRAPPED_CHEST).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M * 8), new MaterialStack(GTMaterials.Iron, M / 2)));
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.LOOM).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.SLUICE).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.BARREL).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.LECTERN).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.SCRIBING_TABLE).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.SEWING_TABLE).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.JAR_SHELF).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.AXLE).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.BLADED_AXLE).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.ENCASED_AXLE).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.CLUTCH).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.GEAR_BOX).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.WATER_WHEEL).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
+            ChemicalHelper.registerMaterialInfo(TFCItems.LUMBER.get(wood).get(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M / 4)));
+            ChemicalHelper.registerMaterialInfo(TFCItems.BOATS.get(wood).get(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.HORIZONTAL_SUPPORT).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
+            ChemicalHelper.registerMaterialInfo(TFCItems.CHEST_MINECARTS.get(wood).get(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.WOODS.get(wood).get(Wood.BlockType.SIGN).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
+
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.CEILING_HANGING_SIGNS.get(wood).get(Metal.Default.COPPER).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.CEILING_HANGING_SIGNS.get(wood).get(Metal.Default.BISMUTH_BRONZE).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.CEILING_HANGING_SIGNS.get(wood).get(Metal.Default.BRONZE).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.CEILING_HANGING_SIGNS.get(wood).get(Metal.Default.BLACK_BRONZE).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.CEILING_HANGING_SIGNS.get(wood).get(Metal.Default.WROUGHT_IRON).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.CEILING_HANGING_SIGNS.get(wood).get(Metal.Default.STEEL).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.CEILING_HANGING_SIGNS.get(wood).get(Metal.Default.BLACK_STEEL).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.CEILING_HANGING_SIGNS.get(wood).get(Metal.Default.RED_STEEL).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
+            ChemicalHelper.registerMaterialInfo(TFCBlocks.CEILING_HANGING_SIGNS.get(wood).get(Metal.Default.BLUE_STEEL).get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
+
+            // Food Shelf - ? (FirmaLife)
+            // Hanger - ? (FirmaLife)
+            // Jarbnet - ? (FirmaLife)
+
+            // CartWheel - ? (AsticoCarts)
+            // Plow - ? (AsticoCarts)
+            // AnimalCart - ? (AsticoCarts)
+            // SupplyCart - ? (AsticoCarts)
         }
 
         /// ============================ Камень ============================ ///
@@ -340,7 +364,6 @@ public final class TFGMaterialInfoLoader {
 //        tfg$removeMaterialInfo(Blocks.COBBLESTONE);
 //        tfg$removeMaterialInfo(Blocks.MOSSY_COBBLESTONE);
     }
-
 
     private static void removeMaterialInfo(ItemLike itemLike) {
         var a = ChemicalHelper.ITEM_MATERIAL_INFO.remove(itemLike);
