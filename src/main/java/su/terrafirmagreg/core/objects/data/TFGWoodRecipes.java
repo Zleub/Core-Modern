@@ -2,13 +2,12 @@ package su.terrafirmagreg.core.objects.data;
 
 import com.gregtechceu.gtceu.common.data.GTMaterials;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
-import com.gregtechceu.gtceu.config.ConfigHolder;
 import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
 import net.dries007.tfc.common.blocks.TFCBlocks;
 import net.dries007.tfc.common.blocks.wood.Wood;
 import net.dries007.tfc.common.items.TFCItems;
 import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.tags.TagKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import su.terrafirmagreg.core.TerraFirmaGreg;
 
@@ -28,6 +27,8 @@ public final class TFGWoodRecipes {
 
             var lumber = TFCItems.LUMBER.get(woodType).get();
 
+            var allLogs = TFGTags.Items.createItemTag("tfc:" + woodName + "_logs");
+
             var log = TFCBlocks.WOODS.get(woodType).get(Wood.BlockType.LOG).get().asItem();
             var strippedLog = TFCBlocks.WOODS.get(woodType).get(Wood.BlockType.STRIPPED_LOG).get().asItem();
 
@@ -38,72 +39,147 @@ public final class TFGWoodRecipes {
             var stairs = TFCBlocks.WOODS.get(woodType).get(Wood.BlockType.STAIRS).get().asItem();
             var slab = TFCBlocks.WOODS.get(woodType).get(Wood.BlockType.SLAB).get().asItem();
 
-            // Lumber
-            CUTTER_RECIPES.recipeBuilder(TerraFirmaGreg.id(woodName + "_lumber_from_log"))
-                    .inputItems(TFGTags.Items.createItemTag("tfc:" + woodName + "_logs"))
-                    .outputItems(new ItemStack(lumber, 6))
-                    .outputItems(dust, GTMaterials.Wood, 2)
-                    .circuitMeta(1)
-                    .duration(200)
-                    .EUt(VA[ULV])
-                    .save(provider);
+            // =========================== Stripped Log =========================== //
 
-            // +++ Разборка стеирсов, слаба, пленкса
-
-            // Stripped Log
             GTRecipeTypes.CUTTER_RECIPES.recipeBuilder(TerraFirmaGreg.id("stripped_" + woodName + "_log"))
                     .inputItems(log)
-                    .circuitMeta(2)
+                    .circuitMeta(0)
                     .outputItems(strippedLog)
                     .EUt(VA[ULV])
                     .duration(200)
                     .save(provider);
 
-            // Stripped Wood
+            // =========================== Stripped Wood =========================== //
+
             GTRecipeTypes.CUTTER_RECIPES.recipeBuilder(TerraFirmaGreg.id("stripped_" + woodName + "_wood"))
                     .inputItems(wood)
-                    .circuitMeta(1)
+                    .circuitMeta(0)
                     .outputItems(strippedWood)
                     .EUt(VA[ULV])
                     .duration(200)
                     .save(provider);
 
-            // Planks
+            // =========================== Planks =========================== //
+
             ASSEMBLER_RECIPES.recipeBuilder(TerraFirmaGreg.id(woodName + "_planks"))
-                    .inputItems(new ItemStack(lumber, 4))
+                    .inputItems(lumber, 4)
                     .outputItems(planks)
                     .circuitMeta(6)
                     .EUt(1).duration(100).save(provider);
 
             CUTTER_RECIPES.recipeBuilder(TerraFirmaGreg.id(woodName + "_planks"))
-                    .inputItems(log)
-                    .outputItems(new ItemStack(planks, 6))
+                    .inputItems(allLogs)
+                    .circuitMeta(1)
+                    .outputItems(planks, 6)
                     .outputItems(dust, GTMaterials.Wood, 2)
                     .duration(200)
                     .EUt(VA[ULV])
                     .save(provider);
 
-            // Stairs
+            // =========================== Stairs =========================== //
+
             VanillaRecipeHelper.addShapedRecipe(provider, TerraFirmaGreg.id(woodName + "_stairs"),
                     new ItemStack(stairs, 4),
                     "P  ", "PP ", "PPP", 'P', planks);
 
-            ASSEMBLER_RECIPES.recipeBuilder(TerraFirmaGreg.id(woodName + "_stairs"))
-                    .inputItems(new ItemStack(planks, 6))
-                    .outputItems(new ItemStack(stairs, 4))
-                    .circuitMeta(7)
-                    .EUt(1).duration(100).save(provider);
+            CUTTER_RECIPES.recipeBuilder(TerraFirmaGreg.id(woodName + "_stairs"))
+                    .inputItems(planks)
+                    .circuitMeta(0)
+                    .outputItems(stairs)
+                    .outputItems(dustSmall, GTMaterials.Wood)
+                    .duration(200).EUt(VA[ULV])
+                    .save(provider);
 
-            // Slabs
+            // =========================== Slabs =========================== //
+
             VanillaRecipeHelper.addShapedRecipe(provider, TerraFirmaGreg.id(woodName + "_slab_saw"), new ItemStack(slab, 2),
                     "sS", 'S', planks);
 
             CUTTER_RECIPES.recipeBuilder(TerraFirmaGreg.id(woodName + "_slab"))
                     .inputItems(planks)
-                    .outputItems(new ItemStack(slab, 2))
+                    .circuitMeta(1)
+                    .outputItems(slab, 2)
                     .duration(200).EUt(VA[ULV])
                     .save(provider);
 
+            // =========================== Lumber =========================== //
+
+            // From Logs
+            VanillaRecipeHelper.addShapelessRecipe(provider, TerraFirmaGreg.id(woodName + "_lumber_from_any_log"),
+                    new ItemStack(lumber, 16),
+                    's', allLogs);
+
+            new TFGCuttingRecipeBuilder(TerraFirmaGreg.id(woodName + "_lumber_from_any_log"))
+                    .input(allLogs)
+                    .duration(50)
+                    .output(new ItemStack(lumber, 16))
+                    .save(provider);
+
+            CUTTER_RECIPES.recipeBuilder(TerraFirmaGreg.id(woodName + "_lumber_from_any_log"))
+                    .inputItems(allLogs)
+                    .circuitMeta(2)
+                    .outputItems(new ItemStack(lumber, 16))
+                    .outputItems(dust, GTMaterials.Wood, 2)
+                    .duration(200)
+                    .EUt(VA[ULV])
+                    .save(provider);
+
+            // From Planks
+            VanillaRecipeHelper.addShapelessRecipe(provider, TerraFirmaGreg.id(woodName + "_lumber_from_planks"),
+                    new ItemStack(lumber, 4),
+                    's', planks);
+
+            new TFGCuttingRecipeBuilder(TerraFirmaGreg.id(woodName + "_lumber_from_planks"))
+                    .input(planks)
+                    .duration(50)
+                    .output(new ItemStack(lumber, 4))
+                    .save(provider);
+
+            GTRecipeTypes.CUTTER_RECIPES.recipeBuilder(TerraFirmaGreg.id(woodName + "_lumber_from_planks"))
+                    .inputItems(planks)
+                    .circuitMeta(2)
+                    .outputItems(lumber, 4)
+                    .EUt(VA[ULV])
+                    .duration(200)
+                    .save(provider);
+
+            // From Stairs
+            VanillaRecipeHelper.addShapelessRecipe(provider, TerraFirmaGreg.id(woodName + "_lumber_from_stairs"),
+                    new ItemStack(lumber, 3),
+                    's', stairs);
+
+            new TFGCuttingRecipeBuilder(TerraFirmaGreg.id(woodName + "_lumber_from_stairs"))
+                    .input(stairs)
+                    .duration(50)
+                    .output(new ItemStack(lumber, 3))
+                    .save(provider);
+
+            GTRecipeTypes.CUTTER_RECIPES.recipeBuilder(TerraFirmaGreg.id(woodName + "_lumber_from_stairs"))
+                    .inputItems(stairs)
+                    .outputItems(lumber, 3)
+                    .EUt(VA[ULV])
+                    .duration(200)
+                    .save(provider);
+
+            // From Slabs
+            VanillaRecipeHelper.addShapelessRecipe(provider, TerraFirmaGreg.id(woodName + "_lumber_from_slab"),
+                    new ItemStack(lumber, 2),
+                    's', slab);
+
+            new TFGCuttingRecipeBuilder(TerraFirmaGreg.id(woodName + "_lumber_from_slab"))
+                    .input(slab)
+                    .duration(50)
+                    .output(new ItemStack(lumber, 2))
+                    .save(provider);
+
+            GTRecipeTypes.CUTTER_RECIPES.recipeBuilder(TerraFirmaGreg.id(woodName + "_lumber_from_slab"))
+                    .inputItems(slab)
+                    .outputItems(lumber, 2)
+                    .EUt(VA[ULV])
+                    .duration(200)
+                    .save(provider);
+
+            // =========================== asd =========================== //
             // Fence
             // Fence Log
             // Fence Gate
@@ -251,6 +327,17 @@ public final class TFGWoodRecipes {
 //                        .circuitMeta(15)
 //                        .duration(100).EUt(4).save(provider);
 //            }
+        }
+    }
+
+    public static void remove(Consumer<ResourceLocation> consumer) {
+        for (var woodType: Wood.values()) {
+            consumer.accept(new ResourceLocation("tfc:crafting/wood/" + woodType.getSerializedName() + "_lumber_log"));
+            consumer.accept(new ResourceLocation("tfc:crafting/wood/" + woodType.getSerializedName() + "_lumber_planks"));
+            consumer.accept(new ResourceLocation("tfc:crafting/wood/" + woodType.getSerializedName() + "_stairs"));
+            consumer.accept(new ResourceLocation("tfc:crafting/wood/" + woodType.getSerializedName() + "_stairs_undo"));
+            consumer.accept(new ResourceLocation("tfc:crafting/wood/" + woodType.getSerializedName() + "_slab"));
+            consumer.accept(new ResourceLocation("tfc:crafting/wood/" + woodType.getSerializedName() + "_slab_undo"));
         }
     }
 }

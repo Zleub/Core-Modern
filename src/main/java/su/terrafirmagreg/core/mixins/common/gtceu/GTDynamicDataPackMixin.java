@@ -15,7 +15,7 @@ public abstract class GTDynamicDataPackMixin {
     /**
      * Позволяет удалять data файлы из любых модов.
      * */
-    @Inject(method = "lambda$getMetadataSection$3", at = @At(value = "HEAD"), remap = true, cancellable = true)
+    @Inject(method = "lambda$getMetadataSection$3", at = @At(value = "HEAD"), remap = false, cancellable = true)
     private static void tfg$getMetadataSection$lambda3(JsonArray block, ResourceLocation id, CallbackInfo ci) {
         if (id.getPath().startsWith("data/")) {
             JsonObject entry = new JsonObject();

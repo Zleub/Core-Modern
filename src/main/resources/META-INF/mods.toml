@@ -26,19 +26,27 @@ versionRange = "${minecraft_version}"
 ordering = "NONE"
 side = "BOTH"
 
-#[[dependencies.${mod_id}]]
-#modId = "gtceu"
-#mandatory = true
-#versionRange = "1.2.0.a"
-#ordering = "NONE"
-#side = "BOTH"
-#
-#[[dependencies.${mod_id}]]
-#modId = "tfc"
-#mandatory = true
-#versionRange = "3.2.0"
-#ordering = "AFTER"
-#side = "BOTH"
+[[dependencies.${mod_id}]]
+modId = "gtceu"
+mandatory = true
+versionRange = "1.2.3.a"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.${mod_id}]]
+modId = "tfc"
+mandatory = true
+versionRange = "3.2.3"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.${mod_id}]]
+modId = "create"
+mandatory = true
+versionRange = "0.5.1.f"
+ordering = "AFTER"
+side = "BOTH"
+
 
 #[[dependencies.${mod_id}]]
 #modId = "ae2"
@@ -60,14 +68,7 @@ side = "BOTH"
 #versionRange = "[0.2.2-alpha,)"
 #ordering = "AFTER"
 #side = "BOTH"
-#
-#[[dependencies.${mod_id}]]
-#modId = "create"
-#mandatory = false
-#versionRange = "0.5.1.f"
-#ordering = "NONE"
-#side = "BOTH"
-#
+
 #[[dependencies.${mod_id}]]
 #modId = "tfcambiental"
 #mandatory = true
