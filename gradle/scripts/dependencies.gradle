@@ -13,7 +13,8 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
 
     // Mixin Extras
-    implementation(annotationProcessor("io.github.llamalad7:mixinextras-common:${this.forge.versions.mixinextras.get()}"))
+    modImplementation(annotationProcessor("io.github.llamalad7:mixinextras-common:${this.forge.versions.mixinextras.get()}"))
+    api(include("io.github.llamalad7:mixinextras-forge:${this.forge.versions.mixinextras.get()}"))
 
     // Configuration
     modImplementation(forge.configuration)
@@ -35,7 +36,7 @@ dependencies {
     // JEI
     modCompileOnly(forge.jei.common.api) { transitive = false }
     modCompileOnly(forge.jei.forge.api) { transitive = false }
-    modCompileOnly(forge.jei.forge.impl) { transitive = false }
+    modImplementation(forge.jei.forge.impl) { transitive = false }
 
     // REI
 //    modCompileOnly forge.rei.plugin
