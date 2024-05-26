@@ -1,4 +1,4 @@
-package su.terrafirmagreg.core.objects.data.recipes.builders;
+package su.terrafirmagreg.core.objects.data.recipes.builders.create;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -17,7 +17,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.function.Consumer;
 
 @SuppressWarnings("unused")
-public class TFGCuttingRecipeBuilder {
+public final class TFGCuttingRecipeBuilder {
 
     private final ResourceLocation id;
 

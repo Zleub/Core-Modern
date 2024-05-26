@@ -10,7 +10,7 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import su.terrafirmagreg.core.TerraFirmaGreg;
-import su.terrafirmagreg.core.objects.data.recipes.builders.TFGCuttingRecipeBuilder;
+import su.terrafirmagreg.core.objects.data.recipes.builders.create.TFGCuttingRecipeBuilder;
 import su.terrafirmagreg.core.objects.data.TFGTags;
 
 import java.util.function.Consumer;
