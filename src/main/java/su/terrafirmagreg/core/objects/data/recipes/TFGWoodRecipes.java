@@ -1,4 +1,4 @@
-package su.terrafirmagreg.core.objects.data;
+package su.terrafirmagreg.core.objects.data.recipes;
 
 import com.gregtechceu.gtceu.common.data.GTMaterials;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
@@ -10,6 +10,8 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import su.terrafirmagreg.core.TerraFirmaGreg;
+import su.terrafirmagreg.core.objects.data.recipes.builders.TFGCuttingRecipeBuilder;
+import su.terrafirmagreg.core.objects.data.TFGTags;
 
 import java.util.function.Consumer;
 

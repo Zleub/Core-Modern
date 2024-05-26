@@ -8,9 +8,9 @@ import net.minecraft.resources.ResourceLocation;
 import su.terrafirmagreg.core.TerraFirmaGreg;
 import su.terrafirmagreg.core.objects.data.TFGData;
 import su.terrafirmagreg.core.objects.TFGItems;
-import su.terrafirmagreg.core.objects.data.TFGRecipes;
+import su.terrafirmagreg.core.objects.data.recipes.TFGRecipes;
 import su.terrafirmagreg.core.objects.TFGRegistries;
-import su.terrafirmagreg.core.objects.data.TFGWoodRecipes;
+import su.terrafirmagreg.core.objects.data.recipes.TFGWoodRecipes;
 
 import java.util.function.Consumer;
 

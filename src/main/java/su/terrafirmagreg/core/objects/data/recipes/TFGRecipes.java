@@ -1,4 +1,4 @@
-package su.terrafirmagreg.core.objects.data;
+package su.terrafirmagreg.core.objects.data.recipes;
 
 import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.GTValues;

@@ -1,4 +1,4 @@
-package su.terrafirmagreg.core.objects.data;
+package su.terrafirmagreg.core.objects.data.recipes.builders;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
