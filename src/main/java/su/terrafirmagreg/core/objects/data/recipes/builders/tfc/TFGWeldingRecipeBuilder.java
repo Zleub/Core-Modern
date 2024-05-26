@@ -17,7 +17,7 @@ import su.terrafirmagreg.core.objects.data.recipes.builders.TFGAbstractRecipeBui
 
 import java.util.function.Consumer;
 
-public class TFGWeldingRecipeBuilder extends TFGAbstractRecipeBuilder {
+public final class TFGWeldingRecipeBuilder extends TFGAbstractRecipeBuilder {
 
     private Ingredient firstInputStack;
     private Ingredient secondInputStack;
