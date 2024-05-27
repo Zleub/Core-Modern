@@ -1,6 +1,5 @@
 package su.terrafirmagreg.core.objects.data.recipes;
 
-import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.material.stack.UnificationEntry;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
@@ -58,6 +57,13 @@ public final class TFGWoodRecipes {
 
             var pressurePlate = TFCBlocks.WOODS.get(woodType).get(Wood.BlockType.PRESSURE_PLATE).get().asItem();
             var button = TFCBlocks.WOODS.get(woodType).get(Wood.BlockType.BUTTON).get().asItem();
+
+            var workbench = TFCBlocks.WOODS.get(woodType).get(Wood.BlockType.WORKBENCH).get().asItem();
+            var chest = TFCBlocks.WOODS.get(woodType).get(Wood.BlockType.CHEST).get().asItem();
+            var chestTrapped = TFCBlocks.WOODS.get(woodType).get(Wood.BlockType.TRAPPED_CHEST).get().asItem();
+
+            var axle = TFCBlocks.WOODS.get(woodType).get(Wood.BlockType.AXLE).get().asItem();
+            var axleBladed = TFCBlocks.WOODS.get(woodType).get(Wood.BlockType.BLADED_AXLE).get().asItem();
 
             // =========================== Stripped Log =========================== //
 
@@ -295,6 +301,61 @@ public final class TFGWoodRecipes {
                     .duration(200)
                     .save(provider);
 
+            // =========================== Workbench =========================== //
+
+            VanillaRecipeHelper.addShapedRecipe(provider, TerraFirmaGreg.id(woodName + "_workbench"), new ItemStack(workbench),
+                    "FF", "LL",
+                    'F', new UnificationEntry(gem, GTMaterials.Flint),
+                    'L', allLogs
+            );
+
+            GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder(TerraFirmaGreg.id(woodName + "_workbench"))
+                    .inputItems(allLogs)
+                    .inputItems(gem, GTMaterials.Flint)
+                    .circuitMeta(4)
+                    .outputItems(workbench)
+                    .duration(100).EUt(VA[ULV]).save(provider);
+
+            // =========================== Chest =========================== //
+
+            VanillaRecipeHelper.addShapedRecipe(provider, TerraFirmaGreg.id(woodName + "_chest"), new ItemStack(workbench),
+                    "LPL", "PFP", "LPL",
+                    'F', new UnificationEntry(gem, GTMaterials.Flint),
+                    'L', allLogs,
+                    'P', lumber
+            );
+
+            GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder(TerraFirmaGreg.id(woodName + "_chest"))
+                    .inputItems(lumber, 16)
+                    .circuitMeta(5)
+                    .outputItems(chest)
+                    .duration(100).EUt(VA[ULV]).save(provider);
+
+            // =========================== Trapped Chest =========================== //
+
+            VanillaRecipeHelper.addShapedRecipe(provider, TerraFirmaGreg.id(woodName + "_trapped_chest"),
+                    new ItemStack(chestTrapped),
+                    " H ", "SCS", " d ",
+                    'H', new ItemStack(Blocks.TRIPWIRE_HOOK),
+                    'S', new UnificationEntry(TagPrefix.screw, GTMaterials.WroughtIron),
+                    'C', chest);
+
+            GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder(TerraFirmaGreg.id(woodName + "_trapped_chest"))
+                    .inputItems(chest)
+                    .inputItems(Blocks.TRIPWIRE_HOOK.asItem())
+                    .circuitMeta(6)
+                    .inputFluids(GTMaterials.Iron.getFluid(L / 9))
+                    .outputItems(chestTrapped)
+                    .duration(100).EUt(VA[ULV]).save(provider);
+
+            // =========================== Axle =========================== //
+
+            GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder(TerraFirmaGreg.id(woodName + "_bladed_axle"))
+                    .inputItems(plate, GTMaterials.Steel)
+                    .inputItems(axle)
+                    .circuitMeta(1)
+                    .outputItems(axleBladed)
+                    .duration(100).EUt(VA[ULV]).save(provider);
         }
     }
 
@@ -302,6 +363,8 @@ public final class TFGWoodRecipes {
         consumer.accept(id("gtceu:shaped/stick_saw"));
         consumer.accept(id("minecraft:stick_from_bamboo_item"));
         consumer.accept(id("gtceu:shaped/stick_normal"));
+
+        consumer.accept(id("tfc:crafting/vanilla/crafting_table"));
 
         // Doors
 //        consumer.accept(id("minecraft:oak_door"));
@@ -338,6 +401,9 @@ public final class TFGWoodRecipes {
             consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_boat"));
             consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_pressure_plate"));
             consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_button"));
+            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_workbench"));
+            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_chest"));
+            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_trapped_chest"));
         }
     }
 
