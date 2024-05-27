@@ -1,5 +1,8 @@
 package su.terrafirmagreg.core.objects.data.recipes;
 
+import com.gregtechceu.gtceu.api.GTValues;
+import com.gregtechceu.gtceu.api.data.chemical.material.stack.UnificationEntry;
+import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
 import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
@@ -8,13 +11,16 @@ import net.dries007.tfc.common.blocks.wood.Wood;
 import net.dries007.tfc.common.items.TFCItems;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Blocks;
 import su.terrafirmagreg.core.TerraFirmaGreg;
 import su.terrafirmagreg.core.objects.data.recipes.builders.create.TFGCuttingRecipeBuilder;
 import su.terrafirmagreg.core.objects.data.TFGTags;
 
 import java.util.function.Consumer;
 
+import static com.gregtechceu.gtceu.api.GTValues.*;
 import static com.gregtechceu.gtceu.api.GTValues.ULV;
 import static com.gregtechceu.gtceu.api.GTValues.VA;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
@@ -40,6 +46,18 @@ public final class TFGWoodRecipes {
             var planks = TFCBlocks.WOODS.get(woodType).get(Wood.BlockType.PLANKS).get().asItem();
             var stairs = TFCBlocks.WOODS.get(woodType).get(Wood.BlockType.STAIRS).get().asItem();
             var slab = TFCBlocks.WOODS.get(woodType).get(Wood.BlockType.SLAB).get().asItem();
+
+            var door = TFCBlocks.WOODS.get(woodType).get(Wood.BlockType.DOOR).get().asItem();
+            var trapdoor = TFCBlocks.WOODS.get(woodType).get(Wood.BlockType.TRAPDOOR).get().asItem();
+
+            var fence = TFCBlocks.WOODS.get(woodType).get(Wood.BlockType.FENCE).get().asItem();
+            var fenceGate = TFCBlocks.WOODS.get(woodType).get(Wood.BlockType.FENCE_GATE).get().asItem();
+            var fenceLog = TFCBlocks.WOODS.get(woodType).get(Wood.BlockType.LOG_FENCE).get().asItem();
+
+            var boat = TFCItems.BOATS.get(woodType).get();
+
+            var pressurePlate = TFCBlocks.WOODS.get(woodType).get(Wood.BlockType.PRESSURE_PLATE).get().asItem();
+            var button = TFCBlocks.WOODS.get(woodType).get(Wood.BlockType.BUTTON).get().asItem();
 
             // =========================== Stripped Log =========================== //
 
@@ -80,9 +98,9 @@ public final class TFGWoodRecipes {
 
             // =========================== Stairs =========================== //
 
-            VanillaRecipeHelper.addShapedRecipe(provider, TerraFirmaGreg.id(woodName + "_stairs"),
-                    new ItemStack(stairs, 4),
-                    "P  ", "PP ", "PPP", 'P', planks);
+            VanillaRecipeHelper.addShapedRecipe(provider, TerraFirmaGreg.id(woodName + "_stairs_saw"),
+                    new ItemStack(stairs, 1),
+                    "s", "P", 'P', planks);
 
             CUTTER_RECIPES.recipeBuilder(TerraFirmaGreg.id(woodName + "_stairs"))
                     .inputItems(planks)
@@ -95,7 +113,10 @@ public final class TFGWoodRecipes {
             // =========================== Slabs =========================== //
 
             VanillaRecipeHelper.addShapedRecipe(provider, TerraFirmaGreg.id(woodName + "_slab_saw"), new ItemStack(slab, 2),
-                    "sS", 'S', planks);
+                    "sP", 'P', planks);
+
+            VanillaRecipeHelper.addShapedRecipe(provider, TerraFirmaGreg.id(woodName + "_slab"), new ItemStack(slab, 1),
+                    "LL", 'L', lumber);
 
             CUTTER_RECIPES.recipeBuilder(TerraFirmaGreg.id(woodName + "_slab"))
                     .inputItems(planks)
@@ -103,6 +124,62 @@ public final class TFGWoodRecipes {
                     .outputItems(slab, 2)
                     .duration(200).EUt(VA[ULV])
                     .save(provider);
+
+            // =========================== Fence =========================== //
+
+            VanillaRecipeHelper.addShapedRecipe(provider, TerraFirmaGreg.id(woodName + "_fence"), new ItemStack(fence, 4),
+                    "s  ", "PLP", "PLP",
+                    'P', planks, 'L', lumber);
+
+            ASSEMBLER_RECIPES.recipeBuilder(TerraFirmaGreg.id(woodName + "_fence"))
+                    .inputItems(planks)
+                    .circuitMeta(1)
+                    .outputItems(fence)
+                    .EUt(VA[ULV])
+                    .duration(200)
+                    .save(provider);
+
+            // =========================== Fence Log =========================== //
+
+            VanillaRecipeHelper.addShapedRecipe(provider, TerraFirmaGreg.id(woodName + "_fence_log"), new ItemStack(fenceLog, 4),
+                    "s  ", "PLP", "PLP",
+                    'P', allLogs, 'L', lumber);
+
+            ASSEMBLER_RECIPES.recipeBuilder(TerraFirmaGreg.id(woodName + "_fence_log"))
+                    .inputItems(allLogs)
+                    .circuitMeta(1)
+                    .outputItems(fenceLog)
+                    .EUt(VA[ULV])
+                    .duration(200)
+                    .save(provider);
+
+            // =========================== Fence Gate =========================== //
+
+            ASSEMBLER_RECIPES.recipeBuilder(TerraFirmaGreg.id(woodName + "_fence_gate"))
+                    .inputItems(planks, 2)
+                    .inputItems(lumber, 2)
+                    .circuitMeta(2)
+                    .outputItems(fenceGate, 2)
+                    .EUt(VA[ULV])
+                    .duration(200)
+                    .save(provider);
+
+            // =========================== Door =========================== //
+
+            VanillaRecipeHelper.addShapedRecipe(provider, TerraFirmaGreg.id(woodName + "_door"),
+                new ItemStack(door),
+                "LTd", "LRS", "LLs",
+                'L', lumber,
+                'T', trapdoor,
+                'R', new UnificationEntry(ring, GTMaterials.WroughtIron),
+                'S', new UnificationEntry(screw, GTMaterials.WroughtIron));
+
+            ASSEMBLER_RECIPES.recipeBuilder(TerraFirmaGreg.id(woodName + "_door"))
+                    .inputItems(trapdoor)
+                    .inputItems(new ItemStack(lumber, 4))
+                    .inputFluids(GTMaterials.Iron.getFluid(L / 9))
+                    .outputItems(door)
+                    .duration(400).EUt(4).save(provider);
 
             // =========================== Lumber =========================== //
 
@@ -181,169 +258,90 @@ public final class TFGWoodRecipes {
                     .duration(200)
                     .save(provider);
 
-            // =========================== asd =========================== //
-            // Fence
-            // Fence Log
-            // Fence Gate
-            // Door
-            // Trapdoor
 
-//            // door
-//            if (entry.door != null) {
-//                final boolean hasDoorRecipe = entry.doorRecipeName != null;
-//                if (ConfigHolder.INSTANCE.recipes.hardWoodRecipes) {
-//                    String recipeName = hasDoorRecipe ? entry.doorRecipeName : name + "_door";
-//                    if (entry.trapdoor != null) {
-//                        VanillaRecipeHelper.addShapedRecipe(provider, recipeName, new ItemStack(entry.door),
-//                                "PTd", "PRS", "PPs",
-//                                'P', entry.planks,
-//                                'T', entry.trapdoor,
-//                                'R', new UnificationEntry(ring, Iron),
-//                                'S', new UnificationEntry(screw, Iron));
-//
-//                        // plank -> door assembling
-//                        ASSEMBLER_RECIPES.recipeBuilder(name + "_door")
-//                                .inputItems(entry.trapdoor)
-//                                .inputItems(new ItemStack(entry.planks, 4))
-//                                .inputFluids(Iron.getFluid(GTValues.L / 9))
-//                                .outputItems(entry.door)
-//                                .duration(400).EUt(4).save(provider);
-//                    } else {
-//                        VanillaRecipeHelper.addShapedRecipe(provider, recipeName, new ItemStack(entry.door),
-//                                "PTd", "PRS", "PPs",
-//                                'P', entry.planks,
-//                                'T', ItemTags.WOODEN_TRAPDOORS,
-//                                'R', new UnificationEntry(ring, Iron),
-//                                'S', new UnificationEntry(screw, Iron));
-//
-//                        // plank -> door assembling
-//                        ASSEMBLER_RECIPES.recipeBuilder(name + "_door")
-//                                .inputItems(ItemTags.WOODEN_TRAPDOORS)
-//                                .inputItems(new ItemStack(entry.planks, 4))
-//                                .inputFluids(Iron.getFluid(GTValues.L / 9))
-//                                .outputItems(entry.door)
-//                                .duration(400).EUt(4).save(provider);
-//                    }
-//                } else {
-//                    if (!hasDoorRecipe) {
-//                        VanillaRecipeHelper.addShapedRecipe(provider, name + "_door", new ItemStack(entry.door, 3),
-//                                "PP", "PP", "PP",
-//                                'P', entry.planks);
-//                    }
-//
-//                    ASSEMBLER_RECIPES.recipeBuilder(name + "_door")
-//                            .inputItems(new ItemStack(entry.planks, 6))
-//                            .outputItems(new ItemStack(entry.door, 3))
-//                            .circuitMeta(6)
-//                            .duration(600).EUt(4)
-//                            .save(provider);
-//                }
-//            }
+            // =========================== Boat =========================== //
 
-//            // fence
-//            if (entry.fence != null) {
-//                final boolean hasFenceRecipe = entry.fenceRecipeName != null;
-//                if (ConfigHolder.INSTANCE.recipes.hardWoodRecipes) {
-//
-//                    VanillaRecipeHelper.addShapedRecipe(provider, hasFenceRecipe ? entry.fenceRecipeName : name + "_fence", new ItemStack(entry.fence),
-//                            "PSP", "PSP", "PSP",
-//                            'P', entry.planks,
-//                            'S', entry.getStick());
-//                } else {
-//                    if (!hasFenceRecipe) {
-//                        VanillaRecipeHelper.addShapedRecipe(provider, name + "_fence", new ItemStack(entry.fence, 3),
-//                                "PSP", "PSP",
-//                                'P', entry.planks,
-//                                'S', entry.getStick());
-//                    }
-//                }
-//
-//                // plank -> fence assembling
-//                ASSEMBLER_RECIPES.recipeBuilder(name + "_fence")
-//                        .inputItems(entry.planks)
-//                        .outputItems(entry.fence)
-//                        .circuitMeta(1)
-//                        .duration(100).EUt(4)
-//                        .save(provider);
-//            }
-//
-//            // fence gate
-//            if (entry.fenceGate != null) {
-//                final boolean hasFenceGateRecipe = entry.fenceGateRecipeName != null;
-//                if (ConfigHolder.INSTANCE.recipes.hardWoodRecipes) {
-//
-//                    VanillaRecipeHelper.addShapedRecipe(provider, hasFenceGateRecipe ? entry.fenceGateRecipeName : name + "_fence_gate",
-//                            new ItemStack(entry.fenceGate),
-//                            "F F", "SPS", "SPS",
-//                            'P', entry.planks,
-//                            'S', entry.getStick(),
-//                            'F', Items.FLINT);
-//
-//                    VanillaRecipeHelper.addShapedRecipe(provider, name + "_fence_gate_screws", new ItemStack(entry.fenceGate, 2),
-//                            "IdI", "SPS", "SPS",
-//                            'P', entry.planks,
-//                            'S', entry.getStick(),
-//                            'I', new UnificationEntry(screw, Iron));
-//                } else {
-//                    if (!hasFenceGateRecipe) {
-//                        VanillaRecipeHelper.addShapedRecipe(provider, name + "_fence_gate", new ItemStack(entry.fenceGate),
-//                                "SPS", "SPS",
-//                                'P', entry.planks,
-//                                'S', entry.getStick());
-//                    }
-//                }
-//
-//                // plank -> fence gate assembling
-//                ASSEMBLER_RECIPES.recipeBuilder(name + "_fence_gate")
-//                        .inputItems(new ItemStack(entry.planks, 2))
-//                        .inputItems(Tags.Items.RODS_WOODEN, 2)
-//                        .outputItems(entry.fenceGate)
-//                        .circuitMeta(2)
-//                        .duration(100).EUt(4).save(provider);
-//            }
-//
-//            // boat
-//            if (entry.boat != null) {
-//                final boolean hasBoatRecipe = entry.boatRecipeName != null;
-//                if (ConfigHolder.INSTANCE.recipes.hardWoodRecipes) {
-//                    if (entry.slab != null) {
-//
-//                        VanillaRecipeHelper.addShapedRecipe(provider, hasBoatRecipe ? entry.boatRecipeName : name + "_boat", new ItemStack(entry.boat),
-//                                "PHP", "PkP", "SSS",
-//                                'P', entry.planks,
-//                                'S', entry.slab,
-//                                'H', ItemTags.SHOVELS);
-//                    }
-//                } else {
-//                    if (!hasBoatRecipe) {
-//                        VanillaRecipeHelper.addShapedRecipe(provider, name + "_boat", new ItemStack(entry.boat),
-//                                "P P", "PPP",
-//                                'P', entry.planks);
-//                    }
-//                }
-//
-//                // plank -> boat assembling
-//                ASSEMBLER_RECIPES.recipeBuilder(name + "_boat")
-//                        .inputItems(new ItemStack(entry.planks, 5))
-//                        .outputItems(entry.boat)
-//                        .circuitMeta(15)
-//                        .duration(100).EUt(4).save(provider);
-//            }
+            VanillaRecipeHelper.addShapedRecipe(provider, TerraFirmaGreg.id(woodName + "_boat"), new ItemStack(boat),
+                    "PHP", "PkP", "SSS",
+                    'P', planks,
+                    'S', slab,
+                    'H', ItemTags.SHOVELS);
+
+            // =========================== Pressure Plate =========================== //
+
+            VanillaRecipeHelper.addShapedRecipe(provider, TerraFirmaGreg.id(woodName + "_pressure_plate"), new ItemStack(pressurePlate, 2),
+                    "SrS", "LCL", "SdS",
+                    'S', new UnificationEntry(TagPrefix.bolt, GTMaterials.Wood),
+                    'L', slab,
+                    'C', new UnificationEntry(TagPrefix.spring, GTMaterials.Iron)
+            );
+
+            GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder(TerraFirmaGreg.id(woodName + "_pressure_plate"))
+                    .inputItems(TagPrefix.spring, GTMaterials.Iron)
+                    .inputItems(slab, 2)
+                    .outputItems(pressurePlate, 2)
+                    .duration(100).EUt(VA[ULV]).save(provider);
+
+            // =========================== Button =========================== //
+
+            VanillaRecipeHelper.addShapedRecipe(provider, TerraFirmaGreg.id(woodName + "_button"), new ItemStack(button, 6),
+                    "sP",
+                    'P', pressurePlate);
+
+            GTRecipeTypes.CUTTER_RECIPES.recipeBuilder(TerraFirmaGreg.id(woodName + "_button"))
+                    .inputItems(pressurePlate)
+                    .outputItems(button, 12)
+                    .EUt(VA[ULV])
+                    .duration(200)
+                    .save(provider);
+
         }
     }
 
     public static void remove(Consumer<ResourceLocation> consumer) {
-        consumer.accept(new ResourceLocation("gtceu:shaped/stick_saw"));
-        consumer.accept(new ResourceLocation("minecraft:stick_from_bamboo_item"));
-        consumer.accept(new ResourceLocation("gtceu:shaped/stick_normal"));
+        consumer.accept(id("gtceu:shaped/stick_saw"));
+        consumer.accept(id("minecraft:stick_from_bamboo_item"));
+        consumer.accept(id("gtceu:shaped/stick_normal"));
+
+        // Doors
+//        consumer.accept(id("minecraft:oak_door"));
+//        consumer.accept(id("minecraft:spruce_door"));
+//        consumer.accept(id("minecraft:birch_door"));
+//        consumer.accept(id("minecraft:jungle_door"));
+//        consumer.accept(id("minecraft:acacia_door"));
+//        consumer.accept(id("minecraft:dark_oak_door"));
+//        consumer.accept(id("minecraft:mangrove_door"));
+//        consumer.accept(id("minecraft:cherry_door"));
+//        consumer.accept(id("minecraft:bamboo_door"));
+
+        // Trapdoors
+//        consumer.accept(id("minecraft:oak_trapdoor"));
+//        consumer.accept(id("minecraft:spruce_trapdoor"));
+//        consumer.accept(id("minecraft:birch_trapdoor"));
+//        consumer.accept(id("minecraft:jungle_trapdoor"));
+//        consumer.accept(id("minecraft:acacia_trapdoor"));
+//        consumer.accept(id("minecraft:dark_oak_trapdoor"));
+//        consumer.accept(id("minecraft:mangrove_trapdoor"));
+//        consumer.accept(id("minecraft:cherry_trapdoor"));
+//        consumer.accept(id("minecraft:bamboo_trapdoor"));
 
         for (var woodType: Wood.values()) {
-            consumer.accept(new ResourceLocation("tfc:crafting/wood/" + woodType.getSerializedName() + "_lumber_log"));
-            consumer.accept(new ResourceLocation("tfc:crafting/wood/" + woodType.getSerializedName() + "_lumber_planks"));
-            consumer.accept(new ResourceLocation("tfc:crafting/wood/" + woodType.getSerializedName() + "_stairs"));
-            consumer.accept(new ResourceLocation("tfc:crafting/wood/" + woodType.getSerializedName() + "_stairs_undo"));
-            consumer.accept(new ResourceLocation("tfc:crafting/wood/" + woodType.getSerializedName() + "_slab"));
-            consumer.accept(new ResourceLocation("tfc:crafting/wood/" + woodType.getSerializedName() + "_slab_undo"));
+            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_lumber_log"));
+            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_lumber_planks"));
+            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_stairs"));
+            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_stairs_undo"));
+            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_slab"));
+            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_slab_undo"));
+            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_door"));
+            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_fence"));
+            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_log_fence"));
+            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_boat"));
+            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_pressure_plate"));
+            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_button"));
         }
+    }
+
+    private static ResourceLocation id(String id) {
+        return new ResourceLocation(id);
     }
 }
