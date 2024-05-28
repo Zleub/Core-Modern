@@ -4,19 +4,26 @@ import com.gregtechceu.gtceu.api.data.chemical.material.stack.UnificationEntry;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
+import com.gregtechceu.gtceu.data.recipe.CustomTags;
 import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
+import com.lowdragmc.lowdraglib.side.fluid.FluidStack;
 import net.dries007.tfc.common.blocks.TFCBlocks;
 import net.dries007.tfc.common.blocks.wood.Wood;
 import net.dries007.tfc.common.items.TFCItems;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.registries.ForgeRegistries;
 import su.terrafirmagreg.core.TerraFirmaGreg;
 import su.terrafirmagreg.core.objects.data.recipes.builders.create.TFGCuttingRecipeBuilder;
 import su.terrafirmagreg.core.objects.data.TFGTags;
 
+import java.util.Set;
 import java.util.function.Consumer;
 
 import static com.gregtechceu.gtceu.api.GTValues.*;
@@ -27,6 +34,12 @@ import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.ASSEMBLER_RECIPES;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.CUTTER_RECIPES;
 
 public final class TFGWoodRecipes {
+
+    private static final Set<String> VanillaOverworldWoods = Set.of(
+            "oak", "spruce", "birch",
+            "jungle", "acacia", "dark_oak",
+            "mangrove", "cherry"
+    );
 
     public static void init(Consumer<FinishedRecipe> provider) {
         for (var woodType : Wood.values()) {
@@ -64,6 +77,8 @@ public final class TFGWoodRecipes {
 
             var axle = TFCBlocks.WOODS.get(woodType).get(Wood.BlockType.AXLE).get().asItem();
             var axleBladed = TFCBlocks.WOODS.get(woodType).get(Wood.BlockType.BLADED_AXLE).get().asItem();
+
+            var chestMinecart = TFCItems.CHEST_MINECARTS.get(woodType).get();
 
             // =========================== Stripped Log =========================== //
 
@@ -318,7 +333,7 @@ public final class TFGWoodRecipes {
 
             // =========================== Chest =========================== //
 
-            VanillaRecipeHelper.addShapedRecipe(provider, TerraFirmaGreg.id(woodName + "_chest"), new ItemStack(workbench),
+            VanillaRecipeHelper.addShapedRecipe(provider, TerraFirmaGreg.id(woodName + "_chest"), new ItemStack(chest),
                     "LPL", "PFP", "LPL",
                     'F', new UnificationEntry(gem, GTMaterials.Flint),
                     'L', allLogs,
@@ -356,6 +371,43 @@ public final class TFGWoodRecipes {
                     .circuitMeta(1)
                     .outputItems(axleBladed)
                     .duration(100).EUt(VA[ULV]).save(provider);
+
+            // =========================== Chest Minecart =========================== //
+
+            VanillaRecipeHelper.addShapedRecipe(provider, TerraFirmaGreg.id(wood + "_chest_minecart"),
+                    new ItemStack(chestMinecart),
+                    "hIw", " M ", " d ", 'I',
+                    CustomTags.WOODEN_CHESTS, 'M', new ItemStack(Items.MINECART));
+
+            // =========================== Bed =========================== //
+
+            GTRecipeTypes.CHEMICAL_BATH_RECIPES.recipeBuilder(TerraFirmaGreg.id("bed_decolor"))
+                .inputItems(TFGTags.Items.createItemTag("#tfc:colored_bed"))
+                .inputFluids(GTMaterials.Chlorine.getFluid(72))
+                .outputItems(Blocks.WHITE_BED.asItem())
+                .duration(300)
+                .EUt(12)
+                .save(provider);
+
+
+            for (var dye : DyeColor.values()) {
+                VanillaRecipeHelper.addShapedRecipe(provider, TerraFirmaGreg.id(dye.getSerializedName() + "_bed"),
+                    new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(dye.getSerializedName() + "_bed"))),
+                    "WWW", "PPP", "FrF",
+                    'W', TFGTags.Items.createItemTag("tfc:high_quality_cloth"),
+                    'P', lumber,
+                    'F', ItemTags.WOODEN_FENCES);
+
+                if (dye != DyeColor.WHITE)
+                    GTRecipeTypes.CHEMICAL_BATH_RECIPES.recipeBuilder(TerraFirmaGreg.id(dye.getSerializedName() + "_bed"))
+                    .inputItems(Blocks.WHITE_BED.asItem())
+                    .inputFluids(GTMaterials.get(dye.getSerializedName() + "_dye").getFluid(216))
+                    .outputItems(ForgeRegistries.ITEMS.getValue(new ResourceLocation(dye.getSerializedName() + "_bed")))
+                    .duration(420)
+                    .EUt(24)
+                    .save(provider);
+
+            }
         }
     }
 
@@ -366,27 +418,74 @@ public final class TFGWoodRecipes {
 
         consumer.accept(id("tfc:crafting/vanilla/crafting_table"));
 
-        // Doors
-//        consumer.accept(id("minecraft:oak_door"));
-//        consumer.accept(id("minecraft:spruce_door"));
-//        consumer.accept(id("minecraft:birch_door"));
-//        consumer.accept(id("minecraft:jungle_door"));
-//        consumer.accept(id("minecraft:acacia_door"));
-//        consumer.accept(id("minecraft:dark_oak_door"));
-//        consumer.accept(id("minecraft:mangrove_door"));
-//        consumer.accept(id("minecraft:cherry_door"));
-//        consumer.accept(id("minecraft:bamboo_door"));
+        consumer.accept(id("gtceu:shaped/crafting_table"));
+        consumer.accept(id("gtceu:assembler/crafting_table"));
 
-        // Trapdoors
-//        consumer.accept(id("minecraft:oak_trapdoor"));
-//        consumer.accept(id("minecraft:spruce_trapdoor"));
-//        consumer.accept(id("minecraft:birch_trapdoor"));
-//        consumer.accept(id("minecraft:jungle_trapdoor"));
-//        consumer.accept(id("minecraft:acacia_trapdoor"));
-//        consumer.accept(id("minecraft:dark_oak_trapdoor"));
-//        consumer.accept(id("minecraft:mangrove_trapdoor"));
-//        consumer.accept(id("minecraft:cherry_trapdoor"));
-//        consumer.accept(id("minecraft:bamboo_trapdoor"));
+        consumer.accept(id("gtceu:shaped/chest"));
+        consumer.accept(id("gtceu:assembler/chest"));
+
+        consumer.accept(id("gtceu:shaped/traped_chest"));
+
+        consumer.accept(id("gtceu:shaped/chest_minecart"));
+        consumer.accept(id("gtceu:assembler/chest_minecart"));
+
+        consumer.accept(id("tfc:crafting/vanilla/lectern"));
+
+        consumer.accept(id("minecraft:chiseled/bookshelf"));
+
+        consumer.accept(id("gtceu:assembler/bookshelf"));
+
+        for (var dye : DyeColor.values()) {
+            consumer.accept(id("tfc:crafting/vanilla/color/" + dye.getSerializedName() + "_bed"));
+            consumer.accept(id("gtceu:shaped/" + dye.getSerializedName() + "_bed"));
+            consumer.accept(id("minecraft:dye_" + dye.getSerializedName() + "_bed"));
+        }
+
+        for (var woodType : VanillaOverworldWoods) {
+            consumer.accept(id("minecraft:" + woodType + "_wood"));
+            consumer.accept(id("minecraft:stripped_" + woodType + "_log_via_vanilla_stripping"));
+            consumer.accept(id("create:cutting/" + woodType + "_log"));
+
+            consumer.accept(id("minecraft:stripped_" + woodType + "_wood"));
+            consumer.accept(id("minecraft:stripped_" + woodType + "_wood_via_vanilla_stripping"));
+            consumer.accept(id("create:cutting/" + woodType + "_wood"));
+
+            consumer.accept(id("minecraft:" + woodType + "_planks"));
+            consumer.accept(id("create:cutting/stripped_" + woodType + "_log"));
+            consumer.accept(id("create:cutting/stripped_" + woodType + "_wood"));
+
+            consumer.accept(id("minecraft:" + woodType + "_stairs"));
+            consumer.accept(id("gtceu:assembler/" + woodType + "_stairs"));
+
+            consumer.accept(id("minecraft:" + woodType + "_slab"));
+
+            consumer.accept(id("minecraft:" + woodType + "_fence"));
+            consumer.accept(id("gtceu:assembler/" + woodType + "_fence"));
+
+            consumer.accept(id("minecraft:" + woodType + "_fence_gate"));
+            consumer.accept(id("gtceu:assembler/" + woodType + "_fence_gate"));
+
+            consumer.accept(id("minecraft:" + woodType + "_door"));
+
+            consumer.accept(id("minecraft:" + woodType + "_trapdoor"));
+
+            consumer.accept(id("minecraft:" + woodType + "_pressure_plate"));
+            consumer.accept(id("gtceu:assembler/" + woodType + "_pressure_plate"));
+
+            consumer.accept(id("gtceu:shaped/" + woodType + "_button"));
+            consumer.accept(id("gtceu:cutter/" + woodType + "_button"));
+            consumer.accept(id("gtceu:cutter/" + woodType + "_button_distilled_water"));
+            consumer.accept(id("gtceu:cutter/" + woodType + "_button_water"));
+
+            consumer.accept(id("minecraft" + woodType + "_sign"));
+            consumer.accept(id("gtceu:assembler/" + woodType + "_sign"));
+
+            consumer.accept(id("minecraft" + woodType + "_hanging_sign"));
+
+            consumer.accept(id("minecraft" + woodType + "_boat"));
+
+            consumer.accept(id("minecraft" + woodType + "_chest_boat"));
+        }
 
         for (var woodType: Wood.values()) {
             consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_lumber_log"));
