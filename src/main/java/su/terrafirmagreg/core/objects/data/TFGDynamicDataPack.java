@@ -6,10 +6,11 @@ import net.minecraft.resources.ResourceLocation;
 import su.terrafirmagreg.core.TerraFirmaGreg;
 
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 
 public final class TFGDynamicDataPack extends GTDynamicDataPack {
     public TFGDynamicDataPack(String name) {
-        super(name);
+        super(name, List.of("create"));
     }
 
     public static void addData(String dataId, JsonObject json) {

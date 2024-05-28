@@ -6,11 +6,9 @@ import com.gregtechceu.gtceu.common.data.GTMaterials;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
 import com.gregtechceu.gtceu.data.recipe.CustomTags;
 import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
-import com.lowdragmc.lowdraglib.side.fluid.FluidStack;
 import net.dries007.tfc.common.blocks.TFCBlocks;
 import net.dries007.tfc.common.blocks.wood.Wood;
 import net.dries007.tfc.common.items.TFCItems;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
@@ -382,7 +380,7 @@ public final class TFGWoodRecipes {
             // =========================== Bed =========================== //
 
             GTRecipeTypes.CHEMICAL_BATH_RECIPES.recipeBuilder(TerraFirmaGreg.id("bed_decolor"))
-                .inputItems(TFGTags.Items.createItemTag("#tfc:colored_bed"))
+                .inputItems(TFGTags.Items.createItemTag("tfc:colored_bed"))
                 .inputFluids(GTMaterials.Chlorine.getFluid(72))
                 .outputItems(Blocks.WHITE_BED.asItem())
                 .duration(300)
@@ -435,19 +433,23 @@ public final class TFGWoodRecipes {
 
         consumer.accept(id("gtceu:assembler/bookshelf"));
 
+        consumer.accept(id("gtceu:shaped/black_bed"));
+        consumer.accept(id("gtceu:shaped/white_bed"));
+        consumer.accept(id("gtceu:shaped/red_bed"));
+
         for (var dye : DyeColor.values()) {
             consumer.accept(id("tfc:crafting/vanilla/color/" + dye.getSerializedName() + "_bed"));
-            consumer.accept(id("gtceu:shaped/" + dye.getSerializedName() + "_bed"));
+            //            consumer.accept(id("gtceu:shaped/" + dye.getSerializedName() + "_bed")); // Почему-то рецепт не удаляется :(
             consumer.accept(id("minecraft:dye_" + dye.getSerializedName() + "_bed"));
         }
 
         for (var woodType : VanillaOverworldWoods) {
             consumer.accept(id("minecraft:" + woodType + "_wood"));
-            consumer.accept(id("minecraft:stripped_" + woodType + "_log_via_vanilla_stripping"));
+//            consumer.accept(id("minecraft:stripped_" + woodType + "_log_via_vanilla_stripping")); // Почему-то рецепт не удаляется :(
             consumer.accept(id("create:cutting/" + woodType + "_log"));
 
             consumer.accept(id("minecraft:stripped_" + woodType + "_wood"));
-            consumer.accept(id("minecraft:stripped_" + woodType + "_wood_via_vanilla_stripping"));
+//            consumer.accept(id("minecraft:stripped_" + woodType + "_wood_via_vanilla_stripping")); // Почему-то рецепт не удаляется :(
             consumer.accept(id("create:cutting/" + woodType + "_wood"));
 
             consumer.accept(id("minecraft:" + woodType + "_planks"));
