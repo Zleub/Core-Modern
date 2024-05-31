@@ -36,8 +36,8 @@ import static su.terrafirmagreg.core.objects.TFGItems.SHAPE_MOLDS;
 public final class TFGRecipes {
 
     public static void init(Consumer<FinishedRecipe> provider) {
-        TFGWoodRecipes.init(provider);
-        TFGStoneRecipes.init(provider);
+//        TFGWoodRecipes.init(provider);
+//        TFGStoneRecipes.init(provider);
 
         registerTFCRockDecompositionRecipes(provider);
         registerExtruderMoldRecipes(provider);
@@ -50,8 +50,8 @@ public final class TFGRecipes {
     }
 
     public static void remove(Consumer<ResourceLocation> consumer) {
-        TFGWoodRecipes.remove(consumer);
-        TFGStoneRecipes.remove(consumer);
+//        TFGWoodRecipes.remove(consumer);
+//        TFGStoneRecipes.remove(consumer);
     }
 
     private static void registerTFCRockDecompositionRecipes(Consumer<FinishedRecipe> provider) {

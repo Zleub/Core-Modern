@@ -16,7 +16,6 @@
         "common.firmaciv.WoodenBoatFrameBlockMixin",
         "common.flywheel.AnimatedBlazeBurnerMixin",
         "common.gtceu.FisherMachineMixin",
-        "common.gtceu.GTDynamicDataPackMixin",
         "common.gtceu.GTRecipeTypesMixin",
         "common.gtceu.GTToolTypeMixin",
         "common.gtceu.HoeGroundBehaviorMixin",

@@ -12,13 +12,13 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 @Mixin(value = MachineRecipeLoader.class, remap = false)
 public abstract class MachineRecipeLoaderMixin {
 
-//    /**
-//     * Исправляет рецепт CASING LV на TFG лад.
-//     * */
-//    @Redirect(method = "registerAssemblerRecipes", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/builder/GTRecipeBuilder;inputItems(Lcom/gregtechceu/gtceu/api/data/tag/TagPrefix;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;I)Lcom/gregtechceu/gtceu/data/recipe/builder/GTRecipeBuilder;", ordinal = 9), remap = false)
-//    private static GTRecipeBuilder tfg$registerAssemblerRecipes(GTRecipeBuilder instance, TagPrefix orePrefix, Material material, int count) {
-//        instance.inputItems(TagPrefix.plate, GTMaterials.RedSteel, 4);
-//        instance.inputItems(TagPrefix.plate, GTMaterials.BlueSteel, 4);
-//        return instance;
-//    }
+    /**
+     * Исправляет рецепт CASING LV на TFG лад.
+     * */
+    @Redirect(method = "registerAssemblerRecipes", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/builder/GTRecipeBuilder;inputItems(Lcom/gregtechceu/gtceu/api/data/tag/TagPrefix;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;I)Lcom/gregtechceu/gtceu/data/recipe/builder/GTRecipeBuilder;", ordinal = 9), remap = false)
+    private static GTRecipeBuilder tfg$registerAssemblerRecipes(GTRecipeBuilder instance, TagPrefix orePrefix, Material material, int count) {
+        instance.inputItems(TagPrefix.plate, GTMaterials.RedSteel, 4);
+        instance.inputItems(TagPrefix.plate, GTMaterials.BlueSteel, 4);
+        return instance;
+    }
 }

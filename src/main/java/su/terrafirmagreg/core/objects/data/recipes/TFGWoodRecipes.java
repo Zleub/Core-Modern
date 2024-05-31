@@ -410,101 +410,104 @@ public final class TFGWoodRecipes {
     }
 
     public static void remove(Consumer<ResourceLocation> consumer) {
-        consumer.accept(id("gtceu:shaped/stick_saw"));
-        consumer.accept(id("minecraft:stick_from_bamboo_item"));
-        consumer.accept(id("gtceu:shaped/stick_normal"));
+//        consumer.accept(id("gtceu:shaped/stick_saw"));
+//        consumer.accept(id("minecraft:stick_from_bamboo_item"));
+//        consumer.accept(id("gtceu:shaped/stick_normal"));
+//
+//        consumer.accept(id("tfc:crafting/vanilla/crafting_table"));
+//
+//        consumer.accept(id("gtceu:shaped/crafting_table"));
+//        consumer.accept(id("gtceu:assembler/crafting_table"));
+//
+//        consumer.accept(id("gtceu:shaped/chest"));
+//        consumer.accept(id("gtceu:assembler/chest"));
+//
+//        consumer.accept(id("gtceu:shaped/traped_chest"));
+//
+//        consumer.accept(id("gtceu:shaped/chest_minecart"));
+//        consumer.accept(id("gtceu:assembler/chest_minecart"));
+//
+//        consumer.accept(id("tfc:crafting/vanilla/lectern"));
+//
+//        consumer.accept(id("minecraft:chiseled/bookshelf"));
+//
+//        consumer.accept(id("gtceu:assembler/bookshelf"));
+//
+//        consumer.accept(id("gtceu:shaped/black_bed"));
+//        consumer.accept(id("gtceu:shaped/white_bed"));
+//        consumer.accept(id("gtceu:shaped/red_bed"));
 
-        consumer.accept(id("tfc:crafting/vanilla/crafting_table"));
-
-        consumer.accept(id("gtceu:shaped/crafting_table"));
-        consumer.accept(id("gtceu:assembler/crafting_table"));
-
-        consumer.accept(id("gtceu:shaped/chest"));
-        consumer.accept(id("gtceu:assembler/chest"));
-
-        consumer.accept(id("gtceu:shaped/traped_chest"));
-
-        consumer.accept(id("gtceu:shaped/chest_minecart"));
-        consumer.accept(id("gtceu:assembler/chest_minecart"));
-
-        consumer.accept(id("tfc:crafting/vanilla/lectern"));
-
-        consumer.accept(id("minecraft:chiseled/bookshelf"));
-
-        consumer.accept(id("gtceu:assembler/bookshelf"));
-
-        consumer.accept(id("gtceu:shaped/black_bed"));
-        consumer.accept(id("gtceu:shaped/white_bed"));
-        consumer.accept(id("gtceu:shaped/red_bed"));
+        consumer.accept(new ResourceLocation("gtceu", "shaped/black_bed"));
+        consumer.accept(new ResourceLocation("gtceu", "shaped/white_bed"));
 
         for (var dye : DyeColor.values()) {
-            consumer.accept(id("tfc:crafting/vanilla/color/" + dye.getSerializedName() + "_bed"));
-            //            consumer.accept(id("gtceu:shaped/" + dye.getSerializedName() + "_bed")); // Почему-то рецепт не удаляется :(
-            consumer.accept(id("minecraft:dye_" + dye.getSerializedName() + "_bed"));
+            consumer.accept(id("tfc:crafting/vanilla/color/" + dye.getName()  + "_bed"));
+//            consumer.accept(id("gtceu:shaped/" + dye.getName() + "_bed")); // Почему-то рецепт не удаляется :(
+            consumer.accept(id("minecraft:dye_" + dye.getName() + "_bed"));
         }
 
         for (var woodType : VanillaOverworldWoods) {
-            consumer.accept(id("minecraft:" + woodType + "_wood"));
+//            consumer.accept(id("minecraft:" + woodType + "_wood"));
 //            consumer.accept(id("minecraft:stripped_" + woodType + "_log_via_vanilla_stripping")); // Почему-то рецепт не удаляется :(
-            consumer.accept(id("create:cutting/" + woodType + "_log"));
+//            consumer.accept(id("create:cutting/" + woodType + "_log"));
 
-            consumer.accept(id("minecraft:stripped_" + woodType + "_wood"));
+//            consumer.accept(id("minecraft:stripped_" + woodType + "_wood"));
 //            consumer.accept(id("minecraft:stripped_" + woodType + "_wood_via_vanilla_stripping")); // Почему-то рецепт не удаляется :(
-            consumer.accept(id("create:cutting/" + woodType + "_wood"));
-
-            consumer.accept(id("minecraft:" + woodType + "_planks"));
-            consumer.accept(id("create:cutting/stripped_" + woodType + "_log"));
-            consumer.accept(id("create:cutting/stripped_" + woodType + "_wood"));
-
-            consumer.accept(id("minecraft:" + woodType + "_stairs"));
-            consumer.accept(id("gtceu:assembler/" + woodType + "_stairs"));
-
-            consumer.accept(id("minecraft:" + woodType + "_slab"));
-
-            consumer.accept(id("minecraft:" + woodType + "_fence"));
-            consumer.accept(id("gtceu:assembler/" + woodType + "_fence"));
-
-            consumer.accept(id("minecraft:" + woodType + "_fence_gate"));
-            consumer.accept(id("gtceu:assembler/" + woodType + "_fence_gate"));
-
-            consumer.accept(id("minecraft:" + woodType + "_door"));
-
-            consumer.accept(id("minecraft:" + woodType + "_trapdoor"));
-
-            consumer.accept(id("minecraft:" + woodType + "_pressure_plate"));
-            consumer.accept(id("gtceu:assembler/" + woodType + "_pressure_plate"));
-
-            consumer.accept(id("gtceu:shaped/" + woodType + "_button"));
-            consumer.accept(id("gtceu:cutter/" + woodType + "_button"));
-            consumer.accept(id("gtceu:cutter/" + woodType + "_button_distilled_water"));
-            consumer.accept(id("gtceu:cutter/" + woodType + "_button_water"));
-
-            consumer.accept(id("minecraft" + woodType + "_sign"));
-            consumer.accept(id("gtceu:assembler/" + woodType + "_sign"));
-
-            consumer.accept(id("minecraft" + woodType + "_hanging_sign"));
-
-            consumer.accept(id("minecraft" + woodType + "_boat"));
-
-            consumer.accept(id("minecraft" + woodType + "_chest_boat"));
+//            consumer.accept(id("create:cutting/" + woodType + "_wood"));
+//
+//            consumer.accept(id("minecraft:" + woodType + "_planks"));
+//            consumer.accept(id("create:cutting/stripped_" + woodType + "_log"));
+//            consumer.accept(id("create:cutting/stripped_" + woodType + "_wood"));
+//
+//            consumer.accept(id("minecraft:" + woodType + "_stairs"));
+//            consumer.accept(id("gtceu:assembler/" + woodType + "_stairs"));
+//
+//            consumer.accept(id("minecraft:" + woodType + "_slab"));
+//
+//            consumer.accept(id("minecraft:" + woodType + "_fence"));
+//            consumer.accept(id("gtceu:assembler/" + woodType + "_fence"));
+//
+//            consumer.accept(id("minecraft:" + woodType + "_fence_gate"));
+//            consumer.accept(id("gtceu:assembler/" + woodType + "_fence_gate"));
+//
+//            consumer.accept(id("minecraft:" + woodType + "_door"));
+//
+//            consumer.accept(id("minecraft:" + woodType + "_trapdoor"));
+//
+//            consumer.accept(id("minecraft:" + woodType + "_pressure_plate"));
+//            consumer.accept(id("gtceu:assembler/" + woodType + "_pressure_plate"));
+//
+//            consumer.accept(id("gtceu:shaped/" + woodType + "_button"));
+//            consumer.accept(id("gtceu:cutter/" + woodType + "_button"));
+//            consumer.accept(id("gtceu:cutter/" + woodType + "_button_distilled_water"));
+//            consumer.accept(id("gtceu:cutter/" + woodType + "_button_water"));
+//
+//            consumer.accept(id("minecraft" + woodType + "_sign"));
+//            consumer.accept(id("gtceu:assembler/" + woodType + "_sign"));
+//
+//            consumer.accept(id("minecraft" + woodType + "_hanging_sign"));
+//
+//            consumer.accept(id("minecraft" + woodType + "_boat"));
+//
+//            consumer.accept(id("minecraft" + woodType + "_chest_boat"));
         }
 
         for (var woodType: Wood.values()) {
-            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_lumber_log"));
-            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_lumber_planks"));
-            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_stairs"));
-            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_stairs_undo"));
-            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_slab"));
-            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_slab_undo"));
-            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_door"));
-            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_fence"));
-            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_log_fence"));
-            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_boat"));
-            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_pressure_plate"));
-            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_button"));
-            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_workbench"));
-            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_chest"));
-            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_trapped_chest"));
+//            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_lumber_log"));
+//            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_lumber_planks"));
+//            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_stairs"));
+//            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_stairs_undo"));
+//            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_slab"));
+//            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_slab_undo"));
+//            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_door"));
+//            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_fence"));
+//            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_log_fence"));
+//            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_boat"));
+//            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_pressure_plate"));
+//            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_button"));
+//            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_workbench"));
+//            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_chest"));
+//            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_trapped_chest"));
         }
     }
 
