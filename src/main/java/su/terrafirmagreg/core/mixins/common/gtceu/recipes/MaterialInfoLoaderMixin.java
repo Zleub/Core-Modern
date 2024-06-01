@@ -13,7 +13,7 @@ import su.terrafirmagreg.core.compat.kjs.events.TFGStartupEvents;
 public abstract class MaterialInfoLoaderMixin {
 
     /**
-     * Запускает наш метод для регистрации информации о предмете в системе GTM.
+     * Запускает событие KJS для регистрации информации о предеметах в системе GTM.
      * */
     @Inject(method = "init", at = @At(value = "TAIL"), remap = false)
     private static void tfg$init(CallbackInfo ci) {

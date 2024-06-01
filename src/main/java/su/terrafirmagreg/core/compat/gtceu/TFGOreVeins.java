@@ -5,7 +5,7 @@ import com.gregtechceu.gtceu.api.data.worldgen.generator.indicators.SurfaceIndic
 import com.gregtechceu.gtceu.api.data.worldgen.generator.veins.DikeVeinGenerator;
 import com.gregtechceu.gtceu.api.data.worldgen.generator.veins.VeinedVeinGenerator;
 import net.minecraft.util.valueproviders.UniformInt;
-import su.terrafirmagreg.core.objects.data.TFGTags;
+import su.terrafirmagreg.core.objects.TFGTags;
 
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.gregtechceu.gtceu.common.data.GTOres.create;

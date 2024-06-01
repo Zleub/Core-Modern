@@ -2,12 +2,11 @@ package su.terrafirmagreg.core.compat.gtceu;
 
 import com.gregtechceu.gtceu.api.data.worldgen.IWorldGenLayer;
 import com.gregtechceu.gtceu.integration.kjs.builders.WorldGenLayerBuilder;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import su.terrafirmagreg.core.TerraFirmaGreg;
-import su.terrafirmagreg.core.objects.data.TFGTags;
+import su.terrafirmagreg.core.objects.TFGTags;
 
 public final class TFGWorldGenLayers {
 

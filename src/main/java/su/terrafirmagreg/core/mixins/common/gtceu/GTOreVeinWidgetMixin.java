@@ -27,6 +27,8 @@ import java.util.List;
 @Mixin(value = GTOreVeinWidget.class, remap = false)
 public abstract class GTOreVeinWidgetMixin extends WidgetGroup {
 
+    // TODO: ОБНОВЛЕНИЕ 0.8.0 ИЛИ 0.7.* С ОБНОВЛЕНИЕМ РУДНЫХ ЖИЛ.
+
 //    @Shadow @Final public static int width;
 //
 //    /**

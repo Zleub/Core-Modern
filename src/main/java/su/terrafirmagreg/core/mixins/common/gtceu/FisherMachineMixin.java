@@ -11,7 +11,7 @@ import net.minecraft.world.level.material.Fluids;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
-import su.terrafirmagreg.core.objects.data.TFGTags;
+import su.terrafirmagreg.core.objects.TFGTags;
 
 import java.util.function.Function;
 

@@ -1,4 +1,4 @@
-package su.terrafirmagreg.core.objects.data.recipes;
+package su.terrafirmagreg.core.objects;
 
 import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.GTValues;
@@ -12,14 +12,12 @@ import com.gregtechceu.gtceu.data.recipe.generated.RecyclingRecipeHandler;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import net.dries007.tfc.common.items.TFCItems;
 import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import su.terrafirmagreg.core.TerraFirmaGreg;
 import su.terrafirmagreg.core.compat.gtceu.materials.TFGMaterialFlags;
 import su.terrafirmagreg.core.compat.gtceu.TFGPropertyKeys;
 import su.terrafirmagreg.core.compat.gtceu.properties.TFCProperty;
-import su.terrafirmagreg.core.objects.TFGItems;
 
 import java.util.function.Consumer;
 
@@ -36,9 +34,6 @@ import static su.terrafirmagreg.core.objects.TFGItems.SHAPE_MOLDS;
 public final class TFGRecipes {
 
     public static void init(Consumer<FinishedRecipe> provider) {
-//        TFGWoodRecipes.init(provider);
-//        TFGStoneRecipes.init(provider);
-
         registerTFCRockDecompositionRecipes(provider);
         registerExtruderMoldRecipes(provider);
         registerCastingMoldRecipes(provider);
@@ -47,11 +42,6 @@ public final class TFGRecipes {
         registerProcessingToolHeadsRecipes(provider);
         registerToolRecyclingRecipes(provider);
         registerRandomRecipes(provider);
-    }
-
-    public static void remove(Consumer<ResourceLocation> consumer) {
-//        TFGWoodRecipes.remove(consumer);
-//        TFGStoneRecipes.remove(consumer);
     }
 
     private static void registerTFCRockDecompositionRecipes(Consumer<FinishedRecipe> provider) {

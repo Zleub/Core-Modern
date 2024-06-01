@@ -28,12 +28,16 @@ public abstract class GTRecipeTypesMixin {
      * */
     @Inject(method = "init", at = @At(value = "TAIL"), remap = false)
     private static void tfg$init(CallbackInfo ci) {
+
+        // Добавляет новый слот под микросхему
         CUTTER_RECIPES.setMaxIOSize(2, 2, 1, 0);
         CUTTER_RECIPES.setSlotOverlay(false, false, true, GuiTextures.CIRCUIT_OVERLAY);
 
+        // Добавляет новый слот под микросхему
         LASER_ENGRAVER_RECIPES.setMaxIOSize(3, 1, 0, 0);
         LASER_ENGRAVER_RECIPES.setSlotOverlay(false, false, true, GuiTextures.CIRCUIT_OVERLAY);
 
+        // Добавляет новый слот под микросхему
         CHEMICAL_RECIPES.setMaxIOSize(3, 2, 3, 2);
         CHEMICAL_RECIPES.setSlotOverlay(false, false, true, GuiTextures.CIRCUIT_OVERLAY);
     }

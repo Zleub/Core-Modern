@@ -1,4 +1,4 @@
-package su.terrafirmagreg.core.objects.data;
+package su.terrafirmagreg.core.objects;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;

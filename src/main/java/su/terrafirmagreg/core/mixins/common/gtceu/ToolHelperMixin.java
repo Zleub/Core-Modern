@@ -17,6 +17,7 @@ public abstract class ToolHelperMixin {
 
     /**
      * Исправляет баг при ломании AOE инстрами кучи угля.
+     * Возможно нужно добавить ? (я забыл, что, но это было где-то)
      * */
     @Redirect(method = "removeBlockRoutine", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/Block;destroy(Lnet/minecraft/world/level/LevelAccessor;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)V"), remap = true)
     private static void tfg$removeBlockRoutine$block$destroy(Block instance, LevelAccessor pLevel, BlockPos pPos, BlockState pState, BlockState state, Level world, ServerPlayer player, BlockPos pos, boolean playSound) {

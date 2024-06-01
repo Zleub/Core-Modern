@@ -11,13 +11,13 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import su.terrafirmagreg.core.objects.data.TFGTags;
+import su.terrafirmagreg.core.objects.TFGTags;
 
 @Mixin(value = TagPrefixItem.class, remap = false)
 public abstract class TagPrefixItemMixin {
 
     /**
-     * Спасает от обгорания если у тебя есть в руки щипцы.
+     * Если в руке горячий слиток, то если у вас в руках щипцы, то вы не будете получать урон.
      * */
     @Inject(method = "inventoryTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;getItemBySlot(Lnet/minecraft/world/entity/EquipmentSlot;)Lnet/minecraft/world/item/ItemStack;", shift = At.Shift.AFTER), remap = true, cancellable = true)
     private void tfg$inventoryTick$livingEntity$getItemBySlot(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected, CallbackInfo ci) {

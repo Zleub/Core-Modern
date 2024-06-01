@@ -18,6 +18,7 @@ import java.util.function.UnaryOperator;
 @Mixin(value = GTToolType.class, remap = false)
 public abstract class GTToolTypeMixin {
 
+    // TODO: ПОЧИНИТЬ!
     /**
      *
      */
