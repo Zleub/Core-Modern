@@ -37,6 +37,8 @@ public final class TFGItems {
     public static ItemEntry<Item> SHAPE_MOLD_CHAIN;
     public static ItemEntry<Item> SHAPE_MOLD_BELL;
 
+    public static ItemEntry<Item> EndPlaceholder;
+    public static ItemEntry<Item> NetherPlaceholder;
     public static ItemEntry<Item> EarthPlaceholder;
     public static ItemEntry<Item> MoonPlaceholder;
     public static ItemEntry<Item> MarsPlaceholder;
@@ -116,6 +118,8 @@ public final class TFGItems {
     }
 
     private static void registerPlanetItems() {
+        EndPlaceholder = TFGRegistries.REGISTRATE.item("end_placeholder", Item::new).register();
+        NetherPlaceholder = TFGRegistries.REGISTRATE.item("nether_placeholder", Item::new).register();
         EarthPlaceholder = TFGRegistries.REGISTRATE.item("earth_placeholder", Item::new).register();
         MoonPlaceholder = TFGRegistries.REGISTRATE.item("moon_placeholder", Item::new).register();
         MarsPlaceholder = TFGRegistries.REGISTRATE.item("mars_placeholder", Item::new).register();
