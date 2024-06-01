@@ -29,10 +29,10 @@ public abstract class SurfaceRockRendererMixin {
      * Добавляет моделям пылей из GTCEu возможность поворачиваться.
      */
     @Redirect(method = "reinitModels", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/pack/GTDynamicResourcePack;addBlockState(Lnet/minecraft/resources/ResourceLocation;Ljava/util/function/Supplier;)V"), remap = false)
-    private static void tfg$reinitModels(ResourceLocation loc, Supplier<JsonElement> generator, @Local SurfaceRockRenderer model, @Local(ordinal = 0) ResourceLocation blockId, @Local(ordinal = 1) ResourceLocation modelId) {
+    private static void tfg$reinitModels$gtDynamicResourcePack$addBlockState(ResourceLocation loc, Supplier<JsonElement> generator, @Local SurfaceRockRenderer model, @Local(ordinal = 0) ResourceLocation blockId, @Local(ordinal = 1) ResourceLocation modelId) {
 
         GTDynamicResourcePack.addBlockState(blockId, MultiVariantGenerator
-                .multiVariant(((SurfaceRockRendererAccessor) model).getBlock(),
+                .multiVariant(((ISurfaceRockRendererAccessor) model).getBlock(),
                         Variant.variant().with(VariantProperties.MODEL, modelId).with(VariantProperties.Y_ROT, VariantProperties.Rotation.R0),
                         Variant.variant().with(VariantProperties.MODEL, modelId).with(VariantProperties.Y_ROT, VariantProperties.Rotation.R90),
                         Variant.variant().with(VariantProperties.MODEL, modelId).with(VariantProperties.Y_ROT, VariantProperties.Rotation.R180),

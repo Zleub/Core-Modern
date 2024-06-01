@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 
 @Mixin(value = SurfaceRockRenderer.class, remap = false)
 @OnlyIn(Dist.CLIENT)
-public interface SurfaceRockRendererAccessor {
+public interface ISurfaceRockRendererAccessor {
 
     @Accessor
     Block getBlock();

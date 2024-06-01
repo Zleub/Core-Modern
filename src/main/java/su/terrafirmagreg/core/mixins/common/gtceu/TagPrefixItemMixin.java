@@ -17,10 +17,10 @@ import su.terrafirmagreg.core.objects.TFGTags;
 public abstract class TagPrefixItemMixin {
 
     /**
-     * Спасает от обгорания если у тебя есть в руки щипцы.
+     * Если в руке горячий слиток, то если у вас в руках щипцы, то вы не будете получать урон.
      * */
     @Inject(method = "inventoryTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;getItemBySlot(Lnet/minecraft/world/entity/EquipmentSlot;)Lnet/minecraft/world/item/ItemStack;", shift = At.Shift.AFTER), remap = true, cancellable = true)
-    private void tfg$inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected, CallbackInfo ci) {
+    private void tfg$inventoryTick$livingEntity$getItemBySlot(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected, CallbackInfo ci) {
         if (entity instanceof Player player) {
             var stackInOffHand = player.getItemInHand(InteractionHand.OFF_HAND);
             if (stackInOffHand.is(TFGTags.Items.Tongs)) {

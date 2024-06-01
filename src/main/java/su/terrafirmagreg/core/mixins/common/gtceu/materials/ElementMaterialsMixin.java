@@ -14,7 +14,7 @@ public abstract class ElementMaterialsMixin {
      * Отключение инстурментов из железа GTCEu.
      * */
     @Redirect(method = "register", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/api/data/chemical/material/Material$Builder;toolStats(Lcom/gregtechceu/gtceu/api/data/chemical/material/properties/ToolProperty;)Lcom/gregtechceu/gtceu/api/data/chemical/material/Material$Builder;", ordinal = 1), remap = false)
-    private static Material.Builder tfg$register(Material.Builder instance, ToolProperty toolProperty) {
+    private static Material.Builder tfg$register$toolStats$iron(Material.Builder instance, ToolProperty toolProperty) {
         return instance;
     }
 }

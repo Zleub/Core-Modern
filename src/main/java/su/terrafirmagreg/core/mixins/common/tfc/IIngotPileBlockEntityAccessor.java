@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 import java.util.List;
 
 @Mixin(value = IngotPileBlockEntity.class, remap = false)
-public interface IngotPileBlockEntityAccessor {
+public interface IIngotPileBlockEntityAccessor {
 
     @Accessor
     List<?> getEntries();

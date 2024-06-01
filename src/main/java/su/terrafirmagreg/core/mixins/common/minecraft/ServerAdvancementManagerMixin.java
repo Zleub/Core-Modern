@@ -20,5 +20,5 @@ public abstract class ServerAdvancementManagerMixin {
             method = "apply(Ljava/util/Map;Lnet/minecraft/server/packs/resources/ResourceManager;Lnet/minecraft/util/profiling/ProfilerFiller;)V",
             at = @At(value = "INVOKE", target = "Lnet/minecraft/advancements/AdvancementList;add(Ljava/util/Map;)V")
     )
-    private void tfg$apply(AdvancementList list, Map<ResourceLocation, Advancement.Builder> map) {}
+    private void tfg$apply$advancementList$add(AdvancementList list, Map<ResourceLocation, Advancement.Builder> map) {}
 }

@@ -5,6 +5,6 @@ import su.terrafirmagreg.core.compat.gtceu.properties.TFCProperty;
 
 public final class TFGPropertyKeys {
 
-    public static final PropertyKey<TFCProperty> TFC_PROPERTY = new PropertyKey<>("data/tfc", TFCProperty.class);
+    public static final PropertyKey<TFCProperty> TFC_PROPERTY = new PropertyKey<>("tfc", TFCProperty.class);
 
 }

@@ -6,7 +6,7 @@ import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import su.terrafirmagreg.core.TerraFirmaGreg;
-import su.terrafirmagreg.core.mixins.common.tfc.IngotPileBlockEntityEntryAccessor;
+import su.terrafirmagreg.core.mixins.common.tfc.IIngotPileBlockEntityEntryAccessor;
 
 import java.util.List;
 
@@ -28,7 +28,7 @@ public final class TFGHelpers {
     public static ItemStack getStackFromIngotPileTileEntityByIndex(List<?> entries, int index) {
         try
         {
-            return  ((IngotPileBlockEntityEntryAccessor) (Object) entries.get(index)).getStack();
+            return  ((IIngotPileBlockEntityEntryAccessor) (Object) entries.get(index)).getStack();
         }
         catch (IndexOutOfBoundsException e)
         {
