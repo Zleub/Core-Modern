@@ -35,6 +35,7 @@
         "common.gtceu.recipes.ToolRecipeHandlerMixin",
         "common.ldlib.EMIPluginMixin",
         "common.minecraft.IUseOnContextInvoker",
+        "common.minecraft.ServerAdvancementManagerMixin",
         "common.tfc.CharcoalForgeBlockMixin",
         "common.tfc.CrucibleBlockMixin",
         "common.tfc.IIngotPileBlockEntityAccessor",
