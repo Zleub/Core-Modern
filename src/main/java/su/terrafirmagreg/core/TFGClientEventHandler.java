@@ -6,14 +6,14 @@ import net.minecraftforge.client.event.ModelEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
-public final class ClientEventHandler {
+public final class TFGClientEventHandler {
 
     public static final ResourceLocation TFCMetalBlockTexturePattern = new ResourceLocation(TerraFirmaCraft.MOD_ID, "block/metal/smooth_pattern");
 
     public static void init() {
         final IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        bus.addListener(ClientEventHandler::registerSpecialModels);
+        bus.addListener(TFGClientEventHandler::registerSpecialModels);
     }
 
     private static void registerSpecialModels(ModelEvent.RegisterAdditional event) {

@@ -12,7 +12,7 @@ import java.util.function.Supplier;
 public abstract class ModRegistryMixin {
 
     @Redirect(method = "<clinit>", at = @At(value = "INVOKE", target = "Ldan200/computercraft/shared/platform/RegistrationHelper;register(Ljava/lang/String;Ljava/util/function/Supplier;)Ldan200/computercraft/shared/platform/RegistryEntry;"), remap = false)
-    private static RegistryEntry tfg$clinit(RegistrationHelper instance, String s, Supplier uSupplier) {
+    private static RegistryEntry<?> tfg$clinit$registrationHelper$register(RegistrationHelper<?> instance, String s, Supplier<?> uSupplier) {
         return null;
     }
 }

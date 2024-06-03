@@ -26,7 +26,6 @@ import java.util.function.Consumer;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.FORGE_HAMMER_RECIPES;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.MACERATOR_RECIPES;
-import static com.gregtechceu.gtceu.data.recipe.generated.OreRecipeHandler.*;
 import static su.terrafirmagreg.core.compat.gtceu.TFGTagPrefix.poorRawOre;
 import static su.terrafirmagreg.core.compat.gtceu.TFGTagPrefix.richRawOre;
 

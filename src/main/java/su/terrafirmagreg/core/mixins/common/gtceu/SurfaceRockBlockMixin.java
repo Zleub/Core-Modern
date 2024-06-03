@@ -29,7 +29,8 @@ public abstract class SurfaceRockBlockMixin extends Block {
     }
 
     /**
-     * В Jade отображает не пустой объект, а пыль, которая выпадет при нажатии ПКМ.
+     * В Jade отображает не пустой объект при наведении на лежащую кучку руды,
+     * а пыль, которая выпадет при нажатии ПКМ.
      */
     @SuppressWarnings("deprecation")
     @Override

@@ -18,8 +18,8 @@ public final class TerraFirmaGreg {
     public TerraFirmaGreg() {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, TFGConfig.SPEC);
 
-        CommonEventHandler.init();
-        if (FMLEnvironment.dist == Dist.CLIENT) ClientEventHandler.init();
+        TFGCommonEventHandler.init();
+        if (FMLEnvironment.dist == Dist.CLIENT) TFGClientEventHandler.init();
 
         // ModList.get().isLoaded(modId)
     }
