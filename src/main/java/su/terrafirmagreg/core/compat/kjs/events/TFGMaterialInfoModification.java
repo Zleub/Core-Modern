@@ -12,19 +12,23 @@ public class TFGMaterialInfoModification extends EventJS {
         ChemicalHelper.registerMaterialInfo(itemLike, itemMaterialInfo);
     }
 
-    public void remove(ItemLike itemLike) {
-        var value = ChemicalHelper.ITEM_MATERIAL_INFO.keySet().stream().filter(
+    public boolean remove(ItemLike itemLike) {
+        var item = ChemicalHelper.ITEM_MATERIAL_INFO.keySet().stream().filter(
                 el -> el.asItem().kjs$getId().equals(itemLike.asItem().kjs$getId())).findFirst();
 
         var itemName = itemLike.asItem().kjs$getId();
 
-        if (value.isPresent()) {
-            var removedValue = ChemicalHelper.ITEM_MATERIAL_INFO.remove(value.get());
-            if (removedValue == null) TerraFirmaGreg.LOGGER.warn("Item has not been deleted from unification data: {}", itemName);
-        }
-        else {
-            TerraFirmaGreg.LOGGER.warn("No unification info for: {}", itemName);
+        if (item.isPresent()) {
+            var removedValue = ChemicalHelper.ITEM_MATERIAL_INFO.remove(item.get());
+            if (removedValue != null) {
+                return true;
+            }
+
+            TerraFirmaGreg.LOGGER.warn("Item has not been deleted from unification data: {}", itemName);
+            return false;
         }
 
+        TerraFirmaGreg.LOGGER.warn("No unification info for: {}", itemName);
+        return false;
     }
 }
