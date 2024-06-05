@@ -25,139 +25,139 @@ public abstract class ToolRecipeHandlerMixin {
     /**
      * Отключение генерации рецептов под инструменты из кремния.
      */
-    @Redirect(method = "registerCustomToolRecipes", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;registerFlintToolRecipes(Ljava/util/function/Consumer;)V"), remap = false)
-    private static void tfg$registerCustomToolRecipes$toolRecipeHandler$registerFlintToolRecipes(Consumer<FinishedRecipe> provider) {}
+//    @Redirect(method = "registerCustomToolRecipes", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;registerFlintToolRecipes(Ljava/util/function/Consumer;)V"), remap = false)
+//    private static void tfg$registerCustomToolRecipes$toolRecipeHandler$registerFlintToolRecipes(Consumer<FinishedRecipe> provider) {}
 
     /**
      * Замена ванильного камня в рецепте ступки на тфк камень.
      */
-    @Redirect(method = "registerMortarRecipes", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V"), remap = false)
-    private static void tfg$registerMortarRecipes$toolRecipeHandler$addToolRecipe(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
-        addToolRecipe(provider, material, GTToolType.MORTAR, false,
-                " I ", "SIS", "SSS",
-                'I', new UnificationEntry(material.hasProperty(PropertyKey.GEM) ? TagPrefix.gem : TagPrefix.ingot, material),
-                'S', TFGTags.Items.RawRockBlocks);
-    }
+//    @Redirect(method = "registerMortarRecipes", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V"), remap = false)
+//    private static void tfg$registerMortarRecipes$toolRecipeHandler$addToolRecipe(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
+//        addToolRecipe(provider, material, GTToolType.MORTAR, false,
+//                " I ", "SIS", "SSS",
+//                'I', new UnificationEntry(material.hasProperty(PropertyKey.GEM) ? TagPrefix.gem : TagPrefix.ingot, material),
+//                'S', TFGTags.Items.RawRockBlocks);
+//    }
 
     /**
      * Отключение рецептов MiningHammer.
      */
-    @Redirect(method = "processTool", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V", ordinal = 0), remap = false)
-    private static void tfg$processMiningHammer$toolRecipeHandler$addToolRecipe(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
-        if (!material.hasFlag(TFGMaterialFlags.HAS_TFC_TOOL))
-            tfg$addToolRecipe(provider, material, GTToolType.MINING_HAMMER, TFGTagPrefix.toolHeadMiningHammer);
-    }
+//    @Redirect(method = "processTool", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V", ordinal = 0), remap = false)
+//    private static void tfg$processMiningHammer$toolRecipeHandler$addToolRecipe(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
+//        if (!material.hasFlag(TFGMaterialFlags.HAS_TFC_TOOL))
+//            tfg$addToolRecipe(provider, material, GTToolType.MINING_HAMMER, TFGTagPrefix.toolHeadMiningHammer);
+//    }
 
     /**
      * Отключение рецептов Spade.
      */
-    @Redirect(method = "processTool", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V", ordinal = 1), remap = false)
-    private static void processSpade$toolRecipeHandler$addToolRecipe(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
-        if (!material.hasFlag(TFGMaterialFlags.HAS_TFC_TOOL))
-            tfg$addToolRecipe(provider, material, GTToolType.SPADE, TFGTagPrefix.toolHeadSpade);
-    }
+//    @Redirect(method = "processTool", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V", ordinal = 1), remap = false)
+//    private static void processSpade$toolRecipeHandler$addToolRecipe(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
+//        if (!material.hasFlag(TFGMaterialFlags.HAS_TFC_TOOL))
+//            tfg$addToolRecipe(provider, material, GTToolType.SPADE, TFGTagPrefix.toolHeadSpade);
+//    }
 
     /**
      * Отключение рецептов Saw.
      */
-    @Redirect(method = "processTool", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V", ordinal = 2), remap = false)
-    private static void tfg$processSaw$toolRecipeHandler$addToolRecipe(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
-        if (!material.hasFlag(TFGMaterialFlags.HAS_TFC_TOOL))
-            tfg$addToolRecipe(provider, material, GTToolType.SAW, TFGTagPrefix.toolHeadSaw);
-    }
+//    @Redirect(method = "processTool", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V", ordinal = 2), remap = false)
+//    private static void tfg$processSaw$toolRecipeHandler$addToolRecipe(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
+//        if (!material.hasFlag(TFGMaterialFlags.HAS_TFC_TOOL))
+//            tfg$addToolRecipe(provider, material, GTToolType.SAW, TFGTagPrefix.toolHeadSaw);
+//    }
 
     /**
      * Отключение рецептов Axe.
      */
-    @Redirect(method = "processTool", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V", ordinal = 3), remap = false)
-    private static void tfg$processAxe$toolRecipeHandler$addToolRecipe(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
-        if (!material.hasFlag(TFGMaterialFlags.HAS_TFC_TOOL))
-            tfg$addToolRecipe(provider, material, GTToolType.AXE, TFGTagPrefix.toolHeadAxe);
-    }
+//    @Redirect(method = "processTool", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V", ordinal = 3), remap = false)
+//    private static void tfg$processAxe$toolRecipeHandler$addToolRecipe(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
+//        if (!material.hasFlag(TFGMaterialFlags.HAS_TFC_TOOL))
+//            tfg$addToolRecipe(provider, material, GTToolType.AXE, TFGTagPrefix.toolHeadAxe);
+//    }
 
     /**
      * Отключение рецептов Hoe.
      */
-    @Redirect(method = "processTool", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V", ordinal = 4), remap = false)
-    private static void tfg$processHoe$toolRecipeHandler$addToolRecipe(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
-        if (!material.hasFlag(TFGMaterialFlags.HAS_TFC_TOOL))
-            tfg$addToolRecipe(provider, material, GTToolType.HOE, TFGTagPrefix.toolHeadHoe);
-    }
+//    @Redirect(method = "processTool", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V", ordinal = 4), remap = false)
+//    private static void tfg$processHoe$toolRecipeHandler$addToolRecipe(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
+//        if (!material.hasFlag(TFGMaterialFlags.HAS_TFC_TOOL))
+//            tfg$addToolRecipe(provider, material, GTToolType.HOE, TFGTagPrefix.toolHeadHoe);
+//    }
 
     /**
      * Отключение рецептов Pickaxe.
      */
-    @Redirect(method = "processTool", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V", ordinal = 5), remap = false)
-    private static void tfg$processPickaxe$toolRecipeHandler$addToolRecipe(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
-        if (!material.hasFlag(TFGMaterialFlags.HAS_TFC_TOOL))
-            tfg$addToolRecipe(provider, material, GTToolType.PICKAXE, TFGTagPrefix.toolHeadPickaxe);
-    }
+//    @Redirect(method = "processTool", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V", ordinal = 5), remap = false)
+//    private static void tfg$processPickaxe$toolRecipeHandler$addToolRecipe(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
+//        if (!material.hasFlag(TFGMaterialFlags.HAS_TFC_TOOL))
+//            tfg$addToolRecipe(provider, material, GTToolType.PICKAXE, TFGTagPrefix.toolHeadPickaxe);
+//    }
 
     /**
      * Отключение рецептов Scythe.
      */
-    @Redirect(method = "processTool", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V", ordinal = 6), remap = false)
-    private static void tfg$processScythe$toolRecipeHandler$addToolRecipe(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
-        if (!material.hasFlag(TFGMaterialFlags.HAS_TFC_TOOL))
-            tfg$addToolRecipe(provider, material, GTToolType.SCYTHE, TFGTagPrefix.toolHeadScythe);
-    }
+//    @Redirect(method = "processTool", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V", ordinal = 6), remap = false)
+//    private static void tfg$processScythe$toolRecipeHandler$addToolRecipe(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
+//        if (!material.hasFlag(TFGMaterialFlags.HAS_TFC_TOOL))
+//            tfg$addToolRecipe(provider, material, GTToolType.SCYTHE, TFGTagPrefix.toolHeadScythe);
+//    }
 
     /**
      * Отключение рецептов Shovel.
      */
-    @Redirect(method = "processTool", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V", ordinal = 7), remap = false)
-    private static void tfg$processShovel$toolRecipeHandler$addToolRecipe(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
-        if (!material.hasFlag(TFGMaterialFlags.HAS_TFC_TOOL))
-            tfg$addToolRecipe(provider, material, GTToolType.SHOVEL, TFGTagPrefix.toolHeadShovel);
-    }
+//    @Redirect(method = "processTool", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V", ordinal = 7), remap = false)
+//    private static void tfg$processShovel$toolRecipeHandler$addToolRecipe(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
+//        if (!material.hasFlag(TFGMaterialFlags.HAS_TFC_TOOL))
+//            tfg$addToolRecipe(provider, material, GTToolType.SHOVEL, TFGTagPrefix.toolHeadShovel);
+//    }
 
     /**
      * Отключение рецептов Sword.
      */
-    @Redirect(method = "processTool", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V", ordinal = 8), remap = false)
-    private static void tfg$processSword$toolRecipeHandler$addToolRecipe(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
-        if (!material.hasFlag(TFGMaterialFlags.HAS_TFC_TOOL))
-            tfg$addToolRecipe(provider, material, GTToolType.SWORD, TFGTagPrefix.toolHeadSword);
-    }
+//    @Redirect(method = "processTool", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V", ordinal = 8), remap = false)
+//    private static void tfg$processSword$toolRecipeHandler$addToolRecipe(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
+//        if (!material.hasFlag(TFGMaterialFlags.HAS_TFC_TOOL))
+//            tfg$addToolRecipe(provider, material, GTToolType.SWORD, TFGTagPrefix.toolHeadSword);
+//    }
 
     /**
      * Отключение рецептов HardHammer.
      */
-    @Redirect(method = "processTool", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V", ordinal = 9), remap = false)
-    private static void tfg$processHardHammer$toolRecipeHandler$addToolRecipe(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
-        if (!material.hasFlag(TFGMaterialFlags.HAS_TFC_TOOL))
-            tfg$addToolRecipe(provider, material, GTToolType.HARD_HAMMER, TFGTagPrefix.toolHeadHammer);
-    }
+//    @Redirect(method = "processTool", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V", ordinal = 9), remap = false)
+//    private static void tfg$processHardHammer$toolRecipeHandler$addToolRecipe(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
+//        if (!material.hasFlag(TFGMaterialFlags.HAS_TFC_TOOL))
+//            tfg$addToolRecipe(provider, material, GTToolType.HARD_HAMMER, TFGTagPrefix.toolHeadHammer);
+//    }
 
     /**
      * Отключение рецептов File.
      */
-    @Redirect(method = "processTool", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V", ordinal = 10), remap = false)
-    private static void tfg$processFile$toolRecipeHandler$addToolRecipe(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
-        if (!material.hasFlag(TFGMaterialFlags.HAS_TFC_TOOL))
-            tfg$addToolRecipe(provider, material, GTToolType.FILE, TFGTagPrefix.toolHeadFile);
-    }
+//    @Redirect(method = "processTool", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V", ordinal = 10), remap = false)
+//    private static void tfg$processFile$toolRecipeHandler$addToolRecipe(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
+//        if (!material.hasFlag(TFGMaterialFlags.HAS_TFC_TOOL))
+//            tfg$addToolRecipe(provider, material, GTToolType.FILE, TFGTagPrefix.toolHeadFile);
+//    }
 
     /**
      * Отключение рецептов Knife.
      */
-    @Redirect(method = "processTool", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V", ordinal = 11), remap = false)
-    private static void tfg$processKnife$toolRecipeHandler$addToolRecipe(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
-        if (!material.hasFlag(TFGMaterialFlags.HAS_TFC_TOOL))
-            tfg$addToolRecipe(provider, material, GTToolType.KNIFE, TFGTagPrefix.toolHeadKnife);
-    }
+//    @Redirect(method = "processTool", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V", ordinal = 11), remap = false)
+//    private static void tfg$processKnife$toolRecipeHandler$addToolRecipe(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
+//        if (!material.hasFlag(TFGMaterialFlags.HAS_TFC_TOOL))
+//            tfg$addToolRecipe(provider, material, GTToolType.KNIFE, TFGTagPrefix.toolHeadKnife);
+//    }
 
     /**
      * Отключение рецептов ButcheryKnife.
      */
-    @Redirect(method = "processTool", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V", ordinal = 13), remap = false)
-    private static void tfg$processButcheryKnife$toolRecipeHandler$addToolRecipe(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
-        if (!material.hasFlag(TFGMaterialFlags.HAS_TFC_TOOL))
-            tfg$addToolRecipe(provider, material, GTToolType.BUTCHERY_KNIFE, TFGTagPrefix.toolHeadButcheryKnife);
-    }
+//    @Redirect(method = "processTool", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/generated/ToolRecipeHandler;addToolRecipe(Ljava/util/function/Consumer;Lcom/gregtechceu/gtceu/api/data/chemical/material/Material;Lcom/gregtechceu/gtceu/api/item/tool/GTToolType;Z[Ljava/lang/Object;)V", ordinal = 13), remap = false)
+//    private static void tfg$processButcheryKnife$toolRecipeHandler$addToolRecipe(Consumer<FinishedRecipe> provider, Material material, GTToolType tool, boolean mirrored, Object[] recipe) {
+//        if (!material.hasFlag(TFGMaterialFlags.HAS_TFC_TOOL))
+//            tfg$addToolRecipe(provider, material, GTToolType.BUTCHERY_KNIFE, TFGTagPrefix.toolHeadButcheryKnife);
+//    }
 
-    @Unique
-    private static void tfg$addToolRecipe(Consumer<FinishedRecipe> provider, Material material, GTToolType toolType, TagPrefix tagPrefix) {
-        addToolRecipe(provider, material, toolType, false, "H", "S", 'H', new UnificationEntry(tagPrefix, material), 'S', TFGTags.Items.WoodenSticks);
-    }
+//    @Unique
+//    private static void tfg$addToolRecipe(Consumer<FinishedRecipe> provider, Material material, GTToolType toolType, TagPrefix tagPrefix) {
+//        addToolRecipe(provider, material, toolType, false, "H", "S", 'H', new UnificationEntry(tagPrefix, material), 'S', TFGTags.Items.WoodenSticks);
+//    }
 }
