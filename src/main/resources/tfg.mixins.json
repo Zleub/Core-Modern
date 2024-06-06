@@ -31,8 +31,6 @@
         "common.gtceu.recipes.MaterialInfoLoaderMixin",
         "common.gtceu.recipes.MaterialRecipeHandlerMixin",
         "common.gtceu.recipes.OreRecipeHandlerMixin",
-        "common.gtceu.recipes.PartsRecipeHandlerMixin",
-        "common.gtceu.recipes.ToolRecipeHandlerMixin",
         "common.ldlib.EMIPluginMixin",
         "common.minecraft.IUseOnContextInvoker",
         "common.minecraft.ServerAdvancementManagerMixin",

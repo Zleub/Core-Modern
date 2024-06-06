@@ -1,13 +1,11 @@
 package su.terrafirmagreg.core.objects;
 
-import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.common.data.GTItems;
-import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
 import com.gregtechceu.gtceu.data.recipe.generated.RecyclingRecipeHandler;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import net.dries007.tfc.common.items.TFCItems;
@@ -28,20 +26,40 @@ import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;
 import static su.terrafirmagreg.core.compat.gtceu.materials.TFGMaterials.*;
 import static su.terrafirmagreg.core.compat.gtceu.TFGTagPrefix.*;
-import static su.terrafirmagreg.core.objects.TFGItems.*;
-//import static su.terrafirmagreg.core.objects.TFGItems.SHAPE_MOLDS;
 
 public final class TFGRecipes {
 
     public static void init(Consumer<FinishedRecipe> provider) {
-//        registerTFCRockDecompositionRecipes(provider);
-//        registerExtruderMoldRecipes(provider);
-//        registerCastingMoldRecipes(provider);
-//        registerExtruderMoldCopyingRecipes(provider);
-//        registerCastingMoldCopyingRecipes(provider);
-//        registerProcessingToolHeadsRecipes(provider);
-//        registerToolRecyclingRecipes(provider);
-//        registerRandomRecipes(provider);
+        registerToolRecyclingRecipes(provider);
+    }
+
+    private static void registerToolRecyclingRecipes(Consumer<FinishedRecipe> provider) {
+        /* Оголовья добавленные нами */
+        toolHeadMiningHammer.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadSword.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadPickaxe.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadShovel.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadAxe.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadHoe.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadScythe.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadFile.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadHammer.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadSaw.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadKnife.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadButcheryKnife.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadSpade.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadPropick.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadJavelin.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadChisel.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadMace.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        // TODO: Попробовать добавить энвилы и другую хуйню сюда
+
+        /* Оголовья грега, которые почему-то не имеют декрафта */
+        toolHeadBuzzSaw.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadScrewdriver.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadDrill.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadChainsaw.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
+        toolHeadWrench.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
     }
 
     private static void registerTFCRockDecompositionRecipes(Consumer<FinishedRecipe> provider) {
@@ -337,34 +355,7 @@ public final class TFGRecipes {
 //        }
 //    }
 
-    private static void registerToolRecyclingRecipes(Consumer<FinishedRecipe> provider) {
-        /* Оголовья добавленные нами */
-        toolHeadMiningHammer.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
-        toolHeadSword.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
-        toolHeadPickaxe.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
-        toolHeadShovel.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
-        toolHeadAxe.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
-        toolHeadHoe.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
-        toolHeadScythe.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
-        toolHeadFile.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
-        toolHeadHammer.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
-        toolHeadSaw.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
-        toolHeadKnife.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
-        toolHeadButcheryKnife.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
-        toolHeadSpade.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
-        toolHeadPropick.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
-        toolHeadJavelin.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
-        toolHeadChisel.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
-        toolHeadMace.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
-        // TODO: Попробовать добавить энвилы и другую хуйню сюда
 
-        /* Оголовья грега, которые почему-то не имеют декрафта */
-        toolHeadBuzzSaw.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
-        toolHeadScrewdriver.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
-        toolHeadDrill.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
-        toolHeadChainsaw.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
-        toolHeadWrench.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
-    }
 
     private static void registerRandomRecipes(Consumer<FinishedRecipe> provider) {
 //        ingot.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processIngot(tagPrefix, material, property, provider));
@@ -798,9 +789,8 @@ public final class TFGRecipes {
                     .inputItems(ingot, material, (int) (prefix.materialAmount() / GTValues.M))
                     .outputItems(output)
                     .save(consumer);
-        }
-        else if (material.hasProperty(PropertyKey.GEM)) {
-            LASER_ENGRAVER_RECIPES.recipeBuilder(TerraFirmaGreg.id("engrave_" + material.getName() + "_gem_to_" + prefix.name().toLowerCase()  + "_head"))
+        } else if (material.hasProperty(PropertyKey.GEM)) {
+            LASER_ENGRAVER_RECIPES.recipeBuilder(TerraFirmaGreg.id("engrave_" + material.getName() + "_gem_to_" + prefix.name().toLowerCase() + "_head"))
                     .duration(12).EUt(32)
                     .circuitMeta(circuitValue)
                     .notConsumable(ChemicalHelper.get(TagPrefix.lens, Glass))
