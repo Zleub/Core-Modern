@@ -1,9 +1,4 @@
-package su.terrafirmagreg.core.objects;
-
-import com.eerussianguy.firmalife.common.blocks.greenhouse.Greenhouse;
-import com.gregtechceu.gtceu.api.data.chemical.material.Material;
-import com.gregtechceu.gtceu.common.data.GTMaterials;
-import lombok.Getter;
+package su.terrafirmagreg.core.old_remove_after_1_21_release;
 
 //@Getter
 //public enum GreenhouseWrapper {

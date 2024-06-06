@@ -6,8 +6,6 @@ import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 import su.terrafirmagreg.core.TerraFirmaGreg;
-import su.terrafirmagreg.core.objects.TFGItems;
-import su.terrafirmagreg.core.objects.TFGRecipes;
 import su.terrafirmagreg.core.objects.TFGRegistries;
 
 import java.util.function.Consumer;
