@@ -62,20 +62,13 @@ public abstract class GTOreVeinWidgetMixin extends WidgetGroup {
     private static void tfg$getContainedOresAndBlocks(GTOreDefinition oreDefinition, CallbackInfoReturnable<List<ItemStack>> cir) {
         var tempList = new ArrayList<ItemStack>();
 
-        tempList.addAll(oreDefinition.veinGenerator().getAllEntries().stream()
-                .map(entry -> entry.getKey().map(state -> state.getBlock().asItem().getDefaultInstance(),
-                        material -> ChemicalHelper.get(TFGTagPrefix.poorRawOre, material)))
-                .toList());
-
-        tempList.addAll(oreDefinition.veinGenerator().getAllEntries().stream()
-                .map(entry -> entry.getKey().map(state -> state.getBlock().asItem().getDefaultInstance(),
-                        material -> ChemicalHelper.get(TagPrefix.rawOre, material)))
-                .toList());
-
-        tempList.addAll(oreDefinition.veinGenerator().getAllEntries().stream()
-                .map(entry -> entry.getKey().map(state -> state.getBlock().asItem().getDefaultInstance(),
-                        material -> ChemicalHelper.get(TFGTagPrefix.richRawOre, material)))
-                .toList());
+        for (var oreEntry : oreDefinition.veinGenerator().getAllEntries()) {
+            oreEntry.getKey().right().ifPresent(material -> {
+                tempList.add(ChemicalHelper.get(TFGTagPrefix.poorRawOre, material));
+                tempList.add(ChemicalHelper.get(TagPrefix.rawOre, material));
+                tempList.add(ChemicalHelper.get(TFGTagPrefix.richRawOre, material));
+            });
+        }
 
         cir.setReturnValue(tempList);
     }
