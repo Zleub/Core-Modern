@@ -1,6 +1,11 @@
 name: Build
 run-name: "Build #${{ github.run_number }}"
 
+on:
+  push:
+    branches:
+      - main
+
 concurrency:
   group: ${{ github.ref }}
   cancel-in-progress: true
