@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.AlternativesEntry;
+import net.minecraft.world.level.storage.loot.entries.EntryGroup;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
 import net.minecraft.world.level.storage.loot.functions.ApplyExplosionDecay;
@@ -43,25 +44,26 @@ public abstract class MixinHelpersMixin {
                         .setRolls(ConstantValue.exactly(1.0F))
                         .add(
                                 AlternativesEntry.alternatives(
-                                                LootItem.lootTableItem(poorDropStack.getItem())
-                                                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, Math.max(1, oreMultiplier))))
-                                                        .setWeight(20)
-                                                        .when(IBlockLootSubProviderAccessor.getHasNoSilkTouchCondition())
-                                                        .apply(ApplyExplosionDecay.explosionDecay()),
-                                                LootItem.lootTableItem(normalDropStack.getItem())
-                                                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, Math.max(1, oreMultiplier))))
-                                                        .setWeight(60)
-                                                        .when(IBlockLootSubProviderAccessor.getHasNoSilkTouchCondition())
-                                                        .apply(ApplyExplosionDecay.explosionDecay()),
-                                                LootItem.lootTableItem(richDropStack.getItem())
-                                                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, Math.max(1, oreMultiplier))))
-                                                        .setWeight(20)
-                                                        .when(IBlockLootSubProviderAccessor.getHasNoSilkTouchCondition())
-                                                        .apply(ApplyExplosionDecay.explosionDecay())
-                                        )
-                                        .otherwise(
                                                 LootItem.lootTableItem(block)
                                                         .apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 1)))
+                                                        .when(IBlockLootSubProviderAccessor.getHasNoSilkTouchCondition().invert())
+                                        )
+                                        .otherwise(
+                                                EntryGroup.list(
+                                                        LootItem.lootTableItem(poorDropStack.getItem())
+                                                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, Math.max(1, oreMultiplier))))
+                                                                .setWeight(20)
+                                                                .apply(ApplyExplosionDecay.explosionDecay()),
+                                                        LootItem.lootTableItem(normalDropStack.getItem())
+                                                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, Math.max(1, oreMultiplier))))
+                                                                .setWeight(60)
+                                                                .apply(ApplyExplosionDecay.explosionDecay()),
+                                                        LootItem.lootTableItem(richDropStack.getItem())
+                                                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, Math.max(1, oreMultiplier))))
+                                                                .setWeight(20)
+                                                                .apply(ApplyExplosionDecay.explosionDecay())
+                                                )
+
                                         )
                         )
         );
