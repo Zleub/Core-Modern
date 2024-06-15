@@ -17,6 +17,7 @@ import su.terrafirmagreg.core.common.TFGCommonEventHandler;
 @Mod(TFGCore.MOD_ID)
 public final class TFGCore {
     public static final String MOD_ID = "tfg";
+    public static final String NAME = "TerraFirmaGreg";
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public static final GTRegistrate REGISTRATE = GTRegistrate.create(TFGCore.MOD_ID);
