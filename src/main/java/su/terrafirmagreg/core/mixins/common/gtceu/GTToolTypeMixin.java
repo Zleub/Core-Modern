@@ -8,7 +8,6 @@ import com.gregtechceu.gtceu.common.item.tool.behavior.HarvestIceBehavior;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
-import su.terrafirmagreg.core.TerraFirmaGreg;
 import su.terrafirmagreg.core.compat.gtceu.behaviors.CanoeCreatorBehavior;
 
 import java.util.ArrayList;

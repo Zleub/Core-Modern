@@ -1,4 +1,4 @@
-package su.terrafirmagreg.core;
+package su.terrafirmagreg.core.client;
 
 import net.dries007.tfc.TerraFirmaCraft;
 import net.minecraft.resources.ResourceLocation;

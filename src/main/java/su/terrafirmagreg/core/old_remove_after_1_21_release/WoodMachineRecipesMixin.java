@@ -1,4 +1,4 @@
-//package su.terrafirmagreg.core.old_remove_after_1_21_release.recipes;
+package su.terrafirmagreg.core.old_remove_after_1_21_release;//package su.terrafirmagreg.core.old_remove_after_1_21_release.recipes;
 //
 //import com.gregtechceu.gtceu.data.recipe.WoodTypeEntry;
 //import com.gregtechceu.gtceu.data.recipe.misc.WoodMachineRecipes;

@@ -1,7 +1,5 @@
 package su.terrafirmagreg.core.compat.gtceu.materials;
 
-import appeng.core.definitions.AEBlocks;
-import appeng.core.definitions.AEItems;
 import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlag;
@@ -15,7 +13,7 @@ import net.dries007.tfc.common.blocks.rock.Rock;
 import net.dries007.tfc.common.items.TFCItems;
 import net.dries007.tfc.util.Metal;
 import net.minecraft.world.level.block.Blocks;
-import su.terrafirmagreg.core.TerraFirmaGreg;
+import su.terrafirmagreg.core.TFGCore;
 import su.terrafirmagreg.core.compat.gtceu.TFGPropertyKeys;
 import su.terrafirmagreg.core.compat.gtceu.properties.TFCProperty;
 
@@ -39,12 +37,12 @@ public final class TFGMaterialHandler {
     public static void init() {
 
         /* Specific Materials */
-        Latex = new Material.Builder(TerraFirmaGreg.id("latex"))
+        Latex = new Material.Builder(TFGCore.id("latex"))
                 .fluid()
                 .color(0xFBB982)
                 .buildAndRegister();
 
-        Fluix = new Material.Builder(TerraFirmaGreg.id("fluix"))
+        Fluix = new Material.Builder(TFGCore.id("fluix"))
                 .fluid()
                 .gem(1)
                 .color(0xD2D2E6).iconSet(CERTUS)
@@ -69,62 +67,62 @@ public final class TFGMaterialHandler {
         Schist = registerOreMaterial(Rock.SCHIST, 0x6E735C);
         Gneiss = registerOreMaterial(Rock.GNEISS, 0x6A6D60);
 
-        Unknown = new Material.Builder(TerraFirmaGreg.id("unknown"))
+        Unknown = new Material.Builder(TFGCore.id("unknown"))
                 .ingot()
                 .fluid()
                 .color(0x2F2B27)
                 .buildAndRegister();
 
-        PigIron = new Material.Builder(TerraFirmaGreg.id("pig_iron"))
+        PigIron = new Material.Builder(TFGCore.id("pig_iron"))
                 .ingot()
                 .fluid()
                 .color(0x6A595C)
                 .buildAndRegister();
 
-        HighCarbonSteel = new Material.Builder(TerraFirmaGreg.id("high_carbon_steel"))
+        HighCarbonSteel = new Material.Builder(TFGCore.id("high_carbon_steel"))
                 .ingot()
                 .fluid()
                 .color(0x5F5F5F)
                 .buildAndRegister();
-        HighCarbonBlackSteel = new Material.Builder(TerraFirmaGreg.id("high_carbon_black_steel"))
+        HighCarbonBlackSteel = new Material.Builder(TFGCore.id("high_carbon_black_steel"))
                 .ingot()
                 .fluid()
                 .color(0x111111)
                 .buildAndRegister();
 
-        HighCarbonRedSteel = new Material.Builder(TerraFirmaGreg.id("high_carbon_red_steel"))
+        HighCarbonRedSteel = new Material.Builder(TFGCore.id("high_carbon_red_steel"))
                 .ingot()
                 .fluid()
                 .color(0x700503)
                 .buildAndRegister();
 
-        HighCarbonBlueSteel = new Material.Builder(TerraFirmaGreg.id("high_carbon_blue_steel"))
+        HighCarbonBlueSteel = new Material.Builder(TFGCore.id("high_carbon_blue_steel"))
                 .ingot()
                 .fluid()
                 .color(0x2D5596)
                 .buildAndRegister();
 
-        WeakSteel = new Material.Builder(TerraFirmaGreg.id("weak_steel"))
+        WeakSteel = new Material.Builder(TFGCore.id("weak_steel"))
                 .ingot()
                 .fluid()
                 .color(0x111111)
                 .buildAndRegister();
 
-        WeakRedSteel = new Material.Builder(TerraFirmaGreg.id("weak_red_steel"))
+        WeakRedSteel = new Material.Builder(TFGCore.id("weak_red_steel"))
                 .ingot()
                 .fluid()
                 .color(0x700503)
                 .buildAndRegister();
 
-        WeakBlueSteel = new Material.Builder(TerraFirmaGreg.id("weak_blue_steel"))
+        WeakBlueSteel = new Material.Builder(TFGCore.id("weak_blue_steel"))
                 .ingot()
                 .fluid()
                 .color(0x2D5596)
                 .buildAndRegister();
 
         /* Dead */
-        Limonite = new Material.Builder(TerraFirmaGreg.id("limonite")).buildAndRegister();
-        Bismuthinite = new Material.Builder(TerraFirmaGreg.id("bismuthinite")).buildAndRegister();
+        Limonite = new Material.Builder(TFGCore.id("limonite")).buildAndRegister();
+        Bismuthinite = new Material.Builder(TFGCore.id("bismuthinite")).buildAndRegister();
     }
 
     public static void postInit() {
@@ -397,21 +395,25 @@ public final class TFGMaterialHandler {
         }
 
         /* AE 2 */
-        block.setIgnored(Fluix, () -> AEBlocks.FLUIX_BLOCK);
-        dust.setIgnored(Fluix, () -> AEItems.FLUIX_DUST);
-        gem.setIgnored(Fluix, () -> AEItems.FLUIX_CRYSTAL);
+        if (TFGCore.IsAe2Loaded()) {
+            //        block.setIgnored(Fluix, () -> AEBlocks.FLUIX_BLOCK);
+            //        dust.setIgnored(Fluix, () -> AEItems.FLUIX_DUST);
+            //        gem.setIgnored(Fluix, () -> AEItems.FLUIX_CRYSTAL);
+            //
+            //        block.setIgnored(CertusQuartz, () -> AEBlocks.QUARTZ_BLOCK);
+            //        dust.setIgnored(CertusQuartz,() -> AEItems.CERTUS_QUARTZ_DUST);
+            //        gem.setIgnored(CertusQuartz, () -> AEItems.CERTUS_QUARTZ_CRYSTAL);
+            //
+            //        dust.setIgnored(EnderPearl, () -> AEItems.ENDER_DUST);
+            //
+            //        block.modifyMaterialAmount(TFGMaterials.Fluix, 4);
+        }
 
-        block.setIgnored(CertusQuartz, () -> AEBlocks.QUARTZ_BLOCK);
-        dust.setIgnored(CertusQuartz,() -> AEItems.CERTUS_QUARTZ_DUST);
-        gem.setIgnored(CertusQuartz, () -> AEItems.CERTUS_QUARTZ_CRYSTAL);
 
-        dust.setIgnored(EnderPearl, () -> AEItems.ENDER_DUST);
-
-        block.modifyMaterialAmount(TFGMaterials.Fluix, 4);
     }
 
     private static Material registerOreMaterial(Rock rockType, int color) {
-        return new Material.Builder(TerraFirmaGreg.id(rockType.getSerializedName()))
+        return new Material.Builder(TFGCore.id(rockType.getSerializedName()))
                 .dust()
                 .color(color).iconSet(ROUGH)
                 .flags(MORTAR_GRINDABLE, NO_SMASHING, NO_SMELTING)

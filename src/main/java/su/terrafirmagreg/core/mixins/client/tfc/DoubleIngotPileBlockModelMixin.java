@@ -16,10 +16,10 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.spongepowered.asm.mixin.Mixin;
-import su.terrafirmagreg.core.TFGClientEventHandler;
+import su.terrafirmagreg.core.client.TFGClientEventHandler;
+import su.terrafirmagreg.core.client.TFGClientHelpers;
+import su.terrafirmagreg.core.common.TFGHelpers;
 import su.terrafirmagreg.core.mixins.common.tfc.IIngotPileBlockEntityAccessor;
-import su.terrafirmagreg.core.objects.TFGClientHelpers;
-import su.terrafirmagreg.core.objects.TFGHelpers;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.function.Function;

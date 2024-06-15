@@ -1,4 +1,4 @@
-//package su.terrafirmagreg.core.old_remove_after_1_21_release.recipes.builders.tfc;
+package su.terrafirmagreg.core.old_remove_after_1_21_release.builders.tfc;//package su.terrafirmagreg.core.old_remove_after_1_21_release.recipes.builders.tfc;
 //
 //import com.google.gson.JsonObject;
 //import com.gregtechceu.gtceu.api.recipe.ingredient.NBTIngredient;

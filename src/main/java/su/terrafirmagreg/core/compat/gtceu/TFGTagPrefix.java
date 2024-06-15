@@ -18,7 +18,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
-import su.terrafirmagreg.core.TerraFirmaGreg;
+import su.terrafirmagreg.core.TFGCore;
 import su.terrafirmagreg.core.compat.gtceu.materials.TFGMaterialFlags;
 import su.terrafirmagreg.core.compat.gtceu.materials.TFGMaterialIconType;
 
@@ -475,7 +475,7 @@ public final class TFGTagPrefix {
     public static void init() {}
 
     private static TagPrefix registerOreTagPrefix(Rock rockType) {
-        var material = GTCEuAPI.materialManager.getMaterial(TerraFirmaGreg.MOD_ID + ":" + rockType.getSerializedName());
+        var material = GTCEuAPI.materialManager.getMaterial(TFGCore.MOD_ID + ":" + rockType.getSerializedName());
         if (material == null) {
             material = GTCEuAPI.materialManager.getMaterial(rockType.getSerializedName());
         }

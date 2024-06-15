@@ -19,8 +19,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.spongepowered.asm.mixin.Mixin;
-import su.terrafirmagreg.core.TFGClientEventHandler;
-import su.terrafirmagreg.core.objects.TFGClientHelpers;
+import su.terrafirmagreg.core.client.TFGClientEventHandler;
+import su.terrafirmagreg.core.client.TFGClientHelpers;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.function.Function;

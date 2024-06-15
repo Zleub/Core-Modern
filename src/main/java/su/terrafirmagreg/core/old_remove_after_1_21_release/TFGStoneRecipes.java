@@ -1,4 +1,4 @@
-//package su.terrafirmagreg.core.old_remove_after_1_21_release.recipes;
+package su.terrafirmagreg.core.old_remove_after_1_21_release;//package su.terrafirmagreg.core.old_remove_after_1_21_release.recipes;
 //
 //import net.minecraft.data.recipes.FinishedRecipe;
 //import net.minecraft.resources.ResourceLocation;

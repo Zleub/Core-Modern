@@ -1,4 +1,4 @@
-package su.terrafirmagreg.core.objects;
+package su.terrafirmagreg.core.client;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;

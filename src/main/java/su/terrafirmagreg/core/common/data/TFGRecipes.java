@@ -1,4 +1,4 @@
-package su.terrafirmagreg.core.objects;
+package su.terrafirmagreg.core.common.data;
 
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
@@ -12,7 +12,7 @@ import net.dries007.tfc.common.items.TFCItems;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import su.terrafirmagreg.core.TerraFirmaGreg;
+import su.terrafirmagreg.core.TFGCore;
 import su.terrafirmagreg.core.compat.gtceu.materials.TFGMaterialFlags;
 import su.terrafirmagreg.core.compat.gtceu.TFGPropertyKeys;
 import su.terrafirmagreg.core.compat.gtceu.properties.TFCProperty;
@@ -64,7 +64,7 @@ public final class TFGRecipes {
 
     private static void registerTFCRockDecompositionRecipes(Consumer<FinishedRecipe> provider) {
         // Gabbro
-        CENTRIFUGE_RECIPES.recipeBuilder(TerraFirmaGreg.id("gabbro_dust_separation"))
+        CENTRIFUGE_RECIPES.recipeBuilder(TFGCore.id("gabbro_dust_separation"))
                 .EUt(VA[MV]).duration(480)
                 .inputItems(dust, Gabbro)
                 .chancedOutput(dustTiny, Titanium, 6700, 700)
@@ -73,7 +73,7 @@ public final class TFGRecipes {
                 .save(provider);
 
         // Shale
-        CENTRIFUGE_RECIPES.recipeBuilder(TerraFirmaGreg.id("shale_dust_separation"))
+        CENTRIFUGE_RECIPES.recipeBuilder(TFGCore.id("shale_dust_separation"))
                 .EUt(VA[MV]).duration(480)
                 .inputItems(dust, Shale)
                 .chancedOutput(dustTiny, Sodium, 7500, 500)
@@ -82,7 +82,7 @@ public final class TFGRecipes {
                 .save(provider);
 
         // Claystone
-        CENTRIFUGE_RECIPES.recipeBuilder(TerraFirmaGreg.id("claystone_dust_separation"))
+        CENTRIFUGE_RECIPES.recipeBuilder(TFGCore.id("claystone_dust_separation"))
                 .duration(480).EUt(VA[MV])
                 .inputItems(dust, Claystone)
                 .chancedOutput(dustTiny, Aluminium, 6700, 700)
@@ -92,7 +92,7 @@ public final class TFGRecipes {
                 .save(provider);
 
         // Limestone
-        CENTRIFUGE_RECIPES.recipeBuilder(TerraFirmaGreg.id("limestone_dust_separation"))
+        CENTRIFUGE_RECIPES.recipeBuilder(TFGCore.id("limestone_dust_separation"))
                 .duration(480).EUt(VA[MV])
                 .inputItems(dust, Limestone)
                 .chancedOutput(dustTiny, Calcium, 8700, 700)
@@ -101,7 +101,7 @@ public final class TFGRecipes {
                 .save(provider);
 
         // Conglomerate
-        CENTRIFUGE_RECIPES.recipeBuilder(TerraFirmaGreg.id("conglomerate_dust_separation"))
+        CENTRIFUGE_RECIPES.recipeBuilder(TFGCore.id("conglomerate_dust_separation"))
                 .duration(480).EUt(VA[MV])
                 .inputItems(dust, Conglomerate)
                 .chancedOutput(dustTiny, Hematite, 6700, 700)
@@ -111,7 +111,7 @@ public final class TFGRecipes {
                 .save(provider);
 
         // Dolomite
-        CENTRIFUGE_RECIPES.recipeBuilder(TerraFirmaGreg.id("dolomite_dust_separation"))
+        CENTRIFUGE_RECIPES.recipeBuilder(TFGCore.id("dolomite_dust_separation"))
                 .duration(480).EUt(VA[MV])
                 .inputItems(dust, Dolomite)
                 .chancedOutput(dustTiny, Magnesium, 6700, 700)
@@ -121,7 +121,7 @@ public final class TFGRecipes {
                 .save(provider);
 
         // Chert
-        CENTRIFUGE_RECIPES.recipeBuilder(TerraFirmaGreg.id("chert_dust_separation"))
+        CENTRIFUGE_RECIPES.recipeBuilder(TFGCore.id("chert_dust_separation"))
                 .duration(480).EUt(VA[MV])
                 .inputItems(dust, Chert)
                 .chancedOutput(dustTiny, Silicon, 6700, 700)
@@ -130,7 +130,7 @@ public final class TFGRecipes {
                 .save(provider);
 
         // Chalk
-        CENTRIFUGE_RECIPES.recipeBuilder(TerraFirmaGreg.id("chalk_dust_separation"))
+        CENTRIFUGE_RECIPES.recipeBuilder(TFGCore.id("chalk_dust_separation"))
                 .duration(480).EUt(VA[MV])
                 .inputItems(dust, Chalk)
                 .chancedOutput(dustTiny, Calcium, 6700, 700)
@@ -140,7 +140,7 @@ public final class TFGRecipes {
                 .save(provider);
 
         // Rhyolite
-        CENTRIFUGE_RECIPES.recipeBuilder(TerraFirmaGreg.id("rhyolite_dust_separation"))
+        CENTRIFUGE_RECIPES.recipeBuilder(TFGCore.id("rhyolite_dust_separation"))
                 .duration(480).EUt(VA[MV])
                 .inputItems(dust, Rhyolite)
                 .chancedOutput(dustTiny, SiliconDioxide, 8700, 700)
@@ -148,7 +148,7 @@ public final class TFGRecipes {
                 .save(provider);
 
         // Dacite
-        CENTRIFUGE_RECIPES.recipeBuilder(TerraFirmaGreg.id("dacite_dust_separation"))
+        CENTRIFUGE_RECIPES.recipeBuilder(TFGCore.id("dacite_dust_separation"))
                 .duration(480).EUt(VA[MV])
                 .inputItems(dust, Dacite)
                 .chancedOutput(dustTiny, Sodium, 6700, 700)
@@ -160,7 +160,7 @@ public final class TFGRecipes {
                 .save(provider);
 
         // Slate
-        CENTRIFUGE_RECIPES.recipeBuilder(TerraFirmaGreg.id("slate_dust_separation"))
+        CENTRIFUGE_RECIPES.recipeBuilder(TFGCore.id("slate_dust_separation"))
                 .duration(480).EUt(VA[MV])
                 .inputItems(dust, Slate)
                 .chancedOutput(dustTiny, MetalMixture, 780, 480)
@@ -168,7 +168,7 @@ public final class TFGRecipes {
                 .save(provider);
 
         // Phyllite
-        CENTRIFUGE_RECIPES.recipeBuilder(TerraFirmaGreg.id("phyllite_dust_separation"))
+        CENTRIFUGE_RECIPES.recipeBuilder(TFGCore.id("phyllite_dust_separation"))
                 .duration(480).EUt(VA[MV])
                 .inputItems(dust, Phyllite)
                 .chancedOutput(dustTiny, Quartzite, 5700, 700)
@@ -177,7 +177,7 @@ public final class TFGRecipes {
                 .save(provider);
 
         // Schist
-        CENTRIFUGE_RECIPES.recipeBuilder(TerraFirmaGreg.id("schist_dust_separation"))
+        CENTRIFUGE_RECIPES.recipeBuilder(TFGCore.id("schist_dust_separation"))
                 .duration(480).EUt(VA[MV])
                 .inputItems(dust, Schist)
                 .chancedOutput(dustTiny, Mica, 6700, 700)
@@ -188,7 +188,7 @@ public final class TFGRecipes {
                 .save(provider);
 
         // Gneiss
-        CENTRIFUGE_RECIPES.recipeBuilder(TerraFirmaGreg.id("gneiss_dust_separation"))
+        CENTRIFUGE_RECIPES.recipeBuilder(TFGCore.id("gneiss_dust_separation"))
                 .duration(480).EUt(VA[MV])
                 .inputItems(dust, Gneiss)
                 .chancedOutput(dustTiny, Quartzite, 6700, 700)
@@ -199,116 +199,116 @@ public final class TFGRecipes {
 
 //    private static void registerExtruderMoldRecipes(Consumer<FinishedRecipe> provider) {
 //        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TerraFirmaGreg.id("shape_extruder_mining_hammer_head"),
+//                TFGCore.id("shape_extruder_mining_hammer_head"),
 //                SHAPE_EXTRUDER_MINING_HAMMER_HEAD.asStack(),
 //                "Sfh", "   ", "   ", 'S', SHAPE_EMPTY.asStack());
 //
 //        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TerraFirmaGreg.id("shape_extruder_sword_head"),
+//                TFGCore.id("shape_extruder_sword_head"),
 //                SHAPE_EXTRUDER_SWORD_HEAD.asStack(),
 //                "Shf", "   ", "   ", 'S', SHAPE_EMPTY.asStack());
 //
 //        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TerraFirmaGreg.id("shape_extruder_pickaxe_head"),
+//                TFGCore.id("shape_extruder_pickaxe_head"),
 //                SHAPE_EXTRUDER_PICKAXE_HEAD.asStack(),
 //                "S  ", "hf ", "   ", 'S', SHAPE_EMPTY.asStack());
 //
 //        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TerraFirmaGreg.id("shape_extruder_axe_head"),
+//                TFGCore.id("shape_extruder_axe_head"),
 //                SHAPE_EXTRUDER_AXE_HEAD.asStack(),
 //                "S  ", " fh", "   ", 'S', SHAPE_EMPTY.asStack());
 //
 //        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TerraFirmaGreg.id("shape_extruder_hoe_head"),
+//                TFGCore.id("shape_extruder_hoe_head"),
 //                SHAPE_EXTRUDER_HOE_HEAD.asStack(),
 //                "S  ", " hf", "   ", 'S', SHAPE_EMPTY.asStack());
 //
 //        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TerraFirmaGreg.id("shape_extruder_scythe_head"),
+//                TFGCore.id("shape_extruder_scythe_head"),
 //                SHAPE_EXTRUDER_SCYTHE_HEAD.asStack(),
 //                "S  ", "   ", "fh ", 'S', SHAPE_EMPTY.asStack());
 //
 //        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TerraFirmaGreg.id("shape_extruder_file_head"),
+//                TFGCore.id("shape_extruder_file_head"),
 //                SHAPE_EXTRUDER_FILE_HEAD.asStack(),
 //                "S  ", "   ", "hf ", 'S', SHAPE_EMPTY.asStack());
 //
 //        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TerraFirmaGreg.id("shape_extruder_hammer_head"),
+//                TFGCore.id("shape_extruder_hammer_head"),
 //                SHAPE_EXTRUDER_HAMMER_HEAD.asStack(),
 //                "Sf ", " h ", "   ", 'S', SHAPE_EMPTY.asStack());
 //
 //        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TerraFirmaGreg.id("shape_extruder_saw_head"),
+//                TFGCore.id("shape_extruder_saw_head"),
 //                SHAPE_EXTRUDER_SAW_HEAD.asStack(),
 //                "Sh ", " f ", "   ", 'S', SHAPE_EMPTY.asStack());
 //
 //        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TerraFirmaGreg.id("shape_extruder_knife_head"),
+//                TFGCore.id("shape_extruder_knife_head"),
 //                SHAPE_EXTRUDER_KNIFE_HEAD.asStack(),
 //                "S f", "   ", "  h", 'S', SHAPE_EMPTY.asStack());
 //
 //        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TerraFirmaGreg.id("shape_extruder_butchery_head_head"),
+//                TFGCore.id("shape_extruder_butchery_head_head"),
 //                SHAPE_EXTRUDER_BUTCHERY_KNIFE_HEAD.asStack(),
 //                "S h", "   ", "  f", 'S', SHAPE_EMPTY.asStack());
 //
 //        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TerraFirmaGreg.id("shape_extruder_shovel_head"),
+//                TFGCore.id("shape_extruder_shovel_head"),
 //                SHAPE_EXTRUDER_SHOVEL_HEAD.asStack(),
 //                "S  ", "f  ", "h  ", 'S', SHAPE_EMPTY.asStack());
 //
 //        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TerraFirmaGreg.id("shape_extruder_spade_head"),
+//                TFGCore.id("shape_extruder_spade_head"),
 //                SHAPE_EXTRUDER_SPADE_HEAD.asStack(),
 //                "S  ", "f  ", "  h", 'S', SHAPE_EMPTY.asStack());
 //
 //        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TerraFirmaGreg.id("shape_extruder_propick_head"),
+//                TFGCore.id("shape_extruder_propick_head"),
 //                SHAPE_EXTRUDER_PROPICK_HEAD.asStack(),
 //                "Sxf", "   ", "   ", 'S', SHAPE_EMPTY.asStack());
 //
 //        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TerraFirmaGreg.id("shape_extruder_javelin_head"),
+//                TFGCore.id("shape_extruder_javelin_head"),
 //                SHAPE_EXTRUDER_JAVELIN_HEAD.asStack(),
 //                "S x", "f  ", "   ", 'S', SHAPE_EMPTY.asStack());
 //
 //        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TerraFirmaGreg.id("shape_extruder_chisel_head"),
+//                TFGCore.id("shape_extruder_chisel_head"),
 //                SHAPE_EXTRUDER_CHISEL_HEAD.asStack(),
 //                "S  ", "xf ", "   ", 'S', SHAPE_EMPTY.asStack());
 //
 //        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TerraFirmaGreg.id("shape_extruder_mace_head"),
+//                TFGCore.id("shape_extruder_mace_head"),
 //                SHAPE_EXTRUDER_MACE_HEAD.asStack(),
 //                "S  ", " xf", "   ", 'S', SHAPE_EMPTY.asStack());
 //    }
 //
 //    private static void registerCastingMoldRecipes(Consumer<FinishedRecipe> provider) {
 //        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TerraFirmaGreg.id("shape_mold_unfinished_lamp"),
+//                TFGCore.id("shape_mold_unfinished_lamp"),
 //                SHAPE_MOLD_UNFINISHED_LAMP.asStack(),
 //                "Sh ", "   ", "   ", 'S', SHAPE_EMPTY.asStack());
 //
 //        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TerraFirmaGreg.id("shape_mold_trapdoor"),
+//                TFGCore.id("shape_mold_trapdoor"),
 //                SHAPE_MOLD_TRAPDOOR.asStack(),
 //                "S h", "   ", "   ", 'S', SHAPE_EMPTY.asStack());
 //
 //        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TerraFirmaGreg.id("shape_mold_chain"),
+//                TFGCore.id("shape_mold_chain"),
 //                SHAPE_MOLD_CHAIN.asStack(),
 //                "S  ", "h  ", "   ", 'S', SHAPE_EMPTY.asStack());
 //
 //        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TerraFirmaGreg.id("shape_mold_bell"),
+//                TFGCore.id("shape_mold_bell"),
 //                SHAPE_MOLD_BELL.asStack(),
 //                "S  ", " h ", "   ", 'S', SHAPE_EMPTY.asStack());
 //    }
 
 //    private static void registerExtruderMoldCopyingRecipes(Consumer<FinishedRecipe> provider) {
 //        for (var shapeMold : TFGItems.SHAPE_EXTRUDERS) {
-//            FORMING_PRESS_RECIPES.recipeBuilder(TerraFirmaGreg.id("copy_mold_" + shapeMold.get()))
+//            FORMING_PRESS_RECIPES.recipeBuilder(TFGCore.id("copy_mold_" + shapeMold.get()))
 //                    .duration(120).EUt(22)
 //                    .notConsumable(shapeMold)
 //                    .inputItems(SHAPE_EMPTY)
@@ -319,7 +319,7 @@ public final class TFGRecipes {
 
     private static void registerCastingMoldCopyingRecipes(Consumer<FinishedRecipe> provider) {
         for (var shapeMold : SHAPE_MOLDS) {
-            FORMING_PRESS_RECIPES.recipeBuilder(TerraFirmaGreg.id("copy_mold_" + shapeMold.get() + "_casting_mold"))
+            FORMING_PRESS_RECIPES.recipeBuilder(TFGCore.id("copy_mold_" + shapeMold.get() + "_casting_mold"))
                     .duration(120).EUt(22)
                     .notConsumable(shapeMold)
                     .inputItems(SHAPE_EMPTY)
@@ -391,7 +391,7 @@ public final class TFGRecipes {
 //        bell.executeHandler(provider, TFGPropertyKeys.TFC_PROPERTY, TFGRecipes::proccessBell);
 
         // Better way to get latex
-        FLUID_SOLIDFICATION_RECIPES.recipeBuilder(TerraFirmaGreg.id("latex_heating"))
+        FLUID_SOLIDFICATION_RECIPES.recipeBuilder(TFGCore.id("latex_heating"))
                 .EUt(VA[LV]).duration(480)
                 .inputItems(dust, Sulfur)
                 .inputFluids(Latex.getFluid(1000))
@@ -409,20 +409,20 @@ public final class TFGRecipes {
         var doubleIngotStack = ChemicalHelper.get(prefix, material);
         var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
 
-        BENDER_RECIPES.recipeBuilder(TerraFirmaGreg.id(material.getName() + "_double_ingot"))
+        BENDER_RECIPES.recipeBuilder(TFGCore.id(material.getName() + "_double_ingot"))
                 .EUt(VA[ULV]).duration((int) material.getMass())
                 .inputItems(ingotStack.copyWithCount(2))
                 .circuitMeta(6)
                 .outputItems(doubleIngotStack)
                 .save(provider);
 
-        EXTRACTOR_RECIPES.recipeBuilder(TerraFirmaGreg.id("extract_" + material.getName() + "_double_ingot"))
+        EXTRACTOR_RECIPES.recipeBuilder(TFGCore.id("extract_" + material.getName() + "_double_ingot"))
                 .EUt(VA[ULV]).duration((int) material.getMass())
                 .inputItems(doubleIngotStack)
                 .outputFluids(material.getFluid(288))
                 .save(provider);
 
-        MACERATOR_RECIPES.recipeBuilder(TerraFirmaGreg.id("macerate_" + material.getName() + "_double_ingot"))
+        MACERATOR_RECIPES.recipeBuilder(TFGCore.id("macerate_" + material.getName() + "_double_ingot"))
                 .EUt(VA[ULV]).duration((int) material.getMass())
                 .inputItems(doubleIngotStack)
                 .outputItems(dust, material, 2)
@@ -435,7 +435,7 @@ public final class TFGRecipes {
         // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
 
         if (material.hasFlag(TFGMaterialFlags.GENERATE_DOUBLE_INGOTS)) {
-            FORGE_HAMMER_RECIPES.recipeBuilder(TerraFirmaGreg.id("hammer_" + material.getName() + "_plate"))
+            FORGE_HAMMER_RECIPES.recipeBuilder(TFGCore.id("hammer_" + material.getName() + "_plate"))
                     .EUt(VA[ULV]).duration((int) material.getMass() * 4)
                     .inputItems(doubleIngotStack)
                     .outputItems(plateStack)
@@ -548,7 +548,7 @@ public final class TFGRecipes {
         var smallOre = ChemicalHelper.get(prefix, material);
         var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
 
-        MACERATOR_RECIPES.recipeBuilder(TerraFirmaGreg.id("macerate_" + material.getName() + "_small_ore"))
+        MACERATOR_RECIPES.recipeBuilder(TFGCore.id("macerate_" + material.getName() + "_small_ore"))
                 .EUt(VA[ULV]).duration((int) material.getMass())
                 .inputItems(smallOre)
                 .outputItems(dustSmall, outputMaterial)
@@ -560,7 +560,7 @@ public final class TFGRecipes {
         var smallNativeOre = ChemicalHelper.get(prefix, material);
         var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
 
-        MACERATOR_RECIPES.recipeBuilder(TerraFirmaGreg.id("macerate_" + material.getName() + "_small_native_ore"))
+        MACERATOR_RECIPES.recipeBuilder(TFGCore.id("macerate_" + material.getName() + "_small_native_ore"))
                 .EUt(VA[ULV]).duration((int) material.getMass())
                 .inputItems(smallNativeOre)
                 .outputItems(dustSmall, outputMaterial)
@@ -573,13 +573,13 @@ public final class TFGRecipes {
 
         // Разборка
 
-        MACERATOR_RECIPES.recipeBuilder(TerraFirmaGreg.id("macerate_" + material.getName() + "_anvil"))
+        MACERATOR_RECIPES.recipeBuilder(TFGCore.id("macerate_" + material.getName() + "_anvil"))
                 .EUt(VA[LV]).duration((int) outputMaterial.getMass() * 32)
                 .inputItems(anvil)
                 .outputItems(dust, outputMaterial, 14)
                 .save(provider);
 
-        ARC_FURNACE_RECIPES.recipeBuilder(TerraFirmaGreg.id("arc_" + material.getName() + "_anvil"))
+        ARC_FURNACE_RECIPES.recipeBuilder(TFGCore.id("arc_" + material.getName() + "_anvil"))
                 .EUt(VA[ULV]).duration((int) outputMaterial.getMass() * 32)
                 .inputItems(anvil)
                 .outputItems(ingot, outputMaterial, 14)
@@ -587,14 +587,14 @@ public final class TFGRecipes {
 
         // Сборка
 
-        ALLOY_SMELTER_RECIPES.recipeBuilder(TerraFirmaGreg.id(material.getName() + "_anvil_from_ingots"))
+        ALLOY_SMELTER_RECIPES.recipeBuilder(TFGCore.id(material.getName() + "_anvil_from_ingots"))
                 .EUt(VA[ULV]).duration((int) material.getMass() * 6)
                 .inputItems(ingot, outputMaterial, 14)
                 .notConsumable(GTItems.SHAPE_MOLD_ANVIL)
                 .itemOutputs(anvil)
                 .save(provider);
 
-        FLUID_SOLIDFICATION_RECIPES.recipeBuilder(TerraFirmaGreg.id(material.getName() + "_anvil_from_fluid"))
+        FLUID_SOLIDFICATION_RECIPES.recipeBuilder(TFGCore.id(material.getName() + "_anvil_from_fluid"))
                 .EUt(VA[ULV]).duration((int) material.getMass() * 6)
                 .inputFluids(outputMaterial.getFluid(2016))
                 .notConsumable(GTItems.SHAPE_MOLD_ANVIL)
@@ -609,27 +609,27 @@ public final class TFGRecipes {
 
         // Разборка
 
-        MACERATOR_RECIPES.recipeBuilder(TerraFirmaGreg.id("macerate_" + material.getName() + "_lamp"))
+        MACERATOR_RECIPES.recipeBuilder(TFGCore.id("macerate_" + material.getName() + "_lamp"))
                 .EUt(VA[LV]).duration((int) outputMaterial.getMass() * 8)
                 .inputItems(finishedLamp)
                 .outputItems(ChemicalHelper.get(dust, outputMaterial), ChemicalHelper.get(dust, Glass, 4))
                 .save(provider);
 
-        ARC_FURNACE_RECIPES.recipeBuilder(TerraFirmaGreg.id("arc_" + material.getName() + "_lamp"))
+        ARC_FURNACE_RECIPES.recipeBuilder(TFGCore.id("arc_" + material.getName() + "_lamp"))
                 .EUt(VA[ULV]).duration((int) outputMaterial.getMass() * 8)
                 .inputItems(finishedLamp)
                 .outputItems(ChemicalHelper.get(ingot, outputMaterial), ChemicalHelper.get(block, Glass))
                 .save(provider);
 
         // Сборка
-        ASSEMBLER_RECIPES.recipeBuilder(TerraFirmaGreg.id(material.getName() + "_lamp"))
+        ASSEMBLER_RECIPES.recipeBuilder(TFGCore.id(material.getName() + "_lamp"))
                 .EUt(VA[ULV]).duration((int) outputMaterial.getMass() * 7)
                 .inputItems(new ItemStack(TFCItems.LAMP_GLASS.get()), unfinishedLamp)
                 .circuitMeta(12)
                 .outputItems(finishedLamp)
                 .save(provider);
 
-        ASSEMBLER_RECIPES.recipeBuilder(TerraFirmaGreg.id(material.getName() + "_lamp_from_liquid"))
+        ASSEMBLER_RECIPES.recipeBuilder(TFGCore.id(material.getName() + "_lamp_from_liquid"))
                 .EUt(VA[ULV]).duration((int) outputMaterial.getMass() * 7)
                 .inputItems(unfinishedLamp)
                 .inputFluids(Glass.getFluid(576))
@@ -644,13 +644,13 @@ public final class TFGRecipes {
 //
 //        // Разборка
 //
-//        MACERATOR_RECIPES.recipeBuilder(TerraFirmaGreg.id("macerate_" + material.getName() + "_unfinished_lamp"))
+//        MACERATOR_RECIPES.recipeBuilder(TFGCore.id("macerate_" + material.getName() + "_unfinished_lamp"))
 //                .EUt(VA[LV]).duration((int) outputMaterial.getMass() * 8)
 //                .inputItems(unfinishedLamp)
 //                .outputItems(dust, outputMaterial)
 //                .save(provider);
 //
-//        ARC_FURNACE_RECIPES.recipeBuilder(TerraFirmaGreg.id("arc_" + material.getName() + "_unfinished_lamp"))
+//        ARC_FURNACE_RECIPES.recipeBuilder(TFGCore.id("arc_" + material.getName() + "_unfinished_lamp"))
 //                .EUt(VA[ULV]).duration((int) outputMaterial.getMass() * 8)
 //                .inputItems(unfinishedLamp)
 //                .outputItems(ingot, outputMaterial)
@@ -658,14 +658,14 @@ public final class TFGRecipes {
 //
 //        // Сборка
 //
-//        ALLOY_SMELTER_RECIPES.recipeBuilder(TerraFirmaGreg.id(material.getName() + "_unfinished_lamp_from_ingots"))
+//        ALLOY_SMELTER_RECIPES.recipeBuilder(TFGCore.id(material.getName() + "_unfinished_lamp_from_ingots"))
 //                .EUt(VA[ULV]).duration((int) material.getMass() * 7)
 //                .inputItems(ingot, outputMaterial)
 //                .notConsumable(SHAPE_MOLD_UNFINISHED_LAMP)
 //                .itemOutputs(unfinishedLamp)
 //                .save(provider);
 //
-//        FLUID_SOLIDFICATION_RECIPES.recipeBuilder(TerraFirmaGreg.id(material.getName() + "_unfinished_lamp_from_fluid"))
+//        FLUID_SOLIDFICATION_RECIPES.recipeBuilder(TFGCore.id(material.getName() + "_unfinished_lamp_from_fluid"))
 //                .EUt(VA[ULV]).duration((int) material.getMass() * 7)
 //                .inputFluids(outputMaterial.getFluid(144))
 //                .notConsumable(SHAPE_MOLD_UNFINISHED_LAMP)
@@ -679,13 +679,13 @@ public final class TFGRecipes {
 //
 //        // Разборка
 //
-//        MACERATOR_RECIPES.recipeBuilder(TerraFirmaGreg.id("macerate_" + material.getName() + "_trapdoor"))
+//        MACERATOR_RECIPES.recipeBuilder(TFGCore.id("macerate_" + material.getName() + "_trapdoor"))
 //                .EUt(VA[LV]).duration((int) outputMaterial.getMass() * 7)
 //                .inputItems(trapdoor)
 //                .outputItems(dust, outputMaterial)
 //                .save(provider);
 //
-//        ARC_FURNACE_RECIPES.recipeBuilder(TerraFirmaGreg.id("arc_" + material.getName() + "_trapdoor"))
+//        ARC_FURNACE_RECIPES.recipeBuilder(TFGCore.id("arc_" + material.getName() + "_trapdoor"))
 //                .EUt(VA[ULV]).duration((int) outputMaterial.getMass() * 7)
 //                .inputItems(trapdoor)
 //                .outputItems(ingot, outputMaterial)
@@ -693,14 +693,14 @@ public final class TFGRecipes {
 //
 //        // Сборка
 //
-//        ALLOY_SMELTER_RECIPES.recipeBuilder(TerraFirmaGreg.id(material.getName() + "_trapdoor_from_ingots"))
+//        ALLOY_SMELTER_RECIPES.recipeBuilder(TFGCore.id(material.getName() + "_trapdoor_from_ingots"))
 //                .EUt(VA[ULV]).duration((int) material.getMass() * 6)
 //                .inputItems(ingot, outputMaterial)
 //                .notConsumable(SHAPE_MOLD_TRAPDOOR)
 //                .itemOutputs(trapdoor)
 //                .save(provider);
 //
-//        FLUID_SOLIDFICATION_RECIPES.recipeBuilder(TerraFirmaGreg.id(material.getName() + "_trapdoor_from_fluid"))
+//        FLUID_SOLIDFICATION_RECIPES.recipeBuilder(TFGCore.id(material.getName() + "_trapdoor_from_fluid"))
 //                .EUt(VA[ULV]).duration((int) material.getMass() * 6)
 //                .inputFluids(outputMaterial.getFluid(144))
 //                .notConsumable(SHAPE_MOLD_TRAPDOOR)
@@ -714,13 +714,13 @@ public final class TFGRecipes {
 
         // Разборка
 
-        MACERATOR_RECIPES.recipeBuilder(TerraFirmaGreg.id("macerate_" + material.getName() + "_chain"))
+        MACERATOR_RECIPES.recipeBuilder(TFGCore.id("macerate_" + material.getName() + "_chain"))
                 .EUt(VA[LV]).duration((int) outputMaterial.getMass() * 3)
                 .inputItems(chain)
                 .outputItems(dustTiny, outputMaterial)
                 .save(provider);
 
-        ARC_FURNACE_RECIPES.recipeBuilder(TerraFirmaGreg.id("arc_" + material.getName() + "_chain"))
+        ARC_FURNACE_RECIPES.recipeBuilder(TFGCore.id("arc_" + material.getName() + "_chain"))
                 .EUt(VA[ULV]).duration((int) outputMaterial.getMass() * 3)
                 .inputItems(chain)
                 .outputItems(nugget, outputMaterial)
@@ -728,14 +728,14 @@ public final class TFGRecipes {
 
         // Сборка
 
-//        ALLOY_SMELTER_RECIPES.recipeBuilder(TerraFirmaGreg.id(material.getName() + "_chain_from_ingots"))
+//        ALLOY_SMELTER_RECIPES.recipeBuilder(TFGCore.id(material.getName() + "_chain_from_ingots"))
 //                .EUt(VA[ULV]).duration((int) material.getMass() * 2)
 //                .inputItems(ingot, outputMaterial)
 //                .notConsumable(SHAPE_MOLD_CHAIN)
 //                .itemOutputs(chain.copyWithCount(9))
 //                .save(provider);
 //
-//        FLUID_SOLIDFICATION_RECIPES.recipeBuilder(TerraFirmaGreg.id(material.getName() + "_chain_from_fluid"))
+//        FLUID_SOLIDFICATION_RECIPES.recipeBuilder(TFGCore.id(material.getName() + "_chain_from_fluid"))
 //                .EUt(VA[ULV]).duration((int) material.getMass() * 2)
 //                .inputFluids(outputMaterial.getFluid(144))
 //                .notConsumable(SHAPE_MOLD_CHAIN)
@@ -749,13 +749,13 @@ public final class TFGRecipes {
 
         // Разборка
 
-        MACERATOR_RECIPES.recipeBuilder(TerraFirmaGreg.id("macerate_" + material.getName() + "_bell"))
+        MACERATOR_RECIPES.recipeBuilder(TFGCore.id("macerate_" + material.getName() + "_bell"))
                 .EUt(VA[LV]).duration((int) outputMaterial.getMass() * 5)
                 .inputItems(bell)
                 .outputItems(dust, outputMaterial)
                 .save(provider);
 
-        ARC_FURNACE_RECIPES.recipeBuilder(TerraFirmaGreg.id("arc_" + material.getName() + "_bell"))
+        ARC_FURNACE_RECIPES.recipeBuilder(TFGCore.id("arc_" + material.getName() + "_bell"))
                 .EUt(VA[ULV]).duration((int) outputMaterial.getMass() * 5)
                 .inputItems(bell)
                 .outputItems(ingot, outputMaterial)
@@ -763,14 +763,14 @@ public final class TFGRecipes {
 
         // Сборка
 
-//        ALLOY_SMELTER_RECIPES.recipeBuilder(TerraFirmaGreg.id(material.getName() + "_bell_from_ingots"))
+//        ALLOY_SMELTER_RECIPES.recipeBuilder(TFGCore.id(material.getName() + "_bell_from_ingots"))
 //                .EUt(VA[ULV]).duration((int) material.getMass() * 4)
 //                .inputItems(ingot, outputMaterial)
 //                .notConsumable(SHAPE_MOLD_BELL)
 //                .itemOutputs(bell)
 //                .save(provider);
 //
-//        FLUID_SOLIDFICATION_RECIPES.recipeBuilder(TerraFirmaGreg.id(material.getName() + "_bell_from_fluid"))
+//        FLUID_SOLIDFICATION_RECIPES.recipeBuilder(TFGCore.id(material.getName() + "_bell_from_fluid"))
 //                .EUt(VA[ULV]).duration((int) material.getMass() * 4)
 //                .inputFluids(outputMaterial.getFluid(144))
 //                .notConsumable(SHAPE_MOLD_BELL)
@@ -783,14 +783,14 @@ public final class TFGRecipes {
         if (output.isEmpty()) return;
 
         if (material.hasProperty(PropertyKey.INGOT)) {
-            EXTRUDER_RECIPES.recipeBuilder(TerraFirmaGreg.id("extrude_" + material.getName() + "_ingot_to_" + prefix.name().toLowerCase() + "_head"))
+            EXTRUDER_RECIPES.recipeBuilder(TFGCore.id("extrude_" + material.getName() + "_ingot_to_" + prefix.name().toLowerCase() + "_head"))
                     .duration(12).EUt(32)
                     .notConsumable(extruderShape)
                     .inputItems(ingot, material, (int) (prefix.materialAmount() / GTValues.M))
                     .outputItems(output)
                     .save(consumer);
         } else if (material.hasProperty(PropertyKey.GEM)) {
-            LASER_ENGRAVER_RECIPES.recipeBuilder(TerraFirmaGreg.id("engrave_" + material.getName() + "_gem_to_" + prefix.name().toLowerCase() + "_head"))
+            LASER_ENGRAVER_RECIPES.recipeBuilder(TFGCore.id("engrave_" + material.getName() + "_gem_to_" + prefix.name().toLowerCase() + "_head"))
                     .duration(12).EUt(32)
                     .circuitMeta(circuitValue)
                     .notConsumable(ChemicalHelper.get(TagPrefix.lens, Glass))

@@ -1,4 +1,4 @@
-//package su.terrafirmagreg.core.old_remove_after_1_21_release.recipes.builders;
+package su.terrafirmagreg.core.old_remove_after_1_21_release.builders;//package su.terrafirmagreg.core.old_remove_after_1_21_release.recipes.builders;
 //
 //import com.google.gson.JsonObject;
 //import net.minecraft.data.recipes.FinishedRecipe;

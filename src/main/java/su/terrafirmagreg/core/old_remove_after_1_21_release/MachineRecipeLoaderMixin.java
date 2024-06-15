@@ -1,4 +1,4 @@
-//package su.terrafirmagreg.core.mixins.common.gtceu.recipes;
+package su.terrafirmagreg.core.old_remove_after_1_21_release;//package su.terrafirmagreg.core.mixins.common.gtceu.recipes;
 //
 //import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 //import com.gregtechceu.gtceu.api.data.tag.TagPrefix;

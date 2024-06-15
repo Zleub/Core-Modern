@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import su.terrafirmagreg.core.objects.TFGTags;
+import su.terrafirmagreg.core.common.data.TFGTags;
 
 @Mixin(value = TagPrefixItem.class, remap = false)
 public abstract class TagPrefixItemMixin {
@@ -21,13 +21,13 @@ public abstract class TagPrefixItemMixin {
      * */
     @Inject(method = "inventoryTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;getItemBySlot(Lnet/minecraft/world/entity/EquipmentSlot;)Lnet/minecraft/world/item/ItemStack;", shift = At.Shift.AFTER), remap = true, cancellable = true)
     private void tfg$inventoryTick$livingEntity$getItemBySlot(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected, CallbackInfo ci) {
-        if (entity instanceof Player player) {
-            var stackInOffHand = player.getItemInHand(InteractionHand.OFF_HAND);
-            if (stackInOffHand.is(TFGTags.Items.Tongs)) {
-                ToolHelper.damageItem(stackInOffHand, player);
-                ci.cancel();
-            }
-        }
+//        if (entity instanceof Player player) {
+//            var stackInOffHand = player.getItemInHand(InteractionHand.OFF_HAND);
+//            if (stackInOffHand.is(TFGTags.Items.Tongs)) {
+//                ToolHelper.damageItem(stackInOffHand, player);
+//                ci.cancel();
+//            }
+//        }
     }
 
 }

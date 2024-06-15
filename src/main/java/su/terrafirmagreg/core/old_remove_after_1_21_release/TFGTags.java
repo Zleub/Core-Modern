@@ -1,4 +1,4 @@
-//package su.terrafirmagreg.core.old_remove_after_1_21_release;
+package su.terrafirmagreg.core.old_remove_after_1_21_release;//package su.terrafirmagreg.core.old_remove_after_1_21_release;
 //
 //import net.minecraft.resources.ResourceLocation;
 //import net.minecraft.tags.TagKey;

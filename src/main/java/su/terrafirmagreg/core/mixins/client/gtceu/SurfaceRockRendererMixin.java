@@ -5,7 +5,6 @@ import com.gregtechceu.gtceu.client.renderer.block.SurfaceRockRenderer;
 import com.gregtechceu.gtceu.data.pack.GTDynamicResourcePack;
 import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.data.models.BlockModelGenerators;
 import net.minecraft.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.data.models.blockstates.Variant;
 import net.minecraft.data.models.blockstates.VariantProperties;
@@ -15,6 +14,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
+import su.terrafirmagreg.core.mixins.client.minecraft.IBlockModelGeneratorsInvoker;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.function.Supplier;
@@ -38,6 +38,6 @@ public abstract class SurfaceRockRendererMixin {
                         Variant.variant().with(VariantProperties.MODEL, modelId).with(VariantProperties.Y_ROT, VariantProperties.Rotation.R180),
                         Variant.variant().with(VariantProperties.MODEL, modelId).with(VariantProperties.Y_ROT, VariantProperties.Rotation.R270)
                 )
-                .with(BlockModelGenerators.createFacingDispatch()));
+                .with(IBlockModelGeneratorsInvoker.callCreateFacingDispatch()));
     }
 }
