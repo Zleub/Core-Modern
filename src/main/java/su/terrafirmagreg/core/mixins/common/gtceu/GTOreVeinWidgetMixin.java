@@ -27,65 +27,79 @@ import java.util.List;
 @Mixin(value = GTOreVeinWidget.class, remap = false)
 public abstract class GTOreVeinWidgetMixin extends WidgetGroup {
 
-    // TODO: ОБНОВЛЕНИЕ 0.8.0 ИЛИ 0.7.* С ОБНОВЛЕНИЕМ РУДНЫХ ЖИЛ.
+    @Shadow @Final
+    public static int width;
 
-//    @Shadow @Final public static int width;
-//
-//    /**
-//     * Для того, чтобы в gui рудных жил отображались все виды руды (бедная, нормальная, богатая), а не только нормальная.
-//     * */
-//    @Inject(method = "setupBaseGui(Lcom/gregtechceu/gtceu/api/data/worldgen/GTOreDefinition;)V", at = @At(value = "HEAD"), remap = false, cancellable = true)
-//    private void tfg$setupBaseGui(GTOreDefinition oreDefinition, CallbackInfo ci){
-//        List<Integer> chances = oreDefinition.veinGenerator().getAllChances();
-//
-//        var oreLists = tfg$getOreRawOres(oreDefinition);
-//        int n = oreLists.size();
-//
-//        int x = (width - 18 * n) / 2;
-//        for (int i = 0; i < n; i++) {
-//            SlotWidget oreSlot = new SlotWidget(new CycleItemStackHandler(oreLists), i, x, 18, false, false);
-//            int finalI = i;
-//            oreSlot.setOnAddedTooltips((stack, tooltips) ->
-//                    tooltips.add(Component.nullToEmpty(LocalizationUtils.format("gtceu.jei.ore_vein_diagram.chance", chances.get(finalI)))));
-//            oreSlot.setIngredientIO(IngredientIO.OUTPUT);
-//            addWidget(oreSlot);
-//            x += 18;
-//        }
-//
-//        ci.cancel();
-//    }
+    /**
+     * Для того, чтобы в gui рудных жил отображались все виды руды (бедная, нормальная, богатая), а не только нормальная.
+     * */
+    @Inject(method = "setupBaseGui(Lcom/gregtechceu/gtceu/api/data/worldgen/GTOreDefinition;)V", at = @At(value = "HEAD"), remap = false, cancellable = true)
+    private void tfg$setupBaseGui(GTOreDefinition oreDefinition, CallbackInfo ci){
+        List<Integer> chances = oreDefinition.veinGenerator().getAllChances();
 
-//    /**
-//     * Этот метод в оригинале используется в 2 местах в коде. В setupBaseGui мы его удалили,
-//     * второе использование осталось в методе получения ингредиентов,
-//     * но он не нужен, тк кнопки R и U итак работают по предмету, поэтому делаем возвращение пустого списка,
-//     * своего рода оптимизация.
-//     * */
-//    @Inject(method = "getContainedOresAndBlocks", at = @At(value = "HEAD"), remap = false, cancellable = true)
-//    private static void tfg$getContainedOresAndBlocks(GTOreDefinition oreDefinition, CallbackInfoReturnable<List<ItemStack>> cir) {
-//        cir.setReturnValue(List.of());
-//    }
+        var oreLists = tfg$getOreRawOres(oreDefinition);
+        int n = oreLists.size();
 
-//    /**
-//     * Метод возвращает список из списков типов руд жилы. Например в жиле с алмазами и графитом список будет следующий:
-//     * Список(Список(Алмаз бедный, Алмаз нормальный, Алмаз богатый), Список(Графит бедный, Графит нормальный, Графит богатый))
-//     * */
-//    @Unique
-//    private static List<List<ItemStack>> tfg$getOreRawOres(GTOreDefinition oreDefinition) {
-//        var list = new ArrayList<List<ItemStack>>();
-//
-//        oreDefinition.veinGenerator().getAllEntries().forEach(el -> {
-//            if (el.getKey().right().isPresent()) {
-//                var oreList = new ArrayList<ItemStack>();
-//
-//                oreList.add(ChemicalHelper.get(TFGTagPrefix.poorRawOre, el.getKey().right().get()));
-//                oreList.add(ChemicalHelper.get(TagPrefix.rawOre, el.getKey().right().get()));
-//                oreList.add(ChemicalHelper.get(TFGTagPrefix.richRawOre, el.getKey().right().get()));
-//
-//                list.add(oreList);
-//            }
-//        });
-//
-//        return list;
-//    }
+        int x = (width - 18 * n) / 2;
+        for (int i = 0; i < n; i++) {
+            SlotWidget oreSlot = new SlotWidget(new CycleItemStackHandler(oreLists), i, x, 18, false, false);
+            int finalI = i;
+            oreSlot.setOnAddedTooltips((stack, tooltips) ->
+                    tooltips.add(Component.nullToEmpty(LocalizationUtils.format("gtceu.jei.ore_vein_diagram.chance", chances.get(finalI)))));
+            oreSlot.setIngredientIO(IngredientIO.OUTPUT);
+            addWidget(oreSlot);
+            x += 18;
+        }
+
+        ci.cancel();
+    }
+
+    /**
+     * Метод используется для показывания игроку при нажатии R или U по сырому куску руды,
+     * жилы в которых он появляется.
+     * */
+    @Inject(method = "getContainedOresAndBlocks", at = @At(value = "HEAD"), remap = false, cancellable = true)
+    private static void tfg$getContainedOresAndBlocks(GTOreDefinition oreDefinition, CallbackInfoReturnable<List<ItemStack>> cir) {
+        var tempList = new ArrayList<ItemStack>();
+
+        tempList.addAll(oreDefinition.veinGenerator().getAllEntries().stream()
+                .map(entry -> entry.getKey().map(state -> state.getBlock().asItem().getDefaultInstance(),
+                        material -> ChemicalHelper.get(TFGTagPrefix.poorRawOre, material)))
+                .toList());
+
+        tempList.addAll(oreDefinition.veinGenerator().getAllEntries().stream()
+                .map(entry -> entry.getKey().map(state -> state.getBlock().asItem().getDefaultInstance(),
+                        material -> ChemicalHelper.get(TagPrefix.rawOre, material)))
+                .toList());
+
+        tempList.addAll(oreDefinition.veinGenerator().getAllEntries().stream()
+                .map(entry -> entry.getKey().map(state -> state.getBlock().asItem().getDefaultInstance(),
+                        material -> ChemicalHelper.get(TFGTagPrefix.richRawOre, material)))
+                .toList());
+
+        cir.setReturnValue(tempList);
+    }
+
+    /**
+     * Метод возвращает список из списков типов руд жилы. Например в жиле с алмазами и графитом список будет следующий:
+     * Список(Список(Алмаз бедный, Алмаз нормальный, Алмаз богатый), Список(Графит бедный, Графит нормальный, Графит богатый))
+     * */
+    @Unique
+    private static List<List<ItemStack>> tfg$getOreRawOres(GTOreDefinition oreDefinition) {
+        var list = new ArrayList<List<ItemStack>>();
+
+        oreDefinition.veinGenerator().getAllEntries().forEach(el -> {
+            if (el.getKey().right().isPresent()) {
+                var oreList = new ArrayList<ItemStack>();
+
+                oreList.add(ChemicalHelper.get(TFGTagPrefix.poorRawOre, el.getKey().right().get()));
+                oreList.add(ChemicalHelper.get(TagPrefix.rawOre, el.getKey().right().get()));
+                oreList.add(ChemicalHelper.get(TFGTagPrefix.richRawOre, el.getKey().right().get()));
+
+                list.add(oreList);
+            }
+        });
+
+        return list;
+    }
 }
