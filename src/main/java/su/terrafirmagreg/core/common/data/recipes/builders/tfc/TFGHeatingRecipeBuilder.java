@@ -1,4 +1,4 @@
-package su.terrafirmagreg.core.old_remove_after_1_21_release.builders.tfc;//package su.terrafirmagreg.core.old_remove_after_1_21_release.recipes.builders.tfc;
+package su.terrafirmagreg.core.common.data.recipes.builders.tfc;//package su.terrafirmagreg.core.old_remove_after_1_21_release.recipes.builders.tfc;
 
 //public final class TFGHeatingRecipeBuilder extends TFGAbstractRecipeBuilder {
 //
