@@ -9,8 +9,11 @@ import su.terrafirmagreg.core.TFGCore;
 import su.terrafirmagreg.core.mixins.common.tfc.IIngotPileBlockEntityEntryAccessor;
 
 import java.util.List;
+import java.util.Random;
 
 public final class TFGHelpers {
+
+    public static final Random RANDOM = new Random();
 
     @Nullable
     public static Material getMaterial(@NotNull String materialName) {

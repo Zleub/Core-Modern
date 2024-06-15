@@ -7,6 +7,7 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 import su.terrafirmagreg.core.TFGCore;
 import su.terrafirmagreg.core.common.TFGItems;
+import su.terrafirmagreg.core.common.data.recipes.TFGRecipes;
 
 import java.util.function.Consumer;
 
@@ -51,7 +52,7 @@ public final class TFGGTAddon implements IGTAddon {
 
     @Override
     public void addRecipes(Consumer<FinishedRecipe> provider) {
-//        TFGRecipes.init(provider);
+        TFGRecipes.init(provider);
     }
 
     @Override

@@ -5,11 +5,13 @@
     "compatibilityLevel": "JAVA_17",
     "mixins": [
         "client.minecraft.IBlockModelGeneratorsInvoker",
+        "common.gtceu.IBlockLootSubProviderAccessor",
         "common.gtceu.FisherMachineMixin",
         "common.gtceu.GTOreVeinWidgetMixin",
         "common.gtceu.GTRecipeTypesMixin",
         "common.gtceu.GTToolTypeMixin",
         "common.gtceu.HoeGroundBehaviorMixin",
+        "common.gtceu.MixinHelpersMixin",
         "common.gtceu.PrimitivePumpMachineMixin",
         "common.gtceu.SteamBoilerMachineMixin",
         "common.gtceu.SurfaceRockBlockMixin",

@@ -13,6 +13,7 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import su.terrafirmagreg.core.TFGCore;
+import su.terrafirmagreg.core.common.data.TFGData;
 import su.terrafirmagreg.core.compat.gtceu.materials.TFGMaterialFlags;
 import su.terrafirmagreg.core.compat.gtceu.TFGPropertyKeys;
 import su.terrafirmagreg.core.compat.gtceu.properties.TFCProperty;
@@ -30,6 +31,7 @@ import static su.terrafirmagreg.core.compat.gtceu.TFGTagPrefix.*;
 public final class TFGRecipes {
 
     public static void init(Consumer<FinishedRecipe> provider) {
+        TFGData.init();
 //        registerToolRecyclingRecipes(provider);
     }
 
