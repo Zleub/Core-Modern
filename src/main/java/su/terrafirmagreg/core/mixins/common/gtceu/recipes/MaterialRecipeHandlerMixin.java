@@ -6,7 +6,6 @@ import com.gregtechceu.gtceu.api.data.chemical.material.properties.IngotProperty
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.data.recipe.builder.GTRecipeBuilder;
 import com.gregtechceu.gtceu.data.recipe.generated.MaterialRecipeHandler;
-import com.llamalad7.mixinextras.injector.WrapWithCondition;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
@@ -40,4 +39,16 @@ public abstract class MaterialRecipeHandlerMixin {
         }
         return instance;
     }
+
+    /**
+     * Отключение генерации рецептов: 2 слитка + молот = пластина (верстак).
+     * */
+    @Redirect(method = "processIngot", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/VanillaRecipeHelper;addShapedRecipe(Ljava/util/function/Consumer;Ljava/lang/String;Lnet/minecraft/world/item/ItemStack;[Ljava/lang/Object;)V", ordinal = 2), remap = false)
+    private static void tfg$processIngot$addShapedRecipe$plate(Consumer<FinishedRecipe> provider, String regName, ItemStack result, Object[] recipe) {}
+
+    /**
+     * Отключение генерации рецептов: 9 слитков -> блок. (Компрессор)
+     */
+    @Redirect(method = "processIngot", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/data/recipe/builder/GTRecipeBuilder;save(Ljava/util/function/Consumer;)V", ordinal = 5), remap = false)
+    private static void tfg$processIngot$gtRecipeBuilder$save$block(GTRecipeBuilder instance, Consumer<FinishedRecipe> consumer) {}
 }

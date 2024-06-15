@@ -1,4 +1,4 @@
-package su.terrafirmagreg.core.common.data;
+package su.terrafirmagreg.core.common.data.recipes;
 
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
@@ -30,7 +30,7 @@ import static su.terrafirmagreg.core.compat.gtceu.TFGTagPrefix.*;
 public final class TFGRecipes {
 
     public static void init(Consumer<FinishedRecipe> provider) {
-        registerToolRecyclingRecipes(provider);
+//        registerToolRecyclingRecipes(provider);
     }
 
     private static void registerToolRecyclingRecipes(Consumer<FinishedRecipe> provider) {

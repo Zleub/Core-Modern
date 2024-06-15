@@ -35,12 +35,12 @@ public final class TFGGTAddon implements IGTAddon {
 
     @Override
     public void registerWorldgenLayers() {
-//        TFGWorldGenLayers.init();
+        TFGWorldGenLayers.init();
     }
 
     @Override
     public void registerOreVeins() {
-//        TFGOreVeins.register();
+        TFGOreVeins.register();
     }
 
     @Override
