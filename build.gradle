@@ -122,6 +122,8 @@ repositories {
 
     maven { url "https://maven.tterrag.com/" }
 
+    maven { url "https://maven.shedaniel.me/" }
+
     flatDir {
         dir 'libs'
     }
@@ -140,6 +142,13 @@ dependencies {
 
     implementation fg.deobf("maven.modrinth:embeddium:0.3.18+mc1.20.1")
     implementation fg.deobf("maven.modrinth:ferrite-core:DG5Fn9Sz")
+
+    // REI
+    runtimeOnly fg.deobf("me.shedaniel.cloth:cloth-config-forge:11.1.118")
+    runtimeOnly fg.deobf("me.shedaniel:RoughlyEnoughItems-forge:12.1.725")
+
+    compileOnly fg.deobf("me.shedaniel:RoughlyEnoughItems-api-forge:12.1.725")
+    compileOnly fg.deobf("me.shedaniel:RoughlyEnoughItems-default-plugin-forge:12.1.725")
 
     // GTM
     implementation fg.deobf("maven.modrinth:ldlib:mc1.20.1-1.0.25.g-forge")
