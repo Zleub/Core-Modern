@@ -12,6 +12,7 @@ import com.gregtechceu.gtceu.data.recipe.generated.RecyclingRecipeHandler;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import net.dries007.tfc.common.items.TFCItems;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import su.terrafirmagreg.core.TFGCore;
@@ -43,6 +44,14 @@ public final class TFGRecipes {
         registerCastingMoldCopyingRecipes(provider);
         registerProcessingToolHeadsRecipes(provider);
         registerTagPrefixHandlerRecipes(provider);
+
+        TFGWoodRecipes.init(provider);
+        TFGStoneRecipes.init(provider);
+    }
+
+    public static void remove(Consumer<ResourceLocation> consumer) {
+        TFGWoodRecipes.remove(consumer);
+        TFGStoneRecipes.remove(consumer);
     }
 
     private static void registerToolRecyclingRecipes(Consumer<FinishedRecipe> provider) {

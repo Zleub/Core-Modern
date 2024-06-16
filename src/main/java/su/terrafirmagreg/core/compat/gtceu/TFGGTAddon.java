@@ -58,5 +58,8 @@ public final class TFGGTAddon implements IGTAddon {
     }
 
     @Override
-    public void removeRecipes(Consumer<ResourceLocation> consumer) {}
+    public void removeRecipes(Consumer<ResourceLocation> consumer) {
+        TFGData.remove(consumer);
+        TFGRecipes.remove(consumer);
+    }
 }

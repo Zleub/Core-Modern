@@ -5,6 +5,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import su.terrafirmagreg.core.common.data.recipes.TFGMaterialInfoLoader;
 
 @Mixin(value = MaterialInfoLoader.class, remap = false)
 public abstract class MaterialInfoLoaderMixin {
@@ -14,8 +15,6 @@ public abstract class MaterialInfoLoaderMixin {
      * */
     @Inject(method = "init", at = @At(value = "TAIL"), remap = false)
     private static void tfg$init(CallbackInfo ci) {
-        // TFGStartupEvents.MATERIAL_INFO_MODIFICATION.post(ScriptType.STARTUP, new TFGMaterialInfoModification());
-        // TODO
-        // TFGMaterialInfoLoader.init();
+         TFGMaterialInfoLoader.init();
     }
 }
