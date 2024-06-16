@@ -177,7 +177,7 @@ dependencies {
     compileOnly fg.deobf("me.shedaniel:RoughlyEnoughItems-default-plugin-forge:12.1.725")
 
     // Create
-    runtimeOnly fg.deobf("com.jozufozu.flywheel:flywheel-forge-1.20.1:0.6.10-10")
+    implementation fg.deobf("com.jozufozu.flywheel:flywheel-forge-1.20.1:0.6.10-10")
     implementation fg.deobf("com.simibubi.create:create-1.20.1:0.5.1.f-27:slim") { transitive = false }
 
     // GTM
