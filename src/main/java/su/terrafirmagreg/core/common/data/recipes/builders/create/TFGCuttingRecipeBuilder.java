@@ -1,5 +1,5 @@
-package su.terrafirmagreg.core.common.data.recipes.builders.create;//package su.terrafirmagreg.core.old_remove_after_1_21_release.recipes.builders.create;
-//
+package su.terrafirmagreg.core.common.data.recipes.builders.create;
+
 //import com.google.gson.JsonArray;
 //import com.google.gson.JsonObject;
 //import com.simibubi.create.AllRecipeTypes;

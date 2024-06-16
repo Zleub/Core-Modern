@@ -1,11 +1,13 @@
 package su.terrafirmagreg.core.common.data.recipes;
 
+import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.common.data.GTItems;
+import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
 import com.gregtechceu.gtceu.data.recipe.generated.RecyclingRecipeHandler;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import net.dries007.tfc.common.items.TFCItems;
@@ -13,6 +15,7 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import su.terrafirmagreg.core.TFGCore;
+import su.terrafirmagreg.core.common.TFGItems;
 import su.terrafirmagreg.core.common.data.TFGData;
 import su.terrafirmagreg.core.compat.gtceu.materials.TFGMaterialFlags;
 import su.terrafirmagreg.core.compat.gtceu.TFGPropertyKeys;
@@ -25,14 +28,21 @@ import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
 import static com.gregtechceu.gtceu.common.data.GTItems.*;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;
+import static su.terrafirmagreg.core.common.TFGItems.*;
 import static su.terrafirmagreg.core.compat.gtceu.materials.TFGMaterials.*;
 import static su.terrafirmagreg.core.compat.gtceu.TFGTagPrefix.*;
 
 public final class TFGRecipes {
 
     public static void init(Consumer<FinishedRecipe> provider) {
-        TFGData.init();
-//        registerToolRecyclingRecipes(provider);
+        registerToolRecyclingRecipes(provider);
+        registerTFCRockDecompositionRecipes(provider);
+        registerExtruderMoldRecipes(provider);
+        registerCastingMoldRecipes(provider);
+        registerExtruderMoldCopyingRecipes(provider);
+        registerCastingMoldCopyingRecipes(provider);
+        registerProcessingToolHeadsRecipes(provider);
+        registerTagPrefixHandlerRecipes(provider);
     }
 
     private static void registerToolRecyclingRecipes(Consumer<FinishedRecipe> provider) {
@@ -199,128 +209,128 @@ public final class TFGRecipes {
                 .save(provider);
     }
 
-//    private static void registerExtruderMoldRecipes(Consumer<FinishedRecipe> provider) {
-//        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TFGCore.id("shape_extruder_mining_hammer_head"),
-//                SHAPE_EXTRUDER_MINING_HAMMER_HEAD.asStack(),
-//                "Sfh", "   ", "   ", 'S', SHAPE_EMPTY.asStack());
-//
-//        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TFGCore.id("shape_extruder_sword_head"),
-//                SHAPE_EXTRUDER_SWORD_HEAD.asStack(),
-//                "Shf", "   ", "   ", 'S', SHAPE_EMPTY.asStack());
-//
-//        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TFGCore.id("shape_extruder_pickaxe_head"),
-//                SHAPE_EXTRUDER_PICKAXE_HEAD.asStack(),
-//                "S  ", "hf ", "   ", 'S', SHAPE_EMPTY.asStack());
-//
-//        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TFGCore.id("shape_extruder_axe_head"),
-//                SHAPE_EXTRUDER_AXE_HEAD.asStack(),
-//                "S  ", " fh", "   ", 'S', SHAPE_EMPTY.asStack());
-//
-//        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TFGCore.id("shape_extruder_hoe_head"),
-//                SHAPE_EXTRUDER_HOE_HEAD.asStack(),
-//                "S  ", " hf", "   ", 'S', SHAPE_EMPTY.asStack());
-//
-//        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TFGCore.id("shape_extruder_scythe_head"),
-//                SHAPE_EXTRUDER_SCYTHE_HEAD.asStack(),
-//                "S  ", "   ", "fh ", 'S', SHAPE_EMPTY.asStack());
-//
-//        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TFGCore.id("shape_extruder_file_head"),
-//                SHAPE_EXTRUDER_FILE_HEAD.asStack(),
-//                "S  ", "   ", "hf ", 'S', SHAPE_EMPTY.asStack());
-//
-//        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TFGCore.id("shape_extruder_hammer_head"),
-//                SHAPE_EXTRUDER_HAMMER_HEAD.asStack(),
-//                "Sf ", " h ", "   ", 'S', SHAPE_EMPTY.asStack());
-//
-//        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TFGCore.id("shape_extruder_saw_head"),
-//                SHAPE_EXTRUDER_SAW_HEAD.asStack(),
-//                "Sh ", " f ", "   ", 'S', SHAPE_EMPTY.asStack());
-//
-//        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TFGCore.id("shape_extruder_knife_head"),
-//                SHAPE_EXTRUDER_KNIFE_HEAD.asStack(),
-//                "S f", "   ", "  h", 'S', SHAPE_EMPTY.asStack());
-//
-//        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TFGCore.id("shape_extruder_butchery_head_head"),
-//                SHAPE_EXTRUDER_BUTCHERY_KNIFE_HEAD.asStack(),
-//                "S h", "   ", "  f", 'S', SHAPE_EMPTY.asStack());
-//
-//        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TFGCore.id("shape_extruder_shovel_head"),
-//                SHAPE_EXTRUDER_SHOVEL_HEAD.asStack(),
-//                "S  ", "f  ", "h  ", 'S', SHAPE_EMPTY.asStack());
-//
-//        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TFGCore.id("shape_extruder_spade_head"),
-//                SHAPE_EXTRUDER_SPADE_HEAD.asStack(),
-//                "S  ", "f  ", "  h", 'S', SHAPE_EMPTY.asStack());
-//
-//        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TFGCore.id("shape_extruder_propick_head"),
-//                SHAPE_EXTRUDER_PROPICK_HEAD.asStack(),
-//                "Sxf", "   ", "   ", 'S', SHAPE_EMPTY.asStack());
-//
-//        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TFGCore.id("shape_extruder_javelin_head"),
-//                SHAPE_EXTRUDER_JAVELIN_HEAD.asStack(),
-//                "S x", "f  ", "   ", 'S', SHAPE_EMPTY.asStack());
-//
-//        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TFGCore.id("shape_extruder_chisel_head"),
-//                SHAPE_EXTRUDER_CHISEL_HEAD.asStack(),
-//                "S  ", "xf ", "   ", 'S', SHAPE_EMPTY.asStack());
-//
-//        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TFGCore.id("shape_extruder_mace_head"),
-//                SHAPE_EXTRUDER_MACE_HEAD.asStack(),
-//                "S  ", " xf", "   ", 'S', SHAPE_EMPTY.asStack());
-//    }
-//
-//    private static void registerCastingMoldRecipes(Consumer<FinishedRecipe> provider) {
-//        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TFGCore.id("shape_mold_unfinished_lamp"),
-//                SHAPE_MOLD_UNFINISHED_LAMP.asStack(),
-//                "Sh ", "   ", "   ", 'S', SHAPE_EMPTY.asStack());
-//
-//        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TFGCore.id("shape_mold_trapdoor"),
-//                SHAPE_MOLD_TRAPDOOR.asStack(),
-//                "S h", "   ", "   ", 'S', SHAPE_EMPTY.asStack());
-//
-//        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TFGCore.id("shape_mold_chain"),
-//                SHAPE_MOLD_CHAIN.asStack(),
-//                "S  ", "h  ", "   ", 'S', SHAPE_EMPTY.asStack());
-//
-//        VanillaRecipeHelper.addStrictShapedRecipe(provider,
-//                TFGCore.id("shape_mold_bell"),
-//                SHAPE_MOLD_BELL.asStack(),
-//                "S  ", " h ", "   ", 'S', SHAPE_EMPTY.asStack());
-//    }
+    private static void registerExtruderMoldRecipes(Consumer<FinishedRecipe> provider) {
+        VanillaRecipeHelper.addStrictShapedRecipe(provider,
+                TFGCore.id("shape_extruder_mining_hammer_head"),
+                SHAPE_EXTRUDER_MINING_HAMMER_HEAD.asStack(),
+                "Sfh", "   ", "   ", 'S', SHAPE_EMPTY.asStack());
 
-//    private static void registerExtruderMoldCopyingRecipes(Consumer<FinishedRecipe> provider) {
-//        for (var shapeMold : TFGItems.SHAPE_EXTRUDERS) {
-//            FORMING_PRESS_RECIPES.recipeBuilder(TFGCore.id("copy_mold_" + shapeMold.get()))
-//                    .duration(120).EUt(22)
-//                    .notConsumable(shapeMold)
-//                    .inputItems(SHAPE_EMPTY)
-//                    .outputItems(shapeMold)
-//                    .save(provider);
-//        }
-//    }
+        VanillaRecipeHelper.addStrictShapedRecipe(provider,
+                TFGCore.id("shape_extruder_sword_head"),
+                SHAPE_EXTRUDER_SWORD_HEAD.asStack(),
+                "Shf", "   ", "   ", 'S', SHAPE_EMPTY.asStack());
+
+        VanillaRecipeHelper.addStrictShapedRecipe(provider,
+                TFGCore.id("shape_extruder_pickaxe_head"),
+                SHAPE_EXTRUDER_PICKAXE_HEAD.asStack(),
+                "S  ", "hf ", "   ", 'S', SHAPE_EMPTY.asStack());
+
+        VanillaRecipeHelper.addStrictShapedRecipe(provider,
+                TFGCore.id("shape_extruder_axe_head"),
+                SHAPE_EXTRUDER_AXE_HEAD.asStack(),
+                "S  ", " fh", "   ", 'S', SHAPE_EMPTY.asStack());
+
+        VanillaRecipeHelper.addStrictShapedRecipe(provider,
+                TFGCore.id("shape_extruder_hoe_head"),
+                SHAPE_EXTRUDER_HOE_HEAD.asStack(),
+                "S  ", " hf", "   ", 'S', SHAPE_EMPTY.asStack());
+
+        VanillaRecipeHelper.addStrictShapedRecipe(provider,
+                TFGCore.id("shape_extruder_scythe_head"),
+                SHAPE_EXTRUDER_SCYTHE_HEAD.asStack(),
+                "S  ", "   ", "fh ", 'S', SHAPE_EMPTY.asStack());
+
+        VanillaRecipeHelper.addStrictShapedRecipe(provider,
+                TFGCore.id("shape_extruder_file_head"),
+                SHAPE_EXTRUDER_FILE_HEAD.asStack(),
+                "S  ", "   ", "hf ", 'S', SHAPE_EMPTY.asStack());
+
+        VanillaRecipeHelper.addStrictShapedRecipe(provider,
+                TFGCore.id("shape_extruder_hammer_head"),
+                SHAPE_EXTRUDER_HAMMER_HEAD.asStack(),
+                "Sf ", " h ", "   ", 'S', SHAPE_EMPTY.asStack());
+
+        VanillaRecipeHelper.addStrictShapedRecipe(provider,
+                TFGCore.id("shape_extruder_saw_head"),
+                SHAPE_EXTRUDER_SAW_HEAD.asStack(),
+                "Sh ", " f ", "   ", 'S', SHAPE_EMPTY.asStack());
+
+        VanillaRecipeHelper.addStrictShapedRecipe(provider,
+                TFGCore.id("shape_extruder_knife_head"),
+                SHAPE_EXTRUDER_KNIFE_HEAD.asStack(),
+                "S f", "   ", "  h", 'S', SHAPE_EMPTY.asStack());
+
+        VanillaRecipeHelper.addStrictShapedRecipe(provider,
+                TFGCore.id("shape_extruder_butchery_head_head"),
+                SHAPE_EXTRUDER_BUTCHERY_KNIFE_HEAD.asStack(),
+                "S h", "   ", "  f", 'S', SHAPE_EMPTY.asStack());
+
+        VanillaRecipeHelper.addStrictShapedRecipe(provider,
+                TFGCore.id("shape_extruder_shovel_head"),
+                SHAPE_EXTRUDER_SHOVEL_HEAD.asStack(),
+                "S  ", "f  ", "h  ", 'S', SHAPE_EMPTY.asStack());
+
+        VanillaRecipeHelper.addStrictShapedRecipe(provider,
+                TFGCore.id("shape_extruder_spade_head"),
+                SHAPE_EXTRUDER_SPADE_HEAD.asStack(),
+                "S  ", "f  ", "  h", 'S', SHAPE_EMPTY.asStack());
+
+        VanillaRecipeHelper.addStrictShapedRecipe(provider,
+                TFGCore.id("shape_extruder_propick_head"),
+                SHAPE_EXTRUDER_PROPICK_HEAD.asStack(),
+                "Sxf", "   ", "   ", 'S', SHAPE_EMPTY.asStack());
+
+        VanillaRecipeHelper.addStrictShapedRecipe(provider,
+                TFGCore.id("shape_extruder_javelin_head"),
+                SHAPE_EXTRUDER_JAVELIN_HEAD.asStack(),
+                "S x", "f  ", "   ", 'S', SHAPE_EMPTY.asStack());
+
+        VanillaRecipeHelper.addStrictShapedRecipe(provider,
+                TFGCore.id("shape_extruder_chisel_head"),
+                SHAPE_EXTRUDER_CHISEL_HEAD.asStack(),
+                "S  ", "xf ", "   ", 'S', SHAPE_EMPTY.asStack());
+
+        VanillaRecipeHelper.addStrictShapedRecipe(provider,
+                TFGCore.id("shape_extruder_mace_head"),
+                SHAPE_EXTRUDER_MACE_HEAD.asStack(),
+                "S  ", " xf", "   ", 'S', SHAPE_EMPTY.asStack());
+    }
+
+    private static void registerCastingMoldRecipes(Consumer<FinishedRecipe> provider) {
+        VanillaRecipeHelper.addStrictShapedRecipe(provider,
+                TFGCore.id("shape_mold_unfinished_lamp"),
+                SHAPE_MOLD_UNFINISHED_LAMP.asStack(),
+                "Sh ", "   ", "   ", 'S', SHAPE_EMPTY.asStack());
+
+        VanillaRecipeHelper.addStrictShapedRecipe(provider,
+                TFGCore.id("shape_mold_trapdoor"),
+                SHAPE_MOLD_TRAPDOOR.asStack(),
+                "S h", "   ", "   ", 'S', SHAPE_EMPTY.asStack());
+
+        VanillaRecipeHelper.addStrictShapedRecipe(provider,
+                TFGCore.id("shape_mold_chain"),
+                SHAPE_MOLD_CHAIN.asStack(),
+                "S  ", "h  ", "   ", 'S', SHAPE_EMPTY.asStack());
+
+        VanillaRecipeHelper.addStrictShapedRecipe(provider,
+                TFGCore.id("shape_mold_bell"),
+                SHAPE_MOLD_BELL.asStack(),
+                "S  ", " h ", "   ", 'S', SHAPE_EMPTY.asStack());
+    }
+
+    private static void registerExtruderMoldCopyingRecipes(Consumer<FinishedRecipe> provider) {
+        for (var shapeMold : TFGItems.SHAPE_EXTRUDERS) {
+            FORMING_PRESS_RECIPES.recipeBuilder(TFGCore.id("copy_mold_" + shapeMold.get()))
+                    .duration(120).EUt(22)
+                    .notConsumable(shapeMold)
+                    .inputItems(SHAPE_EMPTY)
+                    .outputItems(shapeMold)
+                    .save(provider);
+        }
+    }
 
     private static void registerCastingMoldCopyingRecipes(Consumer<FinishedRecipe> provider) {
-        for (var shapeMold : SHAPE_MOLDS) {
+        for (var shapeMold : TFGItems.SHAPE_MOLDS) {
             FORMING_PRESS_RECIPES.recipeBuilder(TFGCore.id("copy_mold_" + shapeMold.get() + "_casting_mold"))
                     .duration(120).EUt(22)
                     .notConsumable(shapeMold)
@@ -330,36 +340,34 @@ public final class TFGRecipes {
         }
     }
 
-//    private static void registerProcessingToolHeadsRecipes(Consumer<FinishedRecipe> consumer) {
-//        for (var material : GTCEuAPI.materialManager.getRegisteredMaterials()) {
-//            if (material.hasProperty(PropertyKey.TOOL)) {
-//
-//                int counter = 0;
-//
-//                processToolHead(toolHeadAxe, material, SHAPE_EXTRUDER_AXE_HEAD, counter++, consumer);
-//                processToolHead(toolHeadHoe, material, SHAPE_EXTRUDER_HOE_HEAD, counter++, consumer);
-//                processToolHead(toolHeadShovel, material, SHAPE_EXTRUDER_SHOVEL_HEAD, counter++, consumer);
-//                processToolHead(toolHeadKnife, material, SHAPE_EXTRUDER_KNIFE_HEAD, counter++, consumer);
-//                processToolHead(toolHeadMiningHammer, material, SHAPE_EXTRUDER_MINING_HAMMER_HEAD, counter++, consumer);
-//                processToolHead(toolHeadSword, material, SHAPE_EXTRUDER_SWORD_HEAD, counter++, consumer);
-//                processToolHead(toolHeadPickaxe, material, SHAPE_EXTRUDER_PICKAXE_HEAD, counter++, consumer);
-//                processToolHead(toolHeadScythe, material, SHAPE_EXTRUDER_SCYTHE_HEAD, counter++, consumer);
-//                processToolHead(toolHeadFile, material, SHAPE_EXTRUDER_FILE_HEAD, counter++, consumer);
-//                processToolHead(toolHeadHammer, material, SHAPE_EXTRUDER_HAMMER_HEAD, counter++, consumer);
-//                processToolHead(toolHeadSaw, material, SHAPE_EXTRUDER_SAW_HEAD, counter++, consumer);
-//                processToolHead(toolHeadButcheryKnife, material, SHAPE_EXTRUDER_BUTCHERY_KNIFE_HEAD, counter++, consumer);
-//                processToolHead(toolHeadSpade, material, SHAPE_EXTRUDER_SPADE_HEAD, counter++, consumer);
-//                processToolHead(toolHeadPropick, material, SHAPE_EXTRUDER_PROPICK_HEAD, counter++, consumer);
-//                processToolHead(toolHeadJavelin, material, SHAPE_EXTRUDER_JAVELIN_HEAD, counter++, consumer);
-//                processToolHead(toolHeadChisel, material, SHAPE_EXTRUDER_CHISEL_HEAD, counter++, consumer);
-//                processToolHead(toolHeadMace, material, SHAPE_EXTRUDER_MACE_HEAD, counter, consumer);
-//            }
-//        }
-//    }
+    private static void registerProcessingToolHeadsRecipes(Consumer<FinishedRecipe> consumer) {
+        for (var material : GTCEuAPI.materialManager.getRegisteredMaterials()) {
+            if (material.hasProperty(PropertyKey.TOOL)) {
 
+                int counter = 0;
 
+                processToolHead(toolHeadAxe, material, SHAPE_EXTRUDER_AXE_HEAD, counter++, consumer);
+                processToolHead(toolHeadHoe, material, SHAPE_EXTRUDER_HOE_HEAD, counter++, consumer);
+                processToolHead(toolHeadShovel, material, SHAPE_EXTRUDER_SHOVEL_HEAD, counter++, consumer);
+                processToolHead(toolHeadKnife, material, SHAPE_EXTRUDER_KNIFE_HEAD, counter++, consumer);
+                processToolHead(toolHeadMiningHammer, material, SHAPE_EXTRUDER_MINING_HAMMER_HEAD, counter++, consumer);
+                processToolHead(toolHeadSword, material, SHAPE_EXTRUDER_SWORD_HEAD, counter++, consumer);
+                processToolHead(toolHeadPickaxe, material, SHAPE_EXTRUDER_PICKAXE_HEAD, counter++, consumer);
+                processToolHead(toolHeadScythe, material, SHAPE_EXTRUDER_SCYTHE_HEAD, counter++, consumer);
+                processToolHead(toolHeadFile, material, SHAPE_EXTRUDER_FILE_HEAD, counter++, consumer);
+                processToolHead(toolHeadHammer, material, SHAPE_EXTRUDER_HAMMER_HEAD, counter++, consumer);
+                processToolHead(toolHeadSaw, material, SHAPE_EXTRUDER_SAW_HEAD, counter++, consumer);
+                processToolHead(toolHeadButcheryKnife, material, SHAPE_EXTRUDER_BUTCHERY_KNIFE_HEAD, counter++, consumer);
+                processToolHead(toolHeadSpade, material, SHAPE_EXTRUDER_SPADE_HEAD, counter++, consumer);
+                processToolHead(toolHeadPropick, material, SHAPE_EXTRUDER_PROPICK_HEAD, counter++, consumer);
+                processToolHead(toolHeadJavelin, material, SHAPE_EXTRUDER_JAVELIN_HEAD, counter++, consumer);
+                processToolHead(toolHeadChisel, material, SHAPE_EXTRUDER_CHISEL_HEAD, counter++, consumer);
+                processToolHead(toolHeadMace, material, SHAPE_EXTRUDER_MACE_HEAD, counter, consumer);
+            }
+        }
+    }
 
-    private static void registerRandomRecipes(Consumer<FinishedRecipe> provider) {
+    private static void registerTagPrefixHandlerRecipes(Consumer<FinishedRecipe> provider) {
 //        ingot.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processIngot(tagPrefix, material, property, provider));
         ingotDouble.executeHandler(provider, TFGPropertyKeys.TFC_PROPERTY, TFGRecipes::processDoubleIngot);
         plate.executeHandler(provider, TFGPropertyKeys.TFC_PROPERTY, TFGRecipes::processPlate);
@@ -391,7 +399,9 @@ public final class TFGRecipes {
 //        trapdoor.executeHandler(provider, TFGPropertyKeys.TFC_PROPERTY, TFGRecipes::proccessTrapdoor);
 //        chain.executeHandler(provider, TFGPropertyKeys.TFC_PROPERTY, TFGRecipes::proccessChain);
 //        bell.executeHandler(provider, TFGPropertyKeys.TFC_PROPERTY, TFGRecipes::proccessBell);
+    }
 
+    private static void registerRandomRecipes(Consumer<FinishedRecipe> provider) {
         // Better way to get latex
         FLUID_SOLIDFICATION_RECIPES.recipeBuilder(TFGCore.id("latex_heating"))
                 .EUt(VA[LV]).duration(480)
