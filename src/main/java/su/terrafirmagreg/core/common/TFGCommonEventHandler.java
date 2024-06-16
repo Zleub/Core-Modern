@@ -14,7 +14,9 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import su.terrafirmagreg.core.TFGConfig;
 import su.terrafirmagreg.core.TFGCore;
 import su.terrafirmagreg.core.common.data.TFGDynamicDataPack;
+import su.terrafirmagreg.core.compat.create.CreateCompat;
 import su.terrafirmagreg.core.compat.gtceu.materials.TFGMaterialHandler;
+import su.terrafirmagreg.core.compat.tfcambiental.TFCAmbientalCompat;
 
 public final class TFGCommonEventHandler {
 
@@ -43,8 +45,8 @@ public final class TFGCommonEventHandler {
 
     private static void onCommonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
-            //            if (TFGConfig.enableTFCAmbientalCompat) TFCAmbientalCompat.register();
-            //            if (TFGConfig.enableCreateCompat) CreateCompat.register();
+            if (TFGConfig.enableTFCAmbientalCompat) TFCAmbientalCompat.register();
+            if (TFGConfig.enableCreateCompat) CreateCompat.register();
         });
     }
 

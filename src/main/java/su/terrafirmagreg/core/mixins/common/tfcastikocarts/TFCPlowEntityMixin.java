@@ -1,54 +1,57 @@
-//package su.terrafirmagreg.core.mixins.common.tfcastikocarts;
-//
-//import com.google.common.collect.ImmutableSet;
-//import com.gregtechceu.gtceu.api.item.IGTTool;
-//import com.gregtechceu.gtceu.api.item.tool.GTToolType;
-//import com.gregtechceu.gtceu.api.item.tool.ToolHelper;
-//import com.gregtechceu.gtceu.api.item.tool.aoe.AoESymmetrical;
-//import de.mennomax.astikorcarts.entity.AbstractDrawnInventoryEntity;
-//import de.mennomax.astikorcarts.util.ProxyItemUseContext;
-//import net.dries007.tfc.common.TFCTags;
-//import net.dries007.tfc.common.blocks.GroundcoverBlock;
-//import net.dries007.tfc.common.blocks.devices.PlacedItemBlock;
-//import net.dries007.tfc.common.blocks.rock.LooseRockBlock;
-//import net.dries007.tfc.common.blocks.wood.ILeavesBlock;
-//import net.dries007.tfc.common.container.ISlotCallback;
-//import net.dries007.tfc.util.Helpers;
-//import net.minecraft.core.BlockPos;
-//import net.minecraft.core.Direction;
-//import net.minecraft.sounds.SoundEvents;
-//import net.minecraft.sounds.SoundSource;
-//import net.minecraft.util.Mth;
-//import net.minecraft.world.InteractionHand;
-//import net.minecraft.world.InteractionResult;
-//import net.minecraft.world.entity.Entity;
-//import net.minecraft.world.entity.EntityType;
-//import net.minecraft.world.entity.player.Player;
-//import net.minecraft.world.item.ItemStack;
-//import net.minecraft.world.item.context.UseOnContext;
-//import net.minecraft.world.level.Level;
-//import net.minecraft.world.level.block.Block;
-//import net.minecraft.world.level.block.BushBlock;
-//import net.minecraft.world.level.block.state.BlockState;
-//import net.minecraft.world.level.gameevent.GameEvent;
-//import net.minecraft.world.phys.BlockHitResult;
-//import net.minecraft.world.phys.HitResult;
-//import net.minecraft.world.phys.Vec3;
-//import net.minecraftforge.common.ToolActions;
-//import org.spongepowered.asm.mixin.Final;
-//import org.spongepowered.asm.mixin.Mixin;
-//import org.spongepowered.asm.mixin.Shadow;
-//import org.spongepowered.asm.mixin.Unique;
-//import org.spongepowered.asm.mixin.injection.At;
-//import org.spongepowered.asm.mixin.injection.Inject;
-//import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-//import tfcastikorcarts.common.entities.carts.TFCPlowEntity;
-//
-//import java.util.Set;
-//
-//@Mixin(value = TFCPlowEntity.class, remap = false)
-//public abstract class TFCPlowEntityMixin extends AbstractDrawnInventoryEntity implements ISlotCallback {
-//
+package su.terrafirmagreg.core.mixins.common.tfcastikocarts;
+
+import com.google.common.collect.ImmutableSet;
+import com.gregtechceu.gtceu.api.item.IGTTool;
+import com.gregtechceu.gtceu.api.item.tool.GTToolType;
+import com.gregtechceu.gtceu.api.item.tool.ToolHelper;
+import com.gregtechceu.gtceu.api.item.tool.aoe.AoESymmetrical;
+import de.mennomax.astikorcarts.entity.AbstractDrawnInventoryEntity;
+import de.mennomax.astikorcarts.util.ProxyItemUseContext;
+import net.dries007.tfc.common.TFCTags;
+import net.dries007.tfc.common.blocks.GroundcoverBlock;
+import net.dries007.tfc.common.blocks.devices.PlacedItemBlock;
+import net.dries007.tfc.common.blocks.rock.LooseRockBlock;
+import net.dries007.tfc.common.blocks.wood.ILeavesBlock;
+import net.dries007.tfc.common.container.ISlotCallback;
+import net.dries007.tfc.util.Helpers;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.Mth;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.BushBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.HitResult;
+import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.common.ToolActions;
+import org.spongepowered.asm.mixin.*;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import tfcastikorcarts.common.entities.carts.TFCPlowEntity;
+
+import java.util.Set;
+
+// TODO
+
+@Pseudo
+@Mixin(value = TFCPlowEntity.class, remap = false)
+public abstract class TFCPlowEntityMixin extends AbstractDrawnInventoryEntity implements ISlotCallback {
+    public TFCPlowEntityMixin(EntityType<? extends Entity> entityTypeIn, Level worldIn) {
+        super(entityTypeIn, worldIn);
+    }
+
 //    @Shadow @Final
 //    public static int SLOT_COUNT;
 //
@@ -218,7 +221,7 @@
 //    private static InteractionResult tfg$onItemUseHoe(UseOnContext context) {
 //        if (context.getClickedFace() == Direction.DOWN) return InteractionResult.PASS;
 //
-//        System.out.println(context.getHitResult().getDirection() + " " + context.getHitResult().getLocation());
+////        System.out.println(context.getHitResult().getDirection() + " " + context.getHitResult().getLocation());
 //
 //        Level world = context.getLevel();
 //        Player player = context.getPlayer();
@@ -377,4 +380,4 @@
 //    private static BlockState tfg$getFlattened(BlockState unFlattenedState, UseOnContext context) {
 //        return unFlattenedState.getToolModifiedState(context, ToolActions.SHOVEL_FLATTEN, false);
 //    }
-//}
+}
