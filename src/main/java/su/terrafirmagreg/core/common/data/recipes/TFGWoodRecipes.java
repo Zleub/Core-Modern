@@ -284,7 +284,13 @@ public final class TFGWoodRecipes {
                     "PHP", "PkP", "SSS",
                     'P', planks,
                     'S', slab,
-                    'H', ItemTags.SHOVELS);
+                    'H', fence);
+
+            GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder(TFGCore.id(woodName + "_boat"))
+                    .inputItems(planks, 5)
+                    .inputItems(slab, 1)
+                    .outputItems(boat)
+                    .duration(100).EUt(VA[ULV]).save(provider);
 
             // =========================== Pressure Plate =========================== //
 

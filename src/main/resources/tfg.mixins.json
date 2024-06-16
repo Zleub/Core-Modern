@@ -40,6 +40,8 @@
         "common.gtceu.recipes.WoodMachineRecipesMixin",
         "common.minecraft.IUseOnContextInvoker",
         "common.minecraft.ServerAdvancementManagerMixin",
+        "common.tfc.CharcoalForgeBlockMixin",
+        "common.tfc.CrucibleBlockMixin",
         "common.tfc.IIngotPileBlockEntityAccessor",
         "common.tfc.IIngotPileBlockEntityEntryAccessor",
         "common.tfc.IngotPileBlockMixin",

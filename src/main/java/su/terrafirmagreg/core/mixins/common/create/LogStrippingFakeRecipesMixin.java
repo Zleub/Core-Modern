@@ -30,31 +30,31 @@ public abstract class LogStrippingFakeRecipesMixin {
     //        return instance.getTag(TFGTags.Items.createItemTag("tfc:log_pile_logs"));
     //    }
 
-    @Redirect(method = "process", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/AxeItem;getAxeStrippingState(Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/block/state/BlockState;"), remap = false)
-    private static BlockState tfg$process$getAxeStrippingState(BlockState originalState) {
-        return tfg$isBlockStrippable(originalState);
-    }
+//    @Redirect(method = "process", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/AxeItem;getAxeStrippingState(Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/block/state/BlockState;"), remap = false)
+//    private static BlockState tfg$process$getAxeStrippingState(BlockState originalState) {
+//        return tfg$isBlockStrippable(originalState);
+//    }
 
     /**
      * Украдено из LogStripBehavior (GTM)
      * */
-    @Unique
-    private static BlockState tfg$isBlockStrippable(BlockState state) {
-        var level = Minecraft.getInstance().level;
-        var player = Minecraft.getInstance().player;
-
-        return state.getToolModifiedState(
-                new UseOnContext(
-                        level,
-                        player,
-                        InteractionHand.MAIN_HAND,
-                        tfg$ToolStack,
-                        new BlockHitResult(
-                                new Vec3(0, 0, 0),
-                                Direction.UP,
-                                new BlockPos(0, 0, 0),
-                                false)
-                ), ToolActions.AXE_STRIP, false);
-    }
+//    @Unique
+//    private static BlockState tfg$isBlockStrippable(BlockState state) {
+//        var level = Minecraft.getInstance().level;
+//        var player = Minecraft.getInstance().player;
+//
+//        return state.getToolModifiedState(
+//                new UseOnContext(
+//                        level,
+//                        player,
+//                        InteractionHand.MAIN_HAND,
+//                        tfg$ToolStack,
+//                        new BlockHitResult(
+//                                new Vec3(0, 0, 0),
+//                                Direction.UP,
+//                                new BlockPos(0, 0, 0),
+//                                false)
+//                ), ToolActions.AXE_STRIP, false);
+//    }
 
 }
