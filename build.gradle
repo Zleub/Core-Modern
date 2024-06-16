@@ -120,9 +120,29 @@ repositories {
         }
     }
 
-    maven { url "https://maven.tterrag.com/" }
+    maven {
+        url = "https://maven.tterrag.com/"
+        content {
+            includeGroup("com.jozufozu.flywheel")
+            includeGroup("com.tterrag.registrate")
+            includeGroup("com.simibubi.create")
+        }
+    }
 
     maven { url "https://maven.shedaniel.me/" }
+
+    maven {
+        url "https://squiddev.cc/maven/"
+        content {
+            includeGroup("cc.tweaked")
+        }
+    }
+
+    maven {
+        // location of the maven that hosts JEI files since January 2023
+        name = "Jared's maven"
+        url = "https://maven.blamejared.com/"
+    }
 
     flatDir {
         dir 'libs'
@@ -150,6 +170,10 @@ dependencies {
     compileOnly fg.deobf("me.shedaniel:RoughlyEnoughItems-api-forge:12.1.725")
     compileOnly fg.deobf("me.shedaniel:RoughlyEnoughItems-default-plugin-forge:12.1.725")
 
+    // Create
+    runtimeOnly fg.deobf("com.jozufozu.flywheel:flywheel-forge-1.20.1:0.6.10-10")
+    runtimeOnly fg.deobf("com.simibubi.create:create-1.20.1:0.5.1.f-27:slim") { transitive = false }
+
     // GTM
     implementation fg.deobf("maven.modrinth:ldlib:mc1.20.1-1.0.25.g-forge")
     implementation fg.deobf("curse.maven:gregtechceu-modern-890405:5425198") { transitive = false }
@@ -163,39 +187,33 @@ dependencies {
     implementation fg.deobf("maven.modrinth:terrafirmacraft:3.2.3")
 
     // FirmaLife
-//    modImplementation("maven.modrinth:firmalife:2.1.3")
-
-    // FirmaCiv
-//    modCompileOnly("maven.modrinth:firmacivilization:0.2.10-alpha-1.20.1") { transitive = false }
+    implementation fg.deobf("maven.modrinth:firmalife:2.1.3")
 
     // TFC-Ambiental
-//    modImplementation("maven.modrinth:curios:5.7.2+1.20.1")
-//    modImplementation("maven.modrinth:tfc-ambiental-second-edition:1.20.1-3.2.0")
+    implementation fg.deobf("maven.modrinth:curios:5.7.2+1.20.1")
+    implementation fg.deobf("maven.modrinth:tfc-ambiental-second-edition:1.20.1-3.2.0")
+
+    // FirmaCiv
+    compileOnly fg.deobf("maven.modrinth:firmacivilization:0.2.10-alpha-1.20.1") { transitive = false }
 
     // TFC AstikoCarts
-//    modCompileOnly("curse.maven:astikor-carts-redux-916493:4988266") { transitive = false }
-//    modCompileOnly("curse.maven:astikor-carts-tfc-844019:5141430") { transitive = false }
-
-    // Create and its dependencies
-//    modImplementation("com.simibubi.create:create-${mc_version}:${forge.versions.createForge.get()}:all") { transitive = false }
-//    modImplementation forge.flywheel
-
-    // --- Другие депенденси ---
+    //    modCompileOnly("curse.maven:astikor-carts-redux-916493:4988266") { transitive = false }
+    //    modCompileOnly("curse.maven:astikor-carts-tfc-844019:5141430") { transitive = false }
 
     // AE2
-//    modImplementation(forge.ae2) { transitive = false }
+    implementation fg.deobf("maven.modrinth:ae2:15.2.3")
 
-    // ComputerCraft (FIX THIS)
-//    modCompileOnly("cc.tweaked:cc-tweaked-${mc_version}-core-api:1.110.2") { transitive = false }
-//    modCompileOnly("cc.tweaked:cc-tweaked-${mc_version}-forge-api:1.110.2") { transitive = false }
-//    modCompileOnly("cc.tweaked:cc-tweaked-${mc_version}-forge:1.110.2") { transitive = false }
+    // ComputerCraft
+    compileOnly ("cc.tweaked:cc-tweaked-1.20.1-core-api:1.111.0")
+    compileOnly (fg.deobf("cc.tweaked:cc-tweaked-1.20.1-forge-api:1.111.0"))
+    runtimeOnly (fg.deobf("cc.tweaked:cc-tweaked-1.20.1-forge:1.111.0"))
 
     // FTB
-//    modImplementation("curse.maven:ftb-teams-404468:4623116") { transitive = false }
-//    modImplementation("curse.maven:ftb-library-404465:4864329") { transitive = false }
+    implementation fg.deobf("curse.maven:ftb-teams-404468:4623116") { transitive = false }
+    implementation fg.deobf("curse.maven:ftb-library-404465:4864329") { transitive = false }
 
     // Jade
-//    modImplementation(forge.jade)
+    implementation fg.deobf("maven.modrinth:jade:11.7.1")
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
