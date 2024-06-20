@@ -13,6 +13,7 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
@@ -398,15 +399,15 @@ public final class TFGWoodRecipes {
                 VanillaRecipeHelper.addShapedRecipe(provider, TFGCore.id(dye.getSerializedName() + "_bed"),
                     new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(dye.getSerializedName() + "_bed"))),
                     "WWW", "PPP", "FrF",
-                    'W', TFGTags.Items.createItemTag("tfc:high_quality_cloth"),
-                    'P', lumber,
+                    'W', TFGTags.Items.HighQualityCloth,
+                    'P', TFGTags.Items.Lumbers,
                     'F', ItemTags.WOODEN_FENCES);
 
                 if (dye != DyeColor.WHITE)
                     GTRecipeTypes.CHEMICAL_BATH_RECIPES.recipeBuilder(TFGCore.id(dye.getSerializedName() + "_bed"))
                     .inputItems(Blocks.WHITE_BED.asItem())
                     .inputFluids(GTMaterials.get(dye.getSerializedName() + "_dye").getFluid(216))
-                    .outputItems(ForgeRegistries.ITEMS.getValue(new ResourceLocation(dye.getSerializedName() + "_bed")))
+                    .outputItems(getItem(dye.getSerializedName() + "_bed"))
                     .duration(420)
                     .EUt(24)
                     .save(provider);
@@ -427,7 +428,7 @@ public final class TFGWoodRecipes {
         consumer.accept(id("gtceu:shaped/chest"));
         consumer.accept(id("gtceu:assembler/chest"));
 
-        consumer.accept(id("gtceu:shaped/traped_chest"));
+        consumer.accept(id("gtceu:shaped/trapped_chest"));
 
         consumer.accept(id("gtceu:shaped/chest_minecart"));
         consumer.accept(id("gtceu:assembler/chest_minecart"));
@@ -440,17 +441,15 @@ public final class TFGWoodRecipes {
 
         for (var dye : DyeColor.values()) {
             consumer.accept(id("tfc:crafting/vanilla/color/" + dye.getName()  + "_bed"));
-            consumer.accept(id("gtceu:shaped/" + dye.getName() + "_bed")); // Почему-то рецепт не удаляется :(
+            consumer.accept(id("gtceu:shaped/" + dye.getName() + "_bed"));
             consumer.accept(id("minecraft:dye_" + dye.getName() + "_bed"));
         }
 
         for (var woodType : VanillaOverworldWoods) {
             consumer.accept(id("minecraft:" + woodType + "_wood"));
-//            consumer.accept(id("minecraft:stripped_" + woodType + "_log_via_vanilla_stripping")); // Почему-то рецепт не удаляется :(
             consumer.accept(id("create:cutting/" + woodType + "_log"));
 
             consumer.accept(id("minecraft:stripped_" + woodType + "_wood"));
-//            consumer.accept(id("minecraft:stripped_" + woodType + "_wood_via_vanilla_stripping")); // Почему-то рецепт не удаляется :(
             consumer.accept(id("create:cutting/" + woodType + "_wood"));
 
             consumer.accept(id("minecraft:" + woodType + "_planks"));
@@ -480,14 +479,14 @@ public final class TFGWoodRecipes {
             consumer.accept(id("gtceu:cutter/" + woodType + "_button_distilled_water"));
             consumer.accept(id("gtceu:cutter/" + woodType + "_button_water"));
 
-            consumer.accept(id("minecraft" + woodType + "_sign"));
+            consumer.accept(id("minecraft:" + woodType + "_sign"));
             consumer.accept(id("gtceu:assembler/" + woodType + "_sign"));
 
-            consumer.accept(id("minecraft" + woodType + "_hanging_sign"));
+            consumer.accept(id("minecraft:" + woodType + "_hanging_sign"));
 
-            consumer.accept(id("minecraft" + woodType + "_boat"));
+            consumer.accept(id("minecraft:" + woodType + "_boat"));
 
-            consumer.accept(id("minecraft" + woodType + "_chest_boat"));
+            consumer.accept(id("minecraft:" + woodType + "_chest_boat"));
         }
 
         for (var woodType: Wood.values()) {
@@ -511,5 +510,9 @@ public final class TFGWoodRecipes {
 
     private static ResourceLocation id(String id) {
         return new ResourceLocation(id);
+    }
+
+    private static Item getItem(String id) {
+        return ForgeRegistries.ITEMS.getValue(new ResourceLocation(id));
     }
 }

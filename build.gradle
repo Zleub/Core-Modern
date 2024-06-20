@@ -181,8 +181,8 @@ dependencies {
     implementation fg.deobf("com.simibubi.create:create-1.20.1:0.5.1.f-27:slim") { transitive = false }
 
     // GTM
-    implementation fg.deobf("maven.modrinth:ldlib:mc1.20.1-1.0.25.g-forge")
-    implementation fg.deobf("curse.maven:gregtechceu-modern-890405:5425198") { transitive = false }
+    implementation fg.deobf("maven.modrinth:ldlib:mc1.20.1-1.0.25.p-forge")
+    implementation fg.deobf("curse.maven:gregtechceu-modern-890405:5446781") { transitive = false }
 
     // KJS
     implementation fg.deobf("maven.modrinth:rhino:2001.2.2-build.18+forge")
