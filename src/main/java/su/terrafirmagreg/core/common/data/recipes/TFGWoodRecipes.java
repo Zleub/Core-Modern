@@ -1,5 +1,6 @@
 package su.terrafirmagreg.core.common.data.recipes;
 
+import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.gregtechceu.gtceu.api.data.chemical.material.stack.UnificationEntry;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
@@ -78,6 +79,11 @@ public final class TFGWoodRecipes {
             var axleBladed = TFCBlocks.WOODS.get(woodType).get(Wood.BlockType.BLADED_AXLE).get().asItem();
 
             var chestMinecart = TFCItems.CHEST_MINECARTS.get(woodType).get();
+
+            var support = TFCBlocks.WOODS.get(woodType).get(Wood.BlockType.VERTICAL_SUPPORT).get().asItem();
+
+            var clutch = TFCBlocks.WOODS.get(woodType).get(Wood.BlockType.CLUTCH).get().asItem();
+            var gearBox = TFCBlocks.WOODS.get(woodType).get(Wood.BlockType.GEAR_BOX).get().asItem();
 
             // =========================== Stripped Log =========================== //
 
@@ -370,6 +376,21 @@ public final class TFGWoodRecipes {
 
             // =========================== Axle =========================== //
 
+            GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder(TFGCore.id(woodName + "_axle"))
+                    .inputItems(strippedLog, 2)
+                    .inputFluids(GTMaterials.Glue.getFluid(144))
+                    .circuitMeta(7)
+                    .outputItems(axle)
+                    .duration(100).EUt(VA[ULV]).save(provider);
+
+            // =========================== Bladed Axle =========================== //
+
+            VanillaRecipeHelper.addShapedRecipe(provider, TFGCore.id(wood + "_bladed_axle"),
+                    new ItemStack(axleBladed),
+                    "hAI",
+                    'A', axle,
+                    'I', ChemicalHelper.get(ingot, GTMaterials.Steel));
+
             GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder(TFGCore.id(woodName + "_bladed_axle"))
                     .inputItems(plate, GTMaterials.Steel)
                     .inputItems(axle)
@@ -377,12 +398,33 @@ public final class TFGWoodRecipes {
                     .outputItems(axleBladed)
                     .duration(100).EUt(VA[ULV]).save(provider);
 
+            // =========================== Clutch =========================== //
+
+            GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder(TFGCore.id(woodName + "_clutch"))
+                    .inputItems(lumber, 4)
+                    .inputItems(strippedLog, 2)
+                    .inputItems(plate, GTMaterials.Brass)
+                    .inputFluids(GTMaterials.Redstone.getFluid(144))
+                    .circuitMeta(4)
+                    .outputItems(clutch, 2)
+                    .duration(100).EUt(VA[ULV]).save(provider);
+
+            // =========================== Gear Box =========================== //
+
+            GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder(TFGCore.id(woodName + "_gear_box"))
+                    .inputItems(lumber, 4)
+                    .inputItems(plate, GTMaterials.Brass)
+                    .circuitMeta(5)
+                    .outputItems(gearBox, 2)
+                    .duration(100).EUt(VA[ULV]).save(provider);
+
             // =========================== Chest Mine Cart =========================== //
 
             VanillaRecipeHelper.addShapedRecipe(provider, TFGCore.id(wood + "_chest_minecart"),
                     new ItemStack(chestMinecart),
-                    "hIw", " M ", " d ", 'I',
-                    CustomTags.WOODEN_CHESTS, 'M', new ItemStack(Items.MINECART));
+                    "hIw", " M ", " d ",
+                    'I', CustomTags.WOODEN_CHESTS,
+                    'M', new ItemStack(Items.MINECART));
 
             // =========================== Bed =========================== //
 
@@ -413,6 +455,16 @@ public final class TFGWoodRecipes {
                     .save(provider);
 
             }
+
+            // =========================== Support =========================== //
+
+            GTRecipeTypes.CUTTER_RECIPES.recipeBuilder(TFGCore.id("support_" + woodName))
+                    .inputItems(allLogs, 2)
+                    .circuitMeta(8)
+                    .outputItems(support, 8)
+                    .EUt(VA[ULV])
+                    .duration(200)
+                    .save(provider);
         }
     }
 
@@ -472,6 +524,7 @@ public final class TFGWoodRecipes {
             consumer.accept(id("minecraft:" + woodType + "_trapdoor"));
 
             consumer.accept(id("minecraft:" + woodType + "_pressure_plate"));
+            consumer.accept(id("gtceu:shaped/" + woodType + "_pressure_plate"));
             consumer.accept(id("gtceu:assembler/" + woodType + "_pressure_plate"));
 
             consumer.accept(id("gtceu:shaped/" + woodType + "_button"));
@@ -489,22 +542,26 @@ public final class TFGWoodRecipes {
             consumer.accept(id("minecraft:" + woodType + "_chest_boat"));
         }
 
-        for (var woodType: Wood.values()) {
-            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_lumber_log"));
-            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_lumber_planks"));
-            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_stairs"));
-            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_stairs_undo"));
-            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_slab"));
-            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_slab_undo"));
-            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_door"));
-            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_fence"));
-            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_log_fence"));
-            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_boat"));
-            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_pressure_plate"));
-            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_button"));
-            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_workbench"));
-            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_chest"));
-            consumer.accept(id("tfc:crafting/wood/" + woodType.getSerializedName() + "_trapped_chest"));
+        for (var woodType : Wood.values()) {
+            var woodName = woodType.getSerializedName();
+
+            consumer.accept(id("tfc:crafting/wood/" + woodName + "_lumber_log"));
+            consumer.accept(id("tfc:crafting/wood/" + woodName + "_lumber_planks"));
+            consumer.accept(id("tfc:crafting/wood/" + woodName + "_stairs"));
+            consumer.accept(id("tfc:crafting/wood/" + woodName + "_stairs_undo"));
+            consumer.accept(id("tfc:crafting/wood/" + woodName + "_slab"));
+            consumer.accept(id("tfc:crafting/wood/" + woodName + "_slab_undo"));
+            consumer.accept(id("tfc:crafting/wood/" + woodName + "_door"));
+            consumer.accept(id("tfc:crafting/wood/" + woodName + "_fence"));
+            consumer.accept(id("tfc:crafting/wood/" + woodName + "_log_fence"));
+            consumer.accept(id("tfc:crafting/wood/" + woodName + "_boat"));
+            consumer.accept(id("tfc:crafting/wood/" + woodName + "_pressure_plate"));
+            consumer.accept(id("tfc:crafting/wood/" + woodName + "_button"));
+            consumer.accept(id("tfc:crafting/wood/" + woodName + "_workbench"));
+            consumer.accept(id("tfc:crafting/wood/" + woodName + "_chest"));
+            consumer.accept(id("tfc:crafting/wood/" + woodName + "_trapped_chest"));
+            consumer.accept(id("tfc:crafting/wood/" + woodName + "_chest_minecart"));
+            consumer.accept(id("tfc:crafting/wood/" + woodName + "_bladed_axle"));
         }
     }
 
