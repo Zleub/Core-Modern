@@ -2,9 +2,14 @@ package su.terrafirmagreg.core.common;
 
 import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import su.terrafirmagreg.core.TFGCore;
 import su.terrafirmagreg.core.mixins.common.tfc.IIngotPileBlockEntityEntryAccessor;
 
@@ -36,6 +41,14 @@ public final class TFGHelpers {
         catch (IndexOutOfBoundsException e)
         {
             return ItemStack.EMPTY;
+        }
+    }
+
+    public static void sendChatMessagePortalsIsDisabled(Level level, Entity entity) {
+        if (level.isClientSide()) {
+            if (level.getGameTime() % 20 == 0) {
+                entity.sendSystemMessage(Component.translatable("tfg.disabled_portal").withStyle(ChatFormatting.LIGHT_PURPLE));
+            }
         }
     }
 }

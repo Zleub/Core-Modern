@@ -1,7 +1,6 @@
 package su.terrafirmagreg.core.mixins.common.minecraft;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
@@ -12,6 +11,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import static su.terrafirmagreg.core.common.TFGHelpers.sendChatMessagePortalsIsDisabled;
+
 @Mixin(EndPortalBlock.class)
 public abstract class EndPortalBlockMixin extends BaseEntityBlock {
 
@@ -21,7 +22,7 @@ public abstract class EndPortalBlockMixin extends BaseEntityBlock {
 
     @Inject(method = "entityInside", at = @At(value = "HEAD"), cancellable = true)
     private void tfg$entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity, CallbackInfo ci) {
-        pEntity.sendSystemMessage(Component.translatable("tfg.disabled_portal"));
+        sendChatMessagePortalsIsDisabled(pLevel, pEntity);
         ci.cancel();
     }
 
