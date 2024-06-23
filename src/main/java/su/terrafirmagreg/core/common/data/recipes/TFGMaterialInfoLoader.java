@@ -34,52 +34,63 @@ public final class TFGMaterialInfoLoader {
         // Исправление бага с хуллами
         // Если они передаются как блоки, то после не могут быть использованы нормально в методах унификации GTCEu
 
+        removeMaterialInfo(GTMachines.HULL[0].getBlock());
         ChemicalHelper.registerMaterialInfo(GTMachines.HULL[0].getItem().asItem(), new ItemMaterialInfo(
                 new MaterialStack(GTMaterials.WroughtIron, M * 8),
                 new MaterialStack(GTMaterials.RedAlloy, M),
-                new MaterialStack(GTMaterials.Rubber, M * 2)));
+                new MaterialStack(GTMaterials.Rubber, M * 2))
+        );
 
+        removeMaterialInfo(GTMachines.HULL[1].getBlock());
         ChemicalHelper.registerMaterialInfo(GTMachines.HULL[1].getItem().asItem(), new ItemMaterialInfo(
-                new MaterialStack(GTMaterials.RedSteel, M * 4),
-                new MaterialStack(GTMaterials.BlueSteel, M * 4),
+                new MaterialStack(GTMaterials.RedSteel, M),
+                new MaterialStack(GTMaterials.BlueSteel, M),
                 new MaterialStack(GTMaterials.Tin, M),
                 new MaterialStack(GTMaterials.Rubber, M * 2)));
 
+        removeMaterialInfo(GTMachines.HULL[2].getBlock());
         ChemicalHelper.registerMaterialInfo(GTMachines.HULL[2].getItem().asItem(), new ItemMaterialInfo(
                 new MaterialStack(GTMaterials.Aluminium, M * 8),
                 new MaterialStack(GTMaterials.Copper, M),
                 new MaterialStack(GTMaterials.Rubber, M * 2)));
 
+        removeMaterialInfo(GTMachines.HULL[3].getBlock());
         ChemicalHelper.registerMaterialInfo(GTMachines.HULL[3].getItem().asItem(), new ItemMaterialInfo(
                 new MaterialStack(GTMaterials.StainlessSteel, M * 8),
                 new MaterialStack(GTMaterials.Gold, M),
                 new MaterialStack(GTMaterials.Rubber, M * 2)));
 
+        removeMaterialInfo(GTMachines.HULL[4].getBlock());
         ChemicalHelper.registerMaterialInfo(GTMachines.HULL[4].getItem().asItem(), new ItemMaterialInfo(
                 new MaterialStack(GTMaterials.Titanium, M * 8),
                 new MaterialStack(GTMaterials.Aluminium, M),
                 new MaterialStack(GTMaterials.Rubber, M * 2)));
 
+        removeMaterialInfo(GTMachines.HULL[5].getBlock());
         ChemicalHelper.registerMaterialInfo(GTMachines.HULL[5].getItem().asItem(), new ItemMaterialInfo(
                 new MaterialStack(GTMaterials.TungstenSteel, M * 8),
                 new MaterialStack(GTMaterials.Platinum, M),
                 new MaterialStack(GTMaterials.Rubber, M * 2)));
 
+        removeMaterialInfo(GTMachines.HULL[6].getBlock());
         ChemicalHelper.registerMaterialInfo(GTMachines.HULL[6].getItem().asItem(), new ItemMaterialInfo(
                 new MaterialStack(GTMaterials.RhodiumPlatedPalladium, M * 8),
                 new MaterialStack(GTMaterials.NiobiumTitanium, M),
                 new MaterialStack(GTMaterials.Rubber, M * 2)));
 
+        removeMaterialInfo(GTMachines.HULL[7].getBlock());
         ChemicalHelper.registerMaterialInfo(GTMachines.HULL[7].getItem().asItem(), new ItemMaterialInfo(
                 new MaterialStack(GTMaterials.NaquadahAlloy, M * 8),
                 new MaterialStack(GTMaterials.VanadiumGallium, M),
                 new MaterialStack(GTMaterials.Rubber, M * 2)));
 
+        removeMaterialInfo(GTMachines.HULL[8].getBlock());
         ChemicalHelper.registerMaterialInfo(GTMachines.HULL[8].getItem().asItem(), new ItemMaterialInfo(
                 new MaterialStack(GTMaterials.Darmstadtium, M * 8),
                 new MaterialStack(GTMaterials.YttriumBariumCuprate, M),
                 new MaterialStack(GTMaterials.Rubber, M * 2)));
 
+        removeMaterialInfo(GTMachines.HULL[9].getBlock());
         ChemicalHelper.registerMaterialInfo(GTMachines.HULL[9].getItem().asItem(), new ItemMaterialInfo(
                 new MaterialStack(GTMaterials.Neutronium, M * 8),
                 new MaterialStack(GTMaterials.Europium, M),

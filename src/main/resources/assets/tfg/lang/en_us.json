@@ -52,5 +52,7 @@
   "material.tfg.phyllite": "Phyllite",
   "material.tfg.schist": "Schist",
   "material.tfg.gneiss": "Gneiss",
-  "material.tfg.chalk": "Chalk"
+  "material.tfg.chalk": "Chalk",
+
+  "tfg.disabled_portal": "Portal magic seems to be blocked by an unknown force, try reaching another dimension by going down or up."
 }
