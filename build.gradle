@@ -180,6 +180,9 @@ dependencies {
     implementation fg.deobf("com.jozufozu.flywheel:flywheel-forge-1.20.1:0.6.10-10")
     implementation fg.deobf("com.simibubi.create:create-1.20.1:0.5.1.f-27:slim") { transitive = false }
 
+    // Railways
+    compileOnly fg.deobf("maven.modrinth:create-steam-n-rails:1.6.4+forge-mc1.20.1")
+
     // GTM
     implementation fg.deobf("maven.modrinth:ldlib:mc1.20.1-1.0.25.p-forge")
     implementation fg.deobf("curse.maven:gregtechceu-modern-890405:5446781") { transitive = false }

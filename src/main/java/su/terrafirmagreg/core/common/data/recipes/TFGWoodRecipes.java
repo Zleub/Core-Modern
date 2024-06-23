@@ -10,6 +10,7 @@ import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
 import net.dries007.tfc.common.blocks.TFCBlocks;
 import net.dries007.tfc.common.blocks.wood.Wood;
 import net.dries007.tfc.common.items.TFCItems;
+import net.dries007.tfc.util.Metal;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
@@ -19,6 +20,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.registries.ForgeRegistries;
+import org.jetbrains.annotations.Nullable;
 import su.terrafirmagreg.core.TFGCore;
 import su.terrafirmagreg.core.common.data.TFGTags;
 import su.terrafirmagreg.core.common.data.recipes.builders.create.TFGCuttingRecipeBuilder;
@@ -84,6 +86,16 @@ public final class TFGWoodRecipes {
 
             var clutch = TFCBlocks.WOODS.get(woodType).get(Wood.BlockType.CLUTCH).get().asItem();
             var gearBox = TFCBlocks.WOODS.get(woodType).get(Wood.BlockType.GEAR_BOX).get().asItem();
+
+            var copperSign = TFCBlocks.WALL_HANGING_SIGNS.get(woodType).get(Metal.Default.COPPER).get().asItem();
+            var bismuthBronzeSign = TFCBlocks.WALL_HANGING_SIGNS.get(woodType).get(Metal.Default.BISMUTH_BRONZE).get().asItem();
+            var bronzeSign = TFCBlocks.WALL_HANGING_SIGNS.get(woodType).get(Metal.Default.BRONZE).get().asItem();
+            var blackBronzeSign = TFCBlocks.WALL_HANGING_SIGNS.get(woodType).get(Metal.Default.BLACK_BRONZE).get().asItem();
+            var wroughtIronSign = TFCBlocks.WALL_HANGING_SIGNS.get(woodType).get(Metal.Default.WROUGHT_IRON).get().asItem();
+            var steelSign = TFCBlocks.WALL_HANGING_SIGNS.get(woodType).get(Metal.Default.STEEL).get().asItem();
+            var blackSteelSign = TFCBlocks.WALL_HANGING_SIGNS.get(woodType).get(Metal.Default.BLACK_STEEL).get().asItem();
+            var redSteelSign = TFCBlocks.WALL_HANGING_SIGNS.get(woodType).get(Metal.Default.RED_STEEL).get().asItem();
+            var blueSteelSign = TFCBlocks.WALL_HANGING_SIGNS.get(woodType).get(Metal.Default.BLUE_STEEL).get().asItem();
 
             // =========================== Stripped Log =========================== //
 
@@ -284,7 +296,6 @@ public final class TFGWoodRecipes {
                     .duration(200)
                     .save(provider);
 
-
             // =========================== Boat =========================== //
 
             VanillaRecipeHelper.addShapedRecipe(provider, TFGCore.id(woodName + "_boat"), new ItemStack(boat),
@@ -438,8 +449,16 @@ public final class TFGWoodRecipes {
 
 
             for (var dye : DyeColor.values()) {
+                var bed = getItem(dye.getSerializedName() + "_bed");
+                var dyeMaterial = GTMaterials.get(dye.getSerializedName() + "_dye");
+
+                if (bed == null || dyeMaterial == null) {
+                    TFGCore.LOGGER.error("Error when adding custom bed recipes, report to author git pls.");
+                    continue;
+                }
+
                 VanillaRecipeHelper.addShapedRecipe(provider, TFGCore.id(dye.getSerializedName() + "_bed"),
-                    new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(dye.getSerializedName() + "_bed"))),
+                    new ItemStack(bed),
                     "WWW", "PPP", "FrF",
                     'W', TFGTags.Items.HighQualityCloth,
                     'P', TFGTags.Items.Lumbers,
@@ -448,8 +467,8 @@ public final class TFGWoodRecipes {
                 if (dye != DyeColor.WHITE)
                     GTRecipeTypes.CHEMICAL_BATH_RECIPES.recipeBuilder(TFGCore.id(dye.getSerializedName() + "_bed"))
                     .inputItems(Blocks.WHITE_BED.asItem())
-                    .inputFluids(GTMaterials.get(dye.getSerializedName() + "_dye").getFluid(216))
-                    .outputItems(getItem(dye.getSerializedName() + "_bed"))
+                    .inputFluids(dyeMaterial.getFluid(216))
+                    .outputItems(bed)
                     .duration(420)
                     .EUt(24)
                     .save(provider);
@@ -465,6 +484,133 @@ public final class TFGWoodRecipes {
                     .EUt(VA[ULV])
                     .duration(200)
                     .save(provider);
+
+            // =========================== Hanging Metal Signs =========================== //
+
+            GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder(TFGCore.id(woodName + "_copper_hanging_sign"))
+                    .inputItems(lumber, 6)
+                    .inputFluids(GTMaterials.Copper.getFluid(6))
+                    .circuitMeta(8)
+                    .outputItems(copperSign, 3)
+                    .duration(100).EUt(VA[ULV]).save(provider);
+
+            GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder(TFGCore.id(woodName + "_bismuth_bronze_hanging_sign"))
+                    .inputItems(lumber, 6)
+                    .inputFluids(GTMaterials.BismuthBronze.getFluid(6))
+                    .circuitMeta(8)
+                    .outputItems(bismuthBronzeSign, 3)
+                    .duration(100).EUt(VA[ULV]).save(provider);
+
+            GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder(TFGCore.id(woodName + "_bronze_hanging_sign"))
+                    .inputItems(lumber, 6)
+                    .inputFluids(GTMaterials.Bronze.getFluid(6))
+                    .circuitMeta(8)
+                    .outputItems(bronzeSign, 3)
+                    .duration(100).EUt(VA[ULV]).save(provider);
+
+            GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder(TFGCore.id(woodName + "_black_bronze_hanging_sign"))
+                    .inputItems(lumber, 6)
+                    .inputFluids(GTMaterials.BlackBronze.getFluid(6))
+                    .circuitMeta(8)
+                    .outputItems(blackBronzeSign, 3)
+                    .duration(100).EUt(VA[ULV]).save(provider);
+
+            GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder(TFGCore.id(woodName + "_wrought_iron_hanging_sign"))
+                    .inputItems(lumber, 6)
+                    .inputFluids(GTMaterials.WroughtIron.getFluid(6))
+                    .circuitMeta(8)
+                    .outputItems(wroughtIronSign, 3)
+                    .duration(100).EUt(VA[ULV]).save(provider);
+
+            GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder(TFGCore.id(woodName + "_steel_hanging_sign"))
+                    .inputItems(lumber, 6)
+                    .inputFluids(GTMaterials.Steel.getFluid(6))
+                    .circuitMeta(8)
+                    .outputItems(steelSign, 3)
+                    .duration(100).EUt(VA[ULV]).save(provider);
+
+            GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder(TFGCore.id(woodName + "_black_steel_hanging_sign"))
+                    .inputItems(lumber, 6)
+                    .inputFluids(GTMaterials.BlackSteel.getFluid(6))
+                    .circuitMeta(8)
+                    .outputItems(blackSteelSign, 3)
+                    .duration(100).EUt(VA[ULV]).save(provider);
+
+            GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder(TFGCore.id(woodName + "_red_steel_hanging_sign"))
+                    .inputItems(lumber, 6)
+                    .inputFluids(GTMaterials.RedSteel.getFluid(6))
+                    .circuitMeta(8)
+                    .outputItems(redSteelSign, 3)
+                    .duration(100).EUt(VA[ULV]).save(provider);
+
+            GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder(TFGCore.id(woodName + "_blue_steel_hanging_sign"))
+                    .inputItems(lumber, 6)
+                    .inputFluids(GTMaterials.BlueSteel.getFluid(6))
+                    .circuitMeta(8)
+                    .outputItems(blueSteelSign, 3)
+                    .duration(100).EUt(VA[ULV]).save(provider);
+
+            // =========================== Tracks =========================== //
+
+            if (TFGCore.IsSteamAndRailsLoaded()) {
+                var narrowTrack = getItem("railways:track_tfc_" + woodName + "_narrow");
+                var normalTrack = getItem("railways:track_tfc_" + woodName);
+                var wideTrack = getItem("railways:track_tfc_" + woodName + "_wide");
+
+                if (narrowTrack == null || normalTrack == null || wideTrack == null) {
+                    TFGCore.LOGGER.error("Error when adding custom track recipes, report to author git pls.");
+                    continue;
+                }
+
+                // Narrow
+                GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder(TFGCore.id(woodName + "_track_narrow"))
+                        .inputItems(slab)
+                        .inputItems(nugget, GTMaterials.Steel, 4)
+                        .inputItems(TFGTags.Items.Screws, 4)
+                        .outputItems(narrowTrack)
+                        .duration(800).EUt(VA[LV]).save(provider);
+
+                // Normal
+                GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder(TFGCore.id(woodName + "_track_normal_1"))
+                        .inputItems(narrowTrack)
+                        .inputItems(slab)
+                        .inputItems(nugget, GTMaterials.Steel, 4)
+                        .inputItems(TFGTags.Items.Screws, 4)
+                        .outputItems(normalTrack)
+                        .duration(400).EUt(VA[LV]).save(provider);
+
+                GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder(TFGCore.id(woodName + "_track_normal_2"))
+                        .inputItems(slab, 2)
+                        .inputItems(nugget, GTMaterials.Steel, 8)
+                        .inputItems(TFGTags.Items.Screws, 8)
+                        .outputItems(normalTrack)
+                        .duration(800).EUt(VA[LV]).save(provider);
+
+                // Wide
+                GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder(TFGCore.id(woodName + "_track_wide_1"))
+                        .inputItems(narrowTrack)
+                        .inputItems(slab, 2)
+                        .inputItems(nugget, GTMaterials.Steel, 8)
+                        .inputItems(TFGTags.Items.Screws, 8)
+                        .outputItems(wideTrack)
+                        .duration(600).EUt(VA[LV]).save(provider);
+
+                GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder(TFGCore.id(woodName + "_track_wide_2"))
+                        .inputItems(normalTrack)
+                        .inputItems(slab)
+                        .inputItems(nugget, GTMaterials.Steel, 4)
+                        .inputItems(TFGTags.Items.Screws, 4)
+                        .outputItems(wideTrack)
+                        .duration(400).EUt(VA[LV]).save(provider);
+
+
+                GTRecipeTypes.ASSEMBLER_RECIPES.recipeBuilder(TFGCore.id(woodName + "_track_wide_3"))
+                        .inputItems(slab, 3)
+                        .inputItems(nugget, GTMaterials.Steel, 12)
+                        .inputItems(TFGTags.Items.Screws, 12)
+                        .outputItems(wideTrack)
+                        .duration(800).EUt(VA[LV]).save(provider);
+            }
         }
     }
 
@@ -569,6 +715,7 @@ public final class TFGWoodRecipes {
         return new ResourceLocation(id);
     }
 
+    @Nullable
     private static Item getItem(String id) {
         return ForgeRegistries.ITEMS.getValue(new ResourceLocation(id));
     }

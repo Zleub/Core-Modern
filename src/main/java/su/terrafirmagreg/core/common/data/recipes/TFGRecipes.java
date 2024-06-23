@@ -17,7 +17,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import su.terrafirmagreg.core.TFGCore;
 import su.terrafirmagreg.core.common.TFGItems;
-import su.terrafirmagreg.core.common.data.TFGData;
 import su.terrafirmagreg.core.compat.gtceu.materials.TFGMaterialFlags;
 import su.terrafirmagreg.core.compat.gtceu.TFGPropertyKeys;
 import su.terrafirmagreg.core.compat.gtceu.properties.TFCProperty;
@@ -47,11 +46,13 @@ public final class TFGRecipes {
 
         TFGWoodRecipes.init(provider);
         TFGStoneRecipes.init(provider);
+        TFGMetalRecipes.init(provider);
     }
 
     public static void remove(Consumer<ResourceLocation> consumer) {
         TFGWoodRecipes.remove(consumer);
         TFGStoneRecipes.remove(consumer);
+        TFGMetalRecipes.remove(consumer);
     }
 
     private static void registerToolRecyclingRecipes(Consumer<FinishedRecipe> provider) {
@@ -428,7 +429,7 @@ public final class TFGRecipes {
     private static void processDoubleIngot(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
         var ingotStack = ChemicalHelper.get(ingot, material);
         var doubleIngotStack = ChemicalHelper.get(prefix, material);
-        var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
+//        var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
 
         BENDER_RECIPES.recipeBuilder(TFGCore.id(material.getName() + "_double_ingot"))
                 .EUt(VA[ULV]).duration((int) material.getMass())

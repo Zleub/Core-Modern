@@ -18,6 +18,7 @@ public final class TFGTags {
         public static final TagKey<Item> NormalRawOre = createItemTag("forge:raw_materials");
         public static final TagKey<Item> Lumbers = createItemTag("tfc:lumber");
         public static final TagKey<Item> HighQualityCloth = createItemTag("tfc:high_quality_cloth");
+        public static final TagKey<Item> Screws = createItemTag("forge:screws");
 
         public static TagKey<Item> createItemTag(String path) {
             return TagKey.create(ForgeRegistries.ITEMS.getRegistryKey(), new ResourceLocation(path));

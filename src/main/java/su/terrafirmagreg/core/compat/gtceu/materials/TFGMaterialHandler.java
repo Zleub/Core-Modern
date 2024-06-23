@@ -1,5 +1,7 @@
 package su.terrafirmagreg.core.compat.gtceu.materials;
 
+import appeng.core.definitions.AEBlocks;
+import appeng.core.definitions.AEItems;
 import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlag;
@@ -396,20 +398,18 @@ public final class TFGMaterialHandler {
 
         /* AE 2 */
         if (TFGCore.IsAe2Loaded()) {
-            //        block.setIgnored(Fluix, () -> AEBlocks.FLUIX_BLOCK);
-            //        dust.setIgnored(Fluix, () -> AEItems.FLUIX_DUST);
-            //        gem.setIgnored(Fluix, () -> AEItems.FLUIX_CRYSTAL);
-            //
-            //        block.setIgnored(CertusQuartz, () -> AEBlocks.QUARTZ_BLOCK);
-            //        dust.setIgnored(CertusQuartz,() -> AEItems.CERTUS_QUARTZ_DUST);
-            //        gem.setIgnored(CertusQuartz, () -> AEItems.CERTUS_QUARTZ_CRYSTAL);
-            //
-            //        dust.setIgnored(EnderPearl, () -> AEItems.ENDER_DUST);
-            //
-            //        block.modifyMaterialAmount(TFGMaterials.Fluix, 4);
+            block.setIgnored(Fluix, () -> AEBlocks.FLUIX_BLOCK);
+            dust.setIgnored(Fluix, () -> AEItems.FLUIX_DUST);
+            gem.setIgnored(Fluix, () -> AEItems.FLUIX_CRYSTAL);
+
+            block.setIgnored(CertusQuartz, () -> AEBlocks.QUARTZ_BLOCK);
+            dust.setIgnored(CertusQuartz,() -> AEItems.CERTUS_QUARTZ_DUST);
+            gem.setIgnored(CertusQuartz, () -> AEItems.CERTUS_QUARTZ_CRYSTAL);
+
+            dust.setIgnored(EnderPearl, () -> AEItems.ENDER_DUST);
+
+            block.modifyMaterialAmount(TFGMaterials.Fluix, 4);
         }
-
-
     }
 
     private static Material registerOreMaterial(Rock rockType, int color) {

@@ -34,6 +34,22 @@ public final class TFGCore {
         return ModList.get().isLoaded("ae2");
     }
 
+    public static boolean IsSteamAndRailsLoaded() {
+        return ModList.get().isLoaded("railways");
+    }
+
+    public static boolean IsFirmaLifeLoaded() {
+        return ModList.get().isLoaded("firmalife");
+    }
+
+    public static boolean IsAstikorCartsLoaded() {
+        return ModList.get().isLoaded("tfcastikorcarts");
+    }
+
+    public static boolean IsFirmaCivLoaded() {
+        return ModList.get().isLoaded("firmaciv");
+    }
+
     public static ResourceLocation id(String name) {
         return new ResourceLocation(MOD_ID, name);
     }
