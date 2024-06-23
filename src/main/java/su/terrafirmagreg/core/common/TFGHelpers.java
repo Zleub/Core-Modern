@@ -46,7 +46,7 @@ public final class TFGHelpers {
 
     public static void sendChatMessagePortalsIsDisabled(Level level, Entity entity) {
         if (level.isClientSide()) {
-            if (level.getGameTime() % 20 == 0) {
+            if (level.getGameTime() % 100 == 0) {
                 entity.sendSystemMessage(Component.translatable("tfg.disabled_portal").withStyle(ChatFormatting.LIGHT_PURPLE));
             }
         }
