@@ -50,6 +50,14 @@ public final class TFGCore {
         return ModList.get().isLoaded("firmaciv");
     }
 
+    public static boolean IsTFCAmbientalLoaded() {
+        return ModList.get().isLoaded("tfcambiental");
+    }
+
+    public static boolean IsCreatelLoaded() {
+        return ModList.get().isLoaded("create");
+    }
+
     public static ResourceLocation id(String name) {
         return new ResourceLocation(MOD_ID, name);
     }

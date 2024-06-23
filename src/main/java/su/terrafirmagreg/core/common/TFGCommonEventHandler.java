@@ -45,8 +45,8 @@ public final class TFGCommonEventHandler {
 
     private static void onCommonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
-            if (TFGConfig.enableTFCAmbientalCompat) TFCAmbientalCompat.register();
-            if (TFGConfig.enableCreateCompat) CreateCompat.register();
+            if (TFGConfig.enableTFCAmbientalCompat && TFGCore.IsTFCAmbientalLoaded()) TFCAmbientalCompat.register();
+            if (TFGConfig.enableCreateCompat && TFGCore.IsCreatelLoaded()) CreateCompat.register();
         });
     }
 
