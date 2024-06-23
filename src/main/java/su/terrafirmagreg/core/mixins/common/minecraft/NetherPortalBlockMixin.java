@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import static su.terrafirmagreg.core.common.TFGHelpers.sendChatMessagePortalsIsDisabled;
 
-@Mixin(NetherPortalBlock.class)
+@Mixin(value = NetherPortalBlock.class)
 public abstract class NetherPortalBlockMixin extends Block {
 
     protected NetherPortalBlockMixin(Properties pProperties) {

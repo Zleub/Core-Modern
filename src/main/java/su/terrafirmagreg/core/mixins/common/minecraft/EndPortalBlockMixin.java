@@ -3,7 +3,7 @@ package su.terrafirmagreg.core.mixins.common.minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.BaseEntityBlock;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EndPortalBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import static su.terrafirmagreg.core.common.TFGHelpers.sendChatMessagePortalsIsDisabled;
 
 @Mixin(EndPortalBlock.class)
-public abstract class EndPortalBlockMixin extends BaseEntityBlock {
+public abstract class EndPortalBlockMixin extends Block {
 
     protected EndPortalBlockMixin(Properties pProperties) {
         super(pProperties);
