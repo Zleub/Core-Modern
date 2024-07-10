@@ -39,17 +39,9 @@ public final class TFGItems {
     public static ItemEntry<Item> SHAPE_MOLD_CHAIN;
     public static ItemEntry<Item> SHAPE_MOLD_BELL;
 
-    public static ItemEntry<Item> EndPlaceholder;
-    public static ItemEntry<Item> NetherPlaceholder;
-    public static ItemEntry<Item> EarthPlaceholder;
-    public static ItemEntry<Item> MoonPlaceholder;
-    public static ItemEntry<Item> MarsPlaceholder;
-    public static ItemEntry<Item> VenusPlaceholder;
-
     public static void init() {
         registerExtruderMolds();
         registerShapeModlds();
-        registerPlanetItems();
     }
 
     private static void registerExtruderMolds() {
@@ -117,14 +109,5 @@ public final class TFGItems {
 
         SHAPE_MOLDS[3] = SHAPE_MOLD_BELL = TFGCore.REGISTRATE.item("bell_casting_mold", Item::new)
                 .onRegister(materialInfo(new ItemMaterialInfo(new MaterialStack(GTMaterials.Steel, GTValues.M * 4)))).register();
-    }
-
-    private static void registerPlanetItems() {
-        PLANET_PLACEHOLDERS[0] = EndPlaceholder = TFGCore.REGISTRATE.item("end_placeholder", Item::new).register();
-        PLANET_PLACEHOLDERS[1] = NetherPlaceholder =  TFGCore.REGISTRATE.item("nether_placeholder", Item::new).register();
-        PLANET_PLACEHOLDERS[2] = EarthPlaceholder =  TFGCore.REGISTRATE.item("earth_placeholder", Item::new).register();
-        PLANET_PLACEHOLDERS[3] = MoonPlaceholder = TFGCore.REGISTRATE.item("moon_placeholder", Item::new).register();
-        PLANET_PLACEHOLDERS[4] = MarsPlaceholder = TFGCore.REGISTRATE.item("mars_placeholder", Item::new).register();
-        PLANET_PLACEHOLDERS[5] = VenusPlaceholder = TFGCore.REGISTRATE.item("venus_placeholder", Item::new).register();
     }
 }

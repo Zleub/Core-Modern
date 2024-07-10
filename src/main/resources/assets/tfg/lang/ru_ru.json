@@ -16,11 +16,6 @@
   "item.tfg.chisel_head_extruder_mold": "Форма экструдера (Оголовье стамески)",
   "item.tfg.mace_head_extruder_mold": "Форма экструдера (Оголовье биты)",
 
-  "item.tfg.earth_placeholder": "Земля",
-  "item.tfg.moon_placeholder": "Луна",
-  "item.tfg.mars_placeholder": "Марс",
-  "item.tfg.venus_placeholder": "Венера",
-
   "item.tfg.lamp_casting_mold": "Отливная форма (Лампа)",
   "item.tfg.trapdoor_casting_mold": "Отливная форма (Люк)",
   "item.tfg.chain_casting_mold": "Отливная форма (Цепь)",

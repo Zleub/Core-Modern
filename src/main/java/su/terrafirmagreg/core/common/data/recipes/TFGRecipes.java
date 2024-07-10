@@ -6,15 +6,12 @@ import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.gregtechceu.gtceu.api.data.chemical.material.Material;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
-import com.gregtechceu.gtceu.common.data.GTBlocks;
 import com.gregtechceu.gtceu.common.data.GTItems;
-import com.gregtechceu.gtceu.common.data.GTMachines;
 import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
 import com.gregtechceu.gtceu.data.recipe.generated.RecyclingRecipeHandler;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import net.dries007.tfc.common.items.TFCItems;
 import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import su.terrafirmagreg.core.TFGCore;
@@ -45,19 +42,6 @@ public final class TFGRecipes {
         registerCastingMoldCopyingRecipes(provider);
         registerProcessingToolHeadsRecipes(provider);
         registerTagPrefixHandlerRecipes(provider);
-        registerRandomRecipes(provider);
-
-        TFGWoodRecipes.init(provider);
-        TFGStoneRecipes.init(provider);
-        TFGMetalRecipes.init(provider);
-    }
-
-    public static void remove(Consumer<ResourceLocation> consumer) {
-        TFGWoodRecipes.remove(consumer);
-        TFGStoneRecipes.remove(consumer);
-        TFGMetalRecipes.remove(consumer);
-
-        consumer.accept(new ResourceLocation("gtceu", "shaped/lv_machine_hull"));
     }
 
     private static void registerToolRecyclingRecipes(Consumer<FinishedRecipe> provider) {
@@ -79,7 +63,6 @@ public final class TFGRecipes {
         toolHeadJavelin.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
         toolHeadChisel.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
         toolHeadMace.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
-        // TODO: Попробовать добавить энвилы и другую хуйню сюда
 
         /* Оголовья грега, которые почему-то не имеют декрафта */
         toolHeadBuzzSaw.executeHandler(provider, PropertyKey.DUST, RecyclingRecipeHandler::processCrushing);
@@ -383,68 +366,20 @@ public final class TFGRecipes {
     }
 
     private static void registerTagPrefixHandlerRecipes(Consumer<FinishedRecipe> provider) {
-//        ingot.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processIngot(tagPrefix, material, property, provider));
         ingotDouble.executeHandler(provider, TFGPropertyKeys.TFC_PROPERTY, TFGRecipes::processDoubleIngot);
         plate.executeHandler(provider, TFGPropertyKeys.TFC_PROPERTY, TFGRecipes::processPlate);
-//        plateDouble.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processDoublePlate(tagPrefix, material, property, provider));
-//        rod.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processRod(tagPrefix, material, property, provider));
-//        rodLong.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processLongRod(tagPrefix, material, property, provider));
-//        bolt.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processBolt(tagPrefix, material, property, provider));
-//        screw.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processScrew(tagPrefix, material, property, provider));
-//        ring.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processRing(tagPrefix, material, property, provider));
-//        block.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processBlock(tagPrefix, material, property, provider));
-//        nugget.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processNugget(tagPrefix, material, property, provider));
-//        dustTiny.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processTinyDust(tagPrefix, material, property, provider));
-//        dustSmall.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processSmallDust(tagPrefix, material, property, provider));
-//        dust.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processDust(tagPrefix, material, property, provider));
-//        dustImpure.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processImpureDust(tagPrefix, material, property, provider));
-//        dustPure.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processPureDust(tagPrefix, material, property, provider));
-//        poorRawOre.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processPoorRawOre(tagPrefix, material, property, provider));
-//        rawOre.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processRawOre(tagPrefix, material, property, provider));
-//        richRawOre.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processRichRawOre(tagPrefix, material, property, provider));
-//        crushed.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processCrushedOre(tagPrefix, material, property, provider));
-//        crushedPurified.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processCrushedPurifiedOre(tagPrefix, material, property, provider));
-//        crushedRefined.executeHandler(TFGPropertyKeys.TFC_PROPERTY, (tagPrefix, material, property) -> processCrushedRefinedOre(tagPrefix, material, property, provider));
 
-//        oreSmall.executeHandler(provider, TFGPropertyKeys.TFC_PROPERTY, TFGRecipes::proccessSmallOre);
-//        oreSmallNative.executeHandler(provider, TFGPropertyKeys.TFC_PROPERTY, TFGRecipes::proccessSmallNativeOre);
-//        anvil.executeHandler(provider, TFGPropertyKeys.TFC_PROPERTY, TFGRecipes::proccessAnvil);
-//        lamp.executeHandler(provider, TFGPropertyKeys.TFC_PROPERTY, TFGRecipes::proccessLamp);
-//        lampUnfinished.executeHandler(provider, TFGPropertyKeys.TFC_PROPERTY, TFGRecipes::proccessUnfinishedLamp);
-//        trapdoor.executeHandler(provider, TFGPropertyKeys.TFC_PROPERTY, TFGRecipes::proccessTrapdoor);
-//        chain.executeHandler(provider, TFGPropertyKeys.TFC_PROPERTY, TFGRecipes::proccessChain);
-//        bell.executeHandler(provider, TFGPropertyKeys.TFC_PROPERTY, TFGRecipes::proccessBell);
+        anvil.executeHandler(provider, TFGPropertyKeys.TFC_PROPERTY, TFGRecipes::proccessAnvil);
+        lamp.executeHandler(provider, TFGPropertyKeys.TFC_PROPERTY, TFGRecipes::proccessLamp);
+        lampUnfinished.executeHandler(provider, TFGPropertyKeys.TFC_PROPERTY, TFGRecipes::proccessUnfinishedLamp);
+        trapdoor.executeHandler(provider, TFGPropertyKeys.TFC_PROPERTY, TFGRecipes::proccessTrapdoor);
+        chain.executeHandler(provider, TFGPropertyKeys.TFC_PROPERTY, TFGRecipes::proccessChain);
+        bell.executeHandler(provider, TFGPropertyKeys.TFC_PROPERTY, TFGRecipes::proccessBell);
     }
-
-    private static void registerRandomRecipes(Consumer<FinishedRecipe> provider) {
-        // Рецепт LV HULL
-        VanillaRecipeHelper.addShapedRecipe(provider, TFGCore.id("lv_machine_hull"), GTMachines.HULL[LV].asStack(),
-        "RBL",
-                "CMC",
-                'R', ChemicalHelper.get(plate, RedSteel),
-                'B', ChemicalHelper.get(plate, BlackSteel),
-                'L', ChemicalHelper.get(plate, BlueSteel),
-                'C', ChemicalHelper.get(cableGtSingle, Tin),
-                'M', GTBlocks.MACHINE_CASING_LV.asStack());
-
-        // Better way to get latex
-        FLUID_SOLIDFICATION_RECIPES.recipeBuilder(TFGCore.id("latex_heating"))
-                .EUt(VA[LV]).duration(480)
-                .inputItems(dust, Sulfur)
-                .inputFluids(Latex.getFluid(1000))
-                .outputItems(GTItems.STICKY_RESIN)
-                .save(provider);
-    }
-
-//    private static void processIngot(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-//        // var ingotStack = ChemicalHelper.get(prefix, material);
-//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-//    }
 
     private static void processDoubleIngot(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
         var ingotStack = ChemicalHelper.get(ingot, material);
         var doubleIngotStack = ChemicalHelper.get(prefix, material);
-//        var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
 
         BENDER_RECIPES.recipeBuilder(TFGCore.id(material.getName() + "_double_ingot"))
                 .EUt(VA[ULV]).duration((int) material.getMass())
@@ -469,7 +404,6 @@ public final class TFGRecipes {
     private static void processPlate(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
         var plateStack = ChemicalHelper.get(prefix, material);
         var doubleIngotStack = ChemicalHelper.get(ingotDouble, material);
-        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
 
         if (material.hasFlag(TFGMaterialFlags.GENERATE_DOUBLE_INGOTS)) {
             FORGE_HAMMER_RECIPES.recipeBuilder(TFGCore.id("hammer_" + material.getName() + "_plate"))
@@ -480,149 +414,9 @@ public final class TFGRecipes {
         }
     }
 
-//    private static void processDoublePlate(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-//        // var doublePlateStack = ChemicalHelper.get(prefix, material);
-//        // var plateStack = ChemicalHelper.get(plate, material);
-//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-//    }
-//
-//    private static void processRod(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-//        // var ingotStack = ChemicalHelper.get(ingot, material);
-//        // var rodStack = ChemicalHelper.get(prefix, material);
-//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-//    }
-//
-//    private static void processLongRod(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-//        // var rodStack = ChemicalHelper.get(rod, material);
-//        // var longRodStack = ChemicalHelper.get(prefix, material);
-//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-//    }
-//
-//    private static void processBolt(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-//        // var boltStack = ChemicalHelper.get(prefix, material);
-//        // var ingotStack = ChemicalHelper.get(ingot, material);
-//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-//    }
-//
-//    private static void processScrew(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-//        // var screwStack = ChemicalHelper.get(prefix, material);
-//        // var ingotStack = ChemicalHelper.get(ingot, material);
-//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-//    }
-//
-//    private static void processRing(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-//        // var ringStack = ChemicalHelper.get(prefix, material);
-//        // var ingotStack = ChemicalHelper.get(ingot, material);
-//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-//    }
-//
-//    private static void processBlock(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-//        // var blockStack = ChemicalHelper.get(prefix, material);
-//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-//    }
-//
-//    private static void processTinyDust(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-//        // var tinyDust = ChemicalHelper.get(prefix, material);
-//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-//    }
-//
-//    private static void processSmallDust(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-//        // var smallDust = ChemicalHelper.get(prefix, material);
-//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-//    }
-//
-//    private static void processDust(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-//        // var dust = ChemicalHelper.get(prefix, material);
-//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-//    }
-//
-//    private static void processImpureDust(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-//        // var impureDust = ChemicalHelper.get(prefix, material);
-//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-//    }
-//
-//    private static void processPureDust(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-//        // var pureDust = ChemicalHelper.get(prefix, material);
-//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-//    }
-//
-//    private static void processPoorRawOre(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-//        // var poorRawOre = ChemicalHelper.get(prefix, material);
-//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-//    }
-//
-//    private static void processRawOre(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-//        // var rawOre = ChemicalHelper.get(prefix, material);
-//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-//    }
-//
-//    private static void processRichRawOre(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-//        // var richRawOre = ChemicalHelper.get(prefix, material);
-//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-//    }
-//
-//    private static void processCrushedOre(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-//        // var crushedOre = ChemicalHelper.get(prefix, material);
-//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-//    }
-//
-//    private static void processCrushedPurifiedOre(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-//        // var crushedPurifiedOre = ChemicalHelper.get(prefix, material);
-//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-//    }
-//
-//    private static void processCrushedRefinedOre(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-//        // var crushedRefinedOre = ChemicalHelper.get(prefix, material);
-//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-//    }
-//
-//    private static void processNugget(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-//        // var nuggets = ChemicalHelper.get(prefix, material);
-//        // var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-//    }
-
-    private static void proccessSmallOre(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-        var smallOre = ChemicalHelper.get(prefix, material);
-        var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-
-        MACERATOR_RECIPES.recipeBuilder(TFGCore.id("macerate_" + material.getName() + "_small_ore"))
-                .EUt(VA[ULV]).duration((int) material.getMass())
-                .inputItems(smallOre)
-                .outputItems(dustSmall, outputMaterial)
-                .save(provider);
-
-    }
-
-    private static void proccessSmallNativeOre(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-        var smallNativeOre = ChemicalHelper.get(prefix, material);
-        var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-
-        MACERATOR_RECIPES.recipeBuilder(TFGCore.id("macerate_" + material.getName() + "_small_native_ore"))
-                .EUt(VA[ULV]).duration((int) material.getMass())
-                .inputItems(smallNativeOre)
-                .outputItems(dustSmall, outputMaterial)
-                .save(provider);
-    }
-
     private static void proccessAnvil(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
         var anvil = ChemicalHelper.get(prefix, material);
         var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-
-        // Разборка
-
-        MACERATOR_RECIPES.recipeBuilder(TFGCore.id("macerate_" + material.getName() + "_anvil"))
-                .EUt(VA[LV]).duration((int) outputMaterial.getMass() * 32)
-                .inputItems(anvil)
-                .outputItems(dust, outputMaterial, 14)
-                .save(provider);
-
-        ARC_FURNACE_RECIPES.recipeBuilder(TFGCore.id("arc_" + material.getName() + "_anvil"))
-                .EUt(VA[ULV]).duration((int) outputMaterial.getMass() * 32)
-                .inputItems(anvil)
-                .outputItems(ingot, outputMaterial, 14)
-                .save(provider);
-
-        // Сборка
 
         ALLOY_SMELTER_RECIPES.recipeBuilder(TFGCore.id(material.getName() + "_anvil_from_ingots"))
                 .EUt(VA[ULV]).duration((int) material.getMass() * 6)
@@ -644,21 +438,6 @@ public final class TFGRecipes {
         var unfinishedLamp = ChemicalHelper.get(lampUnfinished, material);
         var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
 
-        // Разборка
-
-        MACERATOR_RECIPES.recipeBuilder(TFGCore.id("macerate_" + material.getName() + "_lamp"))
-                .EUt(VA[LV]).duration((int) outputMaterial.getMass() * 8)
-                .inputItems(finishedLamp)
-                .outputItems(ChemicalHelper.get(dust, outputMaterial), ChemicalHelper.get(dust, Glass, 4))
-                .save(provider);
-
-        ARC_FURNACE_RECIPES.recipeBuilder(TFGCore.id("arc_" + material.getName() + "_lamp"))
-                .EUt(VA[ULV]).duration((int) outputMaterial.getMass() * 8)
-                .inputItems(finishedLamp)
-                .outputItems(ChemicalHelper.get(ingot, outputMaterial), ChemicalHelper.get(block, Glass))
-                .save(provider);
-
-        // Сборка
         ASSEMBLER_RECIPES.recipeBuilder(TFGCore.id(material.getName() + "_lamp"))
                 .EUt(VA[ULV]).duration((int) outputMaterial.getMass() * 7)
                 .inputItems(new ItemStack(TFCItems.LAMP_GLASS.get()), unfinishedLamp)
@@ -675,144 +454,81 @@ public final class TFGRecipes {
                 .save(provider);
     }
 
-//    private static void proccessUnfinishedLamp(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-//        var unfinishedLamp = ChemicalHelper.get(prefix, material);
-//        var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-//
-//        // Разборка
-//
-//        MACERATOR_RECIPES.recipeBuilder(TFGCore.id("macerate_" + material.getName() + "_unfinished_lamp"))
-//                .EUt(VA[LV]).duration((int) outputMaterial.getMass() * 8)
-//                .inputItems(unfinishedLamp)
-//                .outputItems(dust, outputMaterial)
-//                .save(provider);
-//
-//        ARC_FURNACE_RECIPES.recipeBuilder(TFGCore.id("arc_" + material.getName() + "_unfinished_lamp"))
-//                .EUt(VA[ULV]).duration((int) outputMaterial.getMass() * 8)
-//                .inputItems(unfinishedLamp)
-//                .outputItems(ingot, outputMaterial)
-//                .save(provider);
-//
-//        // Сборка
-//
-//        ALLOY_SMELTER_RECIPES.recipeBuilder(TFGCore.id(material.getName() + "_unfinished_lamp_from_ingots"))
-//                .EUt(VA[ULV]).duration((int) material.getMass() * 7)
-//                .inputItems(ingot, outputMaterial)
-//                .notConsumable(SHAPE_MOLD_UNFINISHED_LAMP)
-//                .itemOutputs(unfinishedLamp)
-//                .save(provider);
-//
-//        FLUID_SOLIDFICATION_RECIPES.recipeBuilder(TFGCore.id(material.getName() + "_unfinished_lamp_from_fluid"))
-//                .EUt(VA[ULV]).duration((int) material.getMass() * 7)
-//                .inputFluids(outputMaterial.getFluid(144))
-//                .notConsumable(SHAPE_MOLD_UNFINISHED_LAMP)
-//                .itemOutputs(unfinishedLamp)
-//                .save(provider);
-//    }
+    private static void proccessUnfinishedLamp(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
+        var unfinishedLamp = ChemicalHelper.get(prefix, material);
+        var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
 
-//    private static void proccessTrapdoor(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
-//        var trapdoor = ChemicalHelper.get(prefix, material);
-//        var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
-//
-//        // Разборка
-//
-//        MACERATOR_RECIPES.recipeBuilder(TFGCore.id("macerate_" + material.getName() + "_trapdoor"))
-//                .EUt(VA[LV]).duration((int) outputMaterial.getMass() * 7)
-//                .inputItems(trapdoor)
-//                .outputItems(dust, outputMaterial)
-//                .save(provider);
-//
-//        ARC_FURNACE_RECIPES.recipeBuilder(TFGCore.id("arc_" + material.getName() + "_trapdoor"))
-//                .EUt(VA[ULV]).duration((int) outputMaterial.getMass() * 7)
-//                .inputItems(trapdoor)
-//                .outputItems(ingot, outputMaterial)
-//                .save(provider);
-//
-//        // Сборка
-//
-//        ALLOY_SMELTER_RECIPES.recipeBuilder(TFGCore.id(material.getName() + "_trapdoor_from_ingots"))
-//                .EUt(VA[ULV]).duration((int) material.getMass() * 6)
-//                .inputItems(ingot, outputMaterial)
-//                .notConsumable(SHAPE_MOLD_TRAPDOOR)
-//                .itemOutputs(trapdoor)
-//                .save(provider);
-//
-//        FLUID_SOLIDFICATION_RECIPES.recipeBuilder(TFGCore.id(material.getName() + "_trapdoor_from_fluid"))
-//                .EUt(VA[ULV]).duration((int) material.getMass() * 6)
-//                .inputFluids(outputMaterial.getFluid(144))
-//                .notConsumable(SHAPE_MOLD_TRAPDOOR)
-//                .itemOutputs(trapdoor)
-//                .save(provider);
-//    }
+        ALLOY_SMELTER_RECIPES.recipeBuilder(TFGCore.id(material.getName() + "_unfinished_lamp_from_ingots"))
+                .EUt(VA[ULV]).duration((int) material.getMass() * 7)
+                .inputItems(ingot, outputMaterial)
+                .notConsumable(SHAPE_MOLD_UNFINISHED_LAMP)
+                .itemOutputs(unfinishedLamp)
+                .save(provider);
+
+        FLUID_SOLIDFICATION_RECIPES.recipeBuilder(TFGCore.id(material.getName() + "_unfinished_lamp_from_fluid"))
+                .EUt(VA[ULV]).duration((int) material.getMass() * 7)
+                .inputFluids(outputMaterial.getFluid(144))
+                .notConsumable(SHAPE_MOLD_UNFINISHED_LAMP)
+                .itemOutputs(unfinishedLamp)
+                .save(provider);
+    }
+
+    private static void proccessTrapdoor(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
+        var trapdoor = ChemicalHelper.get(prefix, material);
+        var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
+
+        ALLOY_SMELTER_RECIPES.recipeBuilder(TFGCore.id(material.getName() + "_trapdoor_from_ingots"))
+                .EUt(VA[ULV]).duration((int) material.getMass() * 6)
+                .inputItems(ingot, outputMaterial)
+                .notConsumable(SHAPE_MOLD_TRAPDOOR)
+                .itemOutputs(trapdoor)
+                .save(provider);
+
+        FLUID_SOLIDFICATION_RECIPES.recipeBuilder(TFGCore.id(material.getName() + "_trapdoor_from_fluid"))
+                .EUt(VA[ULV]).duration((int) material.getMass() * 6)
+                .inputFluids(outputMaterial.getFluid(144))
+                .notConsumable(SHAPE_MOLD_TRAPDOOR)
+                .itemOutputs(trapdoor)
+                .save(provider);
+    }
 
     private static void proccessChain(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
         var chain = ChemicalHelper.get(prefix, material);
         var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
 
-        // Разборка
-
-        MACERATOR_RECIPES.recipeBuilder(TFGCore.id("macerate_" + material.getName() + "_chain"))
-                .EUt(VA[LV]).duration((int) outputMaterial.getMass() * 3)
-                .inputItems(chain)
-                .outputItems(dustTiny, outputMaterial)
+        ALLOY_SMELTER_RECIPES.recipeBuilder(TFGCore.id(material.getName() + "_chain_from_ingots"))
+                .EUt(VA[ULV]).duration((int) material.getMass() * 2)
+                .inputItems(ingot, outputMaterial)
+                .notConsumable(SHAPE_MOLD_CHAIN)
+                .itemOutputs(chain.copyWithCount(9))
                 .save(provider);
 
-        ARC_FURNACE_RECIPES.recipeBuilder(TFGCore.id("arc_" + material.getName() + "_chain"))
-                .EUt(VA[ULV]).duration((int) outputMaterial.getMass() * 3)
-                .inputItems(chain)
-                .outputItems(nugget, outputMaterial)
+        FLUID_SOLIDFICATION_RECIPES.recipeBuilder(TFGCore.id(material.getName() + "_chain_from_fluid"))
+                .EUt(VA[ULV]).duration((int) material.getMass() * 2)
+                .inputFluids(outputMaterial.getFluid(144))
+                .notConsumable(SHAPE_MOLD_CHAIN)
+                .itemOutputs(chain.copyWithCount(9))
                 .save(provider);
-
-        // Сборка
-
-//        ALLOY_SMELTER_RECIPES.recipeBuilder(TFGCore.id(material.getName() + "_chain_from_ingots"))
-//                .EUt(VA[ULV]).duration((int) material.getMass() * 2)
-//                .inputItems(ingot, outputMaterial)
-//                .notConsumable(SHAPE_MOLD_CHAIN)
-//                .itemOutputs(chain.copyWithCount(9))
-//                .save(provider);
-//
-//        FLUID_SOLIDFICATION_RECIPES.recipeBuilder(TFGCore.id(material.getName() + "_chain_from_fluid"))
-//                .EUt(VA[ULV]).duration((int) material.getMass() * 2)
-//                .inputFluids(outputMaterial.getFluid(144))
-//                .notConsumable(SHAPE_MOLD_CHAIN)
-//                .itemOutputs(chain.copyWithCount(9))
-//                .save(provider);
     }
 
     private static void proccessBell(TagPrefix prefix, Material material, TFCProperty property, Consumer<FinishedRecipe> provider) {
         var bell = ChemicalHelper.get(prefix, material);
         var outputMaterial = property.getOutputMaterial() == null ? material : property.getOutputMaterial();
 
-        // Разборка
 
-        MACERATOR_RECIPES.recipeBuilder(TFGCore.id("macerate_" + material.getName() + "_bell"))
-                .EUt(VA[LV]).duration((int) outputMaterial.getMass() * 5)
-                .inputItems(bell)
-                .outputItems(dust, outputMaterial)
+        ALLOY_SMELTER_RECIPES.recipeBuilder(TFGCore.id(material.getName() + "_bell_from_ingots"))
+                .EUt(VA[ULV]).duration((int) material.getMass() * 4)
+                .inputItems(ingot, outputMaterial)
+                .notConsumable(SHAPE_MOLD_BELL)
+                .itemOutputs(bell)
                 .save(provider);
 
-        ARC_FURNACE_RECIPES.recipeBuilder(TFGCore.id("arc_" + material.getName() + "_bell"))
-                .EUt(VA[ULV]).duration((int) outputMaterial.getMass() * 5)
-                .inputItems(bell)
-                .outputItems(ingot, outputMaterial)
+        FLUID_SOLIDFICATION_RECIPES.recipeBuilder(TFGCore.id(material.getName() + "_bell_from_fluid"))
+                .EUt(VA[ULV]).duration((int) material.getMass() * 4)
+                .inputFluids(outputMaterial.getFluid(144))
+                .notConsumable(SHAPE_MOLD_BELL)
+                .itemOutputs(bell)
                 .save(provider);
-
-        // Сборка
-
-//        ALLOY_SMELTER_RECIPES.recipeBuilder(TFGCore.id(material.getName() + "_bell_from_ingots"))
-//                .EUt(VA[ULV]).duration((int) material.getMass() * 4)
-//                .inputItems(ingot, outputMaterial)
-//                .notConsumable(SHAPE_MOLD_BELL)
-//                .itemOutputs(bell)
-//                .save(provider);
-//
-//        FLUID_SOLIDFICATION_RECIPES.recipeBuilder(TFGCore.id(material.getName() + "_bell_from_fluid"))
-//                .EUt(VA[ULV]).duration((int) material.getMass() * 4)
-//                .inputFluids(outputMaterial.getFluid(144))
-//                .notConsumable(SHAPE_MOLD_BELL)
-//                .itemOutputs(bell)
-//                .save(provider);
     }
 
     private static void processToolHead(TagPrefix prefix, Material material, ItemEntry<Item> extruderShape, int circuitValue, Consumer<FinishedRecipe> consumer) {

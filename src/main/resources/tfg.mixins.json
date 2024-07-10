@@ -22,7 +22,6 @@
         "common.gtceu.GTRecipeTypesMixin",
         "common.gtceu.GTToolTypeMixin",
         "common.gtceu.HoeGroundBehaviorMixin",
-        "common.minecraft.IBlockLootSubProviderAccessor",
         "common.gtceu.MixinHelpersMixin",
         "common.gtceu.PrimitivePumpMachineMixin",
         "common.gtceu.SteamBoilerMachineMixin",
@@ -34,14 +33,12 @@
         "common.gtceu.materials.MaterialPropertiesMixin",
         "common.gtceu.materials.SecondDegreeMixin",
         "common.gtceu.recipes.MaterialInfoLoaderMixin",
-        "common.gtceu.recipes.MaterialRecipeHandlerMixin",
         "common.gtceu.recipes.OreRecipeHandlerMixin",
-        "common.gtceu.recipes.PartsRecipeHandlerMixin",
         "common.gtceu.recipes.ToolRecipeHandlerMixin",
-        "common.gtceu.recipes.WoodMachineRecipesMixin",
         "common.minecraft.EndDragonFightMixin",
         "common.minecraft.EndPodiumFeatureMixin",
         "common.minecraft.EndPortalBlockMixin",
+        "common.minecraft.IBlockLootSubProviderAccessor",
         "common.minecraft.IUseOnContextInvoker",
         "common.minecraft.NetherPortalBlockMixin",
         "common.minecraft.ServerAdvancementManagerMixin",
@@ -60,7 +57,8 @@
         "client.minecraft.CreateWorldScreenMixin",
         "client.tfc.DoubleIngotPileBlockModelMixin",
         "client.tfc.IngotPileBlockModelMixin",
-        "client.tfc.SheetPileBlockModelMixin"
+        "client.tfc.SheetPileBlockModelMixin",
+        "common.minecraft.CreateWorldScreenMixin"
     ],
     "injectors": {
         "defaultRequire": 1

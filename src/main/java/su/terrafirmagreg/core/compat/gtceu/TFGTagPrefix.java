@@ -472,8 +472,6 @@ public final class TFGTagPrefix {
         TagPrefix.turbineBlade.unformattedTagPath("turbine_blades");
     }
 
-    public static void init() {}
-
     private static TagPrefix registerOreTagPrefix(Rock rockType) {
         var material = GTCEuAPI.materialManager.getMaterial(TFGCore.MOD_ID + ":" + rockType.getSerializedName());
         if (material == null) {
@@ -495,4 +493,5 @@ public final class TFGTagPrefix {
         return tag;
     }
 
+    public static void init() {}
 }

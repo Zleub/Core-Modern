@@ -184,7 +184,6 @@ public final class TFGMaterialHandler {
         var list = Arrays.asList(PigIron, HighCarbonSteel, HighCarbonBlackSteel, HighCarbonRedSteel, HighCarbonBlueSteel, WeakSteel, WeakBlueSteel, WeakRedSteel, Unknown);
 
         for (var item : list) {
-            nugget.setIgnored(item);
             dustTiny.setIgnored(item);
             dustSmall.setIgnored(item);
             dust.setIgnored(item);
@@ -358,7 +357,6 @@ public final class TFGMaterialHandler {
 
         /* Другое */
 
-        // Другое
         Bismuth.setProperty(PropertyKey.ORE, new OreProperty());
         Bismuth.addFlags(EXT2_METAL.toArray(new MaterialFlag[0]));
 

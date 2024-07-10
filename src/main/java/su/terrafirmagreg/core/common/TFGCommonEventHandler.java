@@ -13,7 +13,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import su.terrafirmagreg.core.TFGConfig;
 import su.terrafirmagreg.core.TFGCore;
-import su.terrafirmagreg.core.common.data.TFGDynamicDataPack;
 import su.terrafirmagreg.core.compat.create.CreateCompat;
 import su.terrafirmagreg.core.compat.gtceu.materials.TFGMaterialHandler;
 import su.terrafirmagreg.core.compat.tfcambiental.TFCAmbientalCompat;
@@ -28,7 +27,6 @@ public final class TFGCommonEventHandler {
         bus.addListener(TFGCommonEventHandler::onRegisterMaterialRegistry);
         bus.addListener(TFGCommonEventHandler::onRegisterMaterials);
         bus.addListener(TFGCommonEventHandler::onPostRegisterMaterials);
-        bus.addListener(TFGCommonEventHandler::registerPackFinders);
     }
 
     private static void onRegisterMaterialRegistry(final MaterialRegistryEvent event) {
@@ -49,12 +47,4 @@ public final class TFGCommonEventHandler {
             if (TFGConfig.enableCreateCompat && TFGCore.IsCreatelLoaded()) CreateCompat.register();
         });
     }
-
-     private static void registerPackFinders(final AddPackFindersEvent event) {
-         if (event.getPackType() == PackType.CLIENT_RESOURCES) return;
-
-        event.addRepositorySource(
-                new GTPackSource("tfg:dynamic_data", event.getPackType(), Pack.Position.BOTTOM, TFGDynamicDataPack::new)
-        );
-     }
 }
