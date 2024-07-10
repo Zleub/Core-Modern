@@ -57,8 +57,7 @@
         "client.minecraft.CreateWorldScreenMixin",
         "client.tfc.DoubleIngotPileBlockModelMixin",
         "client.tfc.IngotPileBlockModelMixin",
-        "client.tfc.SheetPileBlockModelMixin",
-        "common.minecraft.CreateWorldScreenMixin"
+        "client.tfc.SheetPileBlockModelMixin"
     ],
     "injectors": {
         "defaultRequire": 1
