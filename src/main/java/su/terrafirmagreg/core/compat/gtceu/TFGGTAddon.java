@@ -36,6 +36,6 @@ public final class TFGGTAddon implements IGTAddon {
 
     @Override
     public void addRecipes(Consumer<FinishedRecipe> provider) {
-        TFGRecipes.init(provider);
+        // TFGRecipes.init(provider);
     }
 }

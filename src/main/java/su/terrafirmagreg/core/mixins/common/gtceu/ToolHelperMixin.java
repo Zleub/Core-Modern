@@ -25,5 +25,4 @@ public abstract class ToolHelperMixin {
             charcoalPileBlock.onDestroyedByPlayer(state, world, pPos, player, true, state.getFluidState());
         }
     }
-
 }

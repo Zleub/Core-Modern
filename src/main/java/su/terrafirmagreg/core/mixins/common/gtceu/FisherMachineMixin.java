@@ -45,8 +45,8 @@ public abstract class FisherMachineMixin  {
     /**
      * Исправляет баг, когда рыболов не тратит нитки.
      * */
-    @Redirect(method = "fishingUpdate", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/api/machine/trait/NotifiableItemStackHandler;extractItem(IIZ)Lnet/minecraft/world/item/ItemStack;"), remap = false)
-    private ItemStack tfg$fishingUpdate$iItemTransfer$extractItem(NotifiableItemStackHandler instance, int i1, int i2, boolean b) {
-        return instance.extractItemInternal(i1, i2, b);
-    }
+//    @Redirect(method = "fishingUpdate", at = @At(value = "INVOKE", target = "Lcom/gregtechceu/gtceu/api/machine/trait/NotifiableItemStackHandler;extractItem(IIZ)Lnet/minecraft/world/item/ItemStack;"), remap = false)
+//    private ItemStack tfg$fishingUpdate$iItemTransfer$extractItem(NotifiableItemStackHandler instance, int i1, int i2, boolean b) {
+//        return instance.extractItemInternal(i1, i2, b);
+//    }
 }

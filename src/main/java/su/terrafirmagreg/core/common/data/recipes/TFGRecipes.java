@@ -422,14 +422,14 @@ public final class TFGRecipes {
                 .EUt(VA[ULV]).duration((int) material.getMass() * 6)
                 .inputItems(ingot, outputMaterial, 14)
                 .notConsumable(GTItems.SHAPE_MOLD_ANVIL)
-                .itemOutputs(anvil)
+                .outputItems(anvil)
                 .save(provider);
 
         FLUID_SOLIDFICATION_RECIPES.recipeBuilder(TFGCore.id(material.getName() + "_anvil_from_fluid"))
                 .EUt(VA[ULV]).duration((int) material.getMass() * 6)
                 .inputFluids(outputMaterial.getFluid(2016))
                 .notConsumable(GTItems.SHAPE_MOLD_ANVIL)
-                .itemOutputs(anvil)
+                .outputItems(anvil)
                 .save(provider);
     }
 
@@ -462,14 +462,14 @@ public final class TFGRecipes {
                 .EUt(VA[ULV]).duration((int) material.getMass() * 7)
                 .inputItems(ingot, outputMaterial)
                 .notConsumable(SHAPE_MOLD_UNFINISHED_LAMP)
-                .itemOutputs(unfinishedLamp)
+                .outputItems(unfinishedLamp)
                 .save(provider);
 
         FLUID_SOLIDFICATION_RECIPES.recipeBuilder(TFGCore.id(material.getName() + "_unfinished_lamp_from_fluid"))
                 .EUt(VA[ULV]).duration((int) material.getMass() * 7)
                 .inputFluids(outputMaterial.getFluid(144))
                 .notConsumable(SHAPE_MOLD_UNFINISHED_LAMP)
-                .itemOutputs(unfinishedLamp)
+                .outputItems(unfinishedLamp)
                 .save(provider);
     }
 
@@ -481,14 +481,14 @@ public final class TFGRecipes {
                 .EUt(VA[ULV]).duration((int) material.getMass() * 6)
                 .inputItems(ingot, outputMaterial)
                 .notConsumable(SHAPE_MOLD_TRAPDOOR)
-                .itemOutputs(trapdoor)
+                .outputItems(trapdoor)
                 .save(provider);
 
         FLUID_SOLIDFICATION_RECIPES.recipeBuilder(TFGCore.id(material.getName() + "_trapdoor_from_fluid"))
                 .EUt(VA[ULV]).duration((int) material.getMass() * 6)
                 .inputFluids(outputMaterial.getFluid(144))
                 .notConsumable(SHAPE_MOLD_TRAPDOOR)
-                .itemOutputs(trapdoor)
+                .outputItems(trapdoor)
                 .save(provider);
     }
 
@@ -500,14 +500,14 @@ public final class TFGRecipes {
                 .EUt(VA[ULV]).duration((int) material.getMass() * 2)
                 .inputItems(ingot, outputMaterial)
                 .notConsumable(SHAPE_MOLD_CHAIN)
-                .itemOutputs(chain.copyWithCount(9))
+                .outputItems(chain.copyWithCount(9))
                 .save(provider);
 
         FLUID_SOLIDFICATION_RECIPES.recipeBuilder(TFGCore.id(material.getName() + "_chain_from_fluid"))
                 .EUt(VA[ULV]).duration((int) material.getMass() * 2)
                 .inputFluids(outputMaterial.getFluid(144))
                 .notConsumable(SHAPE_MOLD_CHAIN)
-                .itemOutputs(chain.copyWithCount(9))
+                .outputItems(chain.copyWithCount(9))
                 .save(provider);
     }
 
@@ -520,14 +520,14 @@ public final class TFGRecipes {
                 .EUt(VA[ULV]).duration((int) material.getMass() * 4)
                 .inputItems(ingot, outputMaterial)
                 .notConsumable(SHAPE_MOLD_BELL)
-                .itemOutputs(bell)
+                .outputItems(bell)
                 .save(provider);
 
         FLUID_SOLIDFICATION_RECIPES.recipeBuilder(TFGCore.id(material.getName() + "_bell_from_fluid"))
                 .EUt(VA[ULV]).duration((int) material.getMass() * 4)
                 .inputFluids(outputMaterial.getFluid(144))
                 .notConsumable(SHAPE_MOLD_BELL)
-                .itemOutputs(bell)
+                .outputItems(bell)
                 .save(provider);
     }
 

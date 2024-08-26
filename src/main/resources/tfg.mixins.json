@@ -13,9 +13,6 @@
         "common.create.DepotBehaviorMixin",
         "common.create.LogStrippingFakeRecipesMixin",
         "common.create.ProcessingRecipeMixin",
-        "common.firmaciv.AngledWoodenBoatFrameBlockMixin",
-        "common.firmaciv.BlockEventHandlerMixin",
-        "common.firmaciv.WoodenBoatFrameBlockMixin",
         "common.flywheel.AnimatedBlazeBurnerMixin",
         "common.gtceu.FisherMachineMixin",
         "common.gtceu.GTOreVeinWidgetMixin",
@@ -47,8 +44,7 @@
         "common.tfc.IIngotPileBlockEntityAccessor",
         "common.tfc.IIngotPileBlockEntityEntryAccessor",
         "common.tfc.IngotPileBlockMixin",
-        "common.tfc.TFCChunkGeneratorMixin",
-        "common.tfcastikocarts.TFCPlowEntityMixin"
+        "common.tfc.TFCChunkGeneratorMixin"
     ],
     "client": [
         "client.ftb.ClientTeamManagerImplMixin",
