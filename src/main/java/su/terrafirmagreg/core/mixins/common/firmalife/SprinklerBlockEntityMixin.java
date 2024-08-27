@@ -1,16 +1,27 @@
 package su.terrafirmagreg.core.mixins.common.firmalife;
 
+import com.eerussianguy.firmalife.common.blockentities.ClimateReceiver;
 import com.eerussianguy.firmalife.common.blockentities.SprinklerBlockEntity;
-import com.gregtechceu.gtceu.api.blockentity.PipeBlockEntity;
-import com.gregtechceu.gtceu.common.blockentity.FluidPipeBlockEntity;
-import com.lowdragmc.lowdraglib.side.fluid.FluidStack;
+import net.dries007.tfc.common.blockentities.TFCBlockEntity;
+import net.dries007.tfc.common.capabilities.FluidTankCallback;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluid;
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.capability.IFluidHandler;
+import net.minecraftforge.fluids.capability.templates.FluidTank;
 import net.minecraftforge.registries.ForgeRegistries;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -21,50 +32,90 @@ import org.spongepowered.asm.mixin.injection.Redirect;
  * Позволяет спринклеру кушать воду из труб GregTech.
  * */
 @Mixin(value = SprinklerBlockEntity.class, remap = false)
-public abstract class SprinklerBlockEntityMixin {
+public abstract class SprinklerBlockEntityMixin extends TFCBlockEntity implements FluidTankCallback, ClimateReceiver {
 
     @Unique
     private static final Fluid tfg$CACHED_WATER = ForgeRegistries.FLUIDS.getValue(new ResourceLocation("minecraft:water"));
 
+    @Unique
+    private final FluidTank tfg$fluidTank = tfg$createFluidTank();
+
+    @Unique
+    private final LazyOptional<IFluidHandler> tfg$fluidHandler = LazyOptional.of(() -> tfg$fluidTank);
+
+    protected SprinklerBlockEntityMixin(BlockEntityType<?> type, BlockPos pos, BlockState state) {
+        super(type, pos, state);
+    }
 
     @Redirect(method = "serverTick", at = @At(value = "INVOKE", target = "Lcom/eerussianguy/firmalife/common/blockentities/SprinklerBlockEntity;searchForFluid(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/core/Direction;)Lnet/minecraft/world/level/material/Fluid;"), remap = false)
     private static Fluid serverTickSearch(Level l1, BlockPos pos1, Direction dir1, Level level, BlockPos pos, BlockState state, SprinklerBlockEntity sprinkler) {
-        var posAbove = pos.above();
-        var pipeAboveEntity = (FluidPipeBlockEntity) level.getBlockEntity(posAbove);
+        if (level.getBlockEntity(pos) instanceof SprinklerBlockEntity sprinklerBlockEntity) {
+            var fluidCapability = sprinklerBlockEntity.getCapability(ForgeCapabilities.FLUID_HANDLER).orElse(null);
 
-        if (pipeAboveEntity != null) {
-            var isConnected = PipeBlockEntity.isConnected(pipeAboveEntity.getConnections(), Direction.DOWN);
+            if (fluidCapability != null) {
+                var drainedFluidStack = fluidCapability.drain(new FluidStack(tfg$CACHED_WATER, 10), IFluidHandler.FluidAction.EXECUTE);
 
-            return tfg$drainFluid(pipeAboveEntity, isConnected);
-        }
+                if (drainedFluidStack.isEmpty()) {
+                    return null;
+                }
 
-        var posBelow = pos.below();
-        var pipeBelowEntity = (FluidPipeBlockEntity) level.getBlockEntity(posBelow);
+                return drainedFluidStack.getFluid();
+            }
 
-        if (pipeBelowEntity != null) {
-            var isConnected = PipeBlockEntity.isConnected(pipeBelowEntity.getConnections(), Direction.UP);
-
-            return tfg$drainFluid(pipeBelowEntity, isConnected);
+            return null;
         }
 
         return null;
     }
 
+
+
     @Unique
-    private static Fluid tfg$drainFluid(FluidPipeBlockEntity pipeEntity, boolean isConnected) {
-        if (!isConnected) return null;
-
-        var tanks = pipeEntity.getFluidTanks();
-
-        for (var tank : tanks) {
-            var drainedFluid =  tank.drain(FluidStack.create(tfg$CACHED_WATER, 10), false);
-
-            if (drainedFluid == FluidStack.empty())
-                return null;
-
-            return drainedFluid.getFluid();
+    public void tfg$loadClient(CompoundTag tag) {
+        if (tag.contains("Fluid")) {
+            tfg$fluidTank.readFromNBT(tag.getCompound("Fluid"));
         }
+    }
 
-        return null;
+    @Unique
+    public void tfg$saveClient(CompoundTag tag) {
+        CompoundTag fluid = new CompoundTag();
+        tfg$fluidTank.writeToNBT(fluid);
+        tag.put("Fluid", fluid);
+    }
+
+    @NotNull
+    @Override
+    public CompoundTag getUpdateTag() {
+        CompoundTag tag = super.getUpdateTag();
+        tfg$saveClient(tag);
+        return tag;
+    }
+
+    @Override
+    public void handleUpdateTag(CompoundTag tag) {
+        if (tag != null) {
+            tfg$loadClient(tag);
+        }
+    }
+
+    @Unique
+    private FluidTank tfg$createFluidTank() {
+        return new FluidTank(1000, (fluid -> fluid.getFluid().is(FluidTags.WATER))) {
+            @Override
+            protected void onContentsChanged() {
+                setChanged();
+            }
+        };
+    }
+
+    @NotNull
+    @Override
+    public <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
+        if (cap == ForgeCapabilities.FLUID_HANDLER) {
+            return tfg$fluidHandler.cast();
+        } else {
+            return super.getCapability(cap, side);
+        }
     }
 }
