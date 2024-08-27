@@ -25,49 +25,49 @@ import su.terrafirmagreg.core.mixins.common.minecraft.IBlockLootSubProviderAcces
 @Mixin(value = MixinHelpers.class, remap = false)
 public abstract class MixinHelpersMixin {
 
-    @Redirect(method = "lambda$generateGTDynamicLoot$23", at = @At(value = "INVOKE", target = "Lnet/minecraft/data/loot/BlockLootSubProvider;createSilkTouchDispatchTable(Lnet/minecraft/world/level/block/Block;Lnet/minecraft/world/level/storage/loot/entries/LootPoolEntryContainer$Builder;)Lnet/minecraft/world/level/storage/loot/LootTable$Builder;"), remap = true)
-    private static LootTable.Builder tfg$lambda$generateGTDynamicLoot$23(Block pBlock, LootPoolEntryContainer.Builder<?> pBuilder, @Local int oreMultiplier, @Local Block block, @Local(argsOnly = true) Material material, @Local(argsOnly = true) TagPrefix.OreType type) {
-
-        var poorDropStack = ChemicalHelper.get(TFGTagPrefix.poorRawOre, material);
-        if (poorDropStack.isEmpty()) poorDropStack = ChemicalHelper.get(TagPrefix.gem, material);
-        if (poorDropStack.isEmpty()) poorDropStack = ChemicalHelper.get(TagPrefix.dust, material);
-
-        var normalDropStack = ChemicalHelper.get(TagPrefix.rawOre, material);
-        if (normalDropStack.isEmpty()) normalDropStack = ChemicalHelper.get(TagPrefix.gem, material);
-        if (normalDropStack.isEmpty()) normalDropStack = ChemicalHelper.get(TagPrefix.dust, material);
-
-        var richDropStack = ChemicalHelper.get(TFGTagPrefix.richRawOre, material);
-        if (richDropStack.isEmpty()) richDropStack = ChemicalHelper.get(TagPrefix.gem, material);
-        if (richDropStack.isEmpty()) richDropStack = ChemicalHelper.get(TagPrefix.dust, material);
-
-        return LootTable.lootTable().withPool(
-                LootPool.lootPool()
-                        .setRolls(ConstantValue.exactly(1.0F))
-                        .add(
-                                AlternativesEntry.alternatives(
-                                                LootItem.lootTableItem(block)
-                                                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 1)))
-                                                        .when(IBlockLootSubProviderAccessor.getHasNoSilkTouchCondition().invert())
-                                        )
-                                        .otherwise(
-                                                EntryGroup.list(
-                                                        LootItem.lootTableItem(poorDropStack.getItem())
-                                                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, Math.max(1, oreMultiplier))))
-                                                                .setWeight(20)
-                                                                .apply(ApplyExplosionDecay.explosionDecay()),
-                                                        LootItem.lootTableItem(normalDropStack.getItem())
-                                                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, Math.max(1, oreMultiplier))))
-                                                                .setWeight(60)
-                                                                .apply(ApplyExplosionDecay.explosionDecay()),
-                                                        LootItem.lootTableItem(richDropStack.getItem())
-                                                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, Math.max(1, oreMultiplier))))
-                                                                .setWeight(20)
-                                                                .apply(ApplyExplosionDecay.explosionDecay())
-                                                )
-
-                                        )
-                        )
-        );
-    }
+//    @Redirect(method = "lambda$generateGTDynamicLoot$23", at = @At(value = "INVOKE", target = "Lnet/minecraft/data/loot/BlockLootSubProvider;createSilkTouchDispatchTable(Lnet/minecraft/world/level/block/Block;Lnet/minecraft/world/level/storage/loot/entries/LootPoolEntryContainer$Builder;)Lnet/minecraft/world/level/storage/loot/LootTable$Builder;"), remap = true)
+//    private static LootTable.Builder tfg$lambda$generateGTDynamicLoot$23(Block pBlock, LootPoolEntryContainer.Builder<?> pBuilder, @Local int oreMultiplier, @Local Block block, @Local(argsOnly = true) Material material, @Local(argsOnly = true) TagPrefix.OreType type) {
+//
+//        var poorDropStack = ChemicalHelper.get(TFGTagPrefix.poorRawOre, material);
+//        if (poorDropStack.isEmpty()) poorDropStack = ChemicalHelper.get(TagPrefix.gem, material);
+//        if (poorDropStack.isEmpty()) poorDropStack = ChemicalHelper.get(TagPrefix.dust, material);
+//
+//        var normalDropStack = ChemicalHelper.get(TagPrefix.rawOre, material);
+//        if (normalDropStack.isEmpty()) normalDropStack = ChemicalHelper.get(TagPrefix.gem, material);
+//        if (normalDropStack.isEmpty()) normalDropStack = ChemicalHelper.get(TagPrefix.dust, material);
+//
+//        var richDropStack = ChemicalHelper.get(TFGTagPrefix.richRawOre, material);
+//        if (richDropStack.isEmpty()) richDropStack = ChemicalHelper.get(TagPrefix.gem, material);
+//        if (richDropStack.isEmpty()) richDropStack = ChemicalHelper.get(TagPrefix.dust, material);
+//
+//        return LootTable.lootTable().withPool(
+//                LootPool.lootPool()
+//                        .setRolls(ConstantValue.exactly(1.0F))
+//                        .add(
+//                                AlternativesEntry.alternatives(
+//                                                LootItem.lootTableItem(block)
+//                                                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 1)))
+//                                                        .when(IBlockLootSubProviderAccessor.getHasNoSilkTouchCondition().invert())
+//                                        )
+//                                        .otherwise(
+//                                                EntryGroup.list(
+//                                                        LootItem.lootTableItem(poorDropStack.getItem())
+//                                                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, Math.max(1, oreMultiplier))))
+//                                                                .setWeight(20)
+//                                                                .apply(ApplyExplosionDecay.explosionDecay()),
+//                                                        LootItem.lootTableItem(normalDropStack.getItem())
+//                                                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, Math.max(1, oreMultiplier))))
+//                                                                .setWeight(60)
+//                                                                .apply(ApplyExplosionDecay.explosionDecay()),
+//                                                        LootItem.lootTableItem(richDropStack.getItem())
+//                                                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, Math.max(1, oreMultiplier))))
+//                                                                .setWeight(20)
+//                                                                .apply(ApplyExplosionDecay.explosionDecay())
+//                                                )
+//
+//                                        )
+//                        )
+//        );
+//    }
 
 }
