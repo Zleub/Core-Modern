@@ -13,6 +13,7 @@
         "common.create.DepotBehaviorMixin",
         "common.create.LogStrippingFakeRecipesMixin",
         "common.create.ProcessingRecipeMixin",
+        "common.firmalife.SprinklerBlockEntityMixin",
         "common.flywheel.AnimatedBlazeBurnerMixin",
         "common.gtceu.FisherMachineMixin",
         "common.gtceu.GTOreVeinWidgetMixin",
