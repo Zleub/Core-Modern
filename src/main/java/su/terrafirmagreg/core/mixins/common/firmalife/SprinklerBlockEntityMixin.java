@@ -2,6 +2,7 @@ package su.terrafirmagreg.core.mixins.common.firmalife;
 
 import com.eerussianguy.firmalife.common.blockentities.ClimateReceiver;
 import com.eerussianguy.firmalife.common.blockentities.SprinklerBlockEntity;
+import com.eerussianguy.firmalife.common.blocks.greenhouse.SprinklerBlock;
 import net.dries007.tfc.common.blockentities.TFCBlockEntity;
 import net.dries007.tfc.common.capabilities.FluidTankCallback;
 import net.minecraft.core.BlockPos;
@@ -10,6 +11,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluid;
@@ -50,7 +52,9 @@ public abstract class SprinklerBlockEntityMixin extends TFCBlockEntity implement
     @Redirect(method = "serverTick", at = @At(value = "INVOKE", target = "Lcom/eerussianguy/firmalife/common/blockentities/SprinklerBlockEntity;searchForFluid(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/core/Direction;)Lnet/minecraft/world/level/material/Fluid;"), remap = false)
     private static Fluid serverTickSearch(Level l1, BlockPos pos1, Direction dir1, Level level, BlockPos pos, BlockState state, SprinklerBlockEntity sprinkler) {
         if (level.getBlockEntity(pos) instanceof SprinklerBlockEntity sprinklerBlockEntity) {
-            var fluidCapability = sprinklerBlockEntity.getCapability(ForgeCapabilities.FLUID_HANDLER).orElse(null);
+            var fluidCapability = sprinklerBlockEntity
+                    .getCapability(ForgeCapabilities.FLUID_HANDLER, tfg$getDirectionForFluidOperating(state))
+                    .orElse(null);
 
             if (fluidCapability != null) {
                 var drainedFluidStack = fluidCapability.drain(new FluidStack(tfg$CACHED_WATER, 10), IFluidHandler.FluidAction.EXECUTE);
@@ -68,7 +72,10 @@ public abstract class SprinklerBlockEntityMixin extends TFCBlockEntity implement
         return null;
     }
 
-
+    @Unique
+    private static Direction tfg$getDirectionForFluidOperating(BlockState state) {
+        return state.getBlock() instanceof SprinklerBlock ? Direction.UP : Direction.DOWN;
+    }
 
     @Unique
     public void tfg$loadClient(CompoundTag tag) {
@@ -113,9 +120,11 @@ public abstract class SprinklerBlockEntityMixin extends TFCBlockEntity implement
     @Override
     public <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
         if (cap == ForgeCapabilities.FLUID_HANDLER) {
-            return tfg$fluidHandler.cast();
-        } else {
-            return super.getCapability(cap, side);
+            if (side == Direction.UP || side == Direction.DOWN) {
+                return tfg$fluidHandler.cast();
+            }
+            return LazyOptional.empty();
         }
+        return super.getCapability(cap, side);
     }
 }
