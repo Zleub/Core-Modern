@@ -1,35 +1,8 @@
 package su.terrafirmagreg.core.common.data.recipes;
 
-import com.gregtechceu.gtceu.api.GTCEuAPI;
-import com.gregtechceu.gtceu.api.GTValues;
-import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
-import com.gregtechceu.gtceu.api.data.chemical.material.Material;
-import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
-import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
-import com.gregtechceu.gtceu.common.data.GTItems;
-import com.gregtechceu.gtceu.data.recipe.VanillaRecipeHelper;
-import com.gregtechceu.gtceu.data.recipe.generated.RecyclingRecipeHandler;
-import com.tterrag.registrate.util.entry.ItemEntry;
-import net.dries007.tfc.common.items.TFCItems;
 import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import su.terrafirmagreg.core.TFGCore;
-import su.terrafirmagreg.core.common.TFGItems;
-import su.terrafirmagreg.core.compat.gtceu.materials.TFGMaterialFlags;
-import su.terrafirmagreg.core.compat.gtceu.TFGPropertyKeys;
-import su.terrafirmagreg.core.compat.gtceu.properties.TFCProperty;
 
 import java.util.function.Consumer;
-
-import static com.gregtechceu.gtceu.api.GTValues.*;
-import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
-import static com.gregtechceu.gtceu.common.data.GTItems.*;
-import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
-import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.*;
-import static su.terrafirmagreg.core.common.TFGItems.*;
-import static su.terrafirmagreg.core.compat.gtceu.materials.TFGMaterials.*;
-import static su.terrafirmagreg.core.compat.gtceu.TFGTagPrefix.*;
 
 public final class TFGRecipes {
 
