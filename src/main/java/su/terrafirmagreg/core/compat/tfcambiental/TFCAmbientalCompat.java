@@ -30,7 +30,6 @@ public final class TFCAmbientalCompat {
             );
         }
 
-
         /* Паровые машины */
         AmbientalRegistry.BLOCKS.register((player, blockPos, state) -> Optional.of(new TempModifier("hp_steam_solid_boiler", 5.0F, 2.0F)).filter((mod) -> {
             var isTargetBlock = state.getBlock() == GTMachines.STEAM_SOLID_BOILER.right().getBlock();

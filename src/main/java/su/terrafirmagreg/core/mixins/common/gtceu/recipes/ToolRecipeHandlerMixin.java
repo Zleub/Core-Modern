@@ -1,24 +1,7 @@
 package su.terrafirmagreg.core.mixins.common.gtceu.recipes;
 
-import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
-import com.gregtechceu.gtceu.api.data.chemical.material.Material;
-import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
-import com.gregtechceu.gtceu.api.data.chemical.material.stack.UnificationEntry;
-import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
-import com.gregtechceu.gtceu.api.item.tool.GTToolType;
-import com.gregtechceu.gtceu.api.item.tool.ToolHelper;
 import com.gregtechceu.gtceu.data.recipe.generated.ToolRecipeHandler;
-import net.minecraft.data.recipes.FinishedRecipe;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Redirect;
-import su.terrafirmagreg.core.common.data.TFGTags;
-import su.terrafirmagreg.core.common.data.recipes.builders.tfc.TFGAdvancedShapedToolRecipeBuilder;
-import su.terrafirmagreg.core.compat.gtceu.TFGTagPrefix;
-import su.terrafirmagreg.core.compat.gtceu.materials.TFGMaterialFlags;
-
-import java.util.function.Consumer;
 
 import static com.gregtechceu.gtceu.data.recipe.generated.ToolRecipeHandler.addToolRecipe;
 
