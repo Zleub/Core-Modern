@@ -319,7 +319,9 @@ public final class TFGMaterialHandler {
         blockPlated.setIgnored(RoseGold, () -> TFCBlocks.METALS.get(Metal.Default.ROSE_GOLD).get(Metal.BlockType.BLOCK).get());
         blockPlated.setIgnored(Silver, () -> TFCBlocks.METALS.get(Metal.Default.SILVER).get(Metal.BlockType.BLOCK).get());
         blockPlated.setIgnored(Tin, () -> TFCBlocks.METALS.get(Metal.Default.TIN).get(Metal.BlockType.BLOCK).get());
-        blockPlated.setIgnored(SterlingSilver, () -> TFCBlocks.METALS.get(Metal.Default.STERLING_SILVER).get(Metal.BlockType.BLOCK).get());
+        stairPlated.setIgnored(SterlingSilver, () -> TFCBlocks.METALS.get(Metal.Default.STERLING_SILVER).get(Metal.BlockType.BLOCK).get());
+        blockPlated.setIgnored(Bismuth, () -> TFCBlocks.METALS.get(Metal.Default.STERLING_SILVER).get(Metal.BlockType.BLOCK).get());
+        blockPlated.setIgnored(Zinc, () -> TFCBlocks.METALS.get(Metal.Default.STERLING_SILVER).get(Metal.BlockType.BLOCK).get());
 
         stairPlated.setIgnored(Copper, () -> TFCBlocks.METALS.get(Metal.Default.COPPER).get(Metal.BlockType.BLOCK_STAIRS).get());
         stairPlated.setIgnored(BismuthBronze, () -> TFCBlocks.METALS.get(Metal.Default.BISMUTH_BRONZE).get(Metal.BlockType.BLOCK_STAIRS).get());
@@ -337,6 +339,8 @@ public final class TFGMaterialHandler {
         stairPlated.setIgnored(Silver, () -> TFCBlocks.METALS.get(Metal.Default.SILVER).get(Metal.BlockType.BLOCK_STAIRS).get());
         stairPlated.setIgnored(Tin, () -> TFCBlocks.METALS.get(Metal.Default.TIN).get(Metal.BlockType.BLOCK_STAIRS).get());
         stairPlated.setIgnored(SterlingSilver, () -> TFCBlocks.METALS.get(Metal.Default.STERLING_SILVER).get(Metal.BlockType.BLOCK_STAIRS).get());
+        stairPlated.setIgnored(Bismuth, () -> TFCBlocks.METALS.get(Metal.Default.STERLING_SILVER).get(Metal.BlockType.BLOCK_STAIRS).get());
+        stairPlated.setIgnored(Zinc, () -> TFCBlocks.METALS.get(Metal.Default.STERLING_SILVER).get(Metal.BlockType.BLOCK_STAIRS).get());
 
         slabPlated.setIgnored(Copper, () -> TFCBlocks.METALS.get(Metal.Default.COPPER).get(Metal.BlockType.BLOCK_SLAB).get());
         slabPlated.setIgnored(BismuthBronze, () -> TFCBlocks.METALS.get(Metal.Default.BISMUTH_BRONZE).get(Metal.BlockType.BLOCK_SLAB).get());
@@ -354,6 +358,8 @@ public final class TFGMaterialHandler {
         slabPlated.setIgnored(Silver, () -> TFCBlocks.METALS.get(Metal.Default.SILVER).get(Metal.BlockType.BLOCK_SLAB).get());
         slabPlated.setIgnored(Tin, () -> TFCBlocks.METALS.get(Metal.Default.TIN).get(Metal.BlockType.BLOCK_SLAB).get());
         slabPlated.setIgnored(SterlingSilver, () -> TFCBlocks.METALS.get(Metal.Default.STERLING_SILVER).get(Metal.BlockType.BLOCK_SLAB).get());
+        slabPlated.setIgnored(Bismuth, () -> TFCBlocks.METALS.get(Metal.Default.STERLING_SILVER).get(Metal.BlockType.BLOCK_SLAB).get());
+        slabPlated.setIgnored(Zinc, () -> TFCBlocks.METALS.get(Metal.Default.STERLING_SILVER).get(Metal.BlockType.BLOCK_SLAB).get());
 
         oreSmall.setIgnored(Bismuthinite, () -> TFCBlocks.SMALL_ORES.get(Ore.BISMUTHINITE).get());
         oreSmall.setIgnored(Cassiterite, () -> TFCBlocks.SMALL_ORES.get(Ore.CASSITERITE).get());
@@ -368,8 +374,6 @@ public final class TFGMaterialHandler {
         oreSmallNative.setIgnored(Copper, () -> TFCBlocks.SMALL_ORES.get(Ore.NATIVE_COPPER).get());
         oreSmallNative.setIgnored(Gold, () -> TFCBlocks.SMALL_ORES.get(Ore.NATIVE_GOLD).get());
         oreSmallNative.setIgnored(Silver, () -> TFCBlocks.SMALL_ORES.get(Ore.NATIVE_SILVER).get());
-
-
 
         /* Имеют колоколы */
         Gold.addFlags(GENERATE_BELL);
