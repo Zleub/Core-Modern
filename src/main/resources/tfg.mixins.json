@@ -13,6 +13,7 @@
         "common.create.DepotBehaviorMixin",
         "common.create.LogStrippingFakeRecipesMixin",
         "common.create.ProcessingRecipeMixin",
+        "common.emi.ItemEmiStackMixin",
         "common.firmalife.SprinklerBlockEntityMixin",
         "common.firmalife.SprinklerItemMixin",
         "common.flywheel.AnimatedBlazeBurnerMixin",
