@@ -6,6 +6,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -26,7 +27,7 @@ public final class TFGHelpers {
         if (material == null) {
             material = GTCEuAPI.materialManager.getMaterial(TFGCore.MOD_ID + ":" + materialName);
         }
-
+        
         return material;
     }
 

@@ -10,6 +10,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 public final class TFGTags {
 
     public static final class Items {
+        public static final TagKey<Item> Hammers = createItemTag("forge:tools/hammers");
+
         public static final TagKey<Item> Strings = createItemTag("forge:string");
         public static final TagKey<Item> WoodenSticks = createItemTag("forge:rods/wooden");
         public static final TagKey<Item> RawRockBlocks = createItemTag("tfc:rock/raw");
