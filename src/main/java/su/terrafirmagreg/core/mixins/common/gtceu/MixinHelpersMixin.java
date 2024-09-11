@@ -32,7 +32,7 @@ import su.terrafirmagreg.core.mixins.common.minecraft.IBlockLootSubProviderAcces
 @Mixin(value = MixinHelpers.class, remap = false)
 public abstract class MixinHelpersMixin {
 
-    @Redirect(method = "lambda$generateGTDynamicLoot$23", at = @At(value = "INVOKE", target = "Lnet/minecraft/data/loot/BlockLootSubProvider;createSilkTouchDispatchTable(Lnet/minecraft/world/level/block/Block;Lnet/minecraft/world/level/storage/loot/entries/LootPoolEntryContainer$Builder;)Lnet/minecraft/world/level/storage/loot/LootTable$Builder;"), remap = true)
+    @Redirect(method = "lambda$generateGTDynamicLoot$25", at = @At(value = "INVOKE", target = "Lnet/minecraft/data/loot/BlockLootSubProvider;createSilkTouchDispatchTable(Lnet/minecraft/world/level/block/Block;Lnet/minecraft/world/level/storage/loot/entries/LootPoolEntryContainer$Builder;)Lnet/minecraft/world/level/storage/loot/LootTable$Builder;"), remap = true)
     private static LootTable.Builder tfg$lambda$generateGTDynamicLoot$23(Block pBlock, LootPoolEntryContainer.Builder<?> pBuilder, @Local int oreMultiplier, @Local Block block, @Local(argsOnly = true) Material material, @Local(argsOnly = true) TagPrefix.OreType type) {
 
         var crushedOre = ChemicalHelper.get(TagPrefix.crushed, material);
