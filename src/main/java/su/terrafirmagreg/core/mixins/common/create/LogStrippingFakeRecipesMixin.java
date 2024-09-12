@@ -25,6 +25,11 @@ public abstract class LogStrippingFakeRecipesMixin {
     @Unique
     private static final ItemStack tfg$ToolStack = ToolHelper.get(GTToolType.AXE, GTMaterials.Neutronium);
 
+//    @Redirect(method = "process", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/AxeItem;getAxeStrippingState(Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/block/state/BlockState;"), remap = false)
+//    private static BlockState tfg$process$getAxeStrippingState(BlockState originalState) {
+//        return tfg$isBlockStrippable(originalState);
+//    }
+
     //    @Redirect(method = "createRecipes", at = @At(value = "INVOKE", target = "Lnet/minecraftforge/registries/tags/ITagManager;getTag(Lnet/minecraft/tags/TagKey;)Lnet/minecraftforge/registries/tags/ITag;"), remap = false)
     //    private static ITag<Item> tfg$createRecipes$getTag(ITagManager<Item> instance, @NotNull TagKey<Item> vTagKey) {
     //        return instance.getTag(TFGTags.Items.createItemTag("tfc:log_pile_logs"));

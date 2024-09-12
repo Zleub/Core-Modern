@@ -183,7 +183,7 @@ dependencies {
     // EMI
 //    compileOnly fg.deobf("dev.emi:emi-forge:1.1.12+1.20.1:api")
 //    runtimeOnly fg.deobf("dev.emi:emi-forge:1.1.12+1.20.1")
-    implementation fg.deobf("dev.emi:emi-forge:1.1.12+1.20.1")
+    implementation fg.deobf("dev.emi:emi-forge:1.1.13+1.20.1")
 
     // Create
     implementation fg.deobf("com.jozufozu.flywheel:flywheel-forge-1.20.1:0.6.10-10")
@@ -194,7 +194,7 @@ dependencies {
 
     // GTM
     implementation fg.deobf("maven.modrinth:ldlib:mc1.20.1-1.0.27.b-forge")
-    implementation fg.deobf("curse.maven:gregtechceu-modern-890405:5713447") { transitive = false }
+    implementation fg.deobf("curse.maven:gregtechceu-modern-890405:5713446") { transitive = false }
 
     // KJS
     implementation fg.deobf("maven.modrinth:rhino:2001.2.2-build.18+forge")

@@ -96,6 +96,8 @@ public final class TFGTagPrefix {
         // Для начала удаляем греговское дерьмо
         // После добавляем наши вкусные стоунтайпы
 
+        TagPrefix.ORES.remove(TagPrefix.rawOreBlock);
+
         TagPrefix.ORES.remove(TagPrefix.ore);
         TagPrefix.ORES.remove(TagPrefix.oreDeepslate);
         TagPrefix.ORES.remove(TagPrefix.oreTuff);

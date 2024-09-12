@@ -6,8 +6,6 @@ import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.core.MixinHelpers;
 import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.advancements.critereon.ItemPredicate;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -33,7 +31,7 @@ import su.terrafirmagreg.core.mixins.common.minecraft.IBlockLootSubProviderAcces
 public abstract class MixinHelpersMixin {
 
     @Redirect(method = "lambda$generateGTDynamicLoot$25", at = @At(value = "INVOKE", target = "Lnet/minecraft/data/loot/BlockLootSubProvider;createSilkTouchDispatchTable(Lnet/minecraft/world/level/block/Block;Lnet/minecraft/world/level/storage/loot/entries/LootPoolEntryContainer$Builder;)Lnet/minecraft/world/level/storage/loot/LootTable$Builder;"), remap = true)
-    private static LootTable.Builder tfg$lambda$generateGTDynamicLoot$23(Block pBlock, LootPoolEntryContainer.Builder<?> pBuilder, @Local int oreMultiplier, @Local Block block, @Local(argsOnly = true) Material material, @Local(argsOnly = true) TagPrefix.OreType type) {
+    private static LootTable.Builder tfg$lambda$generateGTDynamicLoot$25(Block pBlock, LootPoolEntryContainer.Builder<?> pBuilder, @Local int oreMultiplier, @Local Block block, @Local(argsOnly = true) Material material, @Local(argsOnly = true) TagPrefix.OreType type) {
 
         var crushedOre = ChemicalHelper.get(TagPrefix.crushed, material);
 

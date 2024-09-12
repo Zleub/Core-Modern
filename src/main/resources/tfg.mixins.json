@@ -11,7 +11,6 @@
         "common.create.BasinBlockEntityMixin",
         "common.create.BasinCategoryMixin",
         "common.create.DepotBehaviorMixin",
-        "common.create.LogStrippingFakeRecipesMixin",
         "common.create.ProcessingRecipeMixin",
         "common.emi.ItemEmiStackMixin",
         "common.firmalife.SprinklerBlockEntityMixin",
