@@ -5,11 +5,13 @@ import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 import com.mojang.logging.LogUtils;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.fml.IExtensionPoint;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.loading.FMLEnvironment;
+import net.minecraftforge.network.NetworkConstants;
 import org.slf4j.Logger;
 import su.terrafirmagreg.core.client.TFGClientEventHandler;
 import su.terrafirmagreg.core.common.TFGCommonEventHandler;
@@ -28,6 +30,8 @@ public final class TFGCore {
 
         TFGCommonEventHandler.init();
         if (FMLEnvironment.dist == Dist.CLIENT) TFGClientEventHandler.init();
+
+        setupFixForGlobalServerConfig();
     }
 
     public static boolean IsAe2Loaded() {
@@ -60,5 +64,12 @@ public final class TFGCore {
 
     public static ResourceLocation id(String name) {
         return new ResourceLocation(MOD_ID, name);
+    }
+
+    private static void setupFixForGlobalServerConfig() {
+        ModLoadingContext.get().registerExtensionPoint(
+                IExtensionPoint.DisplayTest.class,
+                () -> new IExtensionPoint.DisplayTest(() -> NetworkConstants.IGNORESERVERONLY, (a, b) -> true)
+        );
     }
 }

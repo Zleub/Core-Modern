@@ -41,6 +41,7 @@
         "common.minecraft.IUseOnContextInvoker",
         "common.minecraft.NetherPortalBlockMixin",
         "common.minecraft.ServerAdvancementManagerMixin",
+        "common.minecraft.ServerLifecycleHooksMixin",
         "common.tfc.CharcoalForgeBlockMixin",
         "common.tfc.CrucibleBlockMixin",
         "common.tfc.IIngotPileBlockEntityAccessor",
