@@ -12,8 +12,7 @@ import su.terrafirmagreg.core.TFGCore;
 
 import java.util.Objects;
 
-public class TFGMaterialInfoModification
-		extends EventJS {
+public class TFGMaterialInfoModification extends EventJS {
 
 	/**
 	 * Добавляет информацию о материале для указанного предмета.
