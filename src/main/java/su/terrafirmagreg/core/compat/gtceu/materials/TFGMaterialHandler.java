@@ -423,7 +423,6 @@ public final class TFGMaterialHandler {
         TinAlloy.addFlags(GENERATE_DOUBLE_INGOTS);
 
         /* Другое */
-
         Bismuth.setProperty(PropertyKey.ORE, new OreProperty());
         Bismuth.addFlags(EXT2_METAL.toArray(new MaterialFlag[0]));
 

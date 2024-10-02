@@ -16,7 +16,7 @@ public abstract class ServerLifecycleHooksMixin {
 
     @Inject(method = "getServerConfigPath", at = @At("HEAD"), remap = false, cancellable = true)
     private static void tfg$getServerConfigPath(MinecraftServer server, CallbackInfoReturnable<Path> cir) {
-        var globalServerConfigsPath = FMLPaths.getOrCreateGameRelativePath(Paths.get("global-server-configs"));
+        var globalServerConfigsPath = FMLPaths.getOrCreateGameRelativePath(Paths.get("defaultconfigs"));
         cir.setReturnValue(globalServerConfigsPath);
     }
 }
