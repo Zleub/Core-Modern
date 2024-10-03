@@ -23,6 +23,8 @@ public final class TFGTags {
 
     public static final class Blocks {
         public static final TagKey<Block> RawRockBlocks = createBlockTag("tfc:rock/raw");
+        public static final TagKey<Block> GrassPlantableOn = createBlockTag("tfc:grass_plantable_on");
+        public static final TagKey<Block> Logs = createBlockTag("minecraft:logs");
 
         public static TagKey<Block> createBlockTag(String path) {
             return TagKey.create(ForgeRegistries.BLOCKS.getRegistryKey(), new ResourceLocation(path));

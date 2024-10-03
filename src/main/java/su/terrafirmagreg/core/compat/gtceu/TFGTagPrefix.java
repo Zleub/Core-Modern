@@ -113,7 +113,6 @@ public final class TFGTagPrefix {
         TagPrefix.ORES.remove(TagPrefix.oreGranite);
 
         /* Stone Types */
-
         oreGabbro = registerOreTagPrefix(Rock.GABBRO);
         oreShale = registerOreTagPrefix(Rock.SHALE);
         oreClaystone = registerOreTagPrefix(Rock.CLAYSTONE);
