@@ -55,7 +55,6 @@
     "client": [
         "client.ftb.ClientTeamManagerImplMixin",
         "client.gtceu.ISurfaceRockRendererAccessor",
-        "client.gtceu.SurfaceRockRendererMixin",
         "client.minecraft.CreateWorldScreenMixin",
         "client.tfc.DoubleIngotPileBlockModelMixin",
         "client.tfc.IngotPileBlockModelMixin",
