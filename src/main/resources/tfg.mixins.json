@@ -6,6 +6,7 @@
     "compatibilityLevel": "JAVA_17",
     "mixins": [
         "client.minecraft.IBlockModelGeneratorsInvoker",
+        "common.beneath.PortalUtilMixin",
         "common.cc.JEIComputerCraftMixin",
         "common.cc.ModRegistryMixin",
         "common.create.BasinBlockEntityMixin",
