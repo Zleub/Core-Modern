@@ -9,7 +9,10 @@ import com.lowdragmc.lowdraglib.gui.widget.WidgetGroup;
 import com.lowdragmc.lowdraglib.jei.IngredientIO;
 import com.lowdragmc.lowdraglib.utils.CycleItemStackHandler;
 import com.lowdragmc.lowdraglib.utils.LocalizationUtils;
+import net.dries007.tfc.common.blocks.TFCBlocks;
+import net.dries007.tfc.common.blocks.rock.Rock;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -34,7 +37,7 @@ public abstract class GTOreVeinWidgetMixin extends WidgetGroup {
      * Для того, чтобы в gui рудных жил отображались все виды руды (бедная, нормальная, богатая), а не только нормальная.
      * */
     @Inject(method = "setupBaseGui(Lcom/gregtechceu/gtceu/api/data/worldgen/GTOreDefinition;)V", at = @At(value = "HEAD"), remap = false, cancellable = true)
-    private void tfg$setupBaseGui(GTOreDefinition oreDefinition, CallbackInfo ci){
+    private void tfg$setupBaseGui(GTOreDefinition oreDefinition, CallbackInfo ci) {
         List<Integer> chances = oreDefinition.veinGenerator().getAllChances();
 
         var oreLists = tfg$getOreRawOres(oreDefinition);
@@ -49,6 +52,22 @@ public abstract class GTOreVeinWidgetMixin extends WidgetGroup {
             oreSlot.setIngredientIO(IngredientIO.OUTPUT);
             addWidget(oreSlot);
             x += 18;
+        }
+
+        // Породы для руд на земле
+        if (oreDefinition.dimensionFilter().contains(ServerLevel.OVERWORLD)) {
+            var stoneTypeBlocksList = new ArrayList<ItemStack>();
+
+            for (final var stoneType : Rock.values()) {
+                final var block = TFCBlocks.ROCK_BLOCKS.get(stoneType).get(Rock.BlockType.RAW).get();
+
+                if (oreDefinition.layer().getTarget().test(block.defaultBlockState(), null)) {
+                    stoneTypeBlocksList.add(new ItemStack(block));
+                }
+            }
+
+            var stoneTypeSlot = new SlotWidget(new CycleItemStackHandler(List.of(stoneTypeBlocksList)), 0, 5, 98, false, false);
+            addWidget(stoneTypeSlot);
         }
 
         ci.cancel();

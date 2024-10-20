@@ -65,13 +65,55 @@ description='''${mod_description}'''
 [[dependencies."${mod_id}"]]
 modId = "gtceu"
 mandatory = true
-versionRange = "1.3.0-a"
+versionRange = "1.4.6"
 ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies."${mod_id}"]]
 modId = "tfc"
 mandatory = true
-versionRange = "3.2.4"
+versionRange = "3.2.7"
 ordering = "AFTER"
 side = "BOTH"
+
+#[[dependencies."${mod_id}"]]
+#modId = "create"
+#mandatory = true
+#versionRange = "0.5.1.h"
+#ordering = "AFTER"
+#side = "BOTH"
+#
+#[[dependencies."${mod_id}"]]
+#modId = "firmalife"
+#mandatory = true
+#versionRange = "2.1.10"
+#ordering = "AFTER"
+#side = "BOTH"
+#
+#[[dependencies."${mod_id}"]]
+#modId = "beneath"
+#mandatory = true
+#versionRange = "1.0.1"
+#ordering = "AFTER"
+#side = "BOTH"
+#
+#[[dependencies."${mod_id}"]]
+#modId = "tfcastikorcarts"
+#mandatory = true
+#versionRange = "1.1.8.2"
+#ordering = "AFTER"
+#side = "BOTH"
+#
+#[[dependencies."${mod_id}"]]
+#modId = "ftbteams"
+#mandatory = true
+#versionRange = "2001.3.0"
+#ordering = "AFTER"
+#side = "BOTH"
+#
+#[[dependencies."${mod_id}"]]
+#modId = "emi"
+#mandatory = true
+#versionRange = "1.1.14+1.20.1+forge"
+#ordering = "NONE"
+#side = "BOTH"
