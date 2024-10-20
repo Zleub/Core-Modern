@@ -437,7 +437,7 @@ public final class TFGMaterialHandler {
         RedSteel.addFlags(GENERATE_LONG_ROD, GENERATE_BOLT_SCREW);
         WroughtIron.addFlags(GENERATE_ROTOR, GENERATE_SPRING, GENERATE_SMALL_GEAR);
 
-        Copper.addFlags(GENERATE_BOLT_SCREW);
+        Copper.addFlags(GENERATE_BOLT_SCREW, GENERATE_FRAME);
         DamascusSteel.addFlags(GENERATE_BOLT_SCREW);
         Duranium.addFlags(GENERATE_BOLT_SCREW);
 

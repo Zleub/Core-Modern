@@ -8,8 +8,10 @@ import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconType;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
 import com.gregtechceu.gtceu.api.data.chemical.material.stack.MaterialStack;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
+import com.gregtechceu.gtceu.api.data.tag.TagUtil;
 import com.gregtechceu.gtceu.api.item.tool.GTToolType;
 import com.gregtechceu.gtceu.common.data.GTItems;
+import com.gregtechceu.gtceu.utils.FormattingUtil;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.common.blocks.TFCBlocks;
 import net.dries007.tfc.common.blocks.rock.Rock;
@@ -19,6 +21,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import su.terrafirmagreg.core.TFGCore;
+import su.terrafirmagreg.core.common.data.TFGTags;
 import su.terrafirmagreg.core.compat.gtceu.materials.TFGMaterialFlags;
 import su.terrafirmagreg.core.compat.gtceu.materials.TFGMaterialIconType;
 
@@ -466,10 +469,10 @@ public final class TFGTagPrefix {
         TagPrefix.pipeNonupleFluid.unformattedTagPath("nonuple_fluid_pipes");
 
         // FirmaLife Shit
-        TagPrefix.pipeTinyFluid.unformattedTagPath("firmalife:always_valid_greenhouse_wall");
-        TagPrefix.pipeSmallFluid.unformattedTagPath("firmalife:always_valid_greenhouse_wall");
-        TagPrefix.pipeNormalFluid.unformattedTagPath("firmalife:always_valid_greenhouse_wall");
-        TagPrefix.pipeLargeFluid.unformattedTagPath("firmalife:always_valid_greenhouse_wall");
+        TagPrefix.pipeTinyFluid.customTagPath("", (prefix, mat) -> TFGTags.Items.createItemTag("firmalife:always_valid_greenhouse_wall"));
+        TagPrefix.pipeSmallFluid.customTagPath("", (prefix, mat) -> TFGTags.Items.createItemTag("firmalife:always_valid_greenhouse_wall"));
+        TagPrefix.pipeNormalFluid.customTagPath("", (prefix, mat) -> TFGTags.Items.createItemTag("firmalife:always_valid_greenhouse_wall"));
+        TagPrefix.pipeLargeFluid.customTagPath("", (prefix, mat) -> TFGTags.Items.createItemTag("firmalife:always_valid_greenhouse_wall"));
         // FirmaLife Shit
 
         TagPrefix.pipeSmallItem.defaultTagPath("small_item_pipes/%s");
