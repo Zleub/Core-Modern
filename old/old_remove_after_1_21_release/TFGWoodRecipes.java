@@ -552,7 +552,7 @@
 //
 //            // =========================== Tracks =========================== //
 //
-//            if (TFGCore.IsSteamAndRailsLoaded()) {
+//            if (Mods.SteamAndRails.isLoaded()) {
 //                var narrowTrack = getItem("railways:track_tfc_" + woodName + "_narrow");
 //                var normalTrack = getItem("railways:track_tfc_" + woodName);
 //                var wideTrack = getItem("railways:track_tfc_" + woodName + "_wide");

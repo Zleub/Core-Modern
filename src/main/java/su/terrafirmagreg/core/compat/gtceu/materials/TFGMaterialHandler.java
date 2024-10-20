@@ -18,20 +18,17 @@ import net.minecraft.world.level.block.Blocks;
 import su.terrafirmagreg.core.TFGCore;
 import su.terrafirmagreg.core.compat.gtceu.TFGPropertyKeys;
 import su.terrafirmagreg.core.compat.gtceu.properties.TFCProperty;
+import su.terrafirmagreg.core.utils.Mods;
 
 import java.util.Arrays;
 
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.*;
-import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialFlags.GENERATE_BOLT_SCREW;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet.CERTUS;
 import static com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconSet.ROUGH;
 import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.*;
-import static com.gregtechceu.gtceu.api.data.tag.TagPrefix.block;
 import static com.gregtechceu.gtceu.common.data.GTMaterials.*;
 import static su.terrafirmagreg.core.compat.gtceu.TFGTagPrefix.*;
-import static su.terrafirmagreg.core.compat.gtceu.TFGTagPrefix.bell;
 import static su.terrafirmagreg.core.compat.gtceu.materials.TFGMaterialFlags.*;
-import static su.terrafirmagreg.core.compat.gtceu.materials.TFGMaterialFlags.GENERATE_DOUBLE_INGOTS;
 import static su.terrafirmagreg.core.compat.gtceu.materials.TFGMaterials.*;
 
 public final class TFGMaterialHandler {
@@ -461,13 +458,13 @@ public final class TFGMaterialHandler {
         }
 
         /* AE 2 */
-        if (TFGCore.IsAe2Loaded()) {
+        if (Mods.AE2.isLoaded()) {
             block.setIgnored(Fluix, () -> AEBlocks.FLUIX_BLOCK);
             dust.setIgnored(Fluix, () -> AEItems.FLUIX_DUST);
             gem.setIgnored(Fluix, () -> AEItems.FLUIX_CRYSTAL);
 
             block.setIgnored(CertusQuartz, () -> AEBlocks.QUARTZ_BLOCK);
-            dust.setIgnored(CertusQuartz,() -> AEItems.CERTUS_QUARTZ_DUST);
+            dust.setIgnored(CertusQuartz, () -> AEItems.CERTUS_QUARTZ_DUST);
             gem.setIgnored(CertusQuartz, () -> AEItems.CERTUS_QUARTZ_CRYSTAL);
 
             dust.setIgnored(EnderPearl, () -> AEItems.ENDER_DUST);

@@ -6,7 +6,6 @@ import com.mojang.logging.LogUtils;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.IExtensionPoint;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -32,34 +31,6 @@ public final class TFGCore {
         if (FMLEnvironment.dist == Dist.CLIENT) TFGClientEventHandler.init();
 
         setupFixForGlobalServerConfig();
-    }
-
-    public static boolean IsAe2Loaded() {
-        return ModList.get().isLoaded("ae2");
-    }
-
-    public static boolean IsSteamAndRailsLoaded() {
-        return ModList.get().isLoaded("railways");
-    }
-
-    public static boolean IsFirmaLifeLoaded() {
-        return ModList.get().isLoaded("firmalife");
-    }
-
-    public static boolean IsAstikorCartsLoaded() {
-        return ModList.get().isLoaded("tfcastikorcarts");
-    }
-
-    public static boolean IsFirmaCivLoaded() {
-        return ModList.get().isLoaded("firmaciv");
-    }
-
-    public static boolean IsTFCAmbientalLoaded() {
-        return ModList.get().isLoaded("tfcambiental");
-    }
-
-    public static boolean IsCreatelLoaded() {
-        return ModList.get().isLoaded("create");
     }
 
     public static ResourceLocation id(String name) {

@@ -311,7 +311,7 @@
 //            ChemicalHelper.registerMaterialInfo(boat, new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
 //            ChemicalHelper.registerMaterialInfo(chestMinecart, new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
 //
-//            if (TFGCore.IsFirmaLifeLoaded()) {
+//            if (Mods.FirmaLife.isLoaded()) {
 //                var foodShelf = FLBlocks.FOOD_SHELVES.get(wood).get().asItem();
 //                var hanger = FLBlocks.HANGERS.get(wood).get().asItem();
 //                var jarbnet = FLBlocks.JARBNETS.get(wood).get().asItem();
@@ -321,7 +321,7 @@
 //                ChemicalHelper.registerMaterialInfo(jarbnet, new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
 //            }
 //
-//            if (TFGCore.IsSteamAndRailsLoaded()) {
+//            if (Mods.SteamAndRails.isLoaded()) {
 //                var narrowTrack = ForgeRegistries.ITEMS.getValue(new ResourceLocation("railways:track_tfc_" + woodName + "_narrow"));
 //                var normalTrack = ForgeRegistries.ITEMS.getValue(new ResourceLocation("railways:track_tfc_" + woodName));
 //                var wideTrack = ForgeRegistries.ITEMS.getValue(new ResourceLocation("railways:track_tfc_" + woodName + "_wide"));
@@ -336,7 +336,7 @@
 //                ChemicalHelper.registerMaterialInfo(wideTrack, new ItemMaterialInfo(new MaterialStack(GTMaterials.Wood, M)));
 //            }
 //
-//            if (TFGCore.IsAstikorCartsLoaded()) {
+//            if (Mods.AstikorCarts.isLoaded()) {
 //                var cartWheel = AstikorItems.WHEEL_TFC.get(wood).get().asItem();
 //                var plow = AstikorItems.PLOW_TFC.get(wood).get().asItem();
 //                var animalCart = AstikorItems.ANIMAL_CART_TFC.get(wood).get().asItem();
@@ -440,7 +440,7 @@
 //        ChemicalHelper.registerMaterialInfo(TFCItems.BRASS_MECHANISMS.get(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Brass, M / 2)));
 //        ChemicalHelper.registerMaterialInfo(TFCBlocks.GRILL.get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Iron, M * 2)));
 //
-//        if (TFGCore.IsFirmaLifeLoaded()) {
+//        if (Mods.FirmaLife.isLoaded()) {
 //            for (var type : GreenhouseWrapper.values()) {
 //                ChemicalHelper.registerMaterialInfo(FLBlocks.GREENHOUSE_BLOCKS.get(type.getGreenhouse()).get(Greenhouse.BlockType.DOOR).get().asItem(), new ItemMaterialInfo(
 //                        new MaterialStack(type.getMaterial(), M),
@@ -487,7 +487,7 @@
 //            ChemicalHelper.registerMaterialInfo(FLBlocks.COPPER_PIPE.get().asItem(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Copper, M / 8)));
 //        }
 //
-//        if (TFGCore.IsFirmaCivLoaded()) {
+//        if (Mods.FirmaCiv.isLoaded()) {
 //            ChemicalHelper.registerMaterialInfo(FirmacivItems.SEXTANT.get(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Brass, M * 2), new MaterialStack(GTMaterials.Glass, M)));
 //            ChemicalHelper.registerMaterialInfo(FirmacivItems.UNFINISHED_SEXTANT.get(), new ItemMaterialInfo(new MaterialStack(GTMaterials.Brass, M * 2)));
 //

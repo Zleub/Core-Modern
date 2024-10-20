@@ -4,10 +4,6 @@ import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.data.chemical.material.event.MaterialEvent;
 import com.gregtechceu.gtceu.api.data.chemical.material.event.MaterialRegistryEvent;
 import com.gregtechceu.gtceu.api.data.chemical.material.event.PostMaterialEvent;
-import com.gregtechceu.gtceu.data.pack.GTPackSource;
-import net.minecraft.server.packs.PackType;
-import net.minecraft.server.packs.repository.Pack;
-import net.minecraftforge.event.AddPackFindersEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -16,6 +12,7 @@ import su.terrafirmagreg.core.TFGCore;
 import su.terrafirmagreg.core.compat.create.CreateCompat;
 import su.terrafirmagreg.core.compat.gtceu.materials.TFGMaterialHandler;
 import su.terrafirmagreg.core.compat.tfcambiental.TFCAmbientalCompat;
+import su.terrafirmagreg.core.utils.Mods;
 
 public final class TFGCommonEventHandler {
 
@@ -43,8 +40,8 @@ public final class TFGCommonEventHandler {
 
     private static void onCommonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
-            if (TFGConfig.enableTFCAmbientalCompat && TFGCore.IsTFCAmbientalLoaded()) TFCAmbientalCompat.register();
-            if (TFGConfig.enableCreateCompat && TFGCore.IsCreatelLoaded()) CreateCompat.register();
+            if (TFGConfig.enableTFCAmbientalCompat && Mods.TFC_AMBIENTAL.isLoaded()) TFCAmbientalCompat.register();
+            if (TFGConfig.enableCreateCompat && Mods.CREATE.isLoaded()) CreateCompat.register();
         });
     }
 }
