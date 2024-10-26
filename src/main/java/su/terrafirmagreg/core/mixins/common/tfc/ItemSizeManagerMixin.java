@@ -1,5 +1,6 @@
 package su.terrafirmagreg.core.mixins.common.tfc;
 
+import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import net.dries007.tfc.common.capabilities.size.*;
 import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
@@ -14,9 +15,9 @@ public abstract class ItemSizeManagerMixin {
     @Unique
     private static final ItemSize tfg$BLOCK_SIZE = new ItemSize(Size.NORMAL, Weight.VERY_LIGHT);
 
-    @Inject(method = "get", at = @At(value = "RETURN", ordinal = 2), remap = false, cancellable = true)
-    private static void tfg$get(ItemStack stack, CallbackInfoReturnable<IItemSize> cir) {
-        cir.setReturnValue(tfg$BLOCK_SIZE);
+    @ModifyReturnValue(method = "get", at = @At(value = "RETURN", ordinal = 2), remap = false)
+    private static IItemSize tfg$get(IItemSize original) {
+        return tfg$BLOCK_SIZE;
     }
 
 }
