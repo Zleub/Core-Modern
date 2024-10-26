@@ -51,6 +51,7 @@
         "common.tfc.IIngotPileBlockEntityAccessor",
         "common.tfc.IIngotPileBlockEntityEntryAccessor",
         "common.tfc.IngotPileBlockMixin",
+        "common.tfc.ItemSizeManagerMixin",
         "common.tfc.TFCChunkGeneratorMixin"
     ],
     "client": [
