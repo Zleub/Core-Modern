@@ -10,7 +10,6 @@ buildscript {
 }
 
 plugins {
-    id 'eclipse'
     id 'idea'
     id 'net.minecraftforge.gradle' version '[6.0.16,6.2)'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
@@ -22,7 +21,7 @@ group = mod_group_id
 version = mod_version
 
 base {
-    archivesName = "TFGCore-Modern"
+    archivesName = mod_name
 }
 
 java {
@@ -194,7 +193,7 @@ dependencies {
 
     // GTM
     implementation fg.deobf("maven.modrinth:ldlib:mc1.20.1-1.0.27.b-forge")
-    implementation fg.deobf("curse.maven:gregtechceu-modern-890405:5713445-sources-5713449"){ transitive = false }
+    implementation fg.deobf("curse.maven:gregtechceu-modern-890405:5713445-sources-5713449") { transitive = false }
 
     // KJS
     implementation fg.deobf("maven.modrinth:rhino:2001.2.2-build.18+forge")
@@ -225,9 +224,9 @@ dependencies {
     implementation fg.deobf("maven.modrinth:ae2:15.2.3")
 
     // ComputerCraft
-    compileOnly ("cc.tweaked:cc-tweaked-1.20.1-core-api:1.111.0")
-    compileOnly (fg.deobf("cc.tweaked:cc-tweaked-1.20.1-forge-api:1.111.0"))
-    compileOnly (fg.deobf("cc.tweaked:cc-tweaked-1.20.1-forge:1.111.0"))
+    compileOnly("cc.tweaked:cc-tweaked-1.20.1-core-api:1.111.0")
+    compileOnly(fg.deobf("cc.tweaked:cc-tweaked-1.20.1-forge-api:1.111.0"))
+    compileOnly(fg.deobf("cc.tweaked:cc-tweaked-1.20.1-forge:1.111.0"))
 
     // FTB
     implementation fg.deobf("curse.maven:ftb-teams-404468:4623116") { transitive = false }
@@ -261,7 +260,8 @@ tasks.named('processResources', ProcessResources).configure {
 
     filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
         expand replaceProperties + [project: project]
-    }}
+    }
+}
 
 // Example for how to get properties into the manifest for reading at runtime.
 tasks.named('jar', Jar).configure {
