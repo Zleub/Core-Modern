@@ -8,8 +8,10 @@ import com.gregtechceu.gtceu.api.data.chemical.material.info.MaterialIconType;
 import com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey;
 import com.gregtechceu.gtceu.api.data.chemical.material.stack.MaterialStack;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
+import com.gregtechceu.gtceu.api.data.tag.TagUtil;
 import com.gregtechceu.gtceu.api.item.tool.GTToolType;
 import com.gregtechceu.gtceu.common.data.GTItems;
+import com.gregtechceu.gtceu.utils.FormattingUtil;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.common.blocks.TFCBlocks;
 import net.dries007.tfc.common.blocks.rock.Rock;
@@ -19,6 +21,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import su.terrafirmagreg.core.TFGCore;
+import su.terrafirmagreg.core.common.data.TFGTags;
 import su.terrafirmagreg.core.compat.gtceu.materials.TFGMaterialFlags;
 import su.terrafirmagreg.core.compat.gtceu.materials.TFGMaterialIconType;
 
@@ -68,6 +71,8 @@ public final class TFGTagPrefix {
     public static final TagPrefix toolHeadChisel;
     public static final TagPrefix toolHeadMace;
 
+
+
     /* Other */
     public static final TagPrefix ingotDouble;
 
@@ -83,30 +88,34 @@ public final class TFGTagPrefix {
     public static final TagPrefix trapdoor;
     public static final TagPrefix chain;
     public static final TagPrefix bell;
+    public static final TagPrefix bars;
+
+    public static final TagPrefix blockPlated;
+    public static final TagPrefix stairPlated;
+    public static final TagPrefix slabPlated;
 
     static {
         // Делаем все в статическом конструкторе
         // Для начала удаляем греговское дерьмо
         // После добавляем наши вкусные стоунтайпы
 
+        TagPrefix.ORES.remove(TagPrefix.rawOreBlock);
+
         TagPrefix.ORES.remove(TagPrefix.ore);
         TagPrefix.ORES.remove(TagPrefix.oreDeepslate);
         TagPrefix.ORES.remove(TagPrefix.oreTuff);
         TagPrefix.ORES.remove(TagPrefix.oreSand);
         TagPrefix.ORES.remove(TagPrefix.oreRedSand);
+        TagPrefix.ORES.remove(TagPrefix.oreRedGranite);
         TagPrefix.ORES.remove(TagPrefix.oreGravel);
-        TagPrefix.ORES.remove(TagPrefix.oreEndstone); // TODO: Вернуть при добавлении энда
+        TagPrefix.ORES.remove(TagPrefix.oreEndstone);
 
         TagPrefix.ORES.remove(TagPrefix.oreBasalt);
         TagPrefix.ORES.remove(TagPrefix.oreAndesite);
         TagPrefix.ORES.remove(TagPrefix.oreDiorite);
         TagPrefix.ORES.remove(TagPrefix.oreGranite);
 
-        // Другое
-        TagPrefix.PREFIXES.remove("rawOreBlock");
-
         /* Stone Types */
-
         oreGabbro = registerOreTagPrefix(Rock.GABBRO);
         oreShale = registerOreTagPrefix(Rock.SHALE);
         oreClaystone = registerOreTagPrefix(Rock.CLAYSTONE);
@@ -381,7 +390,13 @@ public final class TFGTagPrefix {
                 .generationCondition(mat -> mat.hasFlag(TFGMaterialFlags.HAS_TFC_UTILITY));
 
         chain = new TagPrefix("chain")
-                .materialAmount(GTValues.M)
+                .materialAmount(GTValues.M / 16)
+                .unificationEnabled(true)
+                .generateItem(true)
+                .generationCondition(mat -> mat.hasFlag(TFGMaterialFlags.HAS_TFC_UTILITY));
+
+        bars = new TagPrefix("bars")
+                .materialAmount(GTValues.M / 9)
                 .unificationEnabled(true)
                 .generateItem(true)
                 .generationCondition(mat -> mat.hasFlag(TFGMaterialFlags.HAS_TFC_UTILITY));
@@ -391,6 +406,24 @@ public final class TFGTagPrefix {
                 .unificationEnabled(true)
                 .generateItem(true)
                 .generationCondition(mat -> mat.hasFlag(TFGMaterialFlags.GENERATE_BELL));
+
+        blockPlated = new TagPrefix("plated_block")
+                .materialAmount(GTValues.M)
+                .unificationEnabled(true)
+                .generateItem(true)
+                .generationCondition(mat -> mat.hasFlag(TFGMaterialFlags.HAS_PLATED_BLOCK));
+
+        stairPlated = new TagPrefix("plated_stair")
+                .materialAmount(GTValues.M)
+                .unificationEnabled(true)
+                .generateItem(true)
+                .generationCondition(mat -> mat.hasFlag(TFGMaterialFlags.HAS_PLATED_BLOCK));
+
+        slabPlated = new TagPrefix("plated_slab")
+                .materialAmount(GTValues.M)
+                .unificationEnabled(true)
+                .generateItem(true)
+                .generationCondition(mat -> mat.hasFlag(TFGMaterialFlags.HAS_PLATED_BLOCK));
 
         /* Tag Fixes */
         TagPrefix.plate.defaultTagPath("sheets/%s");
@@ -435,6 +468,13 @@ public final class TFGTagPrefix {
         TagPrefix.pipeNonupleFluid.defaultTagPath("nonuple_fluid_pipes/%s");
         TagPrefix.pipeNonupleFluid.unformattedTagPath("nonuple_fluid_pipes");
 
+        // FirmaLife Shit
+        TagPrefix.pipeTinyFluid.customTagPath("", (prefix, mat) -> TFGTags.Items.createItemTag("firmalife:always_valid_greenhouse_wall"));
+        TagPrefix.pipeSmallFluid.customTagPath("", (prefix, mat) -> TFGTags.Items.createItemTag("firmalife:always_valid_greenhouse_wall"));
+        TagPrefix.pipeNormalFluid.customTagPath("", (prefix, mat) -> TFGTags.Items.createItemTag("firmalife:always_valid_greenhouse_wall"));
+        TagPrefix.pipeLargeFluid.customTagPath("", (prefix, mat) -> TFGTags.Items.createItemTag("firmalife:always_valid_greenhouse_wall"));
+        // FirmaLife Shit
+
         TagPrefix.pipeSmallItem.defaultTagPath("small_item_pipes/%s");
         TagPrefix.pipeSmallItem.unformattedTagPath("small_item_pipes");
         TagPrefix.pipeNormalItem.defaultTagPath("normal_item_pipes/%s");
@@ -472,8 +512,6 @@ public final class TFGTagPrefix {
         TagPrefix.turbineBlade.unformattedTagPath("turbine_blades");
     }
 
-    public static void init() {}
-
     private static TagPrefix registerOreTagPrefix(Rock rockType) {
         var material = GTCEuAPI.materialManager.getMaterial(TFGCore.MOD_ID + ":" + rockType.getSerializedName());
         if (material == null) {
@@ -495,4 +533,5 @@ public final class TFGTagPrefix {
         return tag;
     }
 
+    public static void init() {}
 }

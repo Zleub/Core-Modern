@@ -15,6 +15,8 @@ public abstract class ServerAdvancementManagerMixin {
 
     /**
      * Препятствует добавлению достижений в игру.
+     * Но не удаляет достижения ваниллы, так как из-за этого перестает работать книга Patchouli.
+     * Стоит поискать решение.
      * */
     @Redirect(
             method = "apply(Ljava/util/Map;Lnet/minecraft/server/packs/resources/ResourceManager;Lnet/minecraft/util/profiling/ProfilerFiller;)V",
