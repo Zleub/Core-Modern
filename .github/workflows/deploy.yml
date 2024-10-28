@@ -58,6 +58,7 @@ jobs:
 
 
   build:
+    name: Project Build
     needs: [info]
     runs-on: ubuntu-latest
     if: needs.info.outputs.exists != 'true'
