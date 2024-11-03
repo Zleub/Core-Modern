@@ -3,8 +3,6 @@ run-name: "Deploy #${{ github.run_number }} by @${{ github.actor }}"
 
 env:
   RELEASE_TYPE: "release"
-  CURSEFORGE_ID: "513402"
-  MODRINTH_ID: "lNttW2Xl"
 
 on:
   push:
@@ -105,14 +103,14 @@ jobs:
       - name: Release
         uses: Kir-Antipov/mc-publish@v3.3.0
         with:
-          modrinth-id: ${{ env.MODRINTH_ID }}
-          modrinth-token: ${{ secrets.MODRINTH_API_TOKEN }}
+          modrinth-id: ${{ vars.MODRINTH_ID }}
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
           modrinth-dependencies: |
             JaCEZUhg(required)
             7tG215v7(required)
 
-          curseforge-id: ${{ env.CURSEFORGE_ID }}
-          curseforge-token: ${{ secrets.CF_API_TOKEN }}
+          curseforge-id: ${{ vars.CURSEFORGE_ID }}
+          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
           curseforge-dependencies: |
             gregtechceu-modern(required)
             terrafirmacraft(required)
