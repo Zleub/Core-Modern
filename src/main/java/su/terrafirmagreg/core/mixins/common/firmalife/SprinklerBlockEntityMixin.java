@@ -48,8 +48,8 @@ public abstract class SprinklerBlockEntityMixin extends TFCBlockEntity implement
         super(type, pos, state);
     }
 
-    @Redirect(method = "serverTick", at = @At(value = "INVOKE", target = "Lcom/eerussianguy/firmalife/common/blockentities/SprinklerBlockEntity;searchForFluid(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/core/Direction;)Lnet/minecraft/world/level/material/Fluid;"), remap = false)
-    private static Fluid serverTickSearch(Level l1, BlockPos pos1, Direction dir1, Level level, BlockPos pos, BlockState state, SprinklerBlockEntity sprinkler) {
+    @Redirect(method = "serverTick", at = @At(value = "INVOKE", target = "Lcom/eerussianguy/firmalife/common/blockentities/SprinklerBlockEntity;searchForFluid(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/core/Direction;Z)Lnet/minecraft/world/level/material/Fluid;"), remap = false)
+    private static Fluid serverTickSearch(Level fluid, BlockPos cap, Direction checkPos, boolean be, Level level, BlockPos pos, BlockState state, SprinklerBlockEntity sprinkler) {
         if (level.getBlockEntity(pos) instanceof SprinklerBlockEntity sprinklerBlockEntity) {
             var fluidCapability = sprinklerBlockEntity
                     .getCapability(ForgeCapabilities.FLUID_HANDLER, tfg$getDirectionForFluidOperating(state))

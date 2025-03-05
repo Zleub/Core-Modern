@@ -160,17 +160,17 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
 
     implementation fg.deobf("maven.modrinth:architectury-api:9.2.14+forge")
-    implementation fg.deobf("com.tterrag.registrate:Registrate:MC1.20-1.3.3")
+    compileOnly fg.deobf("com.tterrag.registrate:Registrate:MC1.20-1.3.3")
     implementation fg.deobf("curse.maven:configuration-444699:4710266")
 
-    implementation fg.deobf("maven.modrinth:embeddium:0.3.18+mc1.20.1")
+    implementation fg.deobf("maven.modrinth:embeddium:0.3.31+mc1.20.1")
     implementation fg.deobf("maven.modrinth:ferrite-core:DG5Fn9Sz")
 
     // JEI
-    compileOnly(fg.deobf("mezz.jei:jei-1.20.1-common-api:15.3.0.7"))
-    compileOnly(fg.deobf("mezz.jei:jei-1.20.1-forge-api:15.3.0.7"))
+    compileOnly(fg.deobf("mezz.jei:jei-1.20.1-common-api:15.20.0.106"))
+    compileOnly(fg.deobf("mezz.jei:jei-1.20.1-forge-api:15.20.0.106"))
     // at runtime, use the full JEI jar for Forge
-    compileOnly(fg.deobf("mezz.jei:jei-1.20.1-forge:15.3.0.7"))
+    compileOnly(fg.deobf("mezz.jei:jei-1.20.1-forge:15.20.0.106"))
 
     // REI
     //runtimeOnly fg.deobf("me.shedaniel.cloth:cloth-config-forge:11.1.118")
@@ -182,43 +182,43 @@ dependencies {
     // EMI
 //    compileOnly fg.deobf("dev.emi:emi-forge:1.1.12+1.20.1:api")
 //    runtimeOnly fg.deobf("dev.emi:emi-forge:1.1.12+1.20.1")
-    implementation fg.deobf("dev.emi:emi-forge:1.1.13+1.20.1")
+    implementation fg.deobf("dev.emi:emi-forge:1.1.19+1.20.1")
 
     // Create
-    implementation fg.deobf("com.jozufozu.flywheel:flywheel-forge-1.20.1:0.6.10-10")
-    implementation fg.deobf("com.simibubi.create:create-1.20.1:0.5.1.f-27:slim") { transitive = false }
+    implementation fg.deobf("com.jozufozu.flywheel:flywheel-forge-1.20.1:0.6.11-13")
+    implementation fg.deobf("com.simibubi.create:create-1.20.1:0.5.1.j-55:slim") { transitive = false }
 
     // Railways
-    compileOnly fg.deobf("maven.modrinth:create-steam-n-rails:1.6.4+forge-mc1.20.1")
+    compileOnly fg.deobf("maven.modrinth:create-steam-n-rails:1.6.7+forge-mc1.20.1")
 
     // GTM
-    implementation fg.deobf("maven.modrinth:ldlib:mc1.20.1-1.0.27.b-forge")
-    implementation fg.deobf("curse.maven:gregtechceu-modern-890405:5713445-sources-5713449") { transitive = false }
+    implementation fg.deobf("maven.modrinth:ldlib:mc1.20.1-1.0.31-forge")
+    implementation fg.deobf("curse.maven:gregtechceu-modern-890405:6081505-sources-6081509") { transitive = false }
 
     // KJS
-    implementation fg.deobf("maven.modrinth:rhino:2001.2.2-build.18+forge")
+    implementation fg.deobf("maven.modrinth:rhino:2001.2.3-build.6+forge")
     implementation fg.deobf("maven.modrinth:kubejs:2001.6.5-build.7+forge")
 
     // TFC
     implementation fg.deobf("maven.modrinth:patchouli:1.20.1-84-forge")
-    implementation fg.deobf("maven.modrinth:terrafirmacraft:3.2.3")
+    implementation fg.deobf("maven.modrinth:terrafirmacraft:3.2.12")
 
     // FirmaLife
-    implementation fg.deobf("maven.modrinth:firmalife:2.1.3")
+    implementation fg.deobf("maven.modrinth:firmalife:2.1.15")
 
     // Beneath
-    implementation fg.deobf("maven.modrinth:beneath:1.0.1") { transitive = false }
+    implementation fg.deobf("maven.modrinth:beneath:1.0.3") { transitive = false }
 
     // TFC-Ambiental
-    implementation fg.deobf("maven.modrinth:curios:5.7.2+1.20.1")
-    implementation fg.deobf("maven.modrinth:tfc-ambiental-second-edition:1.20.1-3.2.0")
-
+    implementation fg.deobf("maven.modrinth:curios:5.11.1+1.20.1")
+//    implementation fg.deobf("maven.modrinth:tfc-ambiental-second-edition:1.20.1-3.3.1")
+    implementation fg.deobf("curse.maven:tfc-ambiental-second-edition-940350:5655440")
     // FirmaCiv
 //    compileOnly fg.deobf("maven.modrinth:firmacivilization:0.2.10-alpha-1.20.1") { transitive = false }//todo
 
     // TFC AstikoCarts
-    compileOnly fg.deobf("curse.maven:astikor-carts-redux-916493:4988266") { transitive = false }
-    compileOnly fg.deobf("curse.maven:astikor-carts-tfc-844019:5141430") { transitive = false }
+    compileOnly fg.deobf("curse.maven:astikor-carts-redux-916493:5574685") { transitive = false }
+    compileOnly fg.deobf("curse.maven:astikor-carts-tfc-844019:5797400") { transitive = false }
 
     // AE2
     implementation fg.deobf("maven.modrinth:ae2:15.2.3")
@@ -227,13 +227,13 @@ dependencies {
     compileOnly("cc.tweaked:cc-tweaked-1.20.1-core-api:1.111.0")
     compileOnly(fg.deobf("cc.tweaked:cc-tweaked-1.20.1-forge-api:1.111.0"))
     compileOnly(fg.deobf("cc.tweaked:cc-tweaked-1.20.1-forge:1.111.0"))
-
+//    implementation fg.deobf("curse.maven:cc-tweaked-282001:5714507")
     // FTB
-    implementation fg.deobf("curse.maven:ftb-teams-404468:4623116") { transitive = false }
-    implementation fg.deobf("curse.maven:ftb-library-404465:4864329") { transitive = false }
+    implementation fg.deobf("curse.maven:ftb-teams-404468:5267190") { transitive = false }
+    implementation fg.deobf("curse.maven:ftb-library-404465:6164053") { transitive = false }
 
     // Jade
-    implementation fg.deobf("maven.modrinth:jade:11.7.1")
+    implementation fg.deobf("maven.modrinth:jade:11.12.2+forge")
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 

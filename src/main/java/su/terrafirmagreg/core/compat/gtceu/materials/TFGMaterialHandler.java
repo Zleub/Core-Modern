@@ -1,5 +1,7 @@
 package su.terrafirmagreg.core.compat.gtceu.materials;
 
+import appeng.api.ids.AEBlockIds;
+import appeng.block.AEBaseBlock;
 import appeng.core.definitions.AEBlocks;
 import appeng.core.definitions.AEItems;
 import com.gregtechceu.gtceu.api.GTCEuAPI;
@@ -14,6 +16,8 @@ import net.dries007.tfc.common.blocks.rock.Ore;
 import net.dries007.tfc.common.blocks.rock.Rock;
 import net.dries007.tfc.common.items.TFCItems;
 import net.dries007.tfc.util.Metal;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import su.terrafirmagreg.core.TFGCore;
 import su.terrafirmagreg.core.compat.gtceu.TFGPropertyKeys;
@@ -459,7 +463,7 @@ public final class TFGMaterialHandler {
 
         /* AE 2 */
         if (Mods.AE2.isLoaded()) {
-            block.setIgnored(Fluix, () -> AEBlocks.FLUIX_BLOCK);
+            block.setIgnoredBlock(Fluix, AEBlocks.FLUIX_BLOCK.block());
             dust.setIgnored(Fluix, () -> AEItems.FLUIX_DUST);
             gem.setIgnored(Fluix, () -> AEItems.FLUIX_CRYSTAL);
 
