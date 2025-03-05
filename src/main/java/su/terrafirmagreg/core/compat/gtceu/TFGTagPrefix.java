@@ -11,6 +11,7 @@ import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
 import com.gregtechceu.gtceu.api.data.tag.TagUtil;
 import com.gregtechceu.gtceu.api.item.tool.GTToolType;
 import com.gregtechceu.gtceu.common.data.GTItems;
+import com.gregtechceu.gtceu.common.data.GTMaterialItems;
 import com.gregtechceu.gtceu.utils.FormattingUtil;
 import net.dries007.tfc.TerraFirmaCraft;
 import net.dries007.tfc.common.blocks.TFCBlocks;
@@ -71,8 +72,6 @@ public final class TFGTagPrefix {
     public static final TagPrefix toolHeadJavelin;
     public static final TagPrefix toolHeadChisel;
     public static final TagPrefix toolHeadMace;
-
-
 
     /* Other */
     public static final TagPrefix ingotDouble;
