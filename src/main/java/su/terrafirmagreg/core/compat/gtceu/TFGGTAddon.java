@@ -24,6 +24,6 @@ public final class TFGGTAddon implements IGTAddon {
 
     @Override
     public void registerTagPrefixes() {
-        TFGTagPrefix.init();
+//        TFGTagPrefix.init();
     }
 }
