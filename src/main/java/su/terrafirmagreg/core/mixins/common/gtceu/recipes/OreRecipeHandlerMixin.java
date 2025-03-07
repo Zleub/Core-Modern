@@ -42,27 +42,27 @@ public abstract class OreRecipeHandlerMixin {
      * поэтому проще будет полностью его заменить, нужен для установки генераторов рецептов
      * для некоторых руд и фикса краша из-за переработки несуществующих обычных руд GTCEu.
      * */
-//    @Inject(method = "init", at = @At(value = "HEAD"), remap = false, cancellable = true)
-//    private static void tfg$init(Consumer<FinishedRecipe> provider, CallbackInfo ci) {
-//        for (TagPrefix orePrefix : ORES.keySet()) {
-//            if (ConfigHolder.INSTANCE.worldgen.allUniqueStoneTypes || ORES.get(orePrefix).shouldDropAsItem()) {
-//                orePrefix.executeHandler(provider, PropertyKey.ORE, OreRecipeHandler::processOre);
-//                orePrefix.executeHandler(provider, PropertyKey.ORE, OreRecipeHandler::processOreForgeHammer);
-//            }
-//        }
-//
-////        poorRawOre.executeHandler(provider, PropertyKey.ORE, OreRecipeHandlerMixin::tfg$processPoorRawOre);
-//        rawOre.executeHandler(provider, PropertyKey.ORE, OreRecipeHandlerMixin::tfg$processRawOre);
-////        richRawOre.executeHandler(provider, PropertyKey.ORE, OreRecipeHandlerMixin::tfg$processRichRawOre);
-//
-//        crushed.executeHandler(provider, PropertyKey.ORE, OreRecipeHandler::processCrushedOre);
-//        crushedPurified.executeHandler(provider, PropertyKey.ORE, OreRecipeHandler::processCrushedPurified);
-//        crushedRefined.executeHandler(provider, PropertyKey.ORE, OreRecipeHandler::processCrushedCentrifuged);
-//        dustImpure.executeHandler(provider, PropertyKey.ORE, OreRecipeHandler::processDirtyDust);
-//        dustPure.executeHandler(provider, PropertyKey.ORE, OreRecipeHandler::processPureDust);
-//
-//        ci.cancel();
-//    }
+    @Inject(method = "init", at = @At(value = "HEAD"), remap = false, cancellable = true)
+    private static void tfg$init(Consumer<FinishedRecipe> provider, CallbackInfo ci) {
+        for (TagPrefix orePrefix : ORES.keySet()) {
+            if (ConfigHolder.INSTANCE.worldgen.allUniqueStoneTypes || ORES.get(orePrefix).shouldDropAsItem()) {
+                orePrefix.executeHandler(provider, PropertyKey.ORE, OreRecipeHandler::processOre);
+                orePrefix.executeHandler(provider, PropertyKey.ORE, OreRecipeHandler::processOreForgeHammer);
+            }
+        }
+
+//        poorRawOre.executeHandler(provider, PropertyKey.ORE, OreRecipeHandlerMixin::tfg$processPoorRawOre);
+        rawOre.executeHandler(provider, PropertyKey.ORE, OreRecipeHandlerMixin::tfg$processRawOre);
+//        richRawOre.executeHandler(provider, PropertyKey.ORE, OreRecipeHandlerMixin::tfg$processRichRawOre);
+
+        crushed.executeHandler(provider, PropertyKey.ORE, OreRecipeHandler::processCrushedOre);
+        crushedPurified.executeHandler(provider, PropertyKey.ORE, OreRecipeHandler::processCrushedPurified);
+        crushedRefined.executeHandler(provider, PropertyKey.ORE, OreRecipeHandler::processCrushedCentrifuged);
+        dustImpure.executeHandler(provider, PropertyKey.ORE, OreRecipeHandler::processDirtyDust);
+        dustPure.executeHandler(provider, PropertyKey.ORE, OreRecipeHandler::processPureDust);
+
+        ci.cancel();
+    }
 
     /**
      * Исправление бага GTCEu.

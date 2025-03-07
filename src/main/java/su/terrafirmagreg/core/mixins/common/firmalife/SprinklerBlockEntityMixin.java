@@ -34,6 +34,15 @@ import org.spongepowered.asm.mixin.injection.Redirect;
  * */
 @Mixin(value = SprinklerBlockEntity.class, remap = false)
 public abstract class SprinklerBlockEntityMixin extends TFCBlockEntity implements FluidTankCallback, ClimateReceiver {
+    @Unique
+    private static final Fluid tfg$CACHED_WATER = ForgeRegistries.FLUIDS.getValue(new ResourceLocation("minecraft:water"));
+
+    @Unique
+    private final FluidTank tfg$fluidTank = tfg$createFluidTank();
+
+    @Unique
+    private final LazyOptional<IFluidHandler> tfg$fluidHandler = LazyOptional.of(() -> tfg$fluidTank);
+
     protected SprinklerBlockEntityMixin(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
     }
